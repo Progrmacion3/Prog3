@@ -12,5 +12,7 @@ namespace Common.Clases
 
         public string Apellido { get; set; }
 
+        public int ejemplo { get; }
+
     }
 }
