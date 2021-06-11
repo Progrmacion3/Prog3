@@ -7,6 +7,7 @@ namespace Dominio
 {
     public class Fachada
     {
+
         #region Metodos de Categoria
 
         public static bool Categoria_Agregar(Common.Clases.Categoria pCategoria)
