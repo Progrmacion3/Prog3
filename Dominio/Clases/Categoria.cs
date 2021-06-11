@@ -12,7 +12,7 @@ namespace Dominio.Clases
             return Persistencia.Clases.Categoria.Agregar(pCategoria);
         }
 
-        public static List<Common.Clases.Categoria> TraerTodas()
+        public static List<Common.Clases.Categoria> Traer7Todas()
         {
             return Persistencia.Clases.Categoria.TraerTodas();
         }
