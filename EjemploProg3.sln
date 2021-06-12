@@ -1,16 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1_Presentacion", "1_Presentacion", "{C26F65AD-A5E0-4618-AB5E-B9154B3DD01D}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2_Dominio", "2_Dominio", "{B5EF42B7-10E9-4B3C-A70A-660B68799ADF}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3_Persistencia", "3_Persistencia", "{95145621-A5A0-4490-8E33-609AB3E0B089}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CrossCuttingConcerns", "CrossCuttingConcerns", "{375F3BB3-3F32-4BF0-9B5A-078A0CAB8CA0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ejemplo.Web", "Ejemplo.Web\Ejemplo.Web.csproj", "{514E4B17-8E8B-4EF9-9D6D-13658E952F5B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "Dominio\Dominio.csproj", "{7A013967-798E-4401-AED0-C1D51AEA5690}"
@@ -73,10 +65,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{514E4B17-8E8B-4EF9-9D6D-13658E952F5B} = {C26F65AD-A5E0-4618-AB5E-B9154B3DD01D}
-		{7A013967-798E-4401-AED0-C1D51AEA5690} = {B5EF42B7-10E9-4B3C-A70A-660B68799ADF}
-		{63AEB193-9943-4A29-BBDB-08103AF6C2CD} = {95145621-A5A0-4490-8E33-609AB3E0B089}
-		{E2117E08-8FDD-47FA-8FEE-D276A15EBB6C} = {375F3BB3-3F32-4BF0-9B5A-078A0CAB8CA0}
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0353DD91-AA9F-4C00-A9C6-E2A458FFD53C}
 	EndGlobalSection
 EndGlobal
