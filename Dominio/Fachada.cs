@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Common.Clases;
+using Dominio.Clases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +19,7 @@ namespace Dominio
 
         public static List<Common.Clases.Categoria> Cateogoria_TraerTodas()
         {
-            return Dominio.Clases.Categoria.TraerTodas();
+            return Dominio.Clases.Categoria.Traer777Todas();
         }
 
         public static bool Categoria_Eliminar(Common.Clases.Categoria pCategoria)
@@ -33,6 +35,15 @@ namespace Dominio
         public static bool Categoria_Modificar(Common.Clases.Categoria pCategoria)
         {
             return Dominio.Clases.Categoria.Modificar(pCategoria);
+        }
+
+        #endregion
+
+        #region Metodos de Cliente
+
+        public static bool Agregar_cliente(Cliente pCliente)
+        {
+            return dCliente.Agregar_Cliente(pCliente);
         }
 
         #endregion

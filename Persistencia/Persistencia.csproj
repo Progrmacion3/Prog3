@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Categoria.cs" />
+    <Compile Include="Clases\pCliente.cs" />
     <Compile Include="Clases\Persistencia.cs" />
   </ItemGroup>
   <ItemGroup>

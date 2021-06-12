@@ -8,7 +8,7 @@
         Administración de categorías
     </h2>
     <br />
-    <center>
+
         <table>
             <tr>
                 <td>
@@ -76,5 +76,5 @@
                 </td>
             </tr>
         </table>
-    </center>
+
 </asp:Content>

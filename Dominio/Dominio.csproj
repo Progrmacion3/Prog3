@@ -38,6 +38,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Clases\Categoria.cs" />
+    <Compile Include="Clases\dCliente.cs" />
     <Compile Include="Fachada.cs" />
   </ItemGroup>
   <ItemGroup>

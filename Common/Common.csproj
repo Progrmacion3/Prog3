@@ -38,6 +38,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Clases\Categoria.cs" />
+    <Compile Include="Clases\Cliente.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
