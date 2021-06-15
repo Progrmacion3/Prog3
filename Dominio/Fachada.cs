@@ -45,6 +45,15 @@ namespace Dominio
         {
             return dCliente.Agregar_Cliente(pCliente);
         }
+        public static List<Common.Clases.Cliente> Cliente_TraerTodosLosClientes()
+        {
+            return Dominio.Clases.dCliente.TraerClientes();
+        }
+
+        public static Common.Clases.Cliente Cliente_TraerEspecifico(Common.Clases.Cliente pCliente)
+        {
+            return Dominio.Clases.dCliente.TraerEspecifico(pCliente);
+        }
 
         #endregion
     }
