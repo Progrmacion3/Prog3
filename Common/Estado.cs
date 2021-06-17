@@ -18,6 +18,9 @@ namespace Common
         {
         }
 
-        // Otros constructores
+        public Estado(string tipo)
+        {
+            Tipo = tipo;
+        }
     }
 }
