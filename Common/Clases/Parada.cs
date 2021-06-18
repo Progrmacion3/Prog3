@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Common.Clases
+{
+    class Parada
+    {
+        public short Id { get; set;}
+        public string Tipo { get; set;}
+        public string Comentario { get; set;}
+    }
+}
