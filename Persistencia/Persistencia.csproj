@@ -55,7 +55,8 @@
   <ItemGroup>
     <Compile Include="Clases\Categoria.cs" />
     <Compile Include="Persistencia.cs" />
-    <Compile Include="pUsuario.cs" />
+    <Compile Include="PersistenciaAdministrador.cs" />
+    <Compile Include="PersistenciaUsuario.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

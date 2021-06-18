@@ -1,6 +1,6 @@
 ﻿namespace Common
 {
-    public abstract class Usuario
+    public class Usuario
     {
         public int Id { get; set; }
 
@@ -18,8 +18,14 @@
 
         public string Contraseña { get; set; }
 
-        protected Usuario()
+        public Usuario()
         {
+        }
+
+        public Usuario(string usuario, string contraseña)
+        {
+            UsuarioLogin = usuario;
+            Contraseña = contraseña;
         }
 
         // Otros constructores: modificar también Administrador y Camionero
