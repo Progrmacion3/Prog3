@@ -9,14 +9,14 @@ namespace Dominio
 {
     class dUsuario
     {
-        public static bool VerificarLogin(string usuario, string contraseña)
+        /*public static bool VerificarLogin(string usuario, string contraseña)
         {
             return PersistenciaUsuario.VerificarLogin(usuario, contraseña);
         }
 
         public static bool Alta(Usuario usuario)
         {
-            PersistenciaUsuario.Alta(usuario;
-        }
+            PersistenciaUsuario.Alta(usuario);
+        }*/
     }
 }

@@ -37,7 +37,6 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Clases\Categoria.cs" />
     <Compile Include="dUsuario.cs" />
     <Compile Include="Fachada.cs" />
   </ItemGroup>
