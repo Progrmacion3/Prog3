@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Common.Clases
 {
-    class Camionero: Empleado
+    public class Camionero: Empleado
     {   
 
         public short Edad { get; set;}

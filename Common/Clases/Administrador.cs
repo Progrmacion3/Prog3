@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Common.Clases
 {
-    class Administrador:Empleado
+    public class Administrador:Empleado
     {
     }
 }

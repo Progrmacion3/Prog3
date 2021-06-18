@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Common.Clases
 {
-    class Camion
+    public class Camion
     {
         public string Matricula { get; set;}
         public string Marca { get; set;}

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Common.Clases
 {
-    class Parada
+    public class Parada
     {
         public short Id { get; set;}
         public string Tipo { get; set;}
