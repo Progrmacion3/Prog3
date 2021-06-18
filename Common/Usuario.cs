@@ -14,7 +14,7 @@
 
         public string Teléfono { get; set; }
 
-        public string Login { get; set; }
+        public string UsuarioLogin { get; set; }
 
         public string Contraseña { get; set; }
 

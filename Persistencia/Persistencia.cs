@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Configuration;
 
-namespace Persistencia.Clases
+namespace Persistencia
 {
     public class Persistencia
     {
