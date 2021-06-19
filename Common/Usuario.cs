@@ -8,7 +8,7 @@
 
         public string Apellido { get; set; }
 
-        public string Cédula { get; set; }
+        public int Cédula { get; set; }
 
         public string Cargo { get; set; }
 
@@ -22,12 +22,27 @@
         {
         }
 
+        public Usuario(int id)
+        {
+            Id = id;
+        }
+
         public Usuario(string usuario, string contraseña)
         {
             UsuarioLogin = usuario;
             Contraseña = contraseña;
         }
 
-        // Otros constructores: modificar también Administrador y Camionero
+        public Usuario(int id, string nombre, string apellido, int cédula, string cargo, string teléfono, string usuarioLogin, string contraseña)
+        {
+            Id = id;
+            Nombre = nombre;
+            Apellido = apellido;
+            Cédula = cédula;
+            Cargo = cargo;
+            Teléfono = teléfono;
+            UsuarioLogin = usuarioLogin;
+            Contraseña = contraseña;
+        }
     }
 }

@@ -15,7 +15,6 @@ namespace Persistencia
             comando.CommandText = "alta_administrador";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.Add("@id", SqlDbType.Int);
-            comando.Parameters["@id"].Direction = ParameterDirection.Output;
             comando.Parameters.AddWithValue("@nombre", administrador.Nombre);
             comando.Parameters.AddWithValue("@apellido", administrador.Apellido);
             comando.Parameters.AddWithValue("@cedula", administrador.Cédula);
@@ -23,6 +22,7 @@ namespace Persistencia
             comando.Parameters.AddWithValue("@telefono", administrador.Teléfono);
             comando.Parameters.AddWithValue("@usuario", administrador.UsuarioLogin);
             comando.Parameters.AddWithValue("@contrasenia", administrador.Contraseña);
+            comando.Parameters["@id"].Direction = ParameterDirection.Output;
             try
             {
                 conexión.Open();
@@ -72,23 +72,30 @@ namespace Persistencia
 
         public static bool Listar(List<Administrador> lista)
         {
-            return true;
-            /*var conexión = new SqlConnection(CadenaDeConexion);
+            var conexión = new SqlConnection(CadenaDeConexion);
             var comando = conexión.CreateCommand();
-            comando.CommandText = "select dbo.listar_administrador";
-            comando.CommandType = CommandType.;
-            comando.Parameters.AddWithValue("@id", administrador.Id);
-            comando.Parameters.AddWithValue("@nombre", administrador.Nombre);
-            comando.Parameters.AddWithValue("@apellido", administrador.Apellido);
-            comando.Parameters.AddWithValue("@cedula", administrador.Cédula);
-            comando.Parameters.AddWithValue("@cargo", administrador.Cargo);
-            comando.Parameters.AddWithValue("@telefono", administrador.Teléfono);
-            comando.Parameters.AddWithValue("@usuario", administrador.UsuarioLogin);
-            comando.Parameters.AddWithValue("@contrasenia", administrador.Contraseña);
+            comando.CommandText = "listar_administradores";
+            comando.CommandType = CommandType.StoredProcedure;
             try
             {
                 conexión.Open();
-                comando.ExecuteNonQuery();
+                using (var lector = comando.ExecuteReader())
+                {
+                    while (lector.Read())
+                    {
+                        var administrador = new Administrador(
+                            Convert.ToInt32(lector["id_usuario_adm"]),
+                            Convert.ToString(lector["nombre"]),
+                            Convert.ToString(lector["apellido"]),
+                            Convert.ToInt32(lector["cedula"]),
+                            Convert.ToString(lector["cargo"]),
+                            Convert.ToString(lector["telefono"]),
+                            Convert.ToString(lector["usuario"]),
+                            Convert.ToString(lector["contrasenia"])
+                        );
+                        lista.Add(administrador);
+                    }
+                }
                 return true;
             }
             catch
@@ -98,7 +105,7 @@ namespace Persistencia
             finally
             {
                 conexión.Close();
-            }*/
+            }
         }
     }
 }

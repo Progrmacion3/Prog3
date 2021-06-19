@@ -14,7 +14,17 @@ namespace Common
         {
         }
 
-        // Otros constructores: primero modificar Usuario
+        public Camionero(int id) : base(id)
+        {
+        }
+
+        public Camionero(int id, string nombre, string apellido, int cédula, string cargo, string teléfono, string usuarioLogin, string contraseña, DateTime nacimiento, string tipoLibreta, DateTime vencimientoLibreta)
+            : base(id, nombre, apellido, cédula, cargo, teléfono, usuarioLogin, contraseña)
+        {
+            Nacimiento = nacimiento;
+            TipoLibreta = tipoLibreta;
+            VencimientoLibreta = vencimientoLibreta;
+        }
 
         public int Edad()
         {

@@ -6,6 +6,9 @@
         {
         }
 
-        // Otros constructores: primero modificar Usuario
+        public Administrador(int id, string nombre, string apellido, int cédula, string cargo, string teléfono, string usuarioLogin, string contraseña)
+            : base(id, nombre, apellido, cédula, cargo, teléfono, usuarioLogin, contraseña)
+        {
+        }
     }
 }

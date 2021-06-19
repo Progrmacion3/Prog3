@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="DominioAdministrador.cs" />
     <Compile Include="DominioCamionero.cs" />
+    <Compile Include="DominioCamión.cs" />
     <Compile Include="DominioUsuario.cs" />
     <Compile Include="Fachada.cs" />
   </ItemGroup>

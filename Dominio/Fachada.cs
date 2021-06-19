@@ -5,12 +5,16 @@ namespace Dominio
 {
     public class Fachada
     {
-        #region Métodos de Usuario
+        #region Login
 
         public static bool Ingresar(Usuario usuario, out bool correcto, out char tipo)
         {
             return DominioUsuario.Ingresar(usuario, out correcto, out tipo);
         }
+
+        #endregion
+
+        #region Ingreso de Usuarios
 
         public static bool Alta(Administrador administrador)
         {
@@ -45,6 +49,30 @@ namespace Dominio
         public static bool Listar(List<Camionero> lista)
         {
             return DominioCamionero.Listar(lista);
+        }
+
+        #endregion
+
+        #region Ingreso de Camiones
+
+        public static bool Alta(Camión camión)
+        {
+            return DominioCamión.Alta(camión);
+        }
+
+        public static bool Baja(Camión camión)
+        {
+            return DominioCamión.Baja(camión);
+        }
+
+        public static bool Modificar(Camión camión)
+        {
+            return DominioCamión.Modificar(camión);
+        }
+
+        public static bool Listar(List<Camión> lista)
+        {
+            return DominioCamión.Listar(lista);
         }
 
         #endregion

@@ -10,6 +10,11 @@
         {
         }
 
+        public Ciudad(int id)
+        {
+            Id = id;
+        }
+
         public Ciudad(string nombre)
         {
             Nombre = nombre;

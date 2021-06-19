@@ -28,7 +28,18 @@ namespace Common
         {
         }
 
-        // Otros constructores
+        public Viaje(int id, string carga, DateTime inicio, DateTime fin, Ciudad origen, Ciudad destino, Camión camión, Camionero camionero)
+        {
+            Id = id;
+            Carga = carga;
+            Inicio = inicio;
+            Fin = fin;
+            Origen = origen;
+            Destino = destino;
+            Camión = camión;
+            Camionero = camionero;
+            Estados = new List<Estado>();
+        }
 
         public Estado EstadoActual()
         {
