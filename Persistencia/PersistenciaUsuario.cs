@@ -15,16 +15,19 @@ namespace Persistencia
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@usuario", usuario.UsuarioLogin);
             comando.Parameters.AddWithValue("@contrasenia", usuario.Contraseña);
+            comando.Parameters.Add("@id", SqlDbType.Int);
             comando.Parameters.Add("@correcto", SqlDbType.Bit);
             comando.Parameters.Add("@tipo", SqlDbType.Char, 1);
             comando.Parameters["@correcto"].Direction = ParameterDirection.Output;
             comando.Parameters["@tipo"].Direction = ParameterDirection.Output;
+            comando.Parameters["@id"].Direction = ParameterDirection.Output;
             try
             {
                 conexión.Open();
                 comando.ExecuteNonQuery();
                 correcto = Convert.ToBoolean(comando.Parameters["@correcto"].Value);
                 tipo = Convert.ToChar(comando.Parameters["@tipo"].Value);
+                usuario.Id = Convert.ToChar(comando.Parameters["@id"].Value);
                 return true;
             }
             catch
@@ -77,12 +80,12 @@ namespace Persistencia
                     if (lector.Read())
                     {
                         usuario.Nombre = Convert.ToString(lector["nombre"]);
-                        usuario.Apellido = Convert.ToString(comando.Parameters["apellido"].Value);
-                        usuario.Cédula = Convert.ToInt32(comando.Parameters["cedula"].Value);
-                        usuario.Cargo = Convert.ToString(comando.Parameters["cargo"].Value);
-                        usuario.Teléfono = Convert.ToString(comando.Parameters["telefono"].Value);
-                        usuario.UsuarioLogin = Convert.ToString(comando.Parameters["usuario"].Value);
-                        usuario.Contraseña = Convert.ToString(comando.Parameters["contrasenia"].Value);
+                        usuario.Apellido = Convert.ToString(lector["apellido"]);
+                        usuario.Cédula = Convert.ToInt32(lector["cedula"]);
+                        usuario.Cargo = Convert.ToString(lector["cargo"]);
+                        usuario.Teléfono = Convert.ToString(lector["telefono"]);
+                        usuario.UsuarioLogin = Convert.ToString(lector["usuario"]);
+                        usuario.Contraseña = Convert.ToString(lector["contrasenia"]);
                         return true;
                     }
                     else

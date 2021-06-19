@@ -14,7 +14,7 @@
             <span class="failureNotification">
                 <asp:Literal ID="FailureText" runat="server"></asp:Literal>
             </span>
-            <asp:ValidationSummary ID="LoginUserValidationSummary" runat="server" CssClass="failureNotification" 
+             <asp:ValidationSummary ID="LoginUserValidationSummary" runat="server" CssClass="failureNotification" 
                  ValidationGroup="LoginUserValidationGroup"/>
             <div class="accountInfo">
                 <fieldset class="login">

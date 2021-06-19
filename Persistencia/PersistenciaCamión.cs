@@ -137,9 +137,9 @@ namespace Persistencia
                     if (lector.Read())
                     {
                         camión.Marca = Convert.ToString(lector["marca"]);
-                        camión.Modelo = Convert.ToString(comando.Parameters["modelo"].Value);
-                        camión.Matrícula = Convert.ToString(comando.Parameters["matricula"].Value);
-                        camión.Año = Convert.ToInt32(comando.Parameters["anio"].Value);
+                        camión.Modelo = Convert.ToString(lector["modelo"]);
+                        camión.Matrícula = Convert.ToString(lector["matricula"]);
+                        camión.Año = Convert.ToInt32(lector["anio"]);
                         return true;
                     }
                     else

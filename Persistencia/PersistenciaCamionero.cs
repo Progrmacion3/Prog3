@@ -121,7 +121,7 @@ namespace Persistencia
         {
             var conexión = new SqlConnection(CadenaDeConexion);
             var comando = conexión.CreateCommand();
-            comando.CommandText = "obtener_usuario";
+            comando.CommandText = "obtener_camionero";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@id", camionero.Id);
             try
@@ -132,15 +132,15 @@ namespace Persistencia
                     if (lector.Read())
                     {
                         camionero.Nombre = Convert.ToString(lector["nombre"]);
-                        camionero.Apellido = Convert.ToString(comando.Parameters["apellido"].Value);
-                        camionero.Cédula = Convert.ToInt32(comando.Parameters["cedula"].Value);
-                        camionero.Cargo = Convert.ToString(comando.Parameters["cargo"].Value);
-                        camionero.Teléfono = Convert.ToString(comando.Parameters["telefono"].Value);
-                        camionero.UsuarioLogin = Convert.ToString(comando.Parameters["usuario"].Value);
-                        camionero.Contraseña = Convert.ToString(comando.Parameters["contrasenia"].Value);
-                        camionero.Nacimiento = Convert.ToDateTime(comando.Parameters["fec_nac"].Value);
-                        camionero.TipoLibreta = Convert.ToString(comando.Parameters["tipo_lib"].Value);
-                        camionero.VencimientoLibreta = Convert.ToDateTime(comando.Parameters["venc_lib"].Value);
+                        camionero.Apellido = Convert.ToString(lector["apellido"]);
+                        camionero.Cédula = Convert.ToInt32(lector["cedula"]);
+                        camionero.Cargo = Convert.ToString(lector["cargo"]);
+                        camionero.Teléfono = Convert.ToString(lector["telefono"]);
+                        camionero.UsuarioLogin = Convert.ToString(lector["usuario"]);
+                        camionero.Contraseña = Convert.ToString(lector["contrasenia"]);
+                        camionero.Nacimiento = Convert.ToDateTime(lector["fec_nac"]);
+                        camionero.TipoLibreta = Convert.ToString(lector["tipo_lib"]);
+                        camionero.VencimientoLibreta = Convert.ToDateTime(lector["venc_lib"]);
                         return true;
                     }
                     else

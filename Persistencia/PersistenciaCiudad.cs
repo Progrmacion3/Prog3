@@ -54,7 +54,7 @@ namespace Persistencia
                 {
                     if (lector.Read())
                     {
-                        ciudad.Nombre = Convert.ToString(comando.Parameters["nombre"].Value);
+                        ciudad.Nombre = Convert.ToString(lector["nombre"]);
                         return true;
                     }
                     else

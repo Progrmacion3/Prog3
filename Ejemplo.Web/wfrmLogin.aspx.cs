@@ -32,24 +32,31 @@ namespace Ejemplo.Web
                     }
                     else if (tipo == 'c')
                     {
-                        // Obtener camionero
-                        // O por lo menos mandarle el Id del camionero 
-                        // al siguiente formulario
-                        Response.Redirect("wfrmModificacionesCamionero.aspx");
+                        Camionero camioneroUno = new Camionero(usuario.Id);
+
+                        if (Fachada.Obtener(camioneroUno))
+                        {
+                            Session["camionero"] = camioneroUno;
+                            Response.Redirect("wfrmModificacionesCamionero.aspx");
+                        }
+                        else
+                        {
+                            LoginUser.FailureText = "Error de ingreso";
+                        }
                     }
                     else
                     {
-                        // Error: Tipo no existe...
+                        LoginUser.FailureText = "No existe tipo";
                     }
                 }
                 else
                 {
-                    // Error: Usuario/Contraseña no existen...
+                    LoginUser.FailureText = "Usuario o contraseña no existen";
                 }
             }
             else
             {
-                // Error: de base de datos...
+                LoginUser.FailureText = "Error de base de datos";
             }
         }
     }
