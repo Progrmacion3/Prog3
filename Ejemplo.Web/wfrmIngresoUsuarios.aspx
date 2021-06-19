@@ -89,6 +89,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
         <table class="style1">
         <caption style="font-family: Arial, Helvetica, sans-serif; font-size: large; font-weight: bold; color: #000066">
+            <br />
             INGRESO DE USUARIOS<br />
         </caption>
         <tr>

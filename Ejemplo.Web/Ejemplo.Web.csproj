@@ -65,6 +65,7 @@
   <ItemGroup>
     <Content Include="Default.aspx" />
     <Content Include="IngresoViajes.aspx" />
+    <Content Include="wfrmConsultas.aspx" />
     <Content Include="wfrmIngresoCamiones.aspx" />
     <Content Include="wfrmIngresoUsuarios.aspx" />
     <Content Include="Styles\Site.css" />
@@ -74,6 +75,7 @@
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="wfrmLogin.aspx" />
     <Content Include="wfrmIngresoViajes.aspx" />
+    <Content Include="wfrmModificacionesCamionero.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administradores.master.cs">
@@ -103,6 +105,13 @@
     </Compile>
     <Compile Include="IngresoViajes.aspx.designer.cs">
       <DependentUpon>IngresoViajes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfrmConsultas.aspx.cs">
+      <DependentUpon>wfrmConsultas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfrmConsultas.aspx.designer.cs">
+      <DependentUpon>wfrmConsultas.aspx</DependentUpon>
     </Compile>
     <Compile Include="wfrmIngresoCamiones.aspx.cs">
       <DependentUpon>wfrmIngresoCamiones.aspx</DependentUpon>
@@ -142,6 +151,13 @@
     </Compile>
     <Compile Include="wfrmIngresoViajes.aspx.designer.cs">
       <DependentUpon>wfrmIngresoViajes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfrmModificacionesCamionero.aspx.cs">
+      <DependentUpon>wfrmModificacionesCamionero.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfrmModificacionesCamionero.aspx.designer.cs">
+      <DependentUpon>wfrmModificacionesCamionero.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

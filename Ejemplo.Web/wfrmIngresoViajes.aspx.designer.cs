@@ -31,6 +31,24 @@ namespace Ejemplo.Web {
         protected global::System.Web.UI.WebControls.TextBox txtIdViaje;
         
         /// <summary>
+        /// lbCarga control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbCarga;
+        
+        /// <summary>
+        /// txtCarga control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCarga;
+        
+        /// <summary>
         /// lblFecIni control.
         /// </summary>
         /// <remarks>

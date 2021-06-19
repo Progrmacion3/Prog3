@@ -26,6 +26,7 @@
             <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
                 <Items>
                     <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Inicio"/>
+                    <asp:MenuItem NavigateUrl="~/wfrmModificacionesCamionero.aspx" Text="Gestión Camioneros" Value="Gestión Camioneros"></asp:MenuItem>
                     <asp:MenuItem Text="Salir" Value="Salir"></asp:MenuItem>
                 </Items>
             </asp:Menu>

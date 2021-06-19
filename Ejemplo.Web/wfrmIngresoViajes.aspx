@@ -35,6 +35,7 @@ label
 <asp:Content ID="Content2" runat="server" contentplaceholderid="MainContent">
     <table class="style1">
         <caption style="font-family: Arial, Helvetica, sans-serif; font-size: large; font-weight: bold; color: #000066">
+            <br />
             INGRESO DE VIAJES<br />
         </caption>
         <tr>
@@ -43,7 +44,18 @@ label
   
             </td>
             <td class="auto-style3">
-    <asp:TextBox ID="txtIdViaje" runat="server" TabIndex="1" OnTextChanged="txtIdViaje_TextChanged" Enabled="False"></asp:TextBox>
+    <asp:TextBox ID="txtIdViaje" runat="server" TabIndex="1" OnTextChanged="txtIdViaje_TextChanged" Enabled="False" Height="22px"></asp:TextBox>
+            </td>
+            <td class="auto-style7">
+                &nbsp;</td>
+         </tr>
+        <tr>
+            <td class="auto-style6">
+    <asp:Label ID="lbCarga" runat="server" style="font-family: 'Arial Black'" Text="Tipo de Carga"></asp:Label>
+  
+            </td>
+            <td class="auto-style3">
+    <asp:TextBox ID="txtCarga" runat="server" TabIndex="1" OnTextChanged="txtCarga_TextChanged"></asp:TextBox>
             </td>
             <td class="auto-style7">
                 &nbsp;</td>
@@ -82,7 +94,7 @@ label
             <td class="auto-style7">
   
     <asp:Button ID="btnSeleccionarCamion" runat="server" style="text-align: center" 
-                    Width="188px" Height="24px" BackColor="#003366" 
+                    Width="230px" Height="24px" BackColor="#003366" 
                     BorderColor="#CCFFFF" Font-Bold="True" ForeColor="White" Text="SELECCIONAR CAMIÓN" 
         onclick="btnSeleccionarCamion_Click" />
   
@@ -100,7 +112,7 @@ label
             <td class="auto-style7">
   
     <asp:Button ID="btnSeleccionarCamionero" runat="server" style="text-align: center" 
-                    Width="188px" Height="24px" BackColor="#003366" 
+                    Width="230px" Height="24px" BackColor="#003366" 
                     BorderColor="#CCFFFF" Font-Bold="True" ForeColor="White" Text="SELECCIONAR CAMIONERO" 
         onclick="btnSeleccionarCamionero_Click" />
   
@@ -120,7 +132,7 @@ label
             <td class="auto-style7">
   
     <asp:Button ID="btnSeleccionarCiuIni" runat="server" style="text-align: center" 
-                    Width="188px" Height="24px" BackColor="#003366" 
+                    Width="230px" Height="24px" BackColor="#003366" 
                     BorderColor="#CCFFFF" Font-Bold="True" ForeColor="White" Text="SELECCIONAR CIUDAD" 
         onclick="btnSeleccionarCiuIni_Click" />
   
@@ -137,7 +149,7 @@ label
              Font-Size="Smaller" OnSelectedIndexChanged="lstCiudFin_SelectedIndexChanged"></asp:ListBox>
             </td>
             <td class="auto-style7">
-    <asp:Button ID="btnSeleccionarCiudfin" runat="server" style="text-align: center; margin-top: 0px;" Width="188px" Height="26px" BackColor="#003366" 
+    <asp:Button ID="btnSeleccionarCiudfin" runat="server" style="text-align: center; margin-top: 0px;" Width="230px" Height="26px" BackColor="#003366" 
                     BorderColor="#CCFFFF" Font-Bold="True" ForeColor="White"
          Text="SELECCIONAR CIUDAD" onclick="btnSeleccionarCiuFin_Click" />
             </td>

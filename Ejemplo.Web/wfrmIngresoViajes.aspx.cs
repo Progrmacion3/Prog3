@@ -88,5 +88,10 @@ namespace Ejemplo.Web
         {
 
         }
+
+        protected void txtCarga_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

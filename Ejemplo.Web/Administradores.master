@@ -29,6 +29,7 @@
                     <asp:MenuItem NavigateUrl="~/wfrmIngresoUsuarios.aspx" Text="Ingreso Usuarios" Value="Ingreso Usuarios"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/wfrmIngresoCamiones.aspx" Text="Ingreso Camiones" Value="Ingreso Camiones"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/wfrmIngresoViajes.aspx" Text="Ingreso Viajes" Value="Ingreso Viajes"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/wfrmConsultas.aspx" Text="Consultas Varias" Value="Consultas Varias"></asp:MenuItem>
                     <asp:MenuItem Text="Salir" Value="Salir"></asp:MenuItem>
                 </Items>
             </asp:Menu>
