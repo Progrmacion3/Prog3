@@ -37,7 +37,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="dUsuario.cs" />
+    <Compile Include="DominioAdministrador.cs" />
+    <Compile Include="DominioCamionero.cs" />
+    <Compile Include="DominioUsuario.cs" />
     <Compile Include="Fachada.cs" />
   </ItemGroup>
   <ItemGroup>

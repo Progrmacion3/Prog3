@@ -1,58 +1,64 @@
 ﻿using Common;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
 
 namespace Persistencia
 {
     public class PersistenciaUsuario : Persistencia
     {
-        public static bool VerificarLogin(Usuario usuario)
+        public static bool Ingresar(Usuario usuario, out bool correcto, out char tipo)
         {
+            var conexión = new SqlConnection(CadenaDeConexion);
+            var comando = conexión.CreateCommand();
+            comando.CommandText = "ingresar";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@usuario", usuario.UsuarioLogin);
+            comando.Parameters.AddWithValue("@contrasenia", usuario.Contraseña);
+            comando.Parameters.Add("@correcto", SqlDbType.Bit);
+            comando.Parameters["@correcto"].Direction = ParameterDirection.Output;
+            comando.Parameters.Add("@tipo", SqlDbType.Char, 1);
+            comando.Parameters["@tipo"].Direction = ParameterDirection.Output;
             try
             {
-                var conexión = new SqlConnection(CadenaDeConexion);
-                var comando = new SqlCommand("verificar_login", conexión);
-                comando.CommandType = CommandType.StoredProcedure;
-                comando.Parameters.Add(new SqlParameter("@usuario", usuario.UsuarioLogin));
-                comando.Parameters.Add(new SqlParameter("@contrasenia", usuario.Contraseña));
                 conexión.Open();
-                int retorno = (int)comando.ExecuteScalar();
-                conexión.Close();
-                return retorno > 0;
+                comando.ExecuteNonQuery();
+                correcto = Convert.ToBoolean(comando.Parameters["@correcto"].Value);
+                tipo = Convert.ToChar(comando.Parameters["@tipo"].Value);
+                return true;
             }
-            catch // (Exception ex)
+            catch
             {
-                // Hacer algo?
+                correcto = false;
+                tipo = ' ';
                 return false;
+            }
+            finally
+            {
+                conexión.Close();
             }
         }
 
-        public static bool Alta(Usuario usuario)
+        public static bool Baja(Usuario usuario)
         {
+            var conexión = new SqlConnection(CadenaDeConexion);
+            var comando = conexión.CreateCommand();
+            comando.CommandText = "baja_usuario";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@id", usuario.Id);
             try
             {
-                var conexión = new SqlConnection(CadenaDeConexion);
-                var comando = new SqlCommand("agregar_usuario", conexión);
-                comando.CommandType = CommandType.StoredProcedure;
-                comando.Parameters.Add(new SqlParameter("@nombre", usuario.Nombre));
-                comando.Parameters.Add(new SqlParameter("@apellido", usuario.Apellido));
-                comando.Parameters.Add(new SqlParameter("@cedula", usuario.Cédula));
-                comando.Parameters.Add(new SqlParameter("@cargo", usuario.Cargo));
-                comando.Parameters.Add(new SqlParameter("@telefono", usuario.Teléfono));
-                comando.Parameters.Add(new SqlParameter("@usuario", usuario.UsuarioLogin));
-                comando.Parameters.Add(new SqlParameter("@contrasenia", usuario.Contraseña));
                 conexión.Open();
-                int retorno = comando.ExecuteNonQuery();
-                conexión.Close();
-                return retorno > 0;
+                comando.ExecuteNonQuery();
+                return true;
             }
             catch
             {
                 return false;
+            }
+            finally
+            {
+                conexión.Close();
             }
         }
     }
