@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Ejemplo.Web.Site" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Administradores.master.cs" Inherits="Ejemplo.Web.Administradores" %>
 
 <!DOCTYPE html>
 
@@ -14,13 +14,21 @@
     <div class="page">
         <div class="header">
             <div class="title">
-                <h1>Viajes Uy 2021</h1>
+                <h1>
+                    Viajes Uy 2021</h1>
             </div>
+           
             <div class="clear hideSkiplink">
                 <asp:ContentPlaceHolder ID="Menú" runat="server"/>
             </div>
         </div>
         <div class="main">
+            <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                <Items>
+                    <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Inicio"/>
+                    <asp:MenuItem Text="Salir" Value="Salir"></asp:MenuItem>
+                </Items>
+            </asp:Menu>
             <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
         </div>
         <div class="clear">

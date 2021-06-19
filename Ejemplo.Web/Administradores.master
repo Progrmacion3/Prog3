@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Administradores.master.cs" Inherits="Ejemplo.Web.Administradores" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>
+                    Viajes Uy 2021</h1>
+            </div>
+           
+            <div class="clear hideSkiplink">
+                <asp:ContentPlaceHolder ID="Menú" runat="server"/>
+            </div>
+        </div>
+        <div class="main">
+            <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                <Items>
+                    <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Inicio"/>
+                    <asp:MenuItem NavigateUrl="~/wfrmIngresoUsuarios.aspx" Text="Ingreso Usuarios" Value="Ingreso Usuarios"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/wfrmIngresoCamiones.aspx" Text="Ingreso Camiones" Value="Ingreso Camiones"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/wfrmIngresoViajes.aspx" Text="Ingreso Viajes" Value="Ingreso Viajes"></asp:MenuItem>
+                    <asp:MenuItem Text="Salir" Value="Salir"></asp:MenuItem>
+                </Items>
+            </asp:Menu>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+    </form>
+</body>
+</html>

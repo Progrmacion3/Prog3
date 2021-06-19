@@ -64,14 +64,32 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
+    <Content Include="IngresoViajes.aspx" />
+    <Content Include="wfrmIngresoCamiones.aspx" />
+    <Content Include="wfrmIngresoUsuarios.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
-    <Content Include="FormularioLogin.aspx" />
+    <Content Include="wfrmLogin.aspx" />
+    <Content Include="wfrmIngresoViajes.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administradores.master.cs">
+      <DependentUpon>Administradores.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administradores.master.designer.cs">
+      <DependentUpon>Administradores.master</DependentUpon>
+    </Compile>
+    <Compile Include="Camioneros.master.cs">
+      <DependentUpon>Camioneros.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Camioneros.master.designer.cs">
+      <DependentUpon>Camioneros.master</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -79,16 +97,37 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="IngresoViajes.aspx.cs">
+      <DependentUpon>IngresoViajes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IngresoViajes.aspx.designer.cs">
+      <DependentUpon>IngresoViajes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfrmIngresoCamiones.aspx.cs">
+      <DependentUpon>wfrmIngresoCamiones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfrmIngresoCamiones.aspx.designer.cs">
+      <DependentUpon>wfrmIngresoCamiones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfrmIngresoUsuarios.aspx.cs">
+      <DependentUpon>wfrmIngresoUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfrmIngresoUsuarios.aspx.designer.cs">
+      <DependentUpon>wfrmIngresoUsuarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="FormularioLogin.aspx.cs">
-      <DependentUpon>FormularioLogin.aspx</DependentUpon>
+    <Compile Include="wfrmLogin.aspx.cs">
+      <DependentUpon>wfrmLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FormularioLogin.aspx.designer.cs">
-      <DependentUpon>FormularioLogin.aspx</DependentUpon>
+    <Compile Include="wfrmLogin.aspx.designer.cs">
+      <DependentUpon>wfrmLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -96,6 +135,13 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="wfrmIngresoViajes.aspx.cs">
+      <DependentUpon>wfrmIngresoViajes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfrmIngresoViajes.aspx.designer.cs">
+      <DependentUpon>wfrmIngresoViajes.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -114,6 +160,8 @@
   <ItemGroup>
     <Content Include="Web.config" />
     <Content Include="Site.Master" />
+    <Content Include="Camioneros.master" />
+    <Content Include="Administradores.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
