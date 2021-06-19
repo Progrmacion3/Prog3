@@ -14,7 +14,7 @@ namespace Dominio
 
         #endregion
 
-        #region Ingreso de Usuarios
+        #region Usuarios
 
         public static bool Alta(Administrador administrador)
         {
@@ -51,9 +51,19 @@ namespace Dominio
             return DominioCamionero.Listar(lista);
         }
 
+        public static bool Obtener(Usuario usuario)
+        {
+            return DominioUsuario.Obtener(usuario);
+        }
+
+        public static bool Obtener(Camionero camionero)
+        {
+            return DominioCamionero.Obtener(camionero);
+        }
+
         #endregion
 
-        #region Ingreso de Camiones
+        #region Camiones
 
         public static bool Alta(Camión camión)
         {
@@ -73,6 +83,49 @@ namespace Dominio
         public static bool Listar(List<Camión> lista)
         {
             return DominioCamión.Listar(lista);
+        }
+
+        public static bool Obtener(Camión camión)
+        {
+            return DominioCamión.Obtener(camión);
+        }
+
+        #endregion
+
+        #region Viajes
+
+        public static bool Alta(Viaje viaje)
+        {
+            return DominioViaje.Alta(viaje);
+        }
+
+        public static bool Baja(Viaje viaje)
+        {
+            return DominioViaje.Baja(viaje);
+        }
+
+        public static bool Listar(List<Viaje> lista)
+        {
+            return DominioViaje.Listar(lista);
+        }
+
+        public static bool Obtener(Viaje viaje)
+        {
+            return DominioViaje.Obtener(viaje);
+        }
+
+        #endregion
+
+        #region Ciudades
+
+        public static bool Listar(List<Ciudad> lista)
+        {
+            return DominioCiudad.Listar(lista);
+        }
+
+        public static bool Obtener(Ciudad ciudad)
+        {
+            return DominioCiudad.Obtener(ciudad);
         }
 
         #endregion

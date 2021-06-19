@@ -20,5 +20,10 @@ namespace Dominio
         {
             return PersistenciaCamionero.Listar(lista);
         }
+
+        public static bool Obtener(Camionero camionero)
+        {
+            return PersistenciaCamionero.Obtener(camionero);
+        }
     }
 }

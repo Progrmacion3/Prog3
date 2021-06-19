@@ -100,5 +100,44 @@ namespace Persistencia
                 conexión.Close();
             }
         }
+
+        public static bool Obtener(Viaje viaje)
+        {
+            var conexión = new SqlConnection(CadenaDeConexion);
+            var comando = conexión.CreateCommand();
+            comando.CommandText = "obtener_viaje";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@id", viaje.Id);
+            try
+            {
+                conexión.Open();
+                using (var lector = comando.ExecuteReader())
+                {
+                    if (lector.Read())
+                    {
+                        viaje.Carga = Convert.ToString(lector["carga"]);
+                        viaje.Inicio = Convert.ToDateTime(lector["fecha_ini"]);
+                        viaje.Fin = Convert.ToDateTime(lector["fecha_fin"]);
+                        viaje.Origen = new Ciudad(Convert.ToInt32(lector["id_ciu_ini"]));
+                        viaje.Destino = new Ciudad(Convert.ToInt32(lector["id_ciu_fin"]));
+                        viaje.Camión = new Camión(Convert.ToInt32(lector["id_camion"]));
+                        viaje.Camionero = new Camionero(Convert.ToInt32(lector["id_usuario_camionero"]));
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                conexión.Close();
+            }
+        }
     }
 }

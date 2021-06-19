@@ -121,5 +121,41 @@ namespace Persistencia
                 conexión.Close();
             }
         }
+
+        public static bool Obtener(Camión camión)
+        {
+            var conexión = new SqlConnection(CadenaDeConexion);
+            var comando = conexión.CreateCommand();
+            comando.CommandText = "obtener_usuario";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@id", camión.Id);
+            try
+            {
+                conexión.Open();
+                using (var lector = comando.ExecuteReader())
+                {
+                    if (lector.Read())
+                    {
+                        camión.Marca = Convert.ToString(lector["marca"]);
+                        camión.Modelo = Convert.ToString(comando.Parameters["modelo"].Value);
+                        camión.Matrícula = Convert.ToString(comando.Parameters["matricula"].Value);
+                        camión.Año = Convert.ToInt32(comando.Parameters["anio"].Value);
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                conexión.Close();
+            }
+        }
     }
 }
