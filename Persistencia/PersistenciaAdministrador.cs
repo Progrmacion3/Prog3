@@ -18,7 +18,6 @@ namespace Persistencia
             comando.Parameters.AddWithValue("@nombre", administrador.Nombre);
             comando.Parameters.AddWithValue("@apellido", administrador.Apellido);
             comando.Parameters.AddWithValue("@cedula", administrador.Cédula);
-            comando.Parameters.AddWithValue("@cargo", administrador.Cargo);
             comando.Parameters.AddWithValue("@telefono", administrador.Teléfono);
             comando.Parameters.AddWithValue("@usuario", administrador.UsuarioLogin);
             comando.Parameters.AddWithValue("@contrasenia", administrador.Contraseña);
@@ -50,7 +49,6 @@ namespace Persistencia
             comando.Parameters.AddWithValue("@nombre", administrador.Nombre);
             comando.Parameters.AddWithValue("@apellido", administrador.Apellido);
             comando.Parameters.AddWithValue("@cedula", administrador.Cédula);
-            comando.Parameters.AddWithValue("@cargo", administrador.Cargo);
             comando.Parameters.AddWithValue("@telefono", administrador.Teléfono);
             comando.Parameters.AddWithValue("@usuario", administrador.UsuarioLogin);
             comando.Parameters.AddWithValue("@contrasenia", administrador.Contraseña);
@@ -88,7 +86,6 @@ namespace Persistencia
                             Convert.ToString(lector["nombre"]),
                             Convert.ToString(lector["apellido"]),
                             Convert.ToInt32(lector["cedula"]),
-                            Convert.ToString(lector["cargo"]),
                             Convert.ToString(lector["telefono"]),
                             Convert.ToString(lector["usuario"]),
                             Convert.ToString(lector["contrasenia"])
@@ -97,6 +94,44 @@ namespace Persistencia
                     }
                 }
                 return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                conexión.Close();
+            }
+        }
+
+        public static bool Obtener(Administrador administrador)
+        {
+            var conexión = new SqlConnection(CadenaDeConexion);
+            var comando = conexión.CreateCommand();
+            comando.CommandText = "obtener_administrador";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@id", administrador.Id);
+            try
+            {
+                conexión.Open();
+                using (var lector = comando.ExecuteReader())
+                {
+                    if (lector.Read())
+                    {
+                        administrador.Nombre = Convert.ToString(lector["nombre"]);
+                        administrador.Apellido = Convert.ToString(lector["apellido"]);
+                        administrador.Cédula = Convert.ToInt32(lector["cedula"]);
+                        administrador.Teléfono = Convert.ToString(lector["telefono"]);
+                        administrador.UsuarioLogin = Convert.ToString(lector["usuario"]);
+                        administrador.Contraseña = Convert.ToString(lector["contrasenia"]);
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
             }
             catch
             {

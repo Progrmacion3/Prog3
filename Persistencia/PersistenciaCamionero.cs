@@ -18,7 +18,6 @@ namespace Persistencia
             comando.Parameters.AddWithValue("@nombre", camionero.Nombre);
             comando.Parameters.AddWithValue("@apellido", camionero.Apellido);
             comando.Parameters.AddWithValue("@cedula", camionero.Cédula);
-            comando.Parameters.AddWithValue("@cargo", camionero.Cargo);
             comando.Parameters.AddWithValue("@telefono", camionero.Teléfono);
             comando.Parameters.AddWithValue("@usuario", camionero.UsuarioLogin);
             comando.Parameters.AddWithValue("@contrasenia", camionero.Contraseña);
@@ -47,13 +46,12 @@ namespace Persistencia
         {
             var conexión = new SqlConnection(CadenaDeConexion);
             var comando = conexión.CreateCommand();
-            comando.CommandText = "modificar_administrador";
+            comando.CommandText = "modificar_camionero";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@id", camionero.Id);
             comando.Parameters.AddWithValue("@nombre", camionero.Nombre);
             comando.Parameters.AddWithValue("@apellido", camionero.Apellido);
             comando.Parameters.AddWithValue("@cedula", camionero.Cédula);
-            comando.Parameters.AddWithValue("@cargo", camionero.Cargo);
             comando.Parameters.AddWithValue("@telefono", camionero.Teléfono);
             comando.Parameters.AddWithValue("@usuario", camionero.UsuarioLogin);
             comando.Parameters.AddWithValue("@contrasenia", camionero.Contraseña);
@@ -90,11 +88,10 @@ namespace Persistencia
                     while (lector.Read())
                     {
                         var camionero = new Camionero(
-                            Convert.ToInt32(lector["id_usuario_adm"]),
+                            Convert.ToInt32(lector["id_usuario_camionero"]),
                             Convert.ToString(lector["nombre"]),
                             Convert.ToString(lector["apellido"]),
                             Convert.ToInt32(lector["cedula"]),
-                            Convert.ToString(lector["cargo"]),
                             Convert.ToString(lector["telefono"]),
                             Convert.ToString(lector["usuario"]),
                             Convert.ToString(lector["contrasenia"]),
@@ -134,7 +131,6 @@ namespace Persistencia
                         camionero.Nombre = Convert.ToString(lector["nombre"]);
                         camionero.Apellido = Convert.ToString(lector["apellido"]);
                         camionero.Cédula = Convert.ToInt32(lector["cedula"]);
-                        camionero.Cargo = Convert.ToString(lector["cargo"]);
                         camionero.Teléfono = Convert.ToString(lector["telefono"]);
                         camionero.UsuarioLogin = Convert.ToString(lector["usuario"]);
                         camionero.Contraseña = Convert.ToString(lector["contrasenia"]);

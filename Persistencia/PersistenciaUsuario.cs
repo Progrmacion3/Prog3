@@ -64,44 +64,5 @@ namespace Persistencia
                 conexión.Close();
             }
         }
-
-        public static bool Obtener(Usuario usuario)
-        {
-            var conexión = new SqlConnection(CadenaDeConexion);
-            var comando = conexión.CreateCommand();
-            comando.CommandText = "obtener_usuario";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@id", usuario.Id);
-            try
-            {
-                conexión.Open();
-                using (var lector = comando.ExecuteReader())
-                {
-                    if (lector.Read())
-                    {
-                        usuario.Nombre = Convert.ToString(lector["nombre"]);
-                        usuario.Apellido = Convert.ToString(lector["apellido"]);
-                        usuario.Cédula = Convert.ToInt32(lector["cedula"]);
-                        usuario.Cargo = Convert.ToString(lector["cargo"]);
-                        usuario.Teléfono = Convert.ToString(lector["telefono"]);
-                        usuario.UsuarioLogin = Convert.ToString(lector["usuario"]);
-                        usuario.Contraseña = Convert.ToString(lector["contrasenia"]);
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-            }
-            catch
-            {
-                return false;
-            }
-            finally
-            {
-                conexión.Close();
-            }
-        }
     }
 }

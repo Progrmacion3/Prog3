@@ -14,10 +14,5 @@ namespace Dominio
         {
             return PersistenciaUsuario.Baja(usuario);
         }
-
-        public static bool Obtener(Usuario usuario)
-        {
-            return PersistenciaUsuario.Obtener(usuario);
-        }
     }
 }

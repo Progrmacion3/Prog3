@@ -6,8 +6,17 @@
         {
         }
 
-        public Administrador(int id, string nombre, string apellido, int cédula, string cargo, string teléfono, string usuarioLogin, string contraseña)
-            : base(id, nombre, apellido, cédula, cargo, teléfono, usuarioLogin, contraseña)
+        public Administrador(int id) : base(id)
+        {
+        }
+
+        public Administrador(int id, string nombre, string apellido, int cédula, string teléfono, string usuarioLogin, string contraseña)
+            : base(id, nombre, apellido, cédula, teléfono, usuarioLogin, contraseña)
+        {
+        }
+
+        public Administrador(string nombre, string apellido, int cédula, string teléfono, string usuarioLogin, string contraseña)
+           : base(nombre, apellido, cédula, teléfono, usuarioLogin, contraseña)
         {
         }
     }

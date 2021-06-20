@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +10,18 @@ namespace Ejemplo.Web
 {
     public partial class wfrmIngresoViajes : System.Web.UI.Page
     {
+        private Administrador admin;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            var usuario = Session["usuario"];
+            if (usuario is Administrador)
+            {
+                admin = (Administrador)usuario;
+            }
+            else
+            {
+                Response.Redirect("Default.aspx");
+            }
         }
 
         protected void txtIdViaje_TextChanged(object sender, EventArgs e)

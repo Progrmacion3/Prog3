@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
+    <Content Include="Imagenes\camionRojo.jpg" />
     <Content Include="IngresoViajes.aspx" />
     <Content Include="wfrmConsultas.aspx" />
     <Content Include="wfrmIngresoCamiones.aspx" />
@@ -76,6 +77,7 @@
     <Content Include="wfrmLogin.aspx" />
     <Content Include="wfrmIngresoViajes.aspx" />
     <Content Include="wfrmModificacionesCamionero.aspx" />
+    <Content Include="wfrmSalir.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administradores.master.cs">
@@ -158,6 +160,13 @@
     </Compile>
     <Compile Include="wfrmModificacionesCamionero.aspx.designer.cs">
       <DependentUpon>wfrmModificacionesCamionero.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfrmSalir.aspx.cs">
+      <DependentUpon>wfrmSalir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfrmSalir.aspx.designer.cs">
+      <DependentUpon>wfrmSalir.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -27,7 +27,7 @@
                 <Items>
                     <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Inicio"/>
                     <asp:MenuItem NavigateUrl="~/wfrmModificacionesCamionero.aspx" Text="Gestión Camioneros" Value="Gestión Camioneros"></asp:MenuItem>
-                    <asp:MenuItem Text="Salir" Value="Salir"></asp:MenuItem>
+                    <asp:MenuItem Text="Salir" Value="Salir" NavigateUrl="~/wfrmSalir.aspx"></asp:MenuItem>
                 </Items>
             </asp:Menu>
             <asp:ContentPlaceHolder ID="MainContent" runat="server"/>

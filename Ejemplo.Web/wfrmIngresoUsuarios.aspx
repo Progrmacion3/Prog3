@@ -98,11 +98,11 @@
             </td>
             <td class="style17">
                 <asp:RadioButton ID="rdbAdm" runat="server" Text="Administrador" style="font-family: 'Arial Black'"
-                oncheckedchanged="rdbAdm_CheckedChanged" GroupName="TIPO" TabIndex="6" />
+                oncheckedchanged="rdbAdm_CheckedChanged" GroupName="TIPO" TabIndex="6" AutoPostBack="True" Checked="True" />
             </td>
             <td class="style18">
                 <asp:RadioButton ID="rdbCamionero" runat="server" Text="Camionero" style="font-family: 'Arial Black'"
-                oncheckedchanged="rdbCamionero_CheckedChanged" GroupName="TIPO" TabIndex="7" />
+                oncheckedchanged="rdbAdm_CheckedChanged" GroupName="TIPO" TabIndex="7" AutoPostBack="True" />
             </td>
         </tr>
         <tr>
@@ -170,26 +170,26 @@
         </tr>
         <tr>
              <td class="style10">
-               <asp:Label ID="lblFecNac" runat="server" Text="Fecha Nacimiento" style="font-family: 'Arial Black'"></asp:Label>
+               <asp:Label ID="lblFecNac" runat="server" Text="Fecha Nacimiento" style="font-family: 'Arial Black'" Visible="False"></asp:Label>
                 </td>
                 <td class="style2">
-                <asp:TextBox ID="txtFecNac" runat="server" Width="223px" TabIndex="5" OnTextChanged="txtFecNac_TextChanged"></asp:TextBox>
+                <asp:TextBox ID="txtFecNac" runat="server" Width="223px" TabIndex="5" OnTextChanged="txtFecNac_TextChanged" Visible="False"></asp:TextBox>
                 </td>
         </tr>
         <tr>
              <td class="style10">
-               <asp:Label ID="lblLibTipo" runat="server" Text="Tipo Libreta" style="font-family: 'Arial Black'"></asp:Label>
+               <asp:Label ID="lblLibTipo" runat="server" Text="Tipo Libreta" style="font-family: 'Arial Black'" Visible="False"></asp:Label>
                 </td>
                 <td class="style2">
-                <asp:TextBox ID="txtLibTipo" runat="server" Width="223px" TabIndex="5" OnTextChanged="txtLibTipo_TextChanged"></asp:TextBox>
+                <asp:TextBox ID="txtLibTipo" runat="server" Width="223px" TabIndex="5" OnTextChanged="txtLibTipo_TextChanged" Visible="False"></asp:TextBox>
                 </td>
         </tr>
         <tr>
              <td class="style10">
-               <asp:Label ID="lblVencLib" runat="server" Text="Vencimiento Libreta" style="font-family: 'Arial Black'"></asp:Label>
+               <asp:Label ID="lblVencLib" runat="server" Text="Vencimiento Libreta" style="font-family: 'Arial Black'" Visible="False"></asp:Label>
                 </td>
                 <td class="style2">
-                <asp:TextBox ID="txtLibVenc" runat="server" Width="223px" TabIndex="5" OnTextChanged="txtLibVenc_TextChanged"></asp:TextBox>
+                <asp:TextBox ID="txtLibVenc" runat="server" Width="223px" TabIndex="5" OnTextChanged="txtLibVenc_TextChanged" Visible="False"></asp:TextBox>
                 </td>
         </tr>
     </table>

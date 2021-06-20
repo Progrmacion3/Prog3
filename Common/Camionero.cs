@@ -18,8 +18,16 @@ namespace Common
         {
         }
 
-        public Camionero(int id, string nombre, string apellido, int cédula, string cargo, string teléfono, string usuarioLogin, string contraseña, DateTime nacimiento, string tipoLibreta, DateTime vencimientoLibreta)
-            : base(id, nombre, apellido, cédula, cargo, teléfono, usuarioLogin, contraseña)
+        public Camionero(int id, string nombre, string apellido, int cédula, string teléfono, string usuarioLogin, string contraseña, DateTime nacimiento, string tipoLibreta, DateTime vencimientoLibreta)
+            : base(id, nombre, apellido, cédula, teléfono, usuarioLogin, contraseña)
+        {
+            Nacimiento = nacimiento;
+            TipoLibreta = tipoLibreta;
+            VencimientoLibreta = vencimientoLibreta;
+        }
+
+        public Camionero(string nombre, string apellido, int cédula, string teléfono, string usuarioLogin, string contraseña, DateTime nacimiento, string tipoLibreta, DateTime vencimientoLibreta)
+            : base(nombre, apellido, cédula, teléfono, usuarioLogin, contraseña)
         {
             Nacimiento = nacimiento;
             TipoLibreta = tipoLibreta;

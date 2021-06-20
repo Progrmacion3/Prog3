@@ -20,5 +20,10 @@ namespace Dominio
         {
             return PersistenciaAdministrador.Listar(lista);
         }
+
+        public static bool Obtener(Administrador administrador)
+        {
+            return PersistenciaAdministrador.Obtener(administrador);
+        }
     }
 }

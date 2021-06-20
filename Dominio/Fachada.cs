@@ -51,9 +51,9 @@ namespace Dominio
             return DominioCamionero.Listar(lista);
         }
 
-        public static bool Obtener(Usuario usuario)
+        public static bool Obtener(Administrador administrador)
         {
-            return DominioUsuario.Obtener(usuario);
+            return DominioAdministrador.Obtener(administrador);
         }
 
         public static bool Obtener(Camionero camionero)

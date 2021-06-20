@@ -28,21 +28,17 @@ namespace Ejemplo.Web
                 {
                     if (tipo == 'a')
                     {
+                        var administrador = new Administrador(usuario.Id);
+                        Fachada.Obtener(administrador);
+                        Session["usuario"] = administrador;
                         Response.Redirect("wfrmIngresoUsuarios.aspx");
                     }
                     else if (tipo == 'c')
                     {
-                        Camionero camioneroUno = new Camionero(usuario.Id);
-
-                        if (Fachada.Obtener(camioneroUno))
-                        {
-                            Session["camionero"] = camioneroUno;
-                            Response.Redirect("wfrmModificacionesCamionero.aspx");
-                        }
-                        else
-                        {
-                            LoginUser.FailureText = "Error de ingreso";
-                        }
+                        var camionero = new Camionero(usuario.Id);
+                        Fachada.Obtener(camionero);
+                        Session["usuario"] = camionero;
+                        Response.Redirect("wfrmModificacionesCamionero.aspx");
                     }
                     else
                     {

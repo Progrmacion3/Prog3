@@ -2,6 +2,8 @@
 {
     public class Usuario
     {
+        private string contraseña1;
+
         public int Id { get; set; }
 
         public string Nombre { get; set; }
@@ -9,8 +11,6 @@
         public string Apellido { get; set; }
 
         public int Cédula { get; set; }
-
-        public string Cargo { get; set; }
 
         public string Teléfono { get; set; }
 
@@ -33,16 +33,30 @@
             Contraseña = contraseña;
         }
 
-        public Usuario(int id, string nombre, string apellido, int cédula, string cargo, string teléfono, string usuarioLogin, string contraseña)
+        public Usuario(int id, string nombre, string apellido, int cédula, string teléfono, string usuarioLogin, string contraseña)
         {
             Id = id;
             Nombre = nombre;
             Apellido = apellido;
             Cédula = cédula;
-            Cargo = cargo;
             Teléfono = teléfono;
             UsuarioLogin = usuarioLogin;
             Contraseña = contraseña;
+        }
+
+        public Usuario(string nombre, string apellido, int cédula, string teléfono, string usuarioLogin, string contraseña)
+        {
+            Nombre = nombre;
+            Apellido = apellido;
+            Cédula = cédula;
+            Teléfono = teléfono;
+            UsuarioLogin = usuarioLogin;
+            Contraseña = contraseña;
+        }
+
+        public override string ToString()
+        {
+            return Id + " " + Nombre + " " + Apellido; 
         }
     }
 }
