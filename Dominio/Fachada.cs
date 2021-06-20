@@ -129,5 +129,19 @@ namespace Dominio
         }
 
         #endregion
+
+        #region Camioneros
+
+        public static bool ViajeActual(Camionero camionero, out Viaje viaje)
+        {
+            return DominioViaje.ViajeActual(camionero, out viaje);
+        }
+
+        public static bool Alta(Estado estado, Viaje viaje)
+        {
+            return DominioViaje.Alta(estado, viaje);
+        }
+
+        #endregion
     }
 }

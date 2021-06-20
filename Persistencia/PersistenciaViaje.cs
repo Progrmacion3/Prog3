@@ -139,5 +139,72 @@ namespace Persistencia
                 conexión.Close();
             }
         }
+
+        public static bool ViajeActual(Camionero camionero, out Viaje viaje)
+        {
+            viaje = new Viaje();
+            var conexión = new SqlConnection(CadenaDeConexion);
+            var comando = conexión.CreateCommand();
+            comando.CommandText = "viaje_actual";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@id_camionero", camionero.Id);
+            try
+            {
+                conexión.Open();
+                using (var lector = comando.ExecuteReader())
+                {
+                    if (lector.Read())
+                    {
+                        viaje.Id = Convert.ToInt32(comando.Parameters["@id_viaje"].Value);
+                        return Obtener(viaje);
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                conexión.Close();
+            }
+        }
+
+        public static bool Alta(Estado estado, Viaje viaje)
+        {
+            var conexión = new SqlConnection(CadenaDeConexion);
+            var comando = conexión.CreateCommand();
+            comando.CommandText = "alta_estado";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@id_viaje", viaje.Id);
+            comando.Parameters.Add("@id_estado", SqlDbType.Int);
+            comando.Parameters.AddWithValue("@tipo", estado.Tipo);
+            comando.Parameters.Add("@time", SqlDbType.Date);
+            comando.Parameters.AddWithValue("@kilaje", estado.Kilaje);
+            comando.Parameters.AddWithValue("@comentario", estado.Comentario);
+            comando.Parameters["@id_estado"].Direction = ParameterDirection.Output;
+            comando.Parameters["@time"].Direction = ParameterDirection.Output;
+            try
+            {
+                conexión.Open();
+                comando.ExecuteNonQuery();
+                estado.Id = Convert.ToInt32(comando.Parameters["@id_estado"].Value);
+                estado.Time = Convert.ToDateTime(comando.Parameters["@time"].Value);
+                viaje.Estados.Add(estado);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                conexión.Close();
+            }
+        }
     }
 }

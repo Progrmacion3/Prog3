@@ -25,5 +25,15 @@ namespace Dominio
         {
             return PersistenciaViaje.Obtener(viaje);
         }
+
+        public static bool ViajeActual(Camionero camionero, out Viaje viaje)
+        {
+            return PersistenciaViaje.ViajeActual(camionero, out viaje);
+        }
+
+        public static bool Alta(Estado estado, Viaje viaje)
+        {
+            return PersistenciaViaje.Alta(estado, viaje);
+        }
     }
 }
