@@ -27,7 +27,7 @@
 
         public override string ToString()
         {
-            return Nombre;
+            return Id + " " + Nombre;
         }
     }
 }

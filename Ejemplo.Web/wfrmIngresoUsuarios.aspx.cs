@@ -184,6 +184,7 @@ namespace Ejemplo.Web
 
         private void Limpiar()
         {
+            txtId.Text = "";
             txtNombre.Text = "";
             txtApellido.Text = "";
             txtCedula.Text = "";
@@ -230,7 +231,7 @@ namespace Ejemplo.Web
             int id;
             if (!int.TryParse(txtId.Text, out id))
             {
-                lblMensajes.Text = "Error: No se pudo dar de baja";
+                lblMensajes.Text = "Error: No se pudo modificar.";
                 return;
             }
 

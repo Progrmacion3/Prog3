@@ -19,7 +19,7 @@ namespace Persistencia
             comando.Parameters.AddWithValue("@fecha_ini", viaje.Inicio);
             comando.Parameters.AddWithValue("@fecha_fin", viaje.Fin);
             comando.Parameters.AddWithValue("@id_ciu_ini", viaje.Origen);
-            comando.Parameters.AddWithValue("@id_ciu_fin", viaje.Destino);
+            comando.Parameters.AddWithValue("@id_ciu_final", viaje.Destino);
             comando.Parameters.AddWithValue("@id_camion", viaje.Camión.Id);
             comando.Parameters.AddWithValue("@id_usuario_camionero", viaje.Camionero.Id);
             comando.Parameters["@id"].Direction = ParameterDirection.Output;
@@ -82,7 +82,7 @@ namespace Persistencia
                             Convert.ToDateTime(lector["fecha_ini"]),
                             Convert.ToDateTime(lector["fecha_fin"]),
                             new Ciudad(Convert.ToInt32(lector["id_ciu_ini"])),
-                            new Ciudad(Convert.ToInt32(lector["id_ciu_fin"])),
+                            new Ciudad(Convert.ToInt32(lector["id_ciu_final"])),
                             new Camión(Convert.ToInt32(lector["id_camion"])),
                             new Camionero(Convert.ToInt32(lector["id_usuario_camionero"]))
                         );
@@ -119,7 +119,7 @@ namespace Persistencia
                         viaje.Inicio = Convert.ToDateTime(lector["fecha_ini"]);
                         viaje.Fin = Convert.ToDateTime(lector["fecha_fin"]);
                         viaje.Origen = new Ciudad(Convert.ToInt32(lector["id_ciu_ini"]));
-                        viaje.Destino = new Ciudad(Convert.ToInt32(lector["id_ciu_fin"]));
+                        viaje.Destino = new Ciudad(Convert.ToInt32(lector["id_ciu_final"]));
                         viaje.Camión = new Camión(Convert.ToInt32(lector["id_camion"]));
                         viaje.Camionero = new Camionero(Convert.ToInt32(lector["id_usuario_camionero"]));
                         return true;

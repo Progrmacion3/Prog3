@@ -65,7 +65,6 @@
   <ItemGroup>
     <Content Include="Default.aspx" />
     <Content Include="Imagenes\camionRojo.jpg" />
-    <Content Include="IngresoViajes.aspx" />
     <Content Include="wfrmConsultas.aspx" />
     <Content Include="wfrmIngresoCamiones.aspx" />
     <Content Include="wfrmIngresoUsuarios.aspx" />
@@ -100,13 +99,6 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="IngresoViajes.aspx.cs">
-      <DependentUpon>IngresoViajes.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="IngresoViajes.aspx.designer.cs">
-      <DependentUpon>IngresoViajes.aspx</DependentUpon>
     </Compile>
     <Compile Include="wfrmConsultas.aspx.cs">
       <DependentUpon>wfrmConsultas.aspx</DependentUpon>
