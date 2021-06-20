@@ -37,5 +37,11 @@
             Matrícula = matrícula;
             Año = año;
         }
+
+
+        public override string ToString()
+        {
+            return Id + " " + Marca + " " + Modelo + " " + " " + Matrícula + " " + Año;
+        }
     }
 }

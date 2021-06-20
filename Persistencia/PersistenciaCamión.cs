@@ -126,7 +126,7 @@ namespace Persistencia
         {
             var conexión = new SqlConnection(CadenaDeConexion);
             var comando = conexión.CreateCommand();
-            comando.CommandText = "obtener_usuario";
+            comando.CommandText = "obtener_camion";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@id", camión.Id);
             try

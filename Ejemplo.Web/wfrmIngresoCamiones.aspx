@@ -98,7 +98,7 @@
                 <asp:Label ID="lblId" runat="server" Text="Id" style="font-family: 'Arial Black'"></asp:Label>
             </td>
             <td class="style17">
-                <asp:TextBox ID="txtId" runat="server" Width="223px" TabIndex="1" AutoCompleteType="Disabled" OnTextChanged="txtId_TextChanged" Enabled="False" Height="38px"></asp:TextBox>
+                <asp:TextBox ID="txtId" runat="server" Width="223px" TabIndex="1" AutoCompleteType="Disabled" Enabled="False" Height="38px"></asp:TextBox>
             </td>
             <td class="style18" rowspan="10">
                 <asp:ListBox ID="lstCamiones" runat="server" 
@@ -111,7 +111,7 @@
                 <asp:Label ID="lblMarca" runat="server" Text="Marca" style="font-family: 'Arial Black'"></asp:Label>
             </td>
             <td class="style2">
-                <asp:TextBox ID="txtMarca" runat="server" Width="223px" TabIndex="2" OnTextChanged="txtMarca_TextChanged" Height="38px"></asp:TextBox>
+                <asp:TextBox ID="txtMarca" runat="server" Width="223px" TabIndex="2" Height="38px"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -119,7 +119,7 @@
                 <asp:Label ID="lblModelo" runat="server" Text="Modelo" style="font-family: 'Arial Black'"></asp:Label>
             </td>
             <td class="style2">
-                <asp:TextBox ID="txtModelo" runat="server" Width="223px" TabIndex="3" OnTextChanged="txtModelo_TextChanged" Height="38px"></asp:TextBox>
+                <asp:TextBox ID="txtModelo" runat="server" Width="223px" TabIndex="3" Height="38px"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -127,7 +127,7 @@
                 <asp:Label ID="lblMatricula" runat="server" Text="Matrícula" style="font-family: 'Arial Black'"></asp:Label>
             </td>
             <td class="style2">
-                <asp:TextBox ID="txtMatricula" runat="server" Width="223px" TabIndex="4" OnTextChanged="txtMatricula_TextChanged" Height="38px"></asp:TextBox>
+                <asp:TextBox ID="txtMatricula" runat="server" Width="223px" TabIndex="4" Height="38px"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -135,7 +135,7 @@
             <asp:Label ID="lblAnio" runat="server" Text="Año" style="font-family: 'Arial Black'"></asp:Label>
             </td>
             <td class="style2">
-            <asp:TextBox ID="txtAnio" runat="server" Width="223px" TabIndex="5" OnTextChanged="txtAnio_TextChanged" Height="39px"></asp:TextBox>
+            <asp:TextBox ID="txtAnio" runat="server" Width="223px" TabIndex="5" Height="39px"></asp:TextBox>
             </td>
         </tr>
 
