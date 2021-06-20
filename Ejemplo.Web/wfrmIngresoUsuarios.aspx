@@ -110,7 +110,7 @@
                 <asp:Label ID="lblId" runat="server" Text="Id" style="font-family: 'Arial Black'"></asp:Label>
             </td>
             <td class="style17">
-                <asp:TextBox ID="txtId" runat="server" Width="223px" TabIndex="1" AutoCompleteType="Disabled" OnTextChanged="txtId_TextChanged" Enabled="False"></asp:TextBox>
+                <asp:TextBox ID="txtId" runat="server" Width="223px" TabIndex="1" AutoCompleteType="Disabled" Enabled="False"></asp:TextBox>
             </td>
             <td class="style18" rowspan="10">
                 <asp:ListBox ID="lstUsuarios" runat="server" 
@@ -123,7 +123,7 @@
                 <asp:Label ID="lblNombre" runat="server" Text="Nombre" style="font-family: 'Arial Black'"></asp:Label>
             </td>
             <td class="style2">
-                <asp:TextBox ID="txtNombre" runat="server" Width="223px" TabIndex="2" OnTextChanged="txtNombre_TextChanged"></asp:TextBox>
+                <asp:TextBox ID="txtNombre" runat="server" Width="223px" TabIndex="2" ></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -131,7 +131,7 @@
                 <asp:Label ID="lblApellido" runat="server" Text="Apellido" style="font-family: 'Arial Black'"></asp:Label>
             </td>
             <td class="style2">
-                <asp:TextBox ID="txtApellido" runat="server" Width="223px" TabIndex="3" OnTextChanged="txtApellido_TextChanged"></asp:TextBox>
+                <asp:TextBox ID="txtApellido" runat="server" Width="223px" TabIndex="3" ></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -139,7 +139,7 @@
                 <asp:Label ID="lblCedula" runat="server" Text="Cédula" style="font-family: 'Arial Black'"></asp:Label>
             </td>
             <td class="style2">
-                <asp:TextBox ID="txtCedula" runat="server" Width="223px" TabIndex="4" OnTextChanged="txtCedula_TextChanged"></asp:TextBox>
+                <asp:TextBox ID="txtCedula" runat="server" Width="223px" TabIndex="4" ></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -147,7 +147,7 @@
             <asp:Label ID="lblTelefono" runat="server" Text="Teléfono" style="font-family: 'Arial Black'"></asp:Label>
             </td>
             <td class="style2">
-            <asp:TextBox ID="txtTelefono" runat="server" Width="223px" TabIndex="5" OnTextChanged="txtTelefono_TextChanged"></asp:TextBox>
+            <asp:TextBox ID="txtTelefono" runat="server" Width="223px" TabIndex="5" ></asp:TextBox>
             </td>
         </tr>
 
@@ -156,7 +156,7 @@
                 <asp:Label ID="lblUsuario" runat="server" Text="Usuario" style="font-family: 'Arial Black'"></asp:Label>
                 </td>
                 <td class="style2">
-                <asp:TextBox ID="txtUsuario" runat="server" Width="223px" TabIndex="5" OnTextChanged="txtUsuario_TextChanged"></asp:TextBox>
+                <asp:TextBox ID="txtUsuario" runat="server" Width="223px" TabIndex="5" ></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -164,7 +164,7 @@
                <asp:Label ID="lblContra" runat="server" Text="Contraseña" style="font-family: 'Arial Black'"></asp:Label>
                 </td>
                 <td class="style2">
-                <asp:TextBox ID="txtContra" runat="server" Width="223px" TabIndex="5" OnTextChanged="txtContra_TextChanged"></asp:TextBox>
+                <asp:TextBox ID="txtContra" runat="server" Width="223px" TabIndex="5" ></asp:TextBox>
                 </td>
 
         </tr>
@@ -173,7 +173,7 @@
                <asp:Label ID="lblFecNac" runat="server" Text="Fecha Nacimiento" style="font-family: 'Arial Black'" Visible="False"></asp:Label>
                 </td>
                 <td class="style2">
-                <asp:TextBox ID="txtFecNac" runat="server" Width="223px" TabIndex="5" OnTextChanged="txtFecNac_TextChanged" Visible="False"></asp:TextBox>
+                <asp:TextBox ID="txtFecNac" runat="server" Width="223px" TabIndex="5"  Visible="False"></asp:TextBox>
                 </td>
         </tr>
         <tr>
@@ -181,7 +181,7 @@
                <asp:Label ID="lblLibTipo" runat="server" Text="Tipo Libreta" style="font-family: 'Arial Black'" Visible="False"></asp:Label>
                 </td>
                 <td class="style2">
-                <asp:TextBox ID="txtLibTipo" runat="server" Width="223px" TabIndex="5" OnTextChanged="txtLibTipo_TextChanged" Visible="False"></asp:TextBox>
+                <asp:TextBox ID="txtLibTipo" runat="server" Width="223px" TabIndex="5"  Visible="False"></asp:TextBox>
                 </td>
         </tr>
         <tr>
@@ -189,7 +189,7 @@
                <asp:Label ID="lblVencLib" runat="server" Text="Vencimiento Libreta" style="font-family: 'Arial Black'" Visible="False"></asp:Label>
                 </td>
                 <td class="style2">
-                <asp:TextBox ID="txtLibVenc" runat="server" Width="223px" TabIndex="5" OnTextChanged="txtLibVenc_TextChanged" Visible="False"></asp:TextBox>
+                <asp:TextBox ID="txtLibVenc" runat="server" Width="223px" TabIndex="5"  Visible="False"></asp:TextBox>
                 </td>
         </tr>
     </table>

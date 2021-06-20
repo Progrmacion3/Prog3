@@ -29,56 +29,7 @@ namespace Ejemplo.Web
             }
         }
 
-        protected void txtId_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void txtNombre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void txtApellido_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void txtCedula_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void txtTelefono_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void txtUsuario_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void txtContra_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void txtFecNac_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void txtLibTipo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void txtLibVenc_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+     
         protected void lstUsuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lstUsuarios.SelectedItem == null)
