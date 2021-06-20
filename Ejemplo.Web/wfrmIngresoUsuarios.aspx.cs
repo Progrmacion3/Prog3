@@ -2,16 +2,13 @@
 using Dominio;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Ejemplo.Web
 {
     public partial class FormularioIngresoUsuarios : System.Web.UI.Page
     {
         private Administrador admin;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -28,7 +25,6 @@ namespace Ejemplo.Web
                 }
             }
         }
-
      
         protected void lstUsuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -42,7 +38,7 @@ namespace Ejemplo.Web
 
             if (rdbAdm.Checked)
             {
-                Administrador administrador = new Administrador(id);
+                var administrador = new Administrador(id);
                 Fachada.Obtener(administrador);
                 txtId.Text = administrador.Id.ToString();
                 txtNombre.Text = administrador.Nombre;
@@ -54,7 +50,7 @@ namespace Ejemplo.Web
             }
             else
             {
-                Camionero camionero = new Camionero(id);
+                var camionero = new Camionero(id);
                 Fachada.Obtener(camionero);
                 txtId.Text = camionero.Id.ToString();
                 txtNombre.Text = camionero.Nombre;
@@ -117,7 +113,6 @@ namespace Ejemplo.Web
                     txtUsuario.Text,
                     txtContra.Text
                 );
-
                 if (Fachada.Alta(adm))
                 {
                     lblMensajes.Text = "Ingreso correcto";
@@ -208,30 +203,27 @@ namespace Ejemplo.Web
                 lblMensajes.Text = "Error: No se pudo dar de baja";
                 return;
             }
-                Usuario usuario = new Usuario(id);
-                if (Fachada.Baja(usuario))
+
+            var usuario = new Usuario(id);
+            if (Fachada.Baja(usuario))
+            {
+                if (rdbAdm.Checked)
                 {
-                    if (rdbAdm.Checked)
-                    {
-                        lblMensajes.Text = "Administrador dado de baja correctamente";
-                        ListarAdministradores();
-                        Limpiar();
-                    }
-                    else
-                    {
-                        lblMensajes.Text = "Camionero dado de baja correctamente";
-                        ListarCamioneros();
-                        Limpiar();
-                    }
+                    lblMensajes.Text = "Administrador dado de baja correctamente";
+                    ListarAdministradores();
                 }
                 else
                 {
-                    lblMensajes.Text = "No se pudo dar de baja";
+                    lblMensajes.Text = "Camionero dado de baja correctamente";
+                    ListarCamioneros();
                 }
-           
-         
+                Limpiar();
+            }
+            else
+            {
+                lblMensajes.Text = "No se pudo dar de baja";
+            }
         }
-    
 
         protected void btnModificar_Click(object sender, EventArgs e)
         {
@@ -241,6 +233,7 @@ namespace Ejemplo.Web
                 lblMensajes.Text = "Error: No se pudo dar de baja";
                 return;
             }
+
             int cedula;
             if (!int.TryParse(txtCedula.Text, out cedula))
             {
@@ -259,7 +252,6 @@ namespace Ejemplo.Web
                     txtUsuario.Text,
                     txtContra.Text
                 );
-
                 if (Fachada.Modificar(adm))
                 {
                     lblMensajes.Text = "Modificación correcta";
@@ -314,7 +306,5 @@ namespace Ejemplo.Web
         {
             Limpiar();
         }
-
-
     }
 }
