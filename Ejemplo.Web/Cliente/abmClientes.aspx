@@ -52,9 +52,17 @@
                 <asp:Label ID="lblResultado" runat="server" ForeColor="Red"></asp:Label>
             </td>
         </tr>
+         <tr>
+            <td colspan="3" align="left">
+                <asp:Label ID="lblId" runat="server" Visible="false" ForeColor="Red"></asp:Label>
+            </td>
+        </tr>
         <tr>
             <td colspan="3" align="left">
                 <asp:Button ID="btnAgregar" Text="Agregar" runat="server" OnClick="btnAgregar_Click" />
+                <asp:Button ID="btnModificar" Text="Modificar" runat="server" Visible ="false" OnClick="btnModificar_Click" />
+                <asp:Button ID="btnEliminar" Text="Eliminar" runat="server" Visible ="false" OnClick="btnEliminar_Click" />
+                 <asp:Button ID="btnCancelar" Text="Cancelar" runat="server" Visible ="false" OnClick="btnCancelar_Click" />
             </td>
         </tr>
 

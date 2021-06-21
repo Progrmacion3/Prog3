@@ -11,6 +11,10 @@ namespace Dominio.Clases
         {
             return Persistencia.Clases.pCliente.AgregarCliente(pCliente);
         }
+        public static bool Modificar_Cliente(Common.Clases.Cliente pCliente)
+        {
+            return Persistencia.Clases.pCliente.ModificarCliente(pCliente);
+        }
 
         public static List<Common.Clases.Cliente> TraerClientes()
         {
@@ -19,6 +23,10 @@ namespace Dominio.Clases
         public static Common.Clases.Cliente TraerEspecifico(Common.Clases.Cliente pCliente)
         {
             return Persistencia.Clases.pCliente.TraerEspecifico(pCliente);
+        }
+        public static bool  EliminarCliente(Common.Clases.Cliente pCliente)
+        {
+            return Persistencia.Clases.pCliente.EliminarCliente(pCliente);
         }
 
     }

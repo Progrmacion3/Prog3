@@ -54,7 +54,14 @@ namespace Dominio
         {
             return Dominio.Clases.dCliente.TraerEspecifico(pCliente);
         }
-
+        public static bool EliminarCliente(Common.Clases.Cliente pCliente)
+        {
+            return Dominio.Clases.dCliente.EliminarCliente(pCliente);
+        }
+        public static bool ModificarCliente(Common.Clases.Cliente pCliente)
+        {
+            return Dominio.Clases.dCliente.Modificar_Cliente(pCliente);
+        }
         #endregion
     }
 }

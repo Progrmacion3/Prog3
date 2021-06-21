@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Common.Clases;
+using Common.Utilidades;
 
 namespace Ejemplo.Web.Cliente
 {
@@ -31,6 +33,7 @@ namespace Ejemplo.Web.Cliente
                 if (Dominio.Fachada.Agregar_cliente(cliente))
                 {
                     lblResultado.Text = "Se ha ingresado el cliente de manera correcta.";
+                    ActualizarGrillaDeCliente();
                 }
                 else
                 {
@@ -98,12 +101,12 @@ namespace Ejemplo.Web.Cliente
         {
             this.lblResultado.Text = string.Empty;
 
+
             TableCell celdaId = grillaCliente.Rows[e.NewSelectedIndex].Cells[1];
-            Common.Clases.Cliente cli= new Common.Clases.Cliente();
+            Common.Clases.Cliente cli = new Common.Clases.Cliente();
             cli.Identificador = int.Parse(celdaId.Text);
+            this.lblId.Text = celdaId.Text;
             cli = Dominio.Fachada.Cliente_TraerEspecifico(cli);
-
-
 
             if (cli != null)
             {
@@ -111,18 +114,90 @@ namespace Ejemplo.Web.Cliente
                 this.txtApellido.Text = cli.Apellido;
                 this.txtDireccion.Text = cli.Direccion;
                 this.lblCategoria.Text = cli.Categoria.Nombre;
-               
+                Edicion(true);
             }
             else
             {
-                
                 ClientScript.RegisterClientScriptBlock(GetType(), "alert", "alert('ERROR: No se pudo cargar el dato.')", true);
+                Edicion(false);
             }
         }
         protected void ActualizarGrillaDeCliente()
         {
             this.grillaCliente.DataSource = Dominio.Fachada.Cliente_TraerTodosLosClientes();
             this.grillaCliente.DataBind();
+        }
+
+        protected void btnModificar_Click(object sender, EventArgs e)
+        {
+            Common.Clases.Cliente cliente = new Common.Clases.Cliente();
+            cliente.Apellido = this.txtApellido.Text;
+            cliente.Direccion = this.txtDireccion.Text;
+            cliente.Nombre = this.txtNombre.Text;
+            cliente.Identificador = int.Parse(this.lblId.Text);
+
+            if (Dominio.Fachada.ModificarCliente(cliente))
+            {
+                lblResultado.Text = "Se ha Modificado el cliente de manera correcta.";
+                ActualizarGrillaDeCliente();
+            }
+            else
+            {
+                lblResultado.Text = "NO se ha Modificado el cliente.";
+            }
+
+
+        }
+        protected void Edicion(bool value)
+        {
+            if (value)
+            {
+                this.btnAgregar.Visible = false;
+                this.btnModificar.Visible = true;
+                this.btnEliminar.Visible = true;
+                this.btnCancelar.Visible = true;
+                this.grdCategorias.Enabled = false;
+            }
+            else
+            {
+                this.btnAgregar.Visible = true;
+                this.btnModificar.Visible = false;
+                this.btnEliminar.Visible = false;
+                this.btnCancelar.Visible = false;
+                this.grdCategorias.Enabled = true;
+                this.txtNombre.Text = string.Empty;
+                this.txtApellido.Text = string.Empty;
+                this.txtDireccion.Text = string.Empty;
+                this.lblCategoria.Text = string.Empty;
+
+
+            }
+
+        }
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Common.Clases.Cliente cliente = new Common.Clases.Cliente();
+            cliente.Identificador = int.Parse(lblId.Text);
+            int estado = (int)Constantes.EstadoCliente.Eliminado;
+            cliente.Estado = estado;
+            if (Dominio.Fachada.EliminarCliente(cliente))
+            {
+                Edicion(false);
+                lblResultado.Text = "Se ha eliminado el cliente de manera correcta.";
+                ActualizarGrillaDeCliente();
+            }
+            else
+            {
+                lblResultado.Text = "NO se ha eliminado el cliente.";
+            }
+
+
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Edicion(false);
         }
     }
 }

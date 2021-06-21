@@ -13,5 +13,6 @@ namespace Common.Clases
         public string Apellido { get; set; }
         public string Direccion{ get; set; }
         public Categoria Categoria { get; set; }
+        public int Estado { get; set; }
     }
 }
