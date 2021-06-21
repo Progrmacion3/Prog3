@@ -132,7 +132,7 @@ namespace Persistencia.Clases
             return retorno;
         }
 
-        public static List<Common.Clases.Camion> ListarCamion()
+        public static List<Common.Clases.Camion> ListarCamiones()
         {
             List<Common.Clases.Camion> ListaCamiones = new List<Common.Clases.Camion>();
             Common.Clases.Camion cam;
@@ -172,6 +172,50 @@ namespace Persistencia.Clases
             }
 
             return ListaCamiones;
+        }
+
+        public static Common.Clases.Camion TraerCamion(Common.Clases.Camion pCamion)
+        {
+            Common.Clases.Camion camion = null;
+
+            try
+            {
+                var conn = new SqlConnection(CadenaDeConexion);
+                conn.Open();
+
+                // 1. identificamos el store procedure a ejecutar
+                SqlCommand cmd = new SqlCommand("Camion_TraerEspecifico", conn);
+
+                // 2. identificamos el tipo de ejecución, en este caso un SP
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                // 3. en caso de que los lleve se ponen los parametros del SP
+                cmd.Parameters.Add(new SqlParameter("@matricula", pCamion.Matricula));
+
+                // ejecutamos el store desde c#
+                using (SqlDataReader oReader = cmd.ExecuteReader())
+                {
+
+                    while (oReader.Read())
+                    {
+                        camion = new Common.Clases.Camion();
+                        camion.Matricula = oReader["matriculaC"].ToString();
+                        camion.Marca = oReader["marcaC"].ToString();
+                        camion.Modelo = oReader["modeloC"].ToString();
+                        camion.Year = short.Parse(oReader["yearC"].ToString());
+
+                    }
+
+                    conn.Close();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return camion;
         }
     }
 }

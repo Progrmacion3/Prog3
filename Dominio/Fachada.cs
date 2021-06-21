@@ -35,6 +35,7 @@ namespace Dominio
         }
 
         #endregion
+
         #region Camiones
         public static bool AltaCamion(Common.Clases.Camion pCamion)
         {
@@ -48,9 +49,13 @@ namespace Dominio
         {
             return Dominio.Clases.dCamion.ModificarCamion(pCamion);
         }
-        public static List<Common.Clases.Camion> ListarCamion()
+        public static List<Common.Clases.Camion> ListarCamiones()
         {
-            return Dominio.Clases.dCamion.ListarCamion();
+            return Dominio.Clases.dCamion.ListarCamiones();
+        }
+        public static Common.Clases.Camion TraerCamion(Common.Clases.Camion pCamion)
+        {
+            return Dominio.Clases.dCamion.TraerCamion(pCamion);
         }
         #endregion
     }

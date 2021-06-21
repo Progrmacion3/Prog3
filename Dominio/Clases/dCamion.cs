@@ -11,7 +11,6 @@ namespace Dominio.Clases
         {
             return Persistencia.Clases.pCamion.AltaCamion(pCamion);
         }
-
         public static bool BajaCamion(Common.Clases.Camion pCamion)
         {
             return Persistencia.Clases.pCamion.BajaCamion(pCamion);
@@ -20,9 +19,13 @@ namespace Dominio.Clases
         {
             return Persistencia.Clases.pCamion.ModificarCamion(pCamion);
         }
-        public static List<Common.Clases.Camion> ListarCamion()
+        public static List<Common.Clases.Camion> ListarCamiones()
         {
-            return Persistencia.Clases.pCamion.ListarCamion();
+            return Persistencia.Clases.pCamion.ListarCamiones();
+        }
+        public static Common.Clases.Camion TraerCamion(Common.Clases.Camion pCamion)
+        {
+            return Persistencia.Clases.pCamion.TraerCamion(pCamion);
         }
 
     }
