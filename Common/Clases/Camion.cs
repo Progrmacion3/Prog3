@@ -38,5 +38,13 @@ namespace Common.Clases
             get { return _año; }
             set { _año = value; }
         }
+
+        public Camion(string pMatriucla, string pMarca, string pModelo, int pAño)
+        {
+            this.Matricula = pMatriucla;
+            this.Marca = pMarca;
+            this.Modelo = pModelo;
+            this.Año = pAño;
+        }
     }
 }

@@ -2,22 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Common.Clases;
 
-namespace Dominio.Clases
+namespace Persistencia.Clases
 {
-    public class Camionero
+    public class Camionero : Persistencia
     {
         public static bool AgregarCamionero(Common.Clases.Camionero pCamionero)
         {
-            return Persistencia.Clases.Camionero.AgregarCamionero(pCamionero);
+            throw new NotImplementedException();
         }
+
         public static bool EliminarCamionero(Common.Clases.Camionero pCamionero)
         {
-            return Persistencia.Clases.Camionero.EliminarCamionero(pCamionero);
+            throw new NotImplementedException();
         }
+
         public static bool ModificarCamionero(Common.Clases.Camionero pCamionero)
         {
-            return Persistencia.Clases.Camionero.ModificarCamionero(pCamionero);
+            throw new NotImplementedException();
         }
     }
 }

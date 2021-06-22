@@ -2,22 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Common.Clases;
 
-namespace Dominio.Clases
+namespace Persistencia.Clases
 {
-    public class Viaje
+    public class Viaje : Persistencia
     {
         public static bool AgregarViaje(Common.Clases.Viaje pViaje)
         {
-            return Persistencia.Clases.Viaje.AgregarViaje(pViaje);
+            throw new NotImplementedException();
         }
+
         public static bool EliminarViaje(Common.Clases.Viaje pViaje)
         {
-            return Persistencia.Clases.Viaje.EliminarViaje(pViaje);
+            throw new NotImplementedException();
         }
+
         public static bool ModificarViaje(Common.Clases.Viaje pViaje)
         {
-            return Persistencia.Clases.Viaje.ModificarViaje(pViaje);
+            throw new NotImplementedException();
         }
     }
 }

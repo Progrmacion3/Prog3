@@ -13,14 +13,13 @@
     <div class="page">
         <div class="header">
             <div class="title">
-                <h1>
-                    Ejemplo de web con bd sql server</h1>
+                <h1>Obligatorio</h1>
             </div>
            
             <div class="clear hideSkiplink">
                 <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
                     <Items>
-                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Categorias"/>
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Iniciar sesión"/>
                     </Items>
                 </asp:Menu>
             </div>

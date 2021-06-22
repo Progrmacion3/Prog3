@@ -2,22 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Common.Clases;
 
-namespace Dominio.Clases
+namespace Persistencia.Clases
 {
-    public class Empleado
+    public class Empleado : Persistencia
     {
         public static bool AgregarEmpleado(Common.Clases.Empleado pEmpleado)
         {
-            return Persistencia.Clases.Empleado.AgregarEmpleado(pEmpleado);
+            throw new NotImplementedException();
         }
+
         public static bool EliminarEmpleado(Common.Clases.Empleado pEmpleado)
         {
-            return Persistencia.Clases.Empleado.EliminarEmpleado(pEmpleado);
+            throw new NotImplementedException();
         }
+
         public static bool ModificarEmpleado(Common.Clases.Empleado pEmpleado)
         {
-            return Persistencia.Clases.Empleado.ModificarEmpleado(pEmpleado);
+            throw new NotImplementedException();
         }
     }
 }

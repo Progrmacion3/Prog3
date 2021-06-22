@@ -26,5 +26,11 @@ namespace Common.Clases
             get { return _comentario; }
             set { _comentario = value; }
         }
+
+        public Parada(string pTipo, string pComentario)
+        {
+            this.Tipo = pTipo;
+            this.Comentario = pComentario;
+        }
     }
 }

@@ -68,5 +68,18 @@ namespace Common.Clases
             get { return _estado; }
             set { _estado = value; }
         }
+
+        public Viaje(Camionero pCamionero, Camion pCamion, string pTipoCarga, int pKilaje, string pOrigen, string pDestino, DateTime pFechaInicio, DateTime pFechaFinal, string pEstado)
+        {
+            this.Camionero = pCamionero;
+            this.Camion = pCamion;
+            this.TipoCarga = pTipoCarga;
+            this.Kilaje = pKilaje;
+            this.Origen = pOrigen;
+            this.Destino = pDestino;
+            this.FechaInicio = pFechaInicio;
+            this.FechaFinal = pFechaFinal;
+            this.Estado = pEstado;
+        }
     }
 }
