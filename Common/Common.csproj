@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="Clases\Camion.cs" />
     <Compile Include="Clases\Camionero.cs" />
+    <Compile Include="Clases\Constantes.cs" />
     <Compile Include="Clases\Empleado.cs" />
     <Compile Include="Clases\Parada.cs" />
     <Compile Include="Clases\Viaje.cs" />

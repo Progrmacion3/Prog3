@@ -5,8 +5,9 @@ using System.Text;
 
 namespace Common.Clases
 {
-    class Viaje
+   public class Viaje
     {
+        public int identificadorViaje { get; set; }
         public Camionero Camionero { get; set; }
         public Camion Camion { get; set; }
         public string Tipo_Carga { get; set; }
@@ -15,7 +16,7 @@ namespace Common.Clases
         public string Destino { get; set; }
         public DateTime Fecha_Inicio { get; set; }
         public DateTime Fecha_Finalizacion { get; set; }
-        public string Estado { get; set; }
+        public string EstadoViaje { get; set; }
 
        
     }

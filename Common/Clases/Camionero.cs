@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Common.Clases
 {
-    class Camionero
+    public class Camionero
     {
         public int identificadorCam { get; set; }
         public int Edad { get; set; }
