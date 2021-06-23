@@ -7,6 +7,11 @@ namespace Common.Clases
 {
     public class Admin : Empleado
     {
+        public Admin()
+        {
+        }
+
+
         //private int _idAdmin;
         //public int IdAdmin
         //{

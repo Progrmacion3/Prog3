@@ -35,5 +35,9 @@ namespace Common.Clases
             this.CategoriaLibreta = pCategoriaLibreta;
             this.FechaVencimiento = pFechaVencimiento;
         }
+
+        public Camionero()
+        {
+        }
     }
 }

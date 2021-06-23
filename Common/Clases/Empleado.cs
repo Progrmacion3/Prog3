@@ -64,7 +64,10 @@ namespace Common.Clases
             set { _contraseña = value; }
         }
 
+        public Empleado()
+        {
 
+        }
         public Empleado(int pCedula, string pNombre, string pApellido, DateTime pFechaNacimiento, string pCargo, string pTelefono, string pUsuario, string pContraseña)
         {
             this.Cedula = pCedula;
