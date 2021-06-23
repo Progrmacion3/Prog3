@@ -46,5 +46,9 @@ namespace Common.Clases
             this.Modelo = pModelo;
             this.Año = pAño;
         }
+
+        public Camion()
+        {
+        }
     }
 }
