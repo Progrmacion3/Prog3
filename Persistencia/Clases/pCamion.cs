@@ -25,10 +25,10 @@ namespace Persistencia.Clases
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 // 3. en caso de que los lleve se ponen los parametros del SP
-                cmd.Parameters.Add(new SqlParameter("@matricula", pCamion.Matricula));
-                cmd.Parameters.Add(new SqlParameter("@marca", pCamion.Marca));
-                cmd.Parameters.Add(new SqlParameter("@modelo", pCamion.Modelo));
-                cmd.Parameters.Add(new SqlParameter("@year", pCamion.Year));
+                cmd.Parameters.Add(new SqlParameter("@matriculaC", pCamion.Matricula));
+                cmd.Parameters.Add(new SqlParameter("@marcaC", pCamion.Marca));
+                cmd.Parameters.Add(new SqlParameter("@modeloC", pCamion.Modelo));
+                cmd.Parameters.Add(new SqlParameter("@yearC", pCamion.Year));
 
                 // ejecutamos el store desde c#
                 int rtn = cmd.ExecuteNonQuery();
@@ -67,10 +67,10 @@ namespace Persistencia.Clases
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 // 3. en caso de que los lleve se ponen los parametros del SP
-                cmd.Parameters.Add(new SqlParameter("@matricula", pCamion.Matricula));
-                cmd.Parameters.Add(new SqlParameter("@marca", pCamion.Marca));
-                cmd.Parameters.Add(new SqlParameter("@modelo", pCamion.Modelo));
-                cmd.Parameters.Add(new SqlParameter("@year", pCamion.Year));
+                cmd.Parameters.Add(new SqlParameter("@matriculaC", pCamion.Matricula));
+                cmd.Parameters.Add(new SqlParameter("@marcaC", pCamion.Marca));
+                cmd.Parameters.Add(new SqlParameter("@modeloC", pCamion.Modelo));
+                cmd.Parameters.Add(new SqlParameter("@yearC", pCamion.Year));
 
                 // ejecutamos el store desde c#
                 int rtn = cmd.ExecuteNonQuery();
@@ -109,7 +109,7 @@ namespace Persistencia.Clases
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 // 3. en caso de que los lleve se ponen los parametros del SP
-                cmd.Parameters.Add(new SqlParameter("@matricula", pCamion.Matricula));
+                cmd.Parameters.Add(new SqlParameter("@matriculaC", pCamion.Matricula));
 
                 // ejecutamos el store desde c#
                 int rtn = cmd.ExecuteNonQuery();
@@ -155,10 +155,10 @@ namespace Persistencia.Clases
                     while (oReader.Read())
                     {
                         cam = new Common.Clases.Camion();
-                        cam.Matricula = oReader["matriculaCamion"].ToString();
-                        cam.Marca = oReader["marcaCamion"].ToString();
-                        cam.Modelo = oReader["modeloCamion"].ToString();
-                        cam.Year = short.Parse(oReader["yearCamion"].ToString());
+                        cam.Matricula = oReader["matriculaC"].ToString();
+                        cam.Marca = oReader["marcaC"].ToString();
+                        cam.Modelo = oReader["modeloC"].ToString();
+                        cam.Year = short.Parse(oReader["yearC"].ToString());
                         ListaCamiones.Add(cam);
                     }
 
@@ -199,10 +199,10 @@ namespace Persistencia.Clases
                     while (oReader.Read())
                     {
                         camion = new Common.Clases.Camion();
-                        camion.Matricula = oReader["matriculaCamion"].ToString();
-                        camion.Marca = oReader["marcaCamion"].ToString();
-                        camion.Modelo = oReader["modeloCamion"].ToString();
-                        camion.Year = short.Parse(oReader["yearCamion"].ToString());
+                        camion.Matricula = oReader["matriculaC"].ToString();
+                        camion.Marca = oReader["marcaC"].ToString();
+                        camion.Modelo = oReader["modeloC"].ToString();
+                        camion.Year = short.Parse(oReader["yearC"].ToString());
 
                     }
 
