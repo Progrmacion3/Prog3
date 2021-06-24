@@ -17,6 +17,7 @@ namespace Common.Clases
         public DateTime Fecha_Inicio { get; set; }
         public DateTime Fecha_Finalizacion { get; set; }
         public string EstadoViaje { get; set; }
+       
 
        
     }
