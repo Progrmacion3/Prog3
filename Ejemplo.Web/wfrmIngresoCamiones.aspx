@@ -100,10 +100,36 @@
             <td class="style17">
                 <asp:TextBox ID="txtId" runat="server" Width="223px" TabIndex="1" AutoCompleteType="Disabled" Enabled="False" Height="38px"></asp:TextBox>
             </td>
+
             <td class="style18" rowspan="10">
                 <asp:ListBox ID="lstCamiones" runat="server" 
                 onselectedindexchanged="lstCamiones_SelectedIndexChanged" 
-                AutoPostBack="True" Height="246px" Width="332px" Font-Size="Small"></asp:ListBox>
+                AutoPostBack="True" Height="84px" Width="332px" Font-Size="Small"></asp:ListBox>
+
+
+ <asp:GridView ID="GridViewUsuarios" runat="server" AutoGenerateColumns="False" Width="433px" CellPadding="4" ForeColor="#333333" GridLines="None">
+              <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+              <Columns>
+                  <asp:BoundField DataField="id_camion" HeaderText="ID"></asp:BoundField>
+                  <asp:BoundField DataField="marca" HeaderText="Marca"></asp:BoundField>
+                  <asp:BoundField DataField="modelo" HeaderText="Modelo"></asp:BoundField>
+                  <asp:BoundField DataField="matricula" HeaderText="Matrícula"></asp:BoundField>
+                  <asp:BoundField DataField="anio" HeaderText="Año"></asp:BoundField>
+              </Columns>
+              <EditRowStyle BackColor="#999999" />
+              <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+              <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+              <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+              <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+              <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+              <sortedascendingcellstyle backcolor="#E9E7E2" />
+              <sortedascendingheaderstyle backcolor="#506C8C" />
+              <sorteddescendingcellstyle backcolor="#FFFDF8" />
+              <sorteddescendingheaderstyle backcolor="#6F8DAE" />
+          </asp:GridView>
+
+
+
             </td>
         </tr>
         <tr>
