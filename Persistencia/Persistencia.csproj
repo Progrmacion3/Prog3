@@ -54,7 +54,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Categoria.cs" />
+    <Compile Include="Clases\pAdministrador.cs" />
     <Compile Include="Clases\pCamion.cs" />
+    <Compile Include="Clases\pCamionero.cs" />
     <Compile Include="Clases\Persistencia.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -38,7 +38,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Clases\Categoria.cs" />
+    <Compile Include="Clases\dAdministrador.cs" />
     <Compile Include="Clases\dCamion.cs" />
+    <Compile Include="Clases\dCamionero.cs" />
     <Compile Include="Fachada.cs" />
   </ItemGroup>
   <ItemGroup>

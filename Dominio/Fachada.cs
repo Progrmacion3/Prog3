@@ -58,5 +58,51 @@ namespace Dominio
             return Dominio.Clases.dCamion.TraerCamion(pCamion);
         }
         #endregion
+
+        #region Camioneros
+        public static bool AltaCamionero(Common.Clases.Camionero pCamionero)
+        {
+            return Dominio.Clases.dCamionero.AltaCamionero(pCamionero);
+        }
+        public static bool BajaCamionero(Common.Clases.Camionero pCamionero)
+        {
+            return Dominio.Clases.dCamionero.BajaCamionero(pCamionero);
+        }
+        public static bool ModificarCamionero(Common.Clases.Camionero pCamionero)
+        {
+            return Dominio.Clases.dCamionero.ModificarCamionero(pCamionero);
+        }
+        public static List<Common.Clases.Camionero> ListarCamioneros()
+        {
+            return Dominio.Clases.dCamionero.ListarCamioneros();
+        }
+        public static Common.Clases.Camionero TraerCamionero(Common.Clases.Camionero pCamionero)
+        {
+            return Dominio.Clases.dCamionero.TraerCamionero(pCamionero);
+        }
+        #endregion
+
+        #region Administrador
+        public static bool AltaAdministrador(Common.Clases.Administrador pAdministrador)
+        {
+            return Dominio.Clases.dAdministrador.AltaAdministrador(pAdministrador);
+        }
+        public static bool BajaAdministrador(Common.Clases.Administrador pAdministrador)
+        {
+            return Dominio.Clases.dAdministrador.BajaAdministrador(pAdministrador);
+        }
+        public static bool ModificarAdministrador(Common.Clases.Administrador pAdministrador)
+        {
+            return Dominio.Clases.dAdministrador.ModificarAdministrador(pAdministrador);
+        }
+        public static List<Common.Clases.Administrador> ListarAdministradores()
+        {
+            return Dominio.Clases.dAdministrador.ListarAdministradores();
+        }
+        public static Common.Clases.Administrador TraerAdministrador(Common.Clases.Administrador pAdministrador)
+        {
+            return Dominio.Clases.dAdministrador.TraerAdministrador(pAdministrador);
+        }
+        #endregion
     }
 }
