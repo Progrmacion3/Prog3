@@ -14,7 +14,7 @@
         <div class="header">
             <div class="title">
                 <h1>
-                    Ejemplo de web con bd sql server</h1>
+                    Login</h1>
             </div>
            
             <div class="clear hideSkiplink">
@@ -22,7 +22,37 @@
             </div>
         </div>
         <div class="main">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                <p>
+                    <br />
+                    <asp:Label ID="Label1" runat="server" Text="Usuario"></asp:Label>
+                    <asp:TextBox ID="txtUsuarioLogin" runat="server" Height="16px" style="margin-left: 13px; margin-top: 10px; margin-bottom: 0px"></asp:TextBox>
+                </p>
+                <p>
+                    <asp:Label ID="Label2" runat="server" Text="Contraseña"></asp:Label>
+                <asp:TextBox ID="txtContraseñaLogin" runat="server" style="margin-left: 13px"></asp:TextBox>
+                </p>
+                <p>
+                    <asp:Label ID="Label3" runat="server" Text="Tipo"></asp:Label>
+                    <asp:TextBox ID="txtTipoLogin" runat="server" style="margin-left: 12px"></asp:TextBox>
+                </p>
+                <p>
+                </p>
+                <p>
+                    <asp:Button ID="btnAceptarLogin" runat="server" style="margin-left: 121px" Text="Aceptar" />
+                </p>
+                <p>
+                </p>
+            </asp:ContentPlaceHolder>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
         </div>
         <div class="clear">
         </div>
