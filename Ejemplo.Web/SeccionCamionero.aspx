@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SeccionCamionero.aspx.cs" Inherits="Ejemplo.Web.SeccionCamionero" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SeccionCamionero.aspx.cs" Inherits="Ejemplo.Web.SeccionCamionero" %  > 
 
 <!DOCTYPE html>
 

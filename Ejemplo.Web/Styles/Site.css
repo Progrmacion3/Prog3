@@ -9,6 +9,7 @@ body
     margin: 0px;
     padding: 0px;
     color: #696969;
+    height: 207px;
 }
 
 a:link, a:visited
@@ -31,6 +32,8 @@ p
 {
     margin-bottom: 10px;
     line-height: 1.6em;
+    height: 22px;
+    width: 916px;
 }
 
 

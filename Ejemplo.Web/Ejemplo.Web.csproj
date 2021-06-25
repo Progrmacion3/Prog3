@@ -65,6 +65,7 @@
     <Content Include="Camion.aspx" />
     <Content Include="Camionero.aspx" />
     <Content Include="Empleado.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="SeccionAdministrativa.aspx" />
     <Content Include="SeccionCamionero.aspx" />
     <Content Include="Styles\Site.css" />
@@ -73,7 +74,9 @@
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Viaje.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -105,6 +108,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeccionAdministrativa.aspx.cs">
