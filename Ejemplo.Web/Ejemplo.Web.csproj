@@ -62,11 +62,18 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Camion.aspx" />
+    <Content Include="Camionero.aspx" />
+    <Content Include="Empleado.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="SeccionAdministrativa.aspx" />
+    <Content Include="SeccionCamionero.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Viaje.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -76,16 +83,65 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Camion.aspx.cs">
+      <DependentUpon>Camion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Camion.aspx.designer.cs">
+      <DependentUpon>Camion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Camionero.aspx.cs">
+      <DependentUpon>Camionero.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Camionero.aspx.designer.cs">
+      <DependentUpon>Camionero.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Empleado.aspx.cs">
+      <DependentUpon>Empleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Empleado.aspx.designer.cs">
+      <DependentUpon>Empleado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeccionAdministrativa.aspx.cs">
+      <DependentUpon>SeccionAdministrativa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeccionAdministrativa.aspx.designer.cs">
+      <DependentUpon>SeccionAdministrativa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeccionCamionero.aspx.cs">
+      <DependentUpon>SeccionCamionero.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeccionCamionero.aspx.designer.cs">
+      <DependentUpon>SeccionCamionero.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Viaje.aspx.cs">
+      <DependentUpon>Viaje.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Viaje.aspx.designer.cs">
+      <DependentUpon>Viaje.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
