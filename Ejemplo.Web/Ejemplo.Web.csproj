@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Forms\frmCamion.aspx" />
+    <Content Include="Forms\frmInicioSesion.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -91,6 +92,13 @@
     </Compile>
     <Compile Include="Forms\frmCamion.aspx.designer.cs">
       <DependentUpon>frmCamion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmInicioSesion.aspx.cs">
+      <DependentUpon>frmInicioSesion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmInicioSesion.aspx.designer.cs">
+      <DependentUpon>frmInicioSesion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

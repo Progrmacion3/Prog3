@@ -18,9 +18,19 @@
             </div>
            
             <div class="clear hideSkiplink">
-                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                <asp:Menu ID="MenuIniciarSersion" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Forms/frmInicioSesion.aspx" Text="Inicio de Sesión"/>
+                    </Items>
+                </asp:Menu>
+                <asp:Menu ID="MenuAdministrador" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
                     <Items>
                         <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Categorias"/>
+                        <asp:MenuItem NavigateUrl="~/Forms/frmCamion.aspx" Text="Camión"/>
+                    </Items>
+                </asp:Menu>
+                <asp:Menu ID="MenuCamionero" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
                         <asp:MenuItem NavigateUrl="~/Forms/frmCamion.aspx" Text="Camión"/>
                     </Items>
                 </asp:Menu>
