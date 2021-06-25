@@ -113,7 +113,6 @@ namespace Persistencia.Clases
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.Add(new SqlParameter("@idViaje", pVia.identificadorViaje));
-                cmd.Parameters.Add(new SqlParameter("@estado", pVia.Estado));
 
                 int rtn = cmd.ExecuteNonQuery();
 
