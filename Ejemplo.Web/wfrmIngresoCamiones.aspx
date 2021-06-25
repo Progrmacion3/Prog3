@@ -168,8 +168,7 @@
                     BorderColor="#CCFFFF" Font-Bold="True" ForeColor="White" 
         TabIndex="11" />
 &nbsp;&nbsp;
-    <asp:Label ID="lblMensajes" runat="server" style="font-family: 'Arial Black'" 
-        Text="." ForeColor="#CC0000"></asp:Label>
+    <asp:Label ID="lblMensajes" runat="server" style="font-family: 'Arial Black'" ForeColor="#CC0000"></asp:Label>
 
 
 

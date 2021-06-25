@@ -17,9 +17,9 @@
              <asp:ValidationSummary ID="LoginUserValidationSummary" runat="server" CssClass="failureNotification" 
                  ValidationGroup="LoginUserValidationGroup"/>
             <div class="accountInfo">
-                <fieldset class="login">
+                <fieldset class="login" style="background-image: none">
                     <legend>Credenciales de Usuario</legend>
-                    <p>
+                    <p style="background-image: none; background-repeat: no-repeat; background-position: right center">
                         <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">Usuario:</asp:Label>
                         <asp:TextBox ID="UserName" runat="server" CssClass="textEntry"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" 
@@ -35,7 +35,8 @@
                     </p>
                 </fieldset>
                 <p class="submitButton">
-                    <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Ingresar" ValidationGroup="LoginUserValidationGroup" OnClick="LoginButton_Click"/>
+                    <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Ingresar" ValidationGroup="LoginUserValidationGroup"   Style="text-align: center" Width="115px" Height="45px" BackColor="#003366"
+    BorderColor="#CCFFFF" Font-Bold="True" ForeColor="White" OnClick="LoginButton_Click"/>
                 </p>
             </div>
         </LayoutTemplate>
