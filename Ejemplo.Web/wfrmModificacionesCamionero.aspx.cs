@@ -66,30 +66,5 @@ namespace Ejemplo.Web
                 lblMensajes.Text = "Error de base de datos.";
             }
         }
-
-        protected void txtCamionero_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void txtKilaje_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void txtCamionero1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void TextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

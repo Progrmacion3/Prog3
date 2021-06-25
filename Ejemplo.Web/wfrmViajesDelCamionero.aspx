@@ -10,6 +10,9 @@
     .auto-style1 {
       width: 480px;
     }
+      .auto-style2 {
+          width: 418px;
+      }
   </style>
 </asp:Content>
 <asp:Content ID="Content2" runat="server" contentplaceholderid="MainContent">
@@ -20,14 +23,16 @@
       <br />
     </caption>
     <tr>
-      <td class="auto-style1">
+      <td class="auto-style2">
         <asp:Label ID="lblCamionero" runat="server" style="font-family: 'Arial Black'" Text="Lista de camioneros" />
         <br />
-        <asp:Label ID="Label1" runat="server" Text="Filtrar por cédula:" />
-        <asp:TextBox ID="txtCedula" runat="server" />
-        <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" OnClick="btnFiltrar_Click" />
+        <asp:Label ID="Label1" runat="server" Text="Filtrar por cédula:       " />
+        <asp:TextBox ID="txtCedula" runat="server" Width="151px" />
+        <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" Style="text-align: center"
+    Width="115px" Height="32px" BackColor="#003366"
+    BorderColor="#CCFFFF" Font-Bold="True" ForeColor="White"  OnClick="btnFiltrar_Click" />
         <br />
-        <asp:ListBox ID="lstCamioneros" runat="server" Width="440px" Height="300px" Font-Size="Small"
+        <asp:ListBox ID="lstCamioneros" runat="server" Width="384px" Height="300px" Font-Size="Small"
           OnSelectedIndexChanged="lstCamioneros_SelectedIndexChanged" AutoPostBack="True" />
       </td>
       <td>
