@@ -58,6 +58,7 @@
     <Compile Include="PersistenciaCamionero.cs" />
     <Compile Include="PersistenciaCamión.cs" />
     <Compile Include="PersistenciaCiudad.cs" />
+    <Compile Include="PersistenciaConsultas.cs" />
     <Compile Include="PersistenciaUsuario.cs" />
     <Compile Include="PersistenciaViaje.cs" />
   </ItemGroup>

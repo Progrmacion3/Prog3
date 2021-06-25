@@ -108,33 +108,6 @@
 
 
 
- <asp:GridView ID="GridViewUsuarios" runat="server" AutoGenerateColumns="False" Width="829px" CellPadding="4" ForeColor="#333333" GridLines="None">
-              <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-              <Columns>
-                  <asp:BoundField DataField="id_viaje" HeaderText="ID Viaje"></asp:BoundField>
-                  <asp:BoundField DataField="carga" HeaderText="Tipo de Carga"></asp:BoundField>
-                  <asp:BoundField DataField="fec_ini" HeaderText="Fecha Inicio"></asp:BoundField>
-                  <asp:BoundField DataField="fec_final" HeaderText="Fecha final"></asp:BoundField>
-                  <asp:BoundField DataField="camion" HeaderText="Camion"></asp:BoundField>
-                  <asp:BoundField DataField="camionero" HeaderText="Camionero"></asp:BoundField>
-                  <asp:BoundField DataField="ciu_ini" HeaderText="Ciudad Inicio"></asp:BoundField>
-                  <asp:BoundField DataField="ciu_final" HeaderText="Ciudad Final"></asp:BoundField>
-
-              </Columns>
-              <EditRowStyle BackColor="#999999" />
-              <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-              <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-              <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-              <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-              <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-              <sortedascendingcellstyle backcolor="#E9E7E2" />
-              <sortedascendingheaderstyle backcolor="#506C8C" />
-              <sorteddescendingcellstyle backcolor="#FFFDF8" />
-              <sorteddescendingheaderstyle backcolor="#6F8DAE" />
-          </asp:GridView>
-
-
-
 
 
 
@@ -176,7 +149,7 @@
   &nbsp;&nbsp;&nbsp;
   
     <asp:Label ID="lblMensajes" Style="font-family: 'Arial Black'" runat="server"
-      Width="514px" Text="." ForeColor="#CC0000"></asp:Label>
+      Width="514px" ForeColor="#CC0000"></asp:Label>
   <br />
 
 </asp:Content>

@@ -18,9 +18,18 @@ namespace Common
         {
         }
 
-        public Estado(string tipo)
+        public Estado(string tipo, int kilaje, string comentario)
         {
             Tipo = tipo;
+            Kilaje = kilaje;
+            Comentario = comentario;
+        }
+
+        public Estado(int id, string tipo, DateTime time)
+        {
+            Id = id;
+            Tipo = tipo;
+            Time = time;
         }
     }
 }

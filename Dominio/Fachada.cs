@@ -143,5 +143,24 @@ namespace Dominio
         }
 
         #endregion
+
+        #region Consultas
+
+        public static bool ListarViajesOrdenadosDelMes(List<Viaje> viajes)
+        {
+            return Consultas.ListarViajesOrdenadosDelMes(viajes);
+        }
+
+        public static bool ListarCamioneros(int cédula, List<Camionero> lista)
+        {
+            return Consultas.ListarCamioneros(cédula, lista);
+        }
+
+        public static bool ListarViajes(Camionero camionero, List<Viaje> lista)
+        {
+            return Consultas.ListarViajes(camionero, lista);
+        }
+
+        #endregion
     }
 }

@@ -37,6 +37,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Consultas.cs" />
     <Compile Include="DominioAdministrador.cs" />
     <Compile Include="DominioCamionero.cs" />
     <Compile Include="DominioCamión.cs" />

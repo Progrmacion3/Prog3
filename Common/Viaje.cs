@@ -26,11 +26,13 @@ namespace Common
 
         public Viaje()
         {
+            Estados = new List<Estado>();
         }
 
         public Viaje(int id)
         {
             Id = id;
+            Estados = new List<Estado>();
         }
 
         public Viaje(int id, string carga, DateTime inicio, DateTime fin, Ciudad origen, Ciudad destino, Camión camión, Camionero camionero)

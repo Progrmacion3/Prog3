@@ -32,7 +32,7 @@ namespace Persistencia
                 camionero.Id = Convert.ToInt32(comando.Parameters["@id"].Value);
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
                 return false;
             }

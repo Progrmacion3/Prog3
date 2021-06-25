@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Ejemplo.Web {
-    
-    
-    public partial class wfrmModificacionesCamionero {
-        
+namespace Ejemplo.Web
+{
+
+
+    public partial class wfrmModificacionesCamionero
+    {
+
         /// <summary>
         /// lblCamioneroNombre control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Ejemplo.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCamioneroNombre;
-        
+
         /// <summary>
         /// txtCamionero control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Ejemplo.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCamionero;
-        
+
         /// <summary>
         /// lblViajeID control.
         /// </summary>
@@ -38,16 +40,16 @@ namespace Ejemplo.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblViajeID;
-        
+
         /// <summary>
-        /// txtKilaje control.
+        /// txtViaje control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtKilaje;
-        
+        protected global::System.Web.UI.WebControls.TextBox txtViaje;
+
         /// <summary>
         /// lblEstado control.
         /// </summary>
@@ -56,16 +58,16 @@ namespace Ejemplo.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEstado;
-        
+
         /// <summary>
-        /// DropDownList2 control.
+        /// ddlEstado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
-        
+        protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
+
         /// <summary>
         /// lblKilaje control.
         /// </summary>
@@ -74,16 +76,16 @@ namespace Ejemplo.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblKilaje;
-        
+
         /// <summary>
-        /// txtCamionero1 control.
+        /// txtKilaje control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCamionero1;
-        
+        protected global::System.Web.UI.WebControls.TextBox txtKilaje;
+
         /// <summary>
         /// lblcomentario control.
         /// </summary>
@@ -92,16 +94,16 @@ namespace Ejemplo.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblcomentario;
-        
+
         /// <summary>
-        /// TextBox1 control.
+        /// txtComentario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
-        
+        protected global::System.Web.UI.WebControls.TextBox txtComentario;
+
         /// <summary>
         /// btnModificarViaje control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace Ejemplo.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnModificarViaje;
-        
+
         /// <summary>
         /// lblMensajes control.
         /// </summary>

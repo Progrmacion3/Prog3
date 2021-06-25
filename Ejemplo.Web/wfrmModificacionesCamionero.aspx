@@ -42,7 +42,7 @@
                 </td>
             <td>
   
-                <asp:TextBox ID="txtKilaje" runat="server" Width="220px" Enabled="False" Height="26px" OnTextChanged="txtKilaje_TextChanged"></asp:TextBox>
+                <asp:TextBox ID="txtViaje" runat="server" Width="220px" Enabled="False" Height="26px" OnTextChanged="txtKilaje_TextChanged"></asp:TextBox>
             </td>
          </tr>
         <tr>
@@ -57,7 +57,7 @@
                 </td>
             <td>
   
-                <asp:DropDownList ID="DropDownList2" runat="server" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged" Height="28px" Width="228px">
+                <asp:DropDownList ID="ddlEstado" runat="server" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged" Height="28px" Width="228px">
                     <asp:ListItem>En curso</asp:ListItem>
                     <asp:ListItem>Parado</asp:ListItem>
                     <asp:ListItem>Finalizado</asp:ListItem>
@@ -77,7 +77,7 @@
                 </td>
             <td>
   
-                <asp:TextBox ID="txtCamionero1" runat="server" Width="220px" Height="26px" OnTextChanged="txtCamionero1_TextChanged"></asp:TextBox>
+                <asp:TextBox ID="txtKilaje" runat="server" Width="220px" Height="26px" OnTextChanged="txtCamionero1_TextChanged"></asp:TextBox>
             </td>
          </tr>
         <tr>
@@ -87,7 +87,7 @@
 
   
                 <br />
-                <asp:TextBox ID="TextBox1" runat="server" Height="106px" TextMode="MultiLine" Width="496px"></asp:TextBox>
+                <asp:TextBox ID="txtComentario" runat="server" Height="106px" TextMode="MultiLine" Width="496px"></asp:TextBox>
                 <br />
 
   
@@ -118,7 +118,7 @@
     &nbsp;
   
     <asp:Label ID="lblMensajes" style="font-family: 'Arial Black'" runat="server" 
-        Width="514px" runat="server" Text="." ForeColor="#CC0000" Visible="False"></asp:Label>
+        Width="514px" runat="server" ForeColor="#CC0000"></asp:Label>
     <br />
     
 </asp:Content>

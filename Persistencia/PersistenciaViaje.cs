@@ -18,8 +18,8 @@ namespace Persistencia
             comando.Parameters.AddWithValue("@carga", viaje.Carga);
             comando.Parameters.AddWithValue("@fecha_ini", viaje.Inicio);
             comando.Parameters.AddWithValue("@fecha_fin", viaje.Fin);
-            comando.Parameters.AddWithValue("@id_ciu_ini", viaje.Origen);
-            comando.Parameters.AddWithValue("@id_ciu_final", viaje.Destino);
+            comando.Parameters.AddWithValue("@id_ciu_ini", viaje.Origen.Id);
+            comando.Parameters.AddWithValue("@id_ciu_final", viaje.Destino.Id);
             comando.Parameters.AddWithValue("@id_camion", viaje.Camión.Id);
             comando.Parameters.AddWithValue("@id_usuario_camionero", viaje.Camionero.Id);
             comando.Parameters["@id"].Direction = ParameterDirection.Output;
@@ -28,9 +28,11 @@ namespace Persistencia
                 conexión.Open();
                 comando.ExecuteNonQuery();
                 viaje.Id = Convert.ToInt32(comando.Parameters["@id"].Value);
+                var inicial = new Estado(1, "Propuesto", DateTime.Now);
+                viaje.Estados.Add(inicial);
                 return true;
             }
-            catch
+            catch // (Exception ex)
             {
                 return false;
             }
@@ -155,7 +157,7 @@ namespace Persistencia
                 {
                     if (lector.Read())
                     {
-                        viaje.Id = Convert.ToInt32(comando.Parameters["@id_viaje"].Value);
+                        viaje.Id = Convert.ToInt32(lector["id_viaje"]);
                         return Obtener(viaje);
                     }
                     else
@@ -164,7 +166,7 @@ namespace Persistencia
                     }
                 }
             }
-            catch
+            catch // (Exception ex)
             {
                 return false;
             }
@@ -197,7 +199,7 @@ namespace Persistencia
                 viaje.Estados.Add(estado);
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
                 return false;
             }

@@ -11,34 +11,34 @@ namespace Ejemplo.Web
 {
 
 
-    public partial class Administradores
+    public partial class wfrmViajesDelMes
     {
 
         /// <summary>
-        /// HeadContent control.
+        /// lstViajes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
+        protected global::System.Web.UI.WebControls.ListBox lstViajes;
 
         /// <summary>
-        /// NavigationMenu control.
+        /// lblDetalle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Menu NavigationMenu;
+        protected global::System.Web.UI.WebControls.Label lblDetalle;
 
         /// <summary>
-        /// MainContent control.
+        /// lblMensajes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.Label lblMensajes;
     }
 }

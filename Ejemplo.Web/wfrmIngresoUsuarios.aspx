@@ -120,28 +120,10 @@
         <asp:TextBox ID="txtId" runat="server" Width="223px" TabIndex="1" AutoCompleteType="Disabled" Enabled="False"></asp:TextBox>
       </td>
       <td class="style18" rowspan="10">
-          <asp:GridView ID="GridViewUsuarios" runat="server" AutoGenerateColumns="False" Width="433px" CellPadding="4" ForeColor="#333333" GridLines="None">
-              <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-              <Columns>
-                  <asp:BoundField DataField="id_usuario" HeaderText="ID"></asp:BoundField>
-                  <asp:BoundField DataField="nombre" HeaderText="Nombre"></asp:BoundField>
-                  <asp:BoundField DataField="apellido" HeaderText="Apellido"></asp:BoundField>
-              </Columns>
-              <EditRowStyle BackColor="#999999" />
-              <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-              <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-              <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-              <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-              <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-              <sortedascendingcellstyle backcolor="#E9E7E2" />
-              <sortedascendingheaderstyle backcolor="#506C8C" />
-              <sorteddescendingcellstyle backcolor="#FFFDF8" />
-              <sorteddescendingheaderstyle backcolor="#6F8DAE" />
-          </asp:GridView>
 
         <asp:ListBox ID="lstUsuarios" runat="server"
           OnSelectedIndexChanged="lstUsuarios_SelectedIndexChanged"
-          AutoPostBack="True" Height="101px" Width="332px" Font-Size="Small"></asp:ListBox>
+          AutoPostBack="True" Height="300px" Width="332px" Font-Size="Small"></asp:ListBox>
           <br />
       </td>
     </tr>
@@ -242,8 +224,7 @@
     BorderColor="#CCFFFF" Font-Bold="True" ForeColor="White"
     TabIndex="11" />
   &nbsp;&nbsp;
-  <asp:Label ID="lblMensajes" runat="server" Style="font-family: 'Arial Black'"
-    Text="." ForeColor="#CC0000"></asp:Label>
+  <asp:Label ID="lblMensajes" runat="server" Style="font-family: 'Arial Black'" ForeColor="#CC0000"></asp:Label>
 </asp:Content>
 
 

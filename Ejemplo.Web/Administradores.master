@@ -6,20 +6,14 @@
 <head runat="server">
     <title></title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
-    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
-    </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
 </head>
 <body>
     <form runat="server">
     <div class="page">
         <div class="header">
             <div class="title">
-                <h1>
-                    Viajes Uy 2021</h1>
-            </div>
-           
-            <div class="clear hideSkiplink">
-                <asp:ContentPlaceHolder ID="Menú" runat="server"/>
+                <h1>Viajes Uy 2021</h1>
             </div>
         </div>
         <div class="main">
@@ -29,11 +23,15 @@
                     <asp:MenuItem NavigateUrl="~/wfrmIngresoUsuarios.aspx" Text="Ingreso Usuarios" Value="Ingreso Usuarios"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/wfrmIngresoCamiones.aspx" Text="Ingreso Camiones" Value="Ingreso Camiones"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/wfrmIngresoViajes.aspx" Text="Ingreso Viajes" Value="Ingreso Viajes"></asp:MenuItem>
-                    <asp:MenuItem NavigateUrl="~/wfrmConsultas.aspx" Text="Consultas Varias" Value="Consultas Varias"></asp:MenuItem>
+                    <asp:MenuItem Text="Consultas Varias" Value="Consultas Varias">
+                      <asp:MenuItem Text="Viajes del mes" Value="Viajes del mes" NavigateUrl="~/wfrmViajesDelMes.aspx"></asp:MenuItem>
+                      <asp:MenuItem Text="Viajes del camionero" Value="Viajes del camionero" NavigateUrl="~/wfrmViajesDelCamionero.aspx"></asp:MenuItem>
+                      <asp:MenuItem Text="Paradas del viaje" Value="Paradas del viaje" NavigateUrl="~/wfrmParadasDelViaje.aspx"></asp:MenuItem>
+                    </asp:MenuItem>
                     <asp:MenuItem Text="Salir" Value="Salir" NavigateUrl="~/wfrmSalir.aspx"></asp:MenuItem>
                 </Items>
             </asp:Menu>
-            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
         </div>
         <div class="clear">
         </div>

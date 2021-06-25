@@ -65,7 +65,7 @@
   <ItemGroup>
     <Content Include="Default.aspx" />
     <Content Include="Imagenes\camionRojo.jpg" />
-    <Content Include="wfrmConsultas.aspx" />
+    <Content Include="wfrmViajesDelCamionero.aspx" />
     <Content Include="wfrmIngresoCamiones.aspx" />
     <Content Include="wfrmIngresoUsuarios.aspx" />
     <Content Include="Styles\Site.css" />
@@ -76,7 +76,9 @@
     <Content Include="wfrmLogin.aspx" />
     <Content Include="wfrmIngresoViajes.aspx" />
     <Content Include="wfrmModificacionesCamionero.aspx" />
+    <Content Include="wfrmParadasDelViaje.aspx" />
     <Content Include="wfrmSalir.aspx" />
+    <Content Include="wfrmViajesDelMes.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administradores.master.cs">
@@ -100,12 +102,12 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="wfrmConsultas.aspx.cs">
-      <DependentUpon>wfrmConsultas.aspx</DependentUpon>
+    <Compile Include="wfrmViajesDelCamionero.aspx.cs">
+      <DependentUpon>wfrmViajesDelCamionero.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="wfrmConsultas.aspx.designer.cs">
-      <DependentUpon>wfrmConsultas.aspx</DependentUpon>
+    <Compile Include="wfrmViajesDelCamionero.aspx.designer.cs">
+      <DependentUpon>wfrmViajesDelCamionero.aspx</DependentUpon>
     </Compile>
     <Compile Include="wfrmIngresoCamiones.aspx.cs">
       <DependentUpon>wfrmIngresoCamiones.aspx</DependentUpon>
@@ -153,12 +155,26 @@
     <Compile Include="wfrmModificacionesCamionero.aspx.designer.cs">
       <DependentUpon>wfrmModificacionesCamionero.aspx</DependentUpon>
     </Compile>
+    <Compile Include="wfrmParadasDelViaje.aspx.cs">
+      <DependentUpon>wfrmParadasDelViaje.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfrmParadasDelViaje.aspx.designer.cs">
+      <DependentUpon>wfrmParadasDelViaje.aspx</DependentUpon>
+    </Compile>
     <Compile Include="wfrmSalir.aspx.cs">
       <DependentUpon>wfrmSalir.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="wfrmSalir.aspx.designer.cs">
       <DependentUpon>wfrmSalir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfrmViajesDelMes.aspx.cs">
+      <DependentUpon>wfrmViajesDelMes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfrmViajesDelMes.aspx.designer.cs">
+      <DependentUpon>wfrmViajesDelMes.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
