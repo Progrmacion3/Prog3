@@ -4,10 +4,8 @@ using System.Linq;
 
 namespace Common
 {
-    public class Viaje
+    public class Viaje : Base
     {
-        public int Id { get; set; }
-
         public string Carga { get; set; }
 
         public DateTime Inicio { get; set; }
@@ -29,15 +27,13 @@ namespace Common
             Estados = new List<Estado>();
         }
 
-        public Viaje(int id)
+        public Viaje(int id) : base(id)
         {
-            Id = id;
             Estados = new List<Estado>();
         }
 
-        public Viaje(int id, string carga, DateTime inicio, DateTime fin, Ciudad origen, Ciudad destino, Camión camión, Camionero camionero)
+        public Viaje(int id, string carga, DateTime inicio, DateTime fin, Ciudad origen, Ciudad destino, Camión camión, Camionero camionero) : base(id)
         {
-            Id = id;
             Carga = carga;
             Inicio = inicio;
             Fin = fin;
@@ -67,7 +63,11 @@ namespace Common
 
         public override string ToString()
         {
-            return Id + " camionero: " + Camionero + ", origen: " + Origen + ", destino: " + Destino;
+            return "Camión de matrícula " + Camión.Matrícula
+                + " conducido por " + Camionero.Nombre + " " + Camionero.Apellido
+                + ", llevando " + Carga
+                + ", de " + Origen + " a " + Destino
+                + ", desde " + Inicio.ToString("d") + " hasta " + Fin.ToString("d");
         }
     }
 }

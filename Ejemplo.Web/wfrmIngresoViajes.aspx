@@ -50,7 +50,11 @@
         <asp:Label runat="server" CssClass="etiqueta" ID="lblCarga" Text="Tipo de Carga" />
       </td>
       <td class="auto-style8">
-        <asp:TextBox ID="txtCarga" runat="server" TabIndex="1"></asp:TextBox>
+        <asp:DropDownList ID="ddlCarga" runat="server">
+          <asp:ListItem>Grano</asp:ListItem>
+          <asp:ListItem>Contenedor</asp:ListItem>
+          <asp:ListItem>Ganado</asp:ListItem>
+        </asp:DropDownList>
       </td>
     </tr>
     <tr>

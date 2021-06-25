@@ -7,8 +7,6 @@ namespace Ejemplo.Web
 {
     public partial class FormularioIngresoUsuarios : System.Web.UI.Page
     {
-        private Administrador admin;
-        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -16,7 +14,6 @@ namespace Ejemplo.Web
                 var usuario = Session["usuario"];
                 if (usuario is Administrador)
                 {
-                    admin = (Administrador)usuario;
                     AdminOCamionero();
                 }
                 else
@@ -26,16 +23,59 @@ namespace Ejemplo.Web
             }
         }
      
+        private void AdminOCamionero()
+        {
+            if (rdbAdm.Checked)
+            {
+                lblFecNac.Visible = false;
+                lblLibTipo.Visible = false;
+                lblVencLib.Visible = false;
+                txtFecNac.Visible = false;
+                txtLibTipo.Visible = false;
+                txtLibVenc.Visible = false;
+                ListarAdministradores();
+            }
+            else
+            {
+                lblFecNac.Visible = true;
+                lblLibTipo.Visible = true;
+                lblVencLib.Visible = true;
+                txtFecNac.Visible = true;
+                txtLibTipo.Visible = true;
+                txtLibVenc.Visible = true;
+                ListarCamioneros();
+            }
+        }
+
+        private void ListarAdministradores()
+        {
+            var lista = new List<Administrador>();
+            Fachada.Listar(lista);
+            Listar(lista);
+        }
+
+        private void ListarCamioneros()
+        {
+            var lista = new List<Camionero>();
+            Fachada.Listar(lista);
+            Listar(lista);
+        }
+
+        private void Listar(object lista)
+        {
+            lstUsuarios.DataSource = null;
+            lstUsuarios.DataSource = lista;
+            lstUsuarios.DataValueField = "Id";
+            lstUsuarios.DataTextField = "VerToString";
+            lstUsuarios.DataBind();
+        }
+
         protected void lstUsuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lstUsuarios.SelectedItem == null)
-            {
                 return;
-            }
-            var seleccionado = lstUsuarios.SelectedItem.ToString();
-            var i = seleccionado.IndexOf(' ');
-            var id = int.Parse(seleccionado.Substring(0, i));
 
+            var id = int.Parse(lstUsuarios.SelectedValue);
             if (rdbAdm.Checked)
             {
                 var administrador = new Administrador(id);
@@ -68,30 +108,6 @@ namespace Ejemplo.Web
         protected void rdbAdm_CheckedChanged(object sender, EventArgs e)
         {
             AdminOCamionero();
-        }
-
-        private void AdminOCamionero()
-        {
-            if (rdbAdm.Checked)
-            {
-                lblFecNac.Visible = false;
-                lblLibTipo.Visible = false;
-                lblVencLib.Visible = false;
-                txtFecNac.Visible = false;
-                txtLibTipo.Visible = false;
-                txtLibVenc.Visible = false;
-                ListarAdministradores();
-            }
-            else
-            {
-                lblFecNac.Visible = true;
-                lblLibTipo.Visible = true;
-                lblVencLib.Visible = true;
-                txtFecNac.Visible = true;
-                txtLibTipo.Visible = true;
-                txtLibVenc.Visible = true;
-                ListarCamioneros();
-            }
         }
 
         protected void btnAlta_Click(object sender, EventArgs e)
@@ -162,24 +178,6 @@ namespace Ejemplo.Web
                     lblMensajes.Text = "Error de base de datos.";
                 }
             }
-        }
-
-        private void ListarAdministradores()
-        {
-            var lista = new List<Administrador>();
-            Fachada.Listar(lista);
-            lstUsuarios.DataSource = null;
-            lstUsuarios.DataSource = lista;
-            lstUsuarios.DataBind();
-        }
-
-        private void ListarCamioneros()
-        {
-            var lista = new List<Camionero>();
-            Fachada.Listar(lista);
-            lstUsuarios.DataSource = null;
-            lstUsuarios.DataSource = lista;
-            lstUsuarios.DataBind();
         }
 
         private void Limpiar()

@@ -1,9 +1,7 @@
 ﻿namespace Common
 {
-    public class Camión
+    public class Camión : Base
     {
-        public int Id { get; set; }
-
         public string Marca { get; set; }
 
         public string Modelo { get; set; }
@@ -16,9 +14,13 @@
         {
         }
 
-        public Camión(int id)
+        public Camión(int id) : base(id)
         {
-            Id = id;
+        }
+
+        public Camión(int id, string matrícula) : base(id)
+        {
+            Matrícula = matrícula;
         }
 
         public Camión(string marca, string modelo, string matrícula, int año)
@@ -29,9 +31,8 @@
             Año = año;
         }
 
-        public Camión(int id, string marca, string modelo, string matrícula, int año)
+        public Camión(int id, string marca, string modelo, string matrícula, int año) : base(id)
         {
-            Id = id;
             Marca = marca;
             Modelo = modelo;
             Matrícula = matrícula;
@@ -41,7 +42,7 @@
 
         public override string ToString()
         {
-            return Id + " " + Marca + " " + Modelo + " " + " " + Matrícula + " " + Año;
+            return Marca + " " + Modelo + " de matrícula " + Matrícula + " de " + Año;
         }
     }
 }

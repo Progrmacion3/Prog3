@@ -1,18 +1,15 @@
 ﻿namespace Common
 {
-    public class Ciudad
+    public class Ciudad : Base
     {
-        public int Id { get; set; }
-
         public string Nombre { get; set; }
 
         public Ciudad()
         {
         }
 
-        public Ciudad(int id)
+        public Ciudad(int id) : base(id)
         {
-            Id = id;
         }
 
         public Ciudad(string nombre)
@@ -20,14 +17,14 @@
             Nombre = nombre;
         }
 
-        public Ciudad(int id, string nombre) : this(id)
+        public Ciudad(int id, string nombre) : base(id)
         {
             Nombre = nombre;
         }
 
         public override string ToString()
         {
-            return Id + " " + Nombre;
+            return Nombre;
         }
     }
 }

@@ -1,9 +1,7 @@
 ﻿namespace Common
 {
-    public class Usuario
+    public class Usuario : Base
     {
-        public int Id { get; set; }
-
         public string Nombre { get; set; }
 
         public string Apellido { get; set; }
@@ -20,9 +18,14 @@
         {
         }
 
-        public Usuario(int id)
+        public Usuario(int id) : base(id)
         {
-            Id = id;
+        }
+
+        public Usuario(int id, string nombre, string apellido) : base(id)
+        {
+            Nombre = nombre;
+            Apellido = apellido;
         }
 
         public Usuario(string usuario, string contraseña)
@@ -31,9 +34,8 @@
             Contraseña = contraseña;
         }
 
-        public Usuario(int id, string nombre, string apellido, int cédula, string teléfono, string usuarioLogin, string contraseña)
+        public Usuario(int id, string nombre, string apellido, int cédula, string teléfono, string usuarioLogin, string contraseña) : base(id)
         {
-            Id = id;
             Nombre = nombre;
             Apellido = apellido;
             Cédula = cédula;
@@ -54,7 +56,7 @@
 
         public override string ToString()
         {
-            return Id + " " + Nombre + " " + Apellido; 
+            return Nombre + " " + Apellido + ", cédula " + Cédula; 
         }
     }
 }

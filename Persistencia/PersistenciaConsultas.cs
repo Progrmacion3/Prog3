@@ -21,16 +21,9 @@ namespace Persistencia
                 {
                     while (lector.Read())
                     {
-                        var viaje = new Viaje(
-                            Convert.ToInt32(lector["id_viaje"]),
-                            Convert.ToString(lector["carga"]),
-                            Convert.ToDateTime(lector["fecha_ini"]),
-                            Convert.ToDateTime(lector["fecha_fin"]),
-                            new Ciudad(Convert.ToInt32(lector["id_ciu_ini"])),
-                            new Ciudad(Convert.ToInt32(lector["id_ciu_final"])),
-                            new Camión(Convert.ToInt32(lector["id_camion"])),
-                            new Camionero(Convert.ToInt32(lector["id_usuario_camionero"]))
-                        );
+                        var id = Convert.ToInt32(lector["id_viaje"]);
+                        var viaje = new Viaje(id);
+                        PersistenciaViaje.LeerViaje(lector, viaje);
                         lista.Add(viaje);
                     }
                 }
@@ -60,16 +53,9 @@ namespace Persistencia
                 {
                     while (lector.Read())
                     {
-                        var viaje = new Viaje(
-                            Convert.ToInt32(lector["id_viaje"]),
-                            Convert.ToString(lector["carga"]),
-                            Convert.ToDateTime(lector["fecha_ini"]),
-                            Convert.ToDateTime(lector["fecha_fin"]),
-                            new Ciudad(Convert.ToInt32(lector["id_ciu_ini"])),
-                            new Ciudad(Convert.ToInt32(lector["id_ciu_final"])),
-                            new Camión(Convert.ToInt32(lector["id_camion"])),
-                            new Camionero(Convert.ToInt32(lector["id_usuario_camionero"]))
-                        );
+                        var id = Convert.ToInt32(lector["id_viaje"]);
+                        var viaje = new Viaje(id);
+                        PersistenciaViaje.LeerViaje(lector, viaje);
                         lista.Add(viaje);
                     }
                 }

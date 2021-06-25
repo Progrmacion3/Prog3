@@ -37,6 +37,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Base.cs" />
     <Compile Include="Administrador.cs" />
     <Compile Include="Camionero.cs" />
     <Compile Include="Camión.cs" />

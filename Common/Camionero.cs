@@ -18,6 +18,10 @@ namespace Common
         {
         }
 
+        public Camionero(int id, string nombre, string apellido) : base(id, nombre, apellido)
+        {
+        }
+
         public Camionero(int id, string nombre, string apellido, int cédula, string teléfono, string usuarioLogin, string contraseña, DateTime nacimiento, string tipoLibreta, DateTime vencimientoLibreta)
             : base(id, nombre, apellido, cédula, teléfono, usuarioLogin, contraseña)
         {
@@ -37,6 +41,11 @@ namespace Common
         public int Edad()
         {
             return (int)((DateTime.Now - Nacimiento).Days / 365.2425);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + ", " + Edad() + " años";
         }
     }
 }

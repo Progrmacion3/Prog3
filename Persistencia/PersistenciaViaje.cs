@@ -78,16 +78,9 @@ namespace Persistencia
                 {
                     while (lector.Read())
                     {
-                        var viaje = new Viaje(
-                            Convert.ToInt32(lector["id_viaje"]),
-                            Convert.ToString(lector["carga"]),
-                            Convert.ToDateTime(lector["fecha_ini"]),
-                            Convert.ToDateTime(lector["fecha_fin"]),
-                            new Ciudad(Convert.ToInt32(lector["id_ciu_ini"])),
-                            new Ciudad(Convert.ToInt32(lector["id_ciu_final"])),
-                            new Camión(Convert.ToInt32(lector["id_camion"])),
-                            new Camionero(Convert.ToInt32(lector["id_usuario_camionero"]))
-                        );
+                        var id = Convert.ToInt32(lector["id_viaje"]);
+                        var viaje = new Viaje(id);
+                        LeerViaje(lector, viaje);
                         lista.Add(viaje);
                     }
                 }
@@ -117,13 +110,7 @@ namespace Persistencia
                 {
                     if (lector.Read())
                     {
-                        viaje.Carga = Convert.ToString(lector["carga"]);
-                        viaje.Inicio = Convert.ToDateTime(lector["fecha_ini"]);
-                        viaje.Fin = Convert.ToDateTime(lector["fecha_fin"]);
-                        viaje.Origen = new Ciudad(Convert.ToInt32(lector["id_ciu_ini"]));
-                        viaje.Destino = new Ciudad(Convert.ToInt32(lector["id_ciu_final"]));
-                        viaje.Camión = new Camión(Convert.ToInt32(lector["id_camion"]));
-                        viaje.Camionero = new Camionero(Convert.ToInt32(lector["id_usuario_camionero"]));
+                        LeerViaje(lector, viaje);
                         return true;
                     }
                     else
@@ -140,6 +127,35 @@ namespace Persistencia
             {
                 conexión.Close();
             }
+        }
+
+        internal static void LeerViaje(SqlDataReader lector, Viaje viaje)
+        {
+            var carga = Convert.ToString(lector["carga"]);
+            var inicio = Convert.ToDateTime(lector["fecha_ini"]);
+            var fin = Convert.ToDateTime(lector["fecha_fin"]);
+            var idOrigen = Convert.ToInt32(lector["id_ciu_ini"]);
+            var nombreOrigen = Convert.ToString(lector["nombre_ciudad_ini"]);
+            var idDestino = Convert.ToInt32(lector["id_ciu_final"]);
+            var nombreDestino  = Convert.ToString(lector["nombre_ciudad_fin"]);
+            var idCamión = Convert.ToInt32(lector["id_camion"]);
+            var matrícula = Convert.ToString(lector["matricula"]);
+            var idCamionero = Convert.ToInt32(lector["id_usuario_camionero"]);
+            var nombreCamionero = Convert.ToString(lector["nombre_camionero"]);
+            var apellidoCamionero = Convert.ToString(lector["apellido_camionero"]);
+
+            var origen = new Ciudad(idOrigen, nombreOrigen);
+            var destino = new Ciudad(idDestino, nombreDestino);
+            var camión = new Camión(idCamión, matrícula);
+            var camionero = new Camionero(idCamionero, nombreCamionero, apellidoCamionero);
+
+            viaje.Carga = carga;
+            viaje.Inicio = inicio;
+            viaje.Fin = fin;
+            viaje.Origen = origen;
+            viaje.Destino = destino;
+            viaje.Camión = camión;
+            viaje.Camionero = camionero;
         }
 
         public static bool ViajeActual(Camionero camionero, out Viaje viaje)

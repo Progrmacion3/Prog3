@@ -2,10 +2,8 @@
 
 namespace Common
 {
-    public class Estado
+    public class Estado : Base
     {
-        public int Id { get; set; }
-
         public string Tipo { get; set; }
 
         public DateTime Time { get; set; }
@@ -25,9 +23,8 @@ namespace Common
             Comentario = comentario;
         }
 
-        public Estado(int id, string tipo, DateTime time)
+        public Estado(int id, string tipo, DateTime time) : base(id)
         {
-            Id = id;
             Tipo = tipo;
             Time = time;
         }

@@ -2,16 +2,11 @@
 using Dominio;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Ejemplo.Web
 {
     public partial class FormularioIngresoCamiones : System.Web.UI.Page
     {
-        private Administrador admin;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -19,7 +14,6 @@ namespace Ejemplo.Web
                 var usuario = Session["usuario"];
                 if (usuario is Administrador)
                 {
-                    admin = (Administrador)usuario;
                     ListarCamiones();
                 }
                 else
@@ -33,13 +27,9 @@ namespace Ejemplo.Web
 
         {
             if (lstCamiones.SelectedItem == null)
-            {
                 return;
-            }
-            var seleccionado = lstCamiones.SelectedItem.ToString();
-            var i = seleccionado.IndexOf(' ');
-            var id = int.Parse(seleccionado.Substring(0, i));
 
+            var id = int.Parse(lstCamiones.SelectedValue);
             Camión camion = new Camión(id);
             Fachada.Obtener(camion);
             txtId.Text = camion.Id.ToString();
@@ -82,6 +72,8 @@ namespace Ejemplo.Web
             Fachada.Listar(lista);
             lstCamiones.DataSource = null;
             lstCamiones.DataSource = lista;
+            lstCamiones.DataValueField = "Id";
+            lstCamiones.DataTextField = "VerToString";
             lstCamiones.DataBind();
         }
 

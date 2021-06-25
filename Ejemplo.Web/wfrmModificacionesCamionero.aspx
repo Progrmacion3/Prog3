@@ -43,6 +43,7 @@
             <td>
   
                 <asp:TextBox ID="txtViaje" runat="server" Width="220px" Enabled="False" Height="26px" OnTextChanged="txtKilaje_TextChanged"></asp:TextBox>
+                <asp:Label ID="lblIdViaje" runat="server" Visible="false" />
             </td>
          </tr>
         <tr>

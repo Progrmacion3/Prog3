@@ -6,9 +6,6 @@ namespace Ejemplo.Web
 {
     public partial class wfrmModificacionesCamionero : System.Web.UI.Page
     {
-        private Camionero camionero;
-        private Viaje viaje;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -16,15 +13,16 @@ namespace Ejemplo.Web
                 var usuario = Session["usuario"];
                 if (usuario is Camionero)
                 {
-                    camionero = (Camionero)usuario;
+                    var camionero = (Camionero)usuario;
                     txtCamionero.Text = camionero.ToString();
+                    Viaje viaje;
                     if (Fachada.ViajeActual(camionero, out viaje))
                     {
                         txtViaje.Text = viaje.ToString();
+                        lblIdViaje.Text = viaje.Id.ToString();
                     }
                     else
                     {
-                        // lblMensajes.Text = "Error de base de datos.";
                         txtViaje.Text = "Ninguno";
                     }
                 }
@@ -48,9 +46,17 @@ namespace Ejemplo.Web
                 return;
             }
 
+            int idViaje;
+            if (!int.TryParse(lblIdViaje.Text, out idViaje))
+            {
+                lblMensajes.Text = "No se pudo ingresar porque no hay ningún viaje.";
+                return;
+            }
+
             var tipo = ddlEstado.SelectedValue;
             var comentario = txtComentario.Text;
             var estado = new Estado(tipo, kilaje, comentario);
+            var viaje = new Viaje(idViaje);
             if (Fachada.Alta(estado, viaje))
             {
                 lblMensajes.Text = "Ingreso correcto";

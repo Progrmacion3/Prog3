@@ -14,6 +14,8 @@ namespace Ejemplo.Web
             if (Fachada.ListarViajesOrdenadosDelMes(ordenados))
             {
                 lstViajes.DataSource = ordenados;
+                lstViajes.DataValueField = "Id";
+                lstViajes.DataTextField = "VerToString";
                 lstViajes.DataBind();
                 lstViajes.Visible = true;
             }
@@ -26,13 +28,9 @@ namespace Ejemplo.Web
         protected void lstViajes_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lstViajes.SelectedItem == null)
-            {
                 return;
-            }
-            var seleccionado = lstViajes.SelectedItem.ToString();
-            var i = seleccionado.IndexOf(' ');
-            var id = int.Parse(seleccionado.Substring(0, i));
 
+            var id = int.Parse(lstViajes.SelectedValue);
             var viaje = new Viaje(id);
             Fachada.Obtener(viaje);
             lblDetalle.Text = "Id: " + viaje.Id + "\n"

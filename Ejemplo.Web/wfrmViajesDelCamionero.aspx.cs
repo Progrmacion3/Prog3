@@ -7,8 +7,6 @@ namespace Ejemplo.Web
 {
     public partial class wfrmViajesDelCamionero : System.Web.UI.Page
     {
-        private Administrador admin;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -16,12 +14,13 @@ namespace Ejemplo.Web
                 var usuario = Session["usuario"];
                 if (usuario is Administrador)
                 {
-                    admin = (Administrador)usuario;
                     var lista = new List<Camionero>();
                     lstCamioneros.DataSource = null;
                     if (Fachada.Listar(lista))
                     {
                         lstCamioneros.DataSource = lista;
+                        lstCamioneros.DataValueField = "Id";
+                        lstCamioneros.DataTextField = "VerToString";
                         lstCamioneros.DataBind();
                     }
                 }
@@ -60,13 +59,9 @@ namespace Ejemplo.Web
         protected void lstCamioneros_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lstCamioneros.SelectedItem == null)
-            {
                 return;
-            }
-            var seleccionado = lstCamioneros.SelectedItem.ToString();
-            var i = seleccionado.IndexOf(' ');
-            var id = int.Parse(seleccionado.Substring(0, i));
 
+            var id = int.Parse(lstCamioneros.SelectedValue);
             var camionero = new Camionero(id);
             if (Fachada.Obtener(camionero))
             {
@@ -75,6 +70,8 @@ namespace Ejemplo.Web
                 {
                     lstViajes.DataSource = null;
                     lstViajes.DataSource = lista;
+                    lstViajes.DataValueField = "Id";
+                    lstViajes.DataTextField = "VerToString";
                     lstViajes.DataBind();
                     return;
                 }
