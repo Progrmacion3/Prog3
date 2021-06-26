@@ -106,5 +106,10 @@ namespace Ejemplo.Web
             }
             lblMensajes.Text = "Error de base de datos.";
         }
+
+        protected void btnEstado_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

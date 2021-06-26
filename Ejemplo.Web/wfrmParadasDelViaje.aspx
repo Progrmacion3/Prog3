@@ -19,21 +19,32 @@
       <td class="auto-style1">
         <asp:Label ID="Label1" runat="server" style="font-family: 'Arial Black'" Text="Seleccione el viaje" />
         <br />
-        <asp:ListBox ID="lstViajes" runat="server" Width="440px" Height="300px" 
+        <asp:ListBox ID="lstViajes" runat="server" Width="515px" Height="300px" 
           Font-Size="Smaller" OnSelectedIndexChanged="lstViajes_SelectedIndexChanged" AutoPostBack="True" />
       </td>
       <td class="auto-style1">
         <asp:Label ID="Label2" runat="server" style="font-family: 'Arial Black'" Text="Lista de paradas" />
         <br />
-        <asp:ListBox ID="lstParadas" runat="server" Width="440px" Height="142px" 
-          Font-Size="Smaller" AutoPostBack="True" OnSelectedIndexChanged="lstParadas_SelectedIndexChanged" />
+        <asp:ListBox ID="lstParadas" runat="server" Width="410px" Height="107px" 
+          Font-Size="Small" AutoPostBack="True" OnSelectedIndexChanged="lstParadas_SelectedIndexChanged" />
         <br />
         <asp:Label ID="Label3" runat="server" style="font-family: 'Arial Black'" Text="Comentario" />
         <br />
-        <asp:Button ID="btnComentar" runat="server" Text="Guardar Nuevo Comentario"  style="text-align: center" Width="208px" Height="33px" BackColor="#003366" 
+        <asp:TextBox ID="txtComentario" runat="server" Height="56px" Width="192px" AutoPostBack="True" />
+        <asp:Button ID="btnComentar" runat="server" Text="Guardar Nuevo Comentario"  style="text-align: center" Width="193px" Height="33px" BackColor="#003366" 
                     BorderColor="#CCFFFF" Font-Bold="True" ForeColor="White"  OnClick="btnComentar_Click" />
-        <asp:TextBox ID="txtComentario" runat="server" Height="56px" Width="426px" AutoPostBack="True" />
         <br />
+        <asp:Label ID="LblEstado" runat="server" style="font-family: 'Arial Black'" Text="Modificar Estado" />
+          <br />
+
+            <asp:DropDownList ID="ddlEstado" runat="server" Height="21px" Width="200px">
+                    <asp:ListItem>En curso</asp:ListItem>
+                    <asp:ListItem>Parada</asp:ListItem>
+                    <asp:ListItem>Finalizado</asp:ListItem>
+                </asp:DropDownList>
+
+        <asp:Button ID="btnEstado" runat="server" Text="Guardar Estado"  style="text-align: center" Width="193px" Height="33px" BackColor="#003366" 
+                    BorderColor="#CCFFFF" Font-Bold="True" ForeColor="White"  OnClick="btnEstado_Click" />
       </td>
     </tr>
     <tr>
