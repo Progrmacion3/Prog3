@@ -63,11 +63,14 @@ namespace Common
 
         public override string ToString()
         {
-            return "Camión de matrícula " + Camión.Matrícula
-                + " conducido por " + Camionero.Nombre + " " + Camionero.Apellido
-                + ", llevando " + Carga
+            return "Matrícula: " + Camión.Matrícula
+                + " Conductor: " + Camionero.Apellido
+                + ", Carga: " + Carga
                 + ", de " + Origen + " a " + Destino
-                + ", desde " + Inicio.ToString("d") + " hasta " + Fin.ToString("d");
+                + ", desde " + Inicio.ToString("d") + " al " + Fin.ToString("d");
         }
+
+       
+       
     }
 }
