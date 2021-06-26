@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Viaje.aspx.cs" PageFile="~/SeccionAdministrativa.aspx"
-    Inherits="Ejemplo.Web.Viaje" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViajeC.aspx.cs" PageFile="~/SeccionCamionero.aspx"
+    Inherits="Ejemplo.Web.ViajeC" %>
 
 <!DOCTYPE html>
 

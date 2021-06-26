@@ -7,8 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace Ejemplo.Web
 {
-    public partial class SeccionAdministrativa : System.Web.UI.Page
+    public partial class Parada : System.Web.UI.Page
     {
-      
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

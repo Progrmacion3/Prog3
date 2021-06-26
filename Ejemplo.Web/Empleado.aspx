@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Empleado.aspx.cs" Inherits="Ejemplo.Web.Empleado" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Empleado.aspx.cs" PageFile="~/SeccionAdministrativa.aspx"
+    Inherits="Ejemplo.Web.Empleado" %>
 
 <!DOCTYPE html>
 
