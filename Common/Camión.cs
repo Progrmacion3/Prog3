@@ -10,10 +10,6 @@
 
         public int Año { get; set; }
 
-        public Camión()
-        {
-        }
-
         public Camión(int id) : base(id)
         {
         }
@@ -38,7 +34,6 @@
             Matrícula = matrícula;
             Año = año;
         }
-
 
         public override string ToString()
         {

@@ -2,10 +2,6 @@
 {
     public class Administrador : Usuario
     {
-        public Administrador()
-        {
-        }
-
         public Administrador(int id) : base(id)
         {
         }

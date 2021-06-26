@@ -4,17 +4,8 @@
     {
         public string Nombre { get; set; }
 
-        public Ciudad()
-        {
-        }
-
         public Ciudad(int id) : base(id)
         {
-        }
-
-        public Ciudad(string nombre)
-        {
-            Nombre = nombre;
         }
 
         public Ciudad(int id, string nombre) : base(id)

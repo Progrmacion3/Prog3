@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Common
 {
@@ -32,18 +31,6 @@ namespace Common
             Estados = new List<Estado>();
         }
 
-        public Viaje(int id, string carga, DateTime inicio, DateTime fin, Ciudad origen, Ciudad destino, Camión camión, Camionero camionero) : base(id)
-        {
-            Carga = carga;
-            Inicio = inicio;
-            Fin = fin;
-            Origen = origen;
-            Destino = destino;
-            Camión = camión;
-            Camionero = camionero;
-            Estados = new List<Estado>();
-        }
-
         public Viaje(string carga, DateTime inicio, DateTime fin, Ciudad origen, Ciudad destino, Camión camión, Camionero camionero)
         {
             Carga = carga;
@@ -56,11 +43,6 @@ namespace Common
             Estados = new List<Estado>();
         }
 
-        public Estado EstadoActual()
-        {
-            return Estados.Last();
-        }
-
         public override string ToString()
         {
             return "Matrícula: " + Camión.Matrícula
@@ -69,8 +51,5 @@ namespace Common
                 + ", de " + Origen + " a " + Destino
                 + ", desde " + Inicio.ToString("d") + " al " + Fin.ToString("d");
         }
-
-       
-       
     }
 }
