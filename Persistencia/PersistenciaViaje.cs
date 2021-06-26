@@ -192,6 +192,44 @@ namespace Persistencia
             }
         }
 
+        public static bool ObtenerEstadoActual(Viaje viaje, out Estado estado)
+        {
+            estado = new Estado();
+            var conexión = new SqlConnection(CadenaDeConexion);
+            var comando = conexión.CreateCommand();
+            comando.CommandText = "obtener_estado_actual";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@id_viaje", viaje.Id);
+            try
+            {
+                conexión.Open();
+                using (var lector = comando.ExecuteReader())
+                {
+                    if (lector.Read())
+                    {
+                        estado.Id = Convert.ToInt32(lector["id_estado"]);
+                        estado.Tipo = Convert.ToString(lector["tipo"]);
+                        estado.Time = Convert.ToDateTime(lector["time"]);
+                        estado.Kilaje = Convert.ToInt32(lector["kilaje"]);
+                        estado.Comentario = Convert.ToString(lector["comentario"]);
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch // (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                conexión.Close();
+            }
+        }
+
         public static bool Alta(Estado estado, Viaje viaje)
         {
             var conexión = new SqlConnection(CadenaDeConexion);

@@ -45,7 +45,7 @@
             </td>
             <td class="auto-style8">
   
-              <asp:Label ID="lblCParadas" runat="server" style="font-family: 'Arial Black'" Text="Detalle de Paradas"></asp:Label>
+              <asp:Label ID="lblCParadas" runat="server" style="font-family: 'Arial Black'" Text="Estado actual"></asp:Label>
 
   
             </td>
@@ -63,7 +63,7 @@
             </td>
             <td class="auto-style9" rowspan="3">
   
-                <asp:TextBox ID="txtDetalleParadas" runat="server" Height="106px" TextMode="MultiLine" Width="323px"></asp:TextBox>
+                <asp:TextBox ID="txtEstadoActual" runat="server" Height="106px" TextMode="MultiLine" Width="323px"></asp:TextBox>
             </td>
          </tr>
         <tr>

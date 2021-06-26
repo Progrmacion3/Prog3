@@ -1,5 +1,6 @@
 ﻿using Common;
 using Persistencia;
+using System;
 using System.Collections.Generic;
 
 namespace Dominio
@@ -29,6 +30,11 @@ namespace Dominio
         public static bool ViajeActual(Camionero camionero, out Viaje viaje)
         {
             return PersistenciaViaje.ViajeActual(camionero, out viaje);
+        }
+
+        public static bool ObtenerEstadoActual(Viaje viaje, out Estado estado)
+        {
+            return PersistenciaViaje.ObtenerEstadoActual(viaje, out estado);
         }
 
         public static bool Alta(Estado estado, Viaje viaje)

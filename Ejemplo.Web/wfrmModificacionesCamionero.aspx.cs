@@ -1,35 +1,51 @@
 ﻿using Common;
 using Dominio;
 using System;
+using System.Collections.Generic;
 
 namespace Ejemplo.Web
 {
     public partial class wfrmModificacionesCamionero : System.Web.UI.Page
     {
+        private void MostrarEstadoActual(Viaje viaje)
+        {
+            Estado estado;
+            if (Fachada.ObtenerEstadoActual(viaje, out estado))
+            {
+                txtEstadoActual.Text = estado.ToString();
+                lblMensajes.Text = "";
+            }
+            else
+            {
+                lblMensajes.Text = "Error de base de datos.";
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (IsPostBack)
+                return;
+
+            var usuario = Session["usuario"];
+            if (usuario is Camionero)
             {
-                var usuario = Session["usuario"];
-                if (usuario is Camionero)
+                var camionero = (Camionero)usuario;
+                txtCamionero.Text = camionero.ToString();
+                Viaje viaje;
+                if (Fachada.ViajeActual(camionero, out viaje))
                 {
-                    var camionero = (Camionero)usuario;
-                    txtCamionero.Text = camionero.ToString();
-                    Viaje viaje;
-                    if (Fachada.ViajeActual(camionero, out viaje))
-                    {
-                        txtViaje.Text = viaje.ToString();
-                        lblIdViaje.Text = viaje.Id.ToString();
-                    }
-                    else
-                    {
-                        txtViaje.Text = "Ninguno";
-                    }
+                    txtViaje.Text = viaje.ToString();
+                    lblIdViaje.Text = viaje.Id.ToString();
+                    MostrarEstadoActual(viaje);
                 }
                 else
                 {
-                    Response.Redirect("Default.aspx");
+                    txtViaje.Text = "Ninguno";
                 }
+            }
+            else
+            {
+                Response.Redirect("Default.aspx");
             }
         }
 
@@ -60,6 +76,7 @@ namespace Ejemplo.Web
             if (Fachada.Alta(estado, viaje))
             {
                 lblMensajes.Text = "Ingreso correcto";
+                MostrarEstadoActual(viaje);
             }
             else
             {

@@ -137,6 +137,11 @@ namespace Dominio
             return DominioViaje.ViajeActual(camionero, out viaje);
         }
 
+        public static bool ObtenerEstadoActual(Viaje viaje, out Estado estado)
+        {
+            return DominioViaje.ObtenerEstadoActual(viaje, out estado);
+        }
+
         public static bool Alta(Estado estado, Viaje viaje)
         {
             return DominioViaje.Alta(estado, viaje);

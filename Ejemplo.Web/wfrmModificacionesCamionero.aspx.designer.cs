@@ -60,13 +60,13 @@ namespace Ejemplo.Web
         protected global::System.Web.UI.WebControls.TextBox txtViaje;
 
         /// <summary>
-        /// txtDetalleParadas control.
+        /// txtEstadoActual control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDetalleParadas;
+        protected global::System.Web.UI.WebControls.TextBox txtEstadoActual;
 
         /// <summary>
         /// lblEstado control.
