@@ -62,6 +62,7 @@ namespace Persistencia.Clases
 
                     cmd.CommandType = CommandType.StoredProcedure;
 
+                    cmd.Parameters.Add(new SqlParameter("@idCamionero", pCamionero.identificadorCam));
                     cmd.Parameters.Add(new SqlParameter("@EdadCamionero", pCamionero.Edad));
                     cmd.Parameters.Add(new SqlParameter("@tipoLibretaCamionero", pCamionero.Tipo_Libreta));
                     cmd.Parameters.Add(new SqlParameter("@fechaVencimientoLibreta", pCamionero.Fecha_Vencimiento_Libreta));
@@ -99,7 +100,7 @@ namespace Persistencia.Clases
 
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add(new SqlParameter("@idViaje", pCamionero.identificadorCam));
+                    cmd.Parameters.Add(new SqlParameter("@idCamionero", pCamionero.identificadorCam));
 
                     int rtn = cmd.ExecuteNonQuery();
 
