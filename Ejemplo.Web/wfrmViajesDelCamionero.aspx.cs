@@ -42,7 +42,9 @@ namespace Ejemplo.Web
 
             var lista = new List<Camionero>();
             lstCamioneros.DataSource = null;
-            if (Fachada.ListarCamioneros(cédula, lista))
+            var camionero = new Camionero();
+            camionero.Cédula = cédula;
+            if (Fachada.ObtenerCamioneroPorCédula(camionero))
             {
                 lstCamioneros.DataSource = lista;
                 lstCamioneros.DataBind();

@@ -15,6 +15,10 @@
             <div class="title">
                 <h1>Viajes Uy 2021</h1>
             </div>
+           
+            <div class="clear hideSkiplink">
+                <asp:ContentPlaceHolder ID="Menú" runat="server"/>
+            </div>
         </div>
         <div class="main">
             <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">

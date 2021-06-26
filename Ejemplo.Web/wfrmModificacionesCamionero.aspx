@@ -80,7 +80,7 @@
   
                 <asp:DropDownList ID="ddlEstado" runat="server" Height="20px" Width="351px">
                     <asp:ListItem>En curso</asp:ListItem>
-                    <asp:ListItem>Parado</asp:ListItem>
+                    <asp:ListItem>Parada</asp:ListItem>
                     <asp:ListItem>Finalizado</asp:ListItem>
                 </asp:DropDownList>
 

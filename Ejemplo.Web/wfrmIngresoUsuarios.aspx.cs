@@ -192,6 +192,7 @@ namespace Ejemplo.Web
             txtFecNac.Text = "";
             txtLibTipo.Text = "";
             txtLibVenc.Text = "";
+            lstUsuarios.ClearSelection();
         }
 
         protected void btnBaja_Click(object sender, EventArgs e)

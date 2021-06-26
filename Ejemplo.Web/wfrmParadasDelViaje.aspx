@@ -20,13 +20,19 @@
         <asp:Label ID="Label1" runat="server" style="font-family: 'Arial Black'" Text="Seleccione el viaje" />
         <br />
         <asp:ListBox ID="lstViajes" runat="server" Width="440px" Height="300px" 
-          Font-Size="Smaller" OnSelectedIndexChanged="lstViajes_SelectedIndexChanged" />
+          Font-Size="Smaller" OnSelectedIndexChanged="lstViajes_SelectedIndexChanged" AutoPostBack="True" />
       </td>
       <td class="auto-style1">
         <asp:Label ID="Label2" runat="server" style="font-family: 'Arial Black'" Text="Lista de paradas" />
         <br />
-        <asp:ListBox ID="lstParadas" runat="server" Width="440px" Height="300px" 
-          Font-Size="Smaller" OnSelectedIndexChanged="lstResultado_SelectedIndexChanged" />
+        <asp:ListBox ID="lstParadas" runat="server" Width="440px" Height="142px" 
+          Font-Size="Smaller" AutoPostBack="True" OnSelectedIndexChanged="lstParadas_SelectedIndexChanged" />
+        <br />
+        <asp:Label ID="Label3" runat="server" style="font-family: 'Arial Black'" Text="Comentario" />
+        <br />
+        <asp:TextBox ID="txtComentario" runat="server" Height="56px" Width="426px" />
+        <br />
+        <asp:Button ID="btnComentar" runat="server" Text="Guardar Nuevo Comentario" OnClick="btnComentar_Click" />
       </td>
     </tr>
     <tr>

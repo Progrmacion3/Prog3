@@ -84,6 +84,7 @@ namespace Ejemplo.Web
             txtModelo.Text = "";
             txtMatricula.Text = "";
             txtAnio.Text = "";
+            lstCamiones.ClearSelection();
         }
 
         protected void btnBaja_Click(object sender, EventArgs e)
