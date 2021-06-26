@@ -9,11 +9,13 @@ namespace Ejemplo.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (IsPostBack)
+                return;
 
-            if (!IsPostBack)
+            var usuario = Session["usuario"];
+            if (usuario is Administrador)
             {
                 var ordenados = new List<Viaje>();
-                lstViajes.DataSource = null;
                 if (Fachada.ListarViajesOrdenadosDelMes(ordenados))
                 {
                     lstViajes.DataSource = ordenados;
@@ -27,6 +29,10 @@ namespace Ejemplo.Web
                     lblMensajes.Text = "Error de base de datos.";
                 }
             }
+            else
+            {
+                Response.Redirect("Default.aspx");
+            }
         }
 
         protected void lstViajes_SelectedIndexChanged(object sender, EventArgs e)
@@ -36,18 +42,22 @@ namespace Ejemplo.Web
 
             var id = int.Parse(lstViajes.SelectedValue);
             var viaje = new Viaje(id);
-            Fachada.Obtener(viaje);
-            lblDetalle.Text = "Id: " + viaje.Id +
-                              "<br/> Fecha Inicio: " + viaje.Inicio.ToShortDateString() +
-                              "<br/> Fecha final: " + viaje.Fin.ToShortDateString() +
-                              "<br/> Origen: " + viaje.Origen +
-                              "<br/> Destino: " + viaje.Destino +
-                              "<br/> Carga: " + viaje.Carga +
-                              "<br/> Camionero: " + viaje.Camionero.Nombre + " " + viaje.Camionero.Apellido +
-                              "<br/> Viaje realizado  en camión: " + viaje.Camión.Matrícula;
-
-
-
+            if (Fachada.Obtener(viaje))
+            {
+                lblDetalle.Text = "Id: " + viaje.Id +
+                                  "<br/> Fecha Inicio: " + viaje.Inicio.ToShortDateString() +
+                                  "<br/> Fecha final: " + viaje.Fin.ToShortDateString() +
+                                  "<br/> Origen: " + viaje.Origen +
+                                  "<br/> Destino: " + viaje.Destino +
+                                  "<br/> Carga: " + viaje.Carga +
+                                  "<br/> Camionero: " + viaje.Camionero.Nombre + " " + viaje.Camionero.Apellido +
+                                  "<br/> Viaje realizado  en camión: " + viaje.Camión.Matrícula;
+                lblMensajes.Text = "";
+            }
+            else
+            {
+                lblMensajes.Text = "Error de base de datos.";
+            }
         }
     }
 }

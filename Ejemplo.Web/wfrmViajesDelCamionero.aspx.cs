@@ -9,53 +9,22 @@ namespace Ejemplo.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                var usuario = Session["usuario"];
-                if (usuario is Administrador)
-                {
-                    var lista = new List<Camionero>();
-                    lstCamioneros.DataSource = null;
-                    if (Fachada.Listar(lista))
-                    {
-                        lstCamioneros.DataSource = lista;
-                        lstCamioneros.DataValueField = "Id";
-                        lstCamioneros.DataTextField = "VerToString";
-                        lstCamioneros.DataBind();
-                    }
-                }
-                else
-                {
-                    Response.Redirect("Default.aspx");
-                }
-            }
-        }
-
-        protected void btnFiltrar_Click(object sender, EventArgs e)
-        {
-            int cédula;
-            if (!int.TryParse(txtCedula.Text, out cédula))
-            {
-                lstCamioneros.DataSource = null;
+            if (IsPostBack)
                 return;
-            }
 
-            var lista = new List<Camionero>();
-            lstCamioneros.DataSource = null;
-            var camionero = new Camionero();
-            camionero.Cédula = cédula;
-            if (Fachada.ObtenerCamioneroPorCédula(camionero))
+            var usuario = Session["usuario"];
+            if (usuario is Administrador)
             {
-                lstCamioneros.DataSource = lista;
-                lstCamioneros.DataBind();
-                if (lista.Count == 1)
-                    MostrarViajes(lista[0]);
+                lstCamioneros.DataValueField = "Id";
+                lstCamioneros.DataTextField = "VerToString";
+                lstViajes.DataValueField = "Id";
+                lstViajes.DataTextField = "VerToString";
+                MostrarCamioneros();
             }
-        }
-
-        private void MostrarViajes(Camionero camionero)
-        {
-
+            else
+            {
+                Response.Redirect("Default.aspx");
+            }
         }
 
         protected void lstCamioneros_SelectedIndexChanged(object sender, EventArgs e)
@@ -67,18 +36,87 @@ namespace Ejemplo.Web
             var camionero = new Camionero(id);
             if (Fachada.Obtener(camionero))
             {
-                var lista = new List<Viaje>();
-                if (Fachada.ListarViajes(camionero, lista))
+                MostrarViajes(camionero);
+            }
+            else
+            {
+                lblMensajes.Text = "Error de base de datos.";
+            }
+        }
+
+        protected void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            lstCamioneros.DataSource = null;
+
+            if (txtCedula.Text == "")
+            {
+                MostrarCamioneros();
+                return;
+            }
+
+            int cédula;
+            if (!int.TryParse(txtCedula.Text, out cédula))
+            {
+                lblMensajes.Text = "La cédula debe ser un número.";
+                return;
+            }
+
+            var camionero = new Camionero { Cédula = cédula };
+            if (Fachada.ObtenerCamioneroPorCédula(camionero))
+            {
+                if (camionero.Id == 0)
                 {
-                    lstViajes.DataSource = null;
-                    lstViajes.DataSource = lista;
-                    lstViajes.DataValueField = "Id";
-                    lstViajes.DataTextField = "VerToString";
-                    lstViajes.DataBind();
+                    lblMensajes.Text = "No se encuentra el camionero de cédula " + cédula + ".";
                     return;
                 }
+
+                var lista = new List<Camionero> { camionero };
+                lstCamioneros.DataSource = lista;
+                lstCamioneros.DataBind();
+                if (lista.Count == 1)
+                {
+                    MostrarViajes(lista[0]);
+                }
+                else
+                {
+                    lblMensajes.Text = "";
+                }
             }
-            lblMensajes.Text = "Error de base de datos.";
+            else
+            {
+                lblMensajes.Text = "Error de base de datos.";
+            }
+        }
+
+        private void MostrarCamioneros()
+        {
+            var lista = new List<Camionero>();
+            if (Fachada.Listar(lista))
+            {
+                lstCamioneros.DataSource = lista;
+                lstCamioneros.DataBind();
+                lblMensajes.Text = "";
+            }
+            else
+            {
+                lblMensajes.Text = "Error de base de datos.";
+            }
+        }
+
+        private void MostrarViajes(Camionero camionero)
+        {
+            var lista = new List<Viaje>();
+            if (Fachada.ListarViajes(camionero, lista))
+            {
+                lstViajes.DataSource = null;
+                lstViajes.DataSource = lista;
+                lstViajes.DataBind();
+                lblMensajes.Text = "";
+            }
+            else
+            {
+                lblMensajes.Text = "Error de base de datos.";
+            }
         }
     }
 }

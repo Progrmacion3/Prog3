@@ -9,17 +9,19 @@ namespace Ejemplo.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (IsPostBack)
+                return;
+
+            var usuario = Session["usuario"];
+            if (usuario is Administrador)
             {
-                var usuario = Session["usuario"];
-                if (usuario is Administrador)
-                {
-                    ListarCamiones();
-                }
-                else
-                {
-                    Response.Redirect("Default.aspx");
-                }
+                lstCamiones.DataValueField = "Id";
+                lstCamiones.DataTextField = "VerToString";
+                ListarCamiones();
+            }
+            else
+            {
+                Response.Redirect("Default.aspx");
             }
         }
 
@@ -66,27 +68,6 @@ namespace Ejemplo.Web
             }
         }
 
-        private void ListarCamiones()
-        {
-            var lista = new List<Camión>();
-            Fachada.Listar(lista);
-            lstCamiones.DataSource = null;
-            lstCamiones.DataSource = lista;
-            lstCamiones.DataValueField = "Id";
-            lstCamiones.DataTextField = "VerToString";
-            lstCamiones.DataBind();
-        }
-
-        private void Limpiar()
-        {
-            txtId.Text = "";
-            txtMarca.Text = "";
-            txtModelo.Text = "";
-            txtMatricula.Text = "";
-            txtAnio.Text = "";
-            lstCamiones.ClearSelection();
-        }
-
         protected void btnBaja_Click(object sender, EventArgs e)
         {
             int id;
@@ -109,7 +90,6 @@ namespace Ejemplo.Web
                 lblMensajes.Text = "No se pudo dar de baja al camión";
             }
         }
-
 
         protected void btnModificar_Click(object sender, EventArgs e)
         {
@@ -148,6 +128,25 @@ namespace Ejemplo.Web
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {
             Limpiar();
+        }
+
+        private void ListarCamiones()
+        {
+            var lista = new List<Camión>();
+            Fachada.Listar(lista);
+            lstCamiones.DataSource = null;
+            lstCamiones.DataSource = lista;
+            lstCamiones.DataBind();
+        }
+
+        private void Limpiar()
+        {
+            txtId.Text = "";
+            txtMarca.Text = "";
+            txtModelo.Text = "";
+            txtMatricula.Text = "";
+            txtAnio.Text = "";
+            lstCamiones.ClearSelection();
         }
     }
 }

@@ -12,18 +12,28 @@ namespace Ejemplo.Web
             if (IsPostBack)
                 return;
 
-            var viajes = new List<Viaje>();
-            if (Fachada.Listar(viajes))
+            var usuario = Session["usuario"];
+            if (usuario is Administrador)
             {
-                lstViajes.DataSource = null;
-                lstViajes.DataSource = viajes;
-                lstViajes.DataValueField = "Id";
-                lstViajes.DataTextField = "VerToString";
-                lstViajes.DataBind();
+                var viajes = new List<Viaje>();
+                if (Fachada.Listar(viajes))
+                {
+                    lstViajes.DataSource = null;
+                    lstViajes.DataSource = viajes;
+                    lstViajes.DataValueField = "Id";
+                    lstViajes.DataTextField = "VerToString";
+                    lstViajes.DataBind();
+                    lstParadas.DataValueField = "Id";
+                    lstParadas.DataTextField = "VerToString";
+                }
+                else
+                {
+                    lblMensajes.Text = "Error de base de datos.";
+                }
             }
             else
             {
-                lblMensajes.Text = "Error de base de datos.";
+                Response.Redirect("Default.aspx");
             }
         }
 
@@ -39,8 +49,6 @@ namespace Ejemplo.Web
             {
                 lstParadas.DataSource = null;
                 lstParadas.DataSource = paradas;
-                lstParadas.DataValueField = "Id";
-                lstParadas.DataTextField = "VerToString";
                 lstParadas.DataBind();
                 lblMensajes.Text = "";
             }
@@ -89,8 +97,6 @@ namespace Ejemplo.Web
                     {
                         lstParadas.DataSource = null;
                         lstParadas.DataSource = paradas;
-                        lstParadas.DataValueField = "Id";
-                        lstParadas.DataTextField = "VerToString";
                         lstParadas.DataBind();
                         txtComentario.Text = "";
                         lblMensajes.Text = "Comentario guardado.";

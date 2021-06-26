@@ -9,65 +9,20 @@ namespace Ejemplo.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (IsPostBack)
+                return;
+
+            var usuario = Session["usuario"];
+            if (usuario is Administrador)
             {
-                var usuario = Session["usuario"];
-                if (usuario is Administrador)
-                {
-                    AdminOCamionero();
-                }
-                else
-                {
-                    Response.Redirect("Default.aspx");
-                }
-            }
-        }
-     
-        private void AdminOCamionero()
-        {
-            if (rdbAdm.Checked)
-            {
-                lblFecNac.Visible = false;
-                lblLibTipo.Visible = false;
-                lblVencLib.Visible = false;
-                txtFecNac.Visible = false;
-                txtLibTipo.Visible = false;
-                txtLibVenc.Visible = false;
-                ListarAdministradores();
+                lstUsuarios.DataValueField = "Id";
+                lstUsuarios.DataTextField = "VerToString";
+                AdminOCamionero();
             }
             else
             {
-                lblFecNac.Visible = true;
-                lblLibTipo.Visible = true;
-                lblVencLib.Visible = true;
-                txtFecNac.Visible = true;
-                txtLibTipo.Visible = true;
-                txtLibVenc.Visible = true;
-                ListarCamioneros();
+                Response.Redirect("Default.aspx");
             }
-        }
-
-        private void ListarAdministradores()
-        {
-            var lista = new List<Administrador>();
-            Fachada.Listar(lista);
-            Listar(lista);
-        }
-
-        private void ListarCamioneros()
-        {
-            var lista = new List<Camionero>();
-            Fachada.Listar(lista);
-            Listar(lista);
-        }
-
-        private void Listar(object lista)
-        {
-            lstUsuarios.DataSource = null;
-            lstUsuarios.DataSource = lista;
-            lstUsuarios.DataValueField = "Id";
-            lstUsuarios.DataTextField = "VerToString";
-            lstUsuarios.DataBind();
         }
 
         protected void lstUsuarios_SelectedIndexChanged(object sender, EventArgs e)
@@ -180,21 +135,6 @@ namespace Ejemplo.Web
             }
         }
 
-        private void Limpiar()
-        {
-            txtId.Text = "";
-            txtNombre.Text = "";
-            txtApellido.Text = "";
-            txtCedula.Text = "";
-            txtTelefono.Text = "";
-            txtUsuario.Text = "";
-            txtContra.Text = "";
-            txtFecNac.Text = "";
-            txtLibTipo.Text = "";
-            txtLibVenc.Text = "";
-            lstUsuarios.ClearSelection();
-        }
-
         protected void btnBaja_Click(object sender, EventArgs e)
         {
             int id;
@@ -305,6 +245,80 @@ namespace Ejemplo.Web
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {
             Limpiar();
+        }
+
+        private void AdminOCamionero()
+        {
+            if (rdbAdm.Checked)
+            {
+                lblFecNac.Visible = false;
+                lblLibTipo.Visible = false;
+                lblVencLib.Visible = false;
+                txtFecNac.Visible = false;
+                txtLibTipo.Visible = false;
+                txtLibVenc.Visible = false;
+                ListarAdministradores();
+            }
+            else
+            {
+                lblFecNac.Visible = true;
+                lblLibTipo.Visible = true;
+                lblVencLib.Visible = true;
+                txtFecNac.Visible = true;
+                txtLibTipo.Visible = true;
+                txtLibVenc.Visible = true;
+                ListarCamioneros();
+            }
+        }
+
+        private void ListarAdministradores()
+        {
+            var lista = new List<Administrador>();
+            if (Fachada.Listar(lista))
+            {
+                Listar(lista);
+                lblMensajes.Text = "";
+            }
+            else
+            {
+                lblMensajes.Text = "Error de base de datos.";
+            }
+        }
+
+        private void ListarCamioneros()
+        {
+            var lista = new List<Camionero>();
+            if (Fachada.Listar(lista))
+            {
+                Listar(lista);
+                lblMensajes.Text = "";
+            }
+            else
+            {
+                lblMensajes.Text = "Error de base de datos.";
+            }
+        }
+
+        private void Listar(object lista)
+        {
+            lstUsuarios.DataSource = null;
+            lstUsuarios.DataSource = lista;
+            lstUsuarios.DataBind();
+        }
+
+        private void Limpiar()
+        {
+            txtId.Text = "";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtCedula.Text = "";
+            txtTelefono.Text = "";
+            txtUsuario.Text = "";
+            txtContra.Text = "";
+            txtFecNac.Text = "";
+            txtLibTipo.Text = "";
+            txtLibVenc.Text = "";
+            lstUsuarios.ClearSelection();
         }
     }
 }

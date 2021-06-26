@@ -1,26 +1,11 @@
 ﻿using Common;
 using Dominio;
 using System;
-using System.Collections.Generic;
 
 namespace Ejemplo.Web
 {
     public partial class wfrmModificacionesCamionero : System.Web.UI.Page
     {
-        private void MostrarEstadoActual(Viaje viaje)
-        {
-            Estado estado;
-            if (Fachada.ObtenerEstadoActual(viaje, out estado))
-            {
-                txtEstadoActual.Text = estado.ToString();
-                lblMensajes.Text = "";
-            }
-            else
-            {
-                lblMensajes.Text = "Error de base de datos.";
-            }
-        }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack)
@@ -77,6 +62,19 @@ namespace Ejemplo.Web
             {
                 lblMensajes.Text = "Ingreso correcto";
                 MostrarEstadoActual(viaje);
+            }
+            else
+            {
+                lblMensajes.Text = "Error de base de datos.";
+            }
+        }
+
+        private void MostrarEstadoActual(Viaje viaje)
+        {
+            Estado estado;
+            if (Fachada.ObtenerEstadoActual(viaje, out estado))
+            {
+                txtEstadoActual.Text = estado.ToString();
             }
             else
             {

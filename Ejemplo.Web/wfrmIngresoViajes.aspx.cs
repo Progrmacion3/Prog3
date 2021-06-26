@@ -10,54 +10,45 @@ namespace Ejemplo.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (IsPostBack)
+                return;
+
+            var usuario = Session["usuario"];
+            if (usuario is Administrador)
             {
-                var usuario = Session["usuario"];
-                if (usuario is Administrador)
-                {
-                    var ciudades = new List<Ciudad>();
-                    Fachada.Listar(ciudades);
-                    lstCiudIni.DataSource = ciudades;
-                    lstCiudFin.DataSource = ciudades;
-                    lstCiudIni.DataValueField = "Id";
-                    lstCiudFin.DataValueField = "Id";
-                    lstCiudIni.DataTextField = "VerToString";
-                    lstCiudFin.DataTextField = "VerToString";
-                    lstCiudIni.DataBind();
-                    lstCiudFin.DataBind();
+                var ciudades = new List<Ciudad>();
+                Fachada.Listar(ciudades);
+                lstCiudIni.DataSource = ciudades;
+                lstCiudFin.DataSource = ciudades;
+                lstCiudIni.DataValueField = "Id";
+                lstCiudFin.DataValueField = "Id";
+                lstCiudIni.DataTextField = "VerToString";
+                lstCiudFin.DataTextField = "VerToString";
+                lstCiudIni.DataBind();
+                lstCiudFin.DataBind();
 
-                    var camiones = new List<Camión>();
-                    Fachada.Listar(camiones);
-                    lstCamion.DataSource = camiones;
-                    lstCamion.DataValueField = "Id";
-                    lstCamion.DataTextField = "VerToString";
-                    lstCamion.DataBind();
+                var camiones = new List<Camión>();
+                Fachada.Listar(camiones);
+                lstCamion.DataSource = camiones;
+                lstCamion.DataValueField = "Id";
+                lstCamion.DataTextField = "VerToString";
+                lstCamion.DataBind();
 
-                    var camioneros = new List<Camionero>();
-                    Fachada.Listar(camioneros);
-                    lstCamionero.DataSource = camioneros;
-                    lstCamionero.DataValueField = "Id";
-                    lstCamionero.DataTextField = "VerToString";
-                    lstCamionero.DataBind();
+                var camioneros = new List<Camionero>();
+                Fachada.Listar(camioneros);
+                lstCamionero.DataSource = camioneros;
+                lstCamionero.DataValueField = "Id";
+                lstCamionero.DataTextField = "VerToString";
+                lstCamionero.DataBind();
 
-                    ListarViajes();
-                }
-                else
-                {
-                    Response.Redirect("Default.aspx");
-                }
+                lstViajes.DataValueField = "Id";
+                lstViajes.DataTextField = "VerToString";
+                ListarViajes();
             }
-        }
-
-        private void ListarViajes()
-        {
-            var lista = new List<Viaje>();
-            Fachada.Listar(lista);
-            lstViajes.DataSource = null;
-            lstViajes.DataSource = lista;
-            lstViajes.DataValueField = "Id";
-            lstViajes.DataTextField = "VerToString";
-            lstViajes.DataBind();
+            else
+            {
+                Response.Redirect("Default.aspx");
+            }
         }
 
         protected void lstViajes_SelectedIndexChanged(object sender, EventArgs e)
@@ -67,15 +58,22 @@ namespace Ejemplo.Web
 
             var id = int.Parse(lstViajes.SelectedValue);
             var viaje = new Viaje(id);
-            Fachada.Obtener(viaje);
-            txtIdViaje.Text = id.ToString();
-            ddlCarga.SelectedValue = viaje.Carga;
-            txtFecIni.Text = viaje.Inicio.ToString();
-            txtFecFin.Text = viaje.Fin.ToString();
-            lstCamion.SelectedValue = viaje.Camión.Id.ToString();
-            lstCamionero.SelectedValue = viaje.Camionero.Id.ToString();
-            lstCiudIni.SelectedValue = viaje.Origen.Id.ToString();
-            lstCiudFin.SelectedValue = viaje.Origen.Id.ToString();
+            if (Fachada.Obtener(viaje))
+            {
+                txtIdViaje.Text = id.ToString();
+                ddlCarga.SelectedValue = viaje.Carga;
+                txtFecIni.Text = viaje.Inicio.ToString();
+                txtFecFin.Text = viaje.Fin.ToString();
+                lstCamion.SelectedValue = viaje.Camión.Id.ToString();
+                lstCamionero.SelectedValue = viaje.Camionero.Id.ToString();
+                lstCiudIni.SelectedValue = viaje.Origen.Id.ToString();
+                lstCiudFin.SelectedValue = viaje.Origen.Id.ToString();
+                lblMensajes.Text = "";
+            }
+            else
+            {
+                lblMensajes.Text = "Error de base de datos.";
+            }
         }
 
         protected void btnAlta_Click(object sender, EventArgs e)
@@ -89,19 +87,12 @@ namespace Ejemplo.Web
                 IntentarLeerId(lstCiudIni, "Debe elegir una ciudad de origen.", out idOrigen) &&
                 IntentarLeerId(lstCiudFin, "Debe elegir una ciudad de destino.", out idDestino))
             {
+                var id = ddlCarga.SelectedValue;
                 var camión = new Camión(idCamión);
                 var camionero = new Camionero(idCamionero);
                 var origen = new Ciudad(idOrigen);
                 var destino = new Ciudad(idDestino);
-                var viaje = new Viaje(
-                    ddlCarga.SelectedValue,
-                    inicio,
-                    fin,
-                    origen,
-                    destino,
-                    camión,
-                    camionero
-                );
+                var viaje = new Viaje(id, inicio, fin, origen, destino, camión, camionero);
                 if (Fachada.Alta(viaje))
                 {
                     lblMensajes.Text = "Ingreso correcto";
@@ -112,30 +103,6 @@ namespace Ejemplo.Web
                 {
                     lblMensajes.Text = "Error de base de datos.";
                 }
-            }
-        }
-
-        private bool IntentarLeerFecha(TextBox caja, string error, out DateTime fecha)
-        {
-            if (DateTime.TryParse(caja.Text, out fecha))
-                return true;
-
-            lblMensajes.Text = error;
-            return false;
-        }
-
-        private bool IntentarLeerId(ListControl lista, string error, out int id)
-        {
-            if (lista.SelectedItem == null)
-            {
-                lblMensajes.Text = error;
-                id = 0;
-                return false;
-            }
-            else
-            {
-                id = int.Parse(lista.SelectedValue);
-                return true;
             }
         }
 
@@ -164,9 +131,45 @@ namespace Ejemplo.Web
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {
             Limpiar();
+        }
 
-            // lista.SelectedIndex --> basededatos.ObtenerPorIndice()
-            // lista.SelectedItem --> ToString --> i = Find(" ") --> SubString(0, i) --> id
+        private void ListarViajes()
+        {
+            var lista = new List<Viaje>();
+            if (Fachada.Listar(lista))
+            {
+                lstViajes.DataSource = null;
+                lstViajes.DataSource = lista;
+                lstViajes.DataBind();
+            }
+            else
+            {
+                lblMensajes.Text = "Error de base de datos.";
+            }
+        }
+
+        private bool IntentarLeerFecha(TextBox caja, string error, out DateTime fecha)
+        {
+            if (DateTime.TryParse(caja.Text, out fecha))
+                return true;
+
+            lblMensajes.Text = error;
+            return false;
+        }
+
+        private bool IntentarLeerId(ListControl lista, string error, out int id)
+        {
+            if (lista.SelectedItem == null)
+            {
+                lblMensajes.Text = error;
+                id = 0;
+                return false;
+            }
+            else
+            {
+                id = int.Parse(lista.SelectedValue);
+                return true;
+            }
         }
 
         private void Limpiar()
