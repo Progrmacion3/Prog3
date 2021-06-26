@@ -14,6 +14,8 @@ namespace Common.Clases
         public string Usuario { get; set; }
         public string Contraseña { get; set; }
         public int Estado { get; set; }
+        public int Telefono { get; set; }
+
 
 
     }
