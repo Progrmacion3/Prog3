@@ -63,7 +63,7 @@
             </td>
             <td class="auto-style9" rowspan="3">
   
-                <asp:TextBox ID="txtEstadoActual" runat="server" Height="106px" TextMode="MultiLine" Width="323px"></asp:TextBox>
+                <asp:TextBox ID="txtEstadoActual" runat="server" style="font-family: 'Arial'" Height="106px" TextMode="MultiLine" Width="323px"></asp:TextBox>
             </td>
          </tr>
         <tr>
@@ -112,7 +112,7 @@
 
   
                 <br />
-                <asp:TextBox ID="txtComentario" runat="server" Height="106px" TextMode="MultiLine" Width="865px"></asp:TextBox>
+                <asp:TextBox ID="txtComentario" runat="server" style="font-family: 'Arial'" Height="106px" TextMode="MultiLine" Width="865px"></asp:TextBox>
                 <br />
 
   

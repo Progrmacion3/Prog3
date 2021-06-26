@@ -9,7 +9,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-  <table class="auto-style10">
+    <table class="auto-style10">
     <caption style="font-family: Arial, Helvetica, sans-serif; font-size: large; font-weight: bold; color: #000066">
       <br />
       PARADAS DEL VIAJE
@@ -30,9 +30,10 @@
         <br />
         <asp:Label ID="Label3" runat="server" style="font-family: 'Arial Black'" Text="Comentario" />
         <br />
+        <asp:Button ID="btnComentar" runat="server" Text="Guardar Nuevo Comentario"  style="text-align: center" Width="208px" Height="33px" BackColor="#003366" 
+                    BorderColor="#CCFFFF" Font-Bold="True" ForeColor="White"  OnClick="btnComentar_Click" />
         <asp:TextBox ID="txtComentario" runat="server" Height="56px" Width="426px" />
         <br />
-        <asp:Button ID="btnComentar" runat="server" Text="Guardar Nuevo Comentario" OnClick="btnComentar_Click" />
       </td>
     </tr>
     <tr>

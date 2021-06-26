@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Ejemplo.Web
-{
-
-
-    public partial class wfrmParadasDelViaje
-    {
-
+namespace Ejemplo.Web {
+    
+    
+    public partial class wfrmParadasDelViaje {
+        
         /// <summary>
         /// Label1 control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace Ejemplo.Web
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-
+        
         /// <summary>
         /// lstViajes control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace Ejemplo.Web
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox lstViajes;
-
+        
         /// <summary>
         /// Label2 control.
         /// </summary>
@@ -40,7 +38,7 @@ namespace Ejemplo.Web
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
-
+        
         /// <summary>
         /// lstParadas control.
         /// </summary>
@@ -49,7 +47,7 @@ namespace Ejemplo.Web
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox lstParadas;
-
+        
         /// <summary>
         /// Label3 control.
         /// </summary>
@@ -58,16 +56,7 @@ namespace Ejemplo.Web
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label3;
-
-        /// <summary>
-        /// txtComentario control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtComentario;
-
+        
         /// <summary>
         /// btnComentar control.
         /// </summary>
@@ -76,7 +65,16 @@ namespace Ejemplo.Web
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnComentar;
-
+        
+        /// <summary>
+        /// txtComentario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtComentario;
+        
         /// <summary>
         /// lblMensajes control.
         /// </summary>
