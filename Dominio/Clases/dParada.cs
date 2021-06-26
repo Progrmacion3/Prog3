@@ -7,5 +7,20 @@ namespace Dominio.Clases
 {
     public class dParada
     {
+        public static bool Agregar_Parada(Common.Clases.Parada pPar)
+        {
+            return Persistencia.Clases.pParada.AgregarParada(pPar);
+        }
+
+        public static bool Eliminar_Parada(Common.Clases.Parada pPar)
+        {
+            return Persistencia.Clases.pParada.EliminarParada(pPar);
+        }
+
+        public static bool Modificar_Parada(Common.Clases.Parada pPar)
+        {
+            return Persistencia.Clases.pParada.ModificarParada(pPar);
+        }
     }
 }
+
