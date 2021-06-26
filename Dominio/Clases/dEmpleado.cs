@@ -7,5 +7,19 @@ namespace Dominio.Clases
 {
     public class dEmpleado
     {
+        public static bool Agregar_Empleado(Common.Clases.Empleado pEmp)
+        {
+            return Persistencia.Clases.pEmpleado.AgregarEmpleado(pEmp);
+        }
+
+        public static bool Eliminar_Empleado(Common.Clases.Empleado pEmp)
+        {
+            return Persistencia.Clases.pEmpleado.EliminarEmpleado(pEmp);
+        }
+
+        public static bool Modificar_Empleado(Common.Clases.Empleado pEmp)
+        {
+            return Persistencia.Clases.pEmpleado.ModificarEmpleado(pEmp);
+        }
     }
 }
