@@ -111,6 +111,7 @@ namespace Persistencia.Clases
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.Add(new SqlParameter("@CIEmpleado", pEmp.CI));
+                cmd.Parameters.Add(new SqlParameter("@estado", pEmp.Estado));
 
                 int rtn = cmd.ExecuteNonQuery();
 
