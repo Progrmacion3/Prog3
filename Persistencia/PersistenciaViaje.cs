@@ -166,21 +166,14 @@ namespace Persistencia
             comando.CommandText = "viaje_actual";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@id_camionero", camionero.Id);
+            comando.Parameters.Add("@id_viaje", SqlDbType.Int);
+            comando.Parameters["@id_viaje"].Direction = ParameterDirection.Output;
             try
             {
                 conexión.Open();
-                using (var lector = comando.ExecuteReader())
-                {
-                    if (lector.Read())
-                    {
-                        viaje.Id = Convert.ToInt32(lector["id_viaje"]);
-                        return Obtener(viaje);
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
+                comando.ExecuteNonQuery();
+                viaje.Id = Convert.ToInt32(comando.Parameters["@id_viaje"].Value);
+                return Obtener(viaje);
             }
             catch // (Exception ex)
             {
@@ -239,7 +232,7 @@ namespace Persistencia
             comando.Parameters.AddWithValue("@id_viaje", viaje.Id);
             comando.Parameters.Add("@id_estado", SqlDbType.Int);
             comando.Parameters.AddWithValue("@tipo", estado.Tipo);
-            comando.Parameters.Add("@time", SqlDbType.Date);
+            comando.Parameters.Add("@time", SqlDbType.DateTime);
             comando.Parameters.AddWithValue("@kilaje", estado.Kilaje);
             comando.Parameters.AddWithValue("@comentario", estado.Comentario);
             comando.Parameters["@id_estado"].Direction = ParameterDirection.Output;

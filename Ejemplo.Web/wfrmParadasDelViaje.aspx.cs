@@ -70,6 +70,7 @@ namespace Ejemplo.Web
             if (Fachada.Obtener(estado, viaje))
             {
                 txtComentario.Text = estado.Comentario;
+                ddlEstado.SelectedValue = estado.Tipo;
                 lblMensajes.Text = "";
             }
             else
@@ -89,6 +90,7 @@ namespace Ejemplo.Web
             var estado = new Estado(idEstado);
             if (Fachada.Obtener(estado, viaje))
             {
+                estado.Tipo = ddlEstado.SelectedValue;
                 estado.Comentario = txtComentario.Text;
                 if (Fachada.Alta(estado, viaje))
                 {
@@ -105,11 +107,6 @@ namespace Ejemplo.Web
                 }
             }
             lblMensajes.Text = "Error de base de datos.";
-        }
-
-        protected void btnEstado_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

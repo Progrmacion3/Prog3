@@ -143,7 +143,7 @@
         <asp:Label runat="server" CssClass="etiqueta" ID="lblEstado" Text="Estado" />
       </td>
       <td class="auto-style26">
-        <asp:TextBox ID="txtEstado" runat="server" TabIndex="1" Enabled="False" Height="22px" Width="203px"></asp:TextBox>
+        <asp:TextBox ID="txtEstado" runat="server" TabIndex="1" Enabled="False" Height="22px" Width="203px">Propuesto</asp:TextBox>
       </td>
       <td class="auto-style32">
           &nbsp;</td>

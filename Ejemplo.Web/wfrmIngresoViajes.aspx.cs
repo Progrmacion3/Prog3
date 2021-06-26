@@ -68,6 +68,9 @@ namespace Ejemplo.Web
                 lstCamionero.SelectedValue = viaje.Camionero.Id.ToString();
                 lstCiudIni.SelectedValue = viaje.Origen.Id.ToString();
                 lstCiudFin.SelectedValue = viaje.Destino.Id.ToString();
+                Estado estado;
+                Fachada.ObtenerEstadoActual(viaje, out estado);
+                txtEstado.Text = estado.Tipo;
                 lblMensajes.Text = "";
             }
             else
@@ -179,6 +182,7 @@ namespace Ejemplo.Web
             txtFecIni.Text = "";
             txtFecFin.Text = "";
             lstViajes.ClearSelection();
+            txtEstado.Text = "Propuesto";
         }
     }
 }
