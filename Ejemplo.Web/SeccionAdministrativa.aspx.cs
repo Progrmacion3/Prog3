@@ -7,8 +7,8 @@ using System.Web.UI.WebControls;
 
 namespace Ejemplo.Web
 {
-    public partial class SiteMaster : System.Web.UI.MasterPage
+    public partial class SeccionAdministrativa : System.Web.UI.Page
     {
-       
+      
     }
 }
