@@ -32,7 +32,7 @@
         <br />
         <asp:Button ID="btnComentar" runat="server" Text="Guardar Nuevo Comentario"  style="text-align: center" Width="208px" Height="33px" BackColor="#003366" 
                     BorderColor="#CCFFFF" Font-Bold="True" ForeColor="White"  OnClick="btnComentar_Click" />
-        <asp:TextBox ID="txtComentario" runat="server" Height="56px" Width="426px" />
+        <asp:TextBox ID="txtComentario" runat="server" Height="56px" Width="426px" AutoPostBack="True" />
         <br />
       </td>
     </tr>

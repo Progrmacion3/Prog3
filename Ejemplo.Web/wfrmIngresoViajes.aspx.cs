@@ -67,7 +67,7 @@ namespace Ejemplo.Web
                 lstCamion.SelectedValue = viaje.Camión.Id.ToString();
                 lstCamionero.SelectedValue = viaje.Camionero.Id.ToString();
                 lstCiudIni.SelectedValue = viaje.Origen.Id.ToString();
-                lstCiudFin.SelectedValue = viaje.Origen.Id.ToString();
+                lstCiudFin.SelectedValue = viaje.Destino.Id.ToString();
                 lblMensajes.Text = "";
             }
             else
