@@ -8,11 +8,11 @@ namespace obligatorio.Persistencia.Clases
 {
     public class Persistencia
     {
-        protected static string CadenaDeConexion
+        public static string CadenaDeConexion
         {
             get
             {
-                return ConfigurationManager.ConnectionStrings[@"Server=localhost\SQLEXPRESS;Database=obligProgramacion;User Id=PABLOPC\pablo;"].ToString();      
+                return @"data source=localhost\SQLEXPRESS;Initial Catalog=ObligatorioProgramacion3;Integrated Security=SSPI";   
             }
         }
     }

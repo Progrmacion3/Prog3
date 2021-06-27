@@ -7,17 +7,11 @@ namespace obligatorio.Dominio
 {
     public class Camion
     {
-        private int _id;
         private string _marca;
         private string _modelo;
         private string _matricula;
         private int _ano; // año btw tbh idc
 
-        public int Id
-        {
-            get { return _id; }
-            set { _id = value; }
-        }
         public string Marca
         {
             get { return _marca; }
@@ -52,9 +46,13 @@ namespace obligatorio.Dominio
         }
         public bool BajaCamion(Camion unCamion)
         {
-            int num = new Random().Next();
-            if (num == 1)
+            if (BuscarCamion(unCamion) != null && Persistencia.Clases.pCamion.EliminarCamion(unCamion))
+            {
+                Empresa empresa = new Dominio.Empresa();
+                Camion camion = BuscarCamion(unCamion);
+                empresa.ListaCamiones().Remove(camion);
                 return true;
+            }
             return false;
         }
         public bool ModificarCamion(Camion unCamion)
@@ -68,7 +66,7 @@ namespace obligatorio.Dominio
         {
             Empresa empresa = new Dominio.Empresa();
             foreach (Camion camion in empresa.ListaCamiones())
-                if (unCamion.Id == camion.Id)
+                if (unCamion.Matricula == camion.Matricula)
                     return camion;
 
             return null;
@@ -81,9 +79,9 @@ namespace obligatorio.Dominio
             Matricula = pMatricula;
             Ano = pAno;
         }
-        public Camion(int pId)
+        public Camion(string pMatricula)
         {
-            Id = pId;
+            Matricula = pMatricula;
         }
         public Camion()
         {
