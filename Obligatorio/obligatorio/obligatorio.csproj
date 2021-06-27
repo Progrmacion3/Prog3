@@ -377,6 +377,8 @@
     <Compile Include="Dominio\Empresa.cs" />
     <Compile Include="Dominio\Parada.cs" />
     <Compile Include="Dominio\Viaje.cs" />
+    <Compile Include="Persistencia\Clases\pCamion.cs" />
+    <Compile Include="Persistencia\Clases\Persistencia.cs" />
     <Compile Include="Presentacion\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -452,7 +454,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Persistencia\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

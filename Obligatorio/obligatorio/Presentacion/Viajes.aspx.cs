@@ -48,7 +48,7 @@ namespace obligatorio.Presentacion
             {
                 Empresa mEmpresa = new Empresa();
                 int mIdCamionero = int.Parse(this.txtCamionero.Text);
-                int mIdCamion = int.Parse(this.txtCamion.Text);
+                string mMatCamion = this.txtCamion.Text;
                 string mCarga = this.txtCarga.Text;
                 int mKilaje = int.Parse(this.txtKilaje.Text);
                 string mOrigen = this.txtOrigen.Text;
@@ -56,7 +56,7 @@ namespace obligatorio.Presentacion
                 DateTime mFechaInicio = this.dtpFechaInicio.SelectedDate;
                 DateTime mFechaFin = this.dtpFechaFin.SelectedDate;
                 string mEstado = this.txtEstado.Text;
-                Camion elCamion = mEmpresa.BuscarCamion(new Camion(mIdCamion));
+                Camion elCamion = mEmpresa.BuscarCamion(new Camion(mMatCamion));
                 Camionero elCamionero = mEmpresa.BuscarCamionero(new Camionero(mIdCamionero));
                 Viaje unViaje = new Viaje(elCamionero, elCamion, mCarga, mKilaje, mOrigen, mDestino, mFechaInicio, mFechaFin, mEstado);
                 if(mEmpresa.MenuViaje("alta", unViaje))
