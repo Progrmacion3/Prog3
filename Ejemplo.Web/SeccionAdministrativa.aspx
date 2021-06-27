@@ -1,13 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SeccionAdministrativa.aspx.cs" PageFile="~/SeccionAdministrativa.aspx"
-    Inherits="Ejemplo.Web.SeccionAdministrativa" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SeccionAdministrativa.aspx.cs" Inherits="Ejemplo.Web.SeccionAdministrativa" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
-    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
-    </asp:ContentPlaceHolder>
 </head>
 <body>
     <form runat="server">
