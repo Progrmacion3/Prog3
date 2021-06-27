@@ -39,7 +39,7 @@ namespace obligatorio.Presentacion
             this.InputUser.Text = "";
         }
 
-        protected void btnAlta_Click(object sender, EventArgs e)
+        public void btnAlta_Click(object sender, EventArgs e)
         {
             if (this.rdbCamionero.Checked)
             {
@@ -57,13 +57,17 @@ namespace obligatorio.Presentacion
                 string mTipoLibreta = this.InputTipoLibreta.ToString();
                 int mEdad = int.Parse(this.InputEdad.ToString());
                 DateTime mVencimientoLibreta = DateTime.Parse(this.InputFechaVencimiento.ToString());
-                Empleado unEmpleado = new Camionero(mNombre, mApellido, mDocumento, mCargo, mTelefono, mUser, mPassword, mEdad, mTipoLibreta, mVencimientoLibreta);
+                Camionero unCamionero = new Camionero(mNombre, mApellido, mDocumento, mCargo, mTelefono, mUser, mPassword, mEdad, mTipoLibreta, mVencimientoLibreta);
 
-                if(empresa.MenuCamionero("alta", unEmpleado))
+                if(empresa.MenuCamionero("alta", unCamionero))
                 {
                     this.ListarDatos();
                     this.LimpiarCampos();
                 }
+            }
+            else if (this.rdbCamionero.Checked)
+            {
+                Console.WriteLine("Holis");
             }
          
         }

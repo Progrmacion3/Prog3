@@ -46,14 +46,26 @@ namespace obligatorio.Dominio
 
             }
         }
-        public bool MenuCamionero(string pFuncion, Empleado unCamionero)
+        public bool MenuCamionero(string pFuncion, Camionero unCamionero)
         {
             switch (pFuncion)
             {
                 case "alta":
-                    return new Camionero().AltaCamionero(unCamionero);
+                    if (new Camionero().AltaCamionero(unCamionero))
+                    {
+                        _listaCamioneros.Add(unCamionero);
+                        return true;
+                    }
+                    else return false;
+
+                    
                 case "baja":
-                    return new Camionero().BajaCamionero(unCamionero);
+                    if (new Camionero().BajaCamionero(unCamionero))
+                    {
+                        _listaCamioneros.Remove(unCamionero);
+                        return true;
+                    }
+                    else return false;
                 case "modificar":
                     return new Camionero().ModificarCamionero(unCamionero);
                 default:
@@ -93,7 +105,7 @@ namespace obligatorio.Dominio
         {
             return new Camion().BuscarCamion(unCamion);
         }
-        public Empleado BuscarCamionero(Empleado unCamionero)
+        public Empleado BuscarCamionero(Camionero unCamionero)
         {
             return new Camionero().BuscarCamionero(unCamionero);
         }

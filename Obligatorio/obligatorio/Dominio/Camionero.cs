@@ -27,32 +27,39 @@ namespace obligatorio.Dominio
             set { _fechaVencimiento = value; }
         }
 
-        public bool AltaCamionero(Empleado unCamionero)
+        public bool AltaCamionero(Camionero unCamionero) //Alta de Camioneros
+        {
+            if(BuscarCamionero(unCamionero) != null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        public bool BajaCamionero(Camionero unCamionero)
         {
             int num = new Random().Next();
             if (num == 1)
                 return true;
             return false;
         }
-        public bool BajaCamionero(Empleado unCamionero)
+        public bool ModificarCamionero(Camionero unCamionero)
         {
             int num = new Random().Next();
             if (num == 1)
                 return true;
             return false;
         }
-        public bool ModificarCamionero(Empleado unCamionero)
+        public Camionero BuscarCamionero(Camionero unCamionero)
         {
-            int num = new Random().Next();
-            if (num == 1)
-                return true;
-            return false;
-        }
-        public Empleado BuscarCamionero(Empleado unCamionero)
-        {
-            int num = new Random().Next();
-            if (num == 1)
-                return null;
+            Empresa empresa = new Dominio.Empresa();
+            Console.WriteLine(empresa.ListaCamioneros().ToString());
+            foreach (Camionero camionero in empresa.ListaCamioneros())
+                if (unCamionero.Id == camionero.Id)
+                    return camionero;
+         
             return null;
         }
 
