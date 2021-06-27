@@ -6,7 +6,7 @@ using System.Web;
 namespace obligatorio.Dominio
 {
     public class Empresa
-    {
+    { //esto es un comentario
         private static List<Empleado> _listaCamioneros = new List<Empleado>();
         private static List<Administrador> _listaAdmins = new List<Administrador>();
         private static List<Camion> _listaCamiones = new List<Camion>();

@@ -38,7 +38,7 @@ namespace obligatorio.Presentacion
             this.InputSecondName.Text = "";
             this.InputUser.Text = "";
         }
-
+        // comentario to wapo
         public void btnAlta_Click(object sender, EventArgs e)
         {
             if (this.rdbCamionero.Checked)
