@@ -41,10 +41,16 @@ namespace obligatorio.Dominio
 
         public bool AltaCamion(Camion unCamion)
         {
-            int num = new Random().Next();
-            if (num == 1)
+            if (BuscarCamion(unCamion) != null)
+            {
+                return false;
+            }
+            else
+            {
+                Empresa empresa = new Dominio.Empresa();
+                empresa.ListaCamiones().Add(unCamion);
                 return true;
-            return false;
+            }
         }
         public bool BajaCamion(Camion unCamion)
         {
@@ -62,15 +68,16 @@ namespace obligatorio.Dominio
         }
         public Camion BuscarCamion(Camion unCamion)
         {
-            int num = new Random().Next();
-            if (num == 1)
-                return null;
+            Empresa empresa = new Dominio.Empresa();
+            foreach (Camion camion in empresa.ListaCamiones())
+                if (unCamion.Id == camion.Id)
+                    return camion;
+
             return null;
         }
 
-        public Camion(int pId, string pMarca, string pModelo, string pMatricula, int pAno)
+        public Camion(string pMarca, string pModelo, string pMatricula, int pAno)
         {
-            Id = pId;
             Marca = pMarca;
             Modelo = pModelo;
             Matricula = pMatricula;
