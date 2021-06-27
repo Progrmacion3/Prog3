@@ -20,7 +20,19 @@ namespace obligatorio.Presentacion
         {
 
         }
+        private bool FaltanDatos()
+        {
+            if (this.InputDocument.Text == "" || this.InputEdad.Text == "" || this.InputName.Text == "" || this.InputPass.Text == "" || this.InputPosition.Text == "" || this.InputSecondName.Text == "" || this.InputTelefono.Text == "" || this.InputTipoLibreta.Text == "" || this.InputUser.Text == "")
+                return true;
 
+            if (this.rdbAdministrador.Checked)
+                return true;
+
+            if (this.rdbCamionero.Checked && this.InputFechaVencimiento.SelectedDate < DateTime.Today.Date)
+                return false;
+
+            return true;
+        }
         private void ListarDatos()
         {
 
@@ -38,38 +50,45 @@ namespace obligatorio.Presentacion
             this.InputSecondName.Text = "";
             this.InputUser.Text = "";
         }
-        // comentario to wapo
+
         public void btnAlta_Click(object sender, EventArgs e)
         {
-            if (this.rdbCamionero.Checked)
+            if (!FaltanDatos())
             {
-                this.InputEdad.Visible = true;
-                this.InputTipoLibreta.Visible = true;
-                this.InputFechaVencimiento.Visible = true;
-                Empresa empresa = new Empresa();
-                string mNombre = this.InputName.Text;
-                string mDocumento = this.InputDocument.Text;
-                string mApellido = this.InputSecondName.Text;
-                string mCargo = this.InputPosition.Text;
-                string mPassword = this.InputPass.Text;
-                string mUser = this.InputUser.Text;
-                string mTelefono = this.InputTelefono.Text;
-                string mTipoLibreta = this.InputTipoLibreta.Text;
-                int mEdad = int.Parse(this.InputEdad.Text);
-                DateTime mVencimientoLibreta = DateTime.Parse(this.InputFechaVencimiento.ToString());
-                Camionero unCamionero = new Camionero(mNombre, mApellido, mDocumento, mCargo, mTelefono, mUser, mPassword, mEdad, mTipoLibreta, mVencimientoLibreta);
-
-                if(empresa.MenuCamionero("alta", unCamionero))
+                if (this.rdbCamionero.Checked)
                 {
-                    this.ListarDatos();
-                    this.LimpiarCampos();
+                    this.InputEdad.Visible = true;
+                    this.InputTipoLibreta.Visible = true;
+                    this.InputFechaVencimiento.Visible = true;
+                    Empresa empresa = new Empresa();
+                    string mNombre = this.InputName.Text;
+                    string mDocumento = this.InputDocument.Text;
+                    string mApellido = this.InputSecondName.Text;
+                    string mCargo = this.InputPosition.Text;
+                    string mPassword = this.InputPass.Text;
+                    string mUser = this.InputUser.Text;
+                    string mTelefono = this.InputTelefono.Text;
+                    string mTipoLibreta = this.InputTipoLibreta.Text;
+                    int mEdad = int.Parse(this.InputEdad.Text);
+                    DateTime mVencimientoLibreta = DateTime.Parse(this.InputFechaVencimiento.ToString());
+                    Camionero unCamionero = new Camionero(mNombre, mApellido, mDocumento, mCargo, mTelefono, mUser, mPassword, mEdad, mTipoLibreta, mVencimientoLibreta);
+
+                    if (empresa.MenuCamionero("alta", unCamionero))
+                    {
+                        this.ListarDatos();
+                        this.LimpiarCampos();
+                        return;
+                    }
+                    return;
                 }
+                // #removeElsesFromProgramming
+                if (this.rdbAdministrador.Checked)
+                {
+                    Console.WriteLine("Holis");
+                    return;
+                }
+                return;
             }
-            else if (this.rdbAdministrador.Checked)
-            {
-                Console.WriteLine("Holis");
-            }
-         
         }
 
         protected void btnBaja_Click(object sender, EventArgs e)
@@ -79,7 +98,10 @@ namespace obligatorio.Presentacion
 
         protected void btnModificar_Click(object sender, EventArgs e)
         {
+            if (!FaltanDatos())
+            {
 
+            }
         }
 
         protected void btnLimpiar_Click(object sender, EventArgs e)
