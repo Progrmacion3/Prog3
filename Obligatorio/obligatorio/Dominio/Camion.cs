@@ -41,16 +41,14 @@ namespace obligatorio.Dominio
 
         public bool AltaCamion(Camion unCamion)
         {
-            if (BuscarCamion(unCamion) != null)
-            {
-                return false;
-            }
-            else
+            if (BuscarCamion(unCamion) == null && Persistencia.Clases.pCamion.AgregarCamion(unCamion))
             {
                 Empresa empresa = new Dominio.Empresa();
                 empresa.ListaCamiones().Add(unCamion);
                 return true;
             }
+            return false;
+            
         }
         public bool BajaCamion(Camion unCamion)
         {

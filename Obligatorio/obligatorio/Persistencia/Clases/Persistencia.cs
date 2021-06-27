@@ -12,8 +12,7 @@ namespace obligatorio.Persistencia.Clases
         {
             get
             {
-                return ConfigurationManager.ConnectionStrings["SqlServerAuth"].ToString();
-                //@"Server=WINDOWS-LHK6TF8\ESTEBANM;Database=obligProgramacion;User Id=sa; password=@MartinezAnchen;";
+                return ConfigurationManager.ConnectionStrings[@"Server=localhost\SQLEXPRESS;Database=obligProgramacion;User Id=PABLOPC\pablo;"].ToString();      
             }
         }
     }
