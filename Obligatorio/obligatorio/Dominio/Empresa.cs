@@ -7,12 +7,12 @@ namespace obligatorio.Dominio
 {
     public class Empresa
     {
-        private List<Camionero> _listaCamioneros = new List<Camionero>();
-        private List<Administrador> _listaAdmins = new List<Administrador>();
-        private List<Camion> _listaCamiones = new List<Camion>();
-        private List<Viaje> _listaViajes = new List<Viaje>();
+        private static List<Empleado> _listaCamioneros = new List<Empleado>();
+        private static List<Administrador> _listaAdmins = new List<Administrador>();
+        private static List<Camion> _listaCamiones = new List<Camion>();
+        private static List<Viaje> _listaViajes = new List<Viaje>();
 
-        public List<Camionero> ListaCamioneros()
+        public List<Empleado> ListaCamioneros()
         {
             return _listaCamioneros;
         }
@@ -56,7 +56,7 @@ namespace obligatorio.Dominio
                         _listaCamioneros.Add(unCamionero);
                         return true;
                     }
-                    else return false;
+                    return false;
 
                     
                 case "baja":
@@ -65,7 +65,7 @@ namespace obligatorio.Dominio
                         _listaCamioneros.Remove(unCamionero);
                         return true;
                     }
-                    else return false;
+                    return false;
                 case "modificar":
                     return new Camionero().ModificarCamionero(unCamionero);
                 default:
@@ -105,7 +105,7 @@ namespace obligatorio.Dominio
         {
             return new Camion().BuscarCamion(unCamion);
         }
-        public Empleado BuscarCamionero(Camionero unCamionero)
+        public Camionero BuscarCamionero(Camionero unCamionero)
         {
             return new Camionero().BuscarCamionero(unCamionero);
         }
