@@ -11,7 +11,7 @@ namespace Ejemplo.Web.Secciones.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.ActualizarLista();
         }
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -25,20 +25,14 @@ namespace Ejemplo.Web.Secciones.Admin
 
             if (verdadero)
             {
+                this.ActualizarLista();
                 lblResultado.Text = "Se ha registrado el camión de manera correcta.";
             }
             else
             {
                 lblResultado.Text = "No se ha podido registrar el camión.";
             }
-        }
-        protected void btnActualizar_Click(object sender, EventArgs e)
-        {
-
-        }
-        protected void btnCancelar_Click(object sender, EventArgs e)
-        {
-
+            this.Limpiar();
         }
 
         protected void btnEliminar_Click(object sender, EventArgs e)
@@ -50,12 +44,14 @@ namespace Ejemplo.Web.Secciones.Admin
 
             if (verdadero)
             {
+                this.ActualizarLista();
                 lblResultado.Text = "Se ha eliminado el camión de manera correcta.";
             }
             else
             {
                 lblResultado.Text = "No se ha podido eliminar el camión.";
             }
+            this.Limpiar();
         }
 
         protected void btnModificar_Click(object sender, EventArgs e)
@@ -70,12 +66,56 @@ namespace Ejemplo.Web.Secciones.Admin
 
             if (verdadero)
             {
+                this.ActualizarLista();
                 lblResultado.Text = "Se ha modificado el camión de manera correcta.";
             }
             else
             {
                 lblResultado.Text = "No se ha podido modificar el camión.";
             }
+            this.Limpiar();
+        }
+        protected void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            this.Limpiar();
+        }
+        protected void ActualizarLista()
+        {
+            this.grdCamiones.DataSource = Dominio.Fachada.MostrarCamiones();
+            this.grdCamiones.DataBind();
+        }
+        protected void grdCamiones_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        protected void grdCamiones_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+            this.lblResultado.Text = string.Empty;
+
+            TableCell celda = grdCamiones.Rows[e.NewSelectedIndex].Cells[1];
+            Common.Clases.Camion camion = new Common.Clases.Camion();
+            camion.Matricula = celda.Text;
+            camion = Dominio.Fachada.MostrarCamionEspecifico(camion);
+
+            if(camion != null)
+            {
+                this.txtMatricula.Text = camion.Matricula;
+                this.txtMarca.Text = camion.Marca;
+                this.txtModelo.Text = camion.Modelo;
+                this.txtAño.Text = Convert.ToString(camion.Año);
+            }
+            else
+            {
+                ClientScript.RegisterClientScriptBlock(GetType(), "alert", "alert ('ERROR: No se pudo cargar la fila.')", true);
+            }
+        }
+        protected void Limpiar()
+        {
+            this.txtMatricula.Text = string.Empty;
+            this.txtMarca.Text = string.Empty;
+            this.txtModelo.Text = string.Empty;
+            this.txtAño.Text = string.Empty;
+            this.txtMatricula.Focus();
         }
     }
 }

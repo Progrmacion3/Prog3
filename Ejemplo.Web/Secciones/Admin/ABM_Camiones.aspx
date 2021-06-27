@@ -50,22 +50,29 @@
         <tr>
             <td colspan="3" align="left">
                 <br />
-&nbsp;&nbsp;
-                <asp:ListBox ID="ListBox1" runat="server" DataSourceID="SqlDataSource1" DataTextField="IdCamion" DataValueField="IdCamion" style="margin-top: 1px" Width="334px"></asp:ListBox>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WindowsAuth %>" SelectCommand="SELECT DISTINCT [IdCamion], [Matricula], [Marca], [Modelo], [Año] FROM [Camiones] ORDER BY [IdCamion]"></asp:SqlDataSource>
-                <br />
-                <br />
                 <asp:Label ID="lblResultado" runat="server"></asp:Label>
             </td>
         </tr>
         <tr>
             <td colspan="3" align="left">
                 <asp:Button ID="btnAgregar" Text="Agregar" runat="server" OnClick="btnAgregar_Click" />
-                <%--                                <asp:Button ID="btnActualizar" Text="Modificar" runat="server" Visible="false" OnClick="btnActualizar_Click" />
-                                <asp:Button ID="btnCancelar" Text="Cancelar" runat="server" Visible="false" OnClick="btnCancelar_Click" />--%>
                 <asp:Button ID="btnEliminar" runat="server" OnClick="btnEliminar_Click" Text="Eliminar" />
                 <asp:Button ID="btnModificar" runat="server" OnClick="btnModificar_Click" Text="Modificar" />
+                <asp:Button ID="btnLimpiar" runat="server" OnClick="btnLimpiar_Click" Text="Limpiar campos" />
             </td>
         </tr>
     </table>
+     <asp:GridView ID="grdCamiones" Width="93%" runat="server" AutoGenerateColumns="true" ViewStateMode="Enabled" CellPadding="10" ForeColor="#333333"
+        OnSelectedIndexChanging="grdCamiones_SelectedIndexChanging" AutoGenerateSelectButton="true"
+        EmptyDataText="No existen registros" ShowHeaderWhenEmpty="true" OnSelectedIndexChanged="grdCamiones_SelectedIndexChanged">
+        <EditRowStyle BackColor="#3399ff" />
+        <FooterStyle BackColor="Black" Font-Bold="true" ForeColor="White" />
+        <HeaderStyle BackColor="Black" Font-Bold="true" ForeColor="White" />
+        <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Center" />
+        <RowStyle BackColor="White" ForeColor="Black" />
+        <SelectedRowStyle BackColor="#cccccc" ForeColor="Black" />
+        <SortedAscendingCellStyle BackColor="#c0c0c0" />
+        <SortedDescendingCellStyle BackColor="#c0c0c0" />
+        <SortedDescendingHeaderStyle BackColor="White" />
+    </asp:GridView>
 </asp:Content>

@@ -29,6 +29,10 @@ namespace Dominio
         {
             return Dominio.Clases.Admin.MostrarAdmin();
         }
+        public static Common.Clases.Admin MostrarAdminEspecifico(Common.Clases.Admin pAdmin)
+        {
+            return Dominio.Clases.Admin.MostrarAdminEspecifico(pAdmin);
+        }
         #endregion
         #region Metodos de Camionero
 
@@ -85,7 +89,14 @@ namespace Dominio
         {
             return Dominio.Clases.Camion.ModificarCamion(pCamion);
         }
-
+        public static List<Common.Clases.Camion> MostrarCamiones()
+        {
+            return Dominio.Clases.Camion.MostrarCamiones();
+        }
+        public static Common.Clases.Camion MostrarCamionEspecifico(Common.Clases.Camion pCamion)
+        {
+            return Dominio.Clases.Camion.MostrarCamionEspecifico(pCamion);
+        }
         #endregion
         #region Metodos de Parada
 

@@ -116,8 +116,9 @@
         <tr>
             <td colspan="3" align="left">
                 <asp:Button ID="btnAgregar" Text="Agregar" runat="server" OnClick="btnAgregar_Click" />
-                <%--                                <asp:Button ID="btnActualizar" Text="Modificar" runat="server" Visible="false" OnClick="btnActualizar_Click" />
-                                <asp:Button ID="btnCancelar" Text="Cancelar" runat="server" Visible="false" OnClick="btnCancelar_Click" />--%>
+                <asp:Button ID="btnEliminar" Text="Eliminar" runat="server" OnClick="btnEliminar_Click" />
+                <asp:Button ID="btnModificar" Text="Modificar" runat="server" OnClick="btnModificar_Click" />
+                <asp:Button ID="btnLimpiar" Text="Limpiar campos" runat="server" OnClick="btnLimpiar_Click" />
                 <div style="height: 232px; width: 912px">
                 </div>
             </td>

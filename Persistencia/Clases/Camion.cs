@@ -115,5 +115,74 @@ namespace Persistencia.Clases
             }
             return retorno;
         }
+        public static List<Common.Clases.Camion> MostrarCamiones()
+        {
+            List<Common.Clases.Camion> retorno = new List<Common.Clases.Camion>();
+            Common.Clases.Camion camion;
+
+            try
+            {
+                var conexion = new SqlConnection(CadenaDeConexion);
+                conexion.Open();
+
+                SqlCommand cmd = new SqlCommand("mostrarCamiones", conexion);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                using (SqlDataReader oReader = cmd.ExecuteReader())
+                {
+                    while (oReader.Read())
+                    {
+                        camion = new Common.Clases.Camion();
+                        camion.Matricula = oReader["Matricula"].ToString();
+                        camion.Marca = oReader["Marca"].ToString();
+                        camion.Modelo = oReader["Modelo"].ToString();
+                        camion.Año = int.Parse(oReader["Año"].ToString());
+
+                        retorno.Add(camion);
+                    }
+                    conexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return retorno;
+        }
+        public static Common.Clases.Camion MostrarCamionEspecifico(Common.Clases.Camion pCamion)
+        {
+            Common.Clases.Camion retorno = null;
+            try
+            {
+                var conexion = new SqlConnection(CadenaDeConexion);
+                conexion.Open();
+
+                SqlCommand cmd = new SqlCommand("mostrarCamionEspecifico", conexion);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@matricula", pCamion.Matricula));
+
+                using (SqlDataReader oReader = cmd.ExecuteReader())
+                {
+                    while (oReader.Read())
+                    {
+                        retorno = new Common.Clases.Camion();
+                        retorno.Matricula = oReader["Matricula"].ToString();
+                        retorno.Marca = oReader["Marca"].ToString();
+                        retorno.Modelo = oReader["Modelo"].ToString();
+                        retorno.Año = int.Parse(oReader["Año"].ToString());
+
+                    }
+                    conexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return retorno;
+        }
     }
 }

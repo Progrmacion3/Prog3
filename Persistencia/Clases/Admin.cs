@@ -86,7 +86,42 @@ namespace Persistencia.Clases
 
         public static bool ModificarAdmin(Common.Clases.Admin pAdmin)
         {
-            throw new NotImplementedException();
+            bool retorno = true;
+
+            try
+            {
+                var conexion = new SqlConnection(CadenaDeConexion);
+                conexion.Open();
+
+                SqlCommand cmd = new SqlCommand("ModificarAdmin", conexion);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@cedula", pAdmin.Cedula));
+                cmd.Parameters.Add(new SqlParameter("@nombre", pAdmin.Nombre));
+                cmd.Parameters.Add(new SqlParameter("@apellido", pAdmin.Apellido));
+                cmd.Parameters.Add(new SqlParameter("@fechaNacimiento", pAdmin.FechaNacimiento));
+                cmd.Parameters.Add(new SqlParameter("@cargo", pAdmin.Cargo));
+                cmd.Parameters.Add(new SqlParameter("@telefono", pAdmin.Telefono));
+                cmd.Parameters.Add(new SqlParameter("@usuario", pAdmin.Usuario));
+                cmd.Parameters.Add(new SqlParameter("@contrasenia", pAdmin.Contraseña));
+
+                int rtn = cmd.ExecuteNonQuery();
+                if (rtn <= 0)
+                {
+                    retorno = false;
+                }
+
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return retorno;
         }
         public static List<Common.Clases.Admin> MostrarAdmin()
         {
@@ -118,6 +153,45 @@ namespace Persistencia.Clases
                         admin.Contraseña = oReader["Contrasenia"].ToString();
 
                         retorno.Add(admin);
+                    }
+                    conexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return retorno;
+        }
+        public static Common.Clases.Admin MostrarAdminEspecifico(Common.Clases.Admin pAdmin)
+        {
+            Common.Clases.Admin retorno = null;
+            try
+            {
+                var conexion = new SqlConnection(CadenaDeConexion);
+                conexion.Open();
+
+                SqlCommand cmd = new SqlCommand("mostrarAdminEspecifico", conexion);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@cedula", pAdmin.Cedula));
+
+                using (SqlDataReader oReader = cmd.ExecuteReader())
+                {
+                    while (oReader.Read())
+                    {
+                        retorno = new Common.Clases.Admin();
+                        retorno.Cedula = int.Parse(oReader["Cedula"].ToString());
+                        retorno.Nombre = oReader["Nombre"].ToString();
+                        retorno.Apellido = oReader["Apellido"].ToString();
+                        retorno.Edad = int.Parse(oReader["Edad"].ToString());
+                        retorno.FechaNacimiento = Convert.ToDateTime(oReader["FechaNacimiento"]);
+                        retorno.Cargo = oReader["Cargo"].ToString();
+                        retorno.Telefono = oReader["Telefono"].ToString();
+                        retorno.Usuario = oReader["Usuario"].ToString();
+                        retorno.Contraseña = oReader["Contrasenia"].ToString();
+
                     }
                     conexion.Close();
                 }

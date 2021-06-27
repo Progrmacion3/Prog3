@@ -5,6 +5,7 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <h2>Empleados:</h2>
     <br />
+    
     <asp:GridView ID="grdEmpleados" Width="93%" runat="server" AutoGenerateColumns="true" ViewStateMode="Enabled" CellPadding="10" ForeColor="#333333"
         OnSelectedIndexChanging="grdEmpleados_SelectedIndexChanging"
         EmptyDataText="No existen registros" ShowHeaderWhenEmpty="true" OnSelectedIndexChanged="grdEmpleados_SelectedIndexChanged">

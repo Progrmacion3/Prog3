@@ -19,5 +19,13 @@ namespace Dominio.Clases
         {
             return Persistencia.Clases.Camion.ModificarCamion(pCamion);
         }
+        public static List<Common.Clases.Camion> MostrarCamiones()
+        {
+            return Persistencia.Clases.Camion.MostrarCamiones();
+        }
+        public static Common.Clases.Camion MostrarCamionEspecifico(Common.Clases.Camion pCamion)
+        {
+            return Persistencia.Clases.Camion.MostrarCamionEspecifico(pCamion);
+        }
     }
 }
