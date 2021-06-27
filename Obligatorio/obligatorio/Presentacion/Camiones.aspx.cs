@@ -51,11 +51,8 @@ namespace obligatorio.Presentacion
         protected void btnBaja_Click(object sender, EventArgs e)
         {
             Empresa empresa = new Empresa();
-            string marca = this.InputMarca.Text;
-            string modelo = this.InputModelo.Text;
             string matricula = this.InputMatricula.Text;
-            int ano = int.Parse(this.InputAno.Text);
-            Camion camion = new Camion(marca, modelo, matricula, ano);
+            Camion camion = new Camion(matricula);
 
             if (empresa.MenuCamion("baja", camion))
             {
