@@ -8,7 +8,7 @@ namespace obligatorio.Dominio
     public class Viaje
     {
         private int _id;
-        private Camionero _camionero;
+        private Empleado _camionero;
         private Camion _camion;
         private string _carga;
         private int _kilaje;
@@ -24,7 +24,7 @@ namespace obligatorio.Dominio
             get { return _id; }
             set { _id = value; }
         }
-        public Camionero Camionero
+        public Empleado Camionero
         {
             get { return _camionero; }
             set { _camionero = value; }
@@ -103,9 +103,21 @@ namespace obligatorio.Dominio
             return null;
         }
 
-        public Viaje(int pId, Camionero pCamionero, Camion pCamion, string pCarga, int pKilaje, string pOrigen, string pDestino, DateTime pFechaInicio, DateTime pFechaFin, string pEstado)
+        public Viaje(int pId, Empleado pCamionero, Camion pCamion, string pCarga, int pKilaje, string pOrigen, string pDestino, DateTime pFechaInicio, DateTime pFechaFin, string pEstado)
         {
             Id = pId;
+            Camionero = pCamionero;
+            Camion = pCamion;
+            Carga = pCarga;
+            Kilaje = pKilaje;
+            Origen = pOrigen;
+            Destino = pDestino;
+            FechaInicio = pFechaInicio;
+            FechaFin = pFechaFin;
+            Estado = pEstado;
+        }
+        public Viaje(Empleado pCamionero, Camion pCamion, string pCarga, int pKilaje, string pOrigen, string pDestino, DateTime pFechaInicio, DateTime pFechaFin, string pEstado)
+        {
             Camionero = pCamionero;
             Camion = pCamion;
             Carga = pCarga;
