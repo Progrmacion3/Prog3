@@ -20,7 +20,7 @@ namespace obligatorio.Presentacion
 
         private bool FaltanDatos() // comprobamos que todos los campos tengan datos y las fechas sean validas
         {
-            if (this.txtCamion.Text == "" || this.txtCamionero.Text == "" || this.txtCarga.Text == "" || this.txtDestino.Text == "" || this.txtEstado.Text == "" || this.txtKilaje.Text == "" || this.txtOrigen.Text == "" || this.dtpFechaFin.SelectedDate <= DateTime.Today.Date || this.dtpFechaInicio.SelectedDate < DateTime.Today.Date || this.dtpFechaFin.SelectedDate == this.dtpFechaInicio.SelectedDate)
+            if (this.txtCamion.Text == "" || this.txtCamionero.Text == "" || this.txtCarga.Text == "" || this.txtDestino.Text == "" || this.txtKilaje.Text == "" || this.txtOrigen.Text == "" || this.dtpFechaFin.SelectedDate <= DateTime.Today.Date || this.dtpFechaInicio.SelectedDate < DateTime.Today.Date || this.dtpFechaFin.SelectedDate == this.dtpFechaInicio.SelectedDate)
                 return false;
             return true;
         }
@@ -30,7 +30,6 @@ namespace obligatorio.Presentacion
             this.txtCamionero.Text = "";
             this.txtCarga.Text = "";
             this.txtDestino.Text = "";
-            this.txtEstado.Text = "";
             this.txtKilaje.Text = "";
             this.txtOrigen.Text = "";
             this.dtpFechaFin.SelectedDate = DateTime.Today.Date;
@@ -55,10 +54,9 @@ namespace obligatorio.Presentacion
                 string mDestino = this.txtDestino.Text;
                 DateTime mFechaInicio = this.dtpFechaInicio.SelectedDate;
                 DateTime mFechaFin = this.dtpFechaFin.SelectedDate;
-                string mEstado = this.txtEstado.Text;
                 Camion elCamion = mEmpresa.BuscarCamion(new Camion(mIdCamion));
                 Camionero elCamionero = mEmpresa.BuscarCamionero(new Camionero(mIdCamionero));
-                Viaje unViaje = new Viaje(elCamionero, elCamion, mCarga, mKilaje, mOrigen, mDestino, mFechaInicio, mFechaFin, mEstado);
+                Viaje unViaje = new Viaje(elCamionero, elCamion, mCarga, mKilaje, mOrigen, mDestino, mFechaInicio, mFechaFin, "propuesto");
                 if(mEmpresa.MenuViaje("alta", unViaje))
                 {
                     this.LimpiarCampos();
@@ -75,17 +73,41 @@ namespace obligatorio.Presentacion
 
         protected void btnBaja_Click(object sender, EventArgs e)
         {
-
+            // falta la grid
         }
 
         protected void btnModificar_Click(object sender, EventArgs e)
         {
+            if (!FaltanDatos())
+            {
+                Empresa empresa = new Empresa();
+                Camionero elCamionero = new Camionero(int.Parse(this.txtCamionero.Text));
+                Camion elCamion = new Camion(int.Parse(this.txtCamion.Text));
+                string mCarga = this.txtCarga.Text;
+                int mKilaje = int.Parse(this.txtKilaje.Text);
+                string mOrigen = this.txtOrigen.Text;
+                string mDestino = this.txtDestino.Text;
+                DateTime mFechaFin = this.dtpFechaFin.SelectedDate;
+                DateTime mFechaInicio = this.dtpFechaInicio.SelectedDate;
 
+                Viaje unViaje = new Viaje(elCamionero, elCamion, mCarga, mKilaje, mOrigen, mDestino, mFechaInicio, mFechaFin);
+                if(empresa.MenuViaje("modificar", unViaje))
+                {
+                    this.LimpiarCampos();
+                    this.ListarDatos();
+                    //avisar al user operacion exitosa
+                    return;
+                }
+                //avisar al user que fallo
+                return;
+            }
+            //avisar al user que falta/n dato/s
+            return;   
         }
 
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {
-
+            this.LimpiarCampos();
         }
     }
 }

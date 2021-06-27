@@ -26,10 +26,6 @@
     <br />
     <asp:Label ID="Label9" runat="server" Text="Fecha de finalización"></asp:Label>
     <asp:Calendar ID="dtpFechaFin" runat="server"></asp:Calendar>
-    <br />
-    <asp:Label ID="Label10" runat="server" Text="Estado:"></asp:Label>
-    <asp:TextBox ID="txtEstado" runat="server"></asp:TextBox>
-    <br />
 
     <div>
         <br />

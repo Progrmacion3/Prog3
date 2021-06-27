@@ -119,6 +119,17 @@ namespace obligatorio.Dominio
             FechaFin = pFechaFin;
             Estado = pEstado;
         }
+        public Viaje(Empleado pCamionero, Camion pCamion, string pCarga, int pKilaje, string pOrigen, string pDestino, DateTime pFechaInicio, DateTime pFechaFin)
+        {
+            Camionero = pCamionero;
+            Camion = pCamion;
+            Carga = pCarga;
+            Kilaje = pKilaje;
+            Origen = pOrigen;
+            Destino = pDestino;
+            FechaInicio = pFechaInicio;
+            FechaFin = pFechaFin;
+        }
         public Viaje(int pId)
         {
             Id = pId;
