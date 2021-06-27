@@ -30,9 +30,7 @@
         <br />
         <asp:Label ID="Label3" runat="server" style="font-family: 'Arial Black'" Text="Comentario" />
         <br />
-        <asp:TextBox ID="txtComentario" runat="server" Height="56px" Width="192px" AutoPostBack="True" />
-        <asp:Button ID="btnComentar" runat="server" Text="Guardar Cambios"  style="text-align: center" Width="193px" Height="33px" BackColor="#003366" 
-                    BorderColor="#CCFFFF" Font-Bold="True" ForeColor="White"  OnClick="btnComentar_Click" />
+        <asp:TextBox ID="txtComentario" runat="server" Height="56px" Width="381px" AutoPostBack="True" />
         <br />
         <asp:Label ID="LblEstado" runat="server" style="font-family: 'Arial Black'" Text="Estado" />
           <br />
@@ -42,6 +40,9 @@
                     <asp:ListItem>Parada</asp:ListItem>
                     <asp:ListItem>Finalizado</asp:ListItem>
                 </asp:DropDownList>
+
+        <asp:Button ID="btnComentar" runat="server" Text="Guardar Cambios"  style="text-align: center" Width="193px" Height="33px" BackColor="#003366" 
+                    BorderColor="#CCFFFF" Font-Bold="True" ForeColor="White"  OnClick="btnComentar_Click" />
 
       </td>
     </tr>
