@@ -48,12 +48,72 @@ namespace Persistencia.Clases
 
         public static bool EliminarCamion(Common.Clases.Camion pCamion)
         {
-            throw new NotImplementedException();
+            bool retorno = true;
+
+            try
+            {
+                var conexion = new SqlConnection(CadenaDeConexion);
+                conexion.Open();
+
+                SqlCommand cmd = new SqlCommand("EliminarCamion", conexion);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@matricula", pCamion.Matricula));
+                
+
+                int rtn = cmd.ExecuteNonQuery();
+                if (rtn <= 0)
+                {
+                    retorno = false;
+                }
+
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return retorno;
         }
 
         public static bool ModificarCamion(Common.Clases.Camion pCamion)
         {
-            throw new NotImplementedException();
+            bool retorno = true;
+
+            try
+            {
+                var conexion = new SqlConnection(CadenaDeConexion);
+                conexion.Open();
+
+                SqlCommand cmd = new SqlCommand("ModificarCamion", conexion);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@matricula", pCamion.Matricula));
+                cmd.Parameters.Add(new SqlParameter("@marca", pCamion.Marca));
+                cmd.Parameters.Add(new SqlParameter("@modelo", pCamion.Modelo));
+                cmd.Parameters.Add(new SqlParameter("@año", pCamion.Año));
+
+                int rtn = cmd.ExecuteNonQuery();
+                if (rtn <= 0)
+                {
+                    retorno = false;
+                }
+
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return retorno;
         }
     }
 }
