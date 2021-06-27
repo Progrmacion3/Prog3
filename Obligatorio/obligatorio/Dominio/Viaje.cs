@@ -76,24 +76,15 @@ namespace obligatorio.Dominio
 
         public bool AltaViaje(Viaje unViaje)
         {
-            int num = new Random().Next();
-            if (num == 1)
-                return true;
-            return false;
+            return true;
         }
         public bool BajaViaje(Viaje unViaje)
         {
-            int num = new Random().Next();
-            if (num == 1)
-                return true;
-            return false;
+           return true;
         }
         public bool ModificarViaje(Viaje unViaje)
         {
-            int num = new Random().Next();
-            if (num == 1)
-                return true;
-            return false;
+            return true;
         }
         public Viaje BuscarViaje(Viaje unViaje)
         {

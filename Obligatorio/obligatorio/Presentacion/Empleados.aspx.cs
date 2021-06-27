@@ -47,15 +47,15 @@ namespace obligatorio.Presentacion
                 this.InputTipoLibreta.Visible = true;
                 this.InputFechaVencimiento.Visible = true;
                 Empresa empresa = new Empresa();
-                string mNombre = this.InputName.ToString();
-                string mDocumento = this.InputDocument.ToString();
-                string mApellido = this.InputSecondName.ToString();
-                string mCargo = this.InputPosition.ToString();
-                string mPassword = this.InputPass.ToString();
-                string mUser = this.InputUser.ToString();
-                string mTelefono = this.InputTelefono.ToString();
-                string mTipoLibreta = this.InputTipoLibreta.ToString();
-                int mEdad = int.Parse(this.InputEdad.ToString());
+                string mNombre = this.InputName.Text;
+                string mDocumento = this.InputDocument.Text;
+                string mApellido = this.InputSecondName.Text;
+                string mCargo = this.InputPosition.Text;
+                string mPassword = this.InputPass.Text;
+                string mUser = this.InputUser.Text;
+                string mTelefono = this.InputTelefono.Text;
+                string mTipoLibreta = this.InputTipoLibreta.Text;
+                int mEdad = int.Parse(this.InputEdad.Text);
                 DateTime mVencimientoLibreta = DateTime.Parse(this.InputFechaVencimiento.ToString());
                 Camionero unCamionero = new Camionero(mNombre, mApellido, mDocumento, mCargo, mTelefono, mUser, mPassword, mEdad, mTipoLibreta, mVencimientoLibreta);
 
@@ -65,7 +65,7 @@ namespace obligatorio.Presentacion
                     this.LimpiarCampos();
                 }
             }
-            else if (this.rdbCamionero.Checked)
+            else if (this.rdbAdministrador.Checked)
             {
                 Console.WriteLine("Holis");
             }
