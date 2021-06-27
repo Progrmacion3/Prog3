@@ -19,5 +19,9 @@ namespace Dominio.Clases
         {
             return Persistencia.Clases.Empleado.ModificarEmpleado(pEmpleado);
         }
+        public static List<Common.Clases.Empleado> MostrarEmpleadosActivos()
+        {
+            return Persistencia.Clases.Empleado.MostrarEmpleadosActivos();
+        }
     }
 }

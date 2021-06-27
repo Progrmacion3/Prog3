@@ -25,6 +25,10 @@ namespace Dominio
             return Dominio.Clases.Admin.ModificarAdmin(pAdmin);
         }
 
+        public static List<Common.Clases.Admin> MostrarAdmin()
+        {
+            return Dominio.Clases.Admin.MostrarAdmin();
+        }
         #endregion
         #region Metodos de Camionero
 
@@ -60,7 +64,10 @@ namespace Dominio
         {
             return Dominio.Clases.Empleado.ModificarEmpleado(pEmpleado);
         }
-
+        public static List<Common.Clases.Empleado> MostarEmpleadosActivos()
+        {
+            return Dominio.Clases.Empleado.MostrarEmpleadosActivos();
+        }
         #endregion
         #region Metodos de Camion
 

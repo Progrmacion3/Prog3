@@ -19,12 +19,13 @@ namespace Common.Clases
         //    set { _idAdmin = value; }
         //}
 
-        public Admin(int pCedula, string pNombre, string pApellido, DateTime pFechaNacimiento, string pCargo, string pTelefono, string pUsuario, string pContraseña)
+        public Admin(int pCedula, string pNombre, string pApellido, int pEdad, DateTime pFechaNacimiento, string pCargo, string pTelefono, string pUsuario, string pContraseña)
         :base(pCedula, pNombre, pApellido, pFechaNacimiento, pCargo, pTelefono, pUsuario, pContraseña)
         {
             this.Cedula = pCedula;
             this.Nombre = pNombre;
             this.Apellido = pNombre;
+            this.Edad = pEdad;
             this.FechaNacimiento = pFechaNacimiento;
             this.Cargo = pCargo;
             this.Telefono = pTelefono;

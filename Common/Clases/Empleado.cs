@@ -16,13 +16,13 @@ namespace Common.Clases
         private string _telefono;
         private string _usuario;
         private string _contraseña;
-
+        private int _edad;
         
         //public int IdEmpleado
         //{
         //    get { return _idEmpleado; }
         //    set { _idEmpleado = value; }
-        //}    
+        //}
         public int Cedula
         {
             get { return _cedula; }
@@ -37,6 +37,11 @@ namespace Common.Clases
         {
             get { return _apellido; }
             set { _apellido = value; }
+        }
+        public int Edad
+        {
+            get { return _edad; }
+            set { _edad = value; }
         }
         public DateTime FechaNacimiento
         {

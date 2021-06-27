@@ -88,7 +88,6 @@
                 <asp:RequiredFieldValidator ID="rfvContraseña" runat="server" ErrorMessage="La contraseña es obligatoria" ControlToValidate="txtContraseña"></asp:RequiredFieldValidator>
             </td>
         </tr>
-        <tr>
                 <tr>
             <td align="left">Categoria de libreta:
             </td>
@@ -119,6 +118,8 @@
                 <asp:Button ID="btnAgregar" Text="Agregar" runat="server" OnClick="btnAgregar_Click" />
                 <%--                                <asp:Button ID="btnActualizar" Text="Modificar" runat="server" Visible="false" OnClick="btnActualizar_Click" />
                                 <asp:Button ID="btnCancelar" Text="Cancelar" runat="server" Visible="false" OnClick="btnCancelar_Click" />--%>
+                <div style="height: 232px; width: 912px">
+                </div>
             </td>
         </tr>
     </table>

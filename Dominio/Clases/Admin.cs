@@ -19,5 +19,9 @@ namespace Dominio.Clases
         {
             return Persistencia.Clases.Admin.ModificarAdmin(pAdmin);
         }
+        public static List<Common.Clases.Admin> MostrarAdmin()
+        {
+            return Persistencia.Clases.Admin.MostrarAdmin();
+        }
     }
 }

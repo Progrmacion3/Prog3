@@ -22,7 +22,7 @@
                         <asp:MenuItem NavigateUrl="~/Secciones/Admin/ABM_Admin.aspx" Text="Administradores"/>
                         <asp:MenuItem NavigateUrl="~/Secciones/Admin/ABM_Camiones.aspx" Text="Camiones"/>
                         <asp:MenuItem NavigateUrl="~/Secciones/Admin/ABM_Camionero.aspx" Text="Camioneros" />
-                        <asp:MenuItem NavigateUrl="~/Secciones/Admin/ABM_Camiones.aspx" Text="Empleados" />
+                        <asp:MenuItem NavigateUrl="~/Secciones/Admin/Empleados.aspx" Text="Empleados" />
                         <asp:MenuItem NavigateUrl="~/Secciones/Admin/ABM_Camiones.aspx" Text="Viajes" />
                         <asp:MenuItem NavigateUrl="~/Secciones/Admin/ABM_Camiones.aspx" Text="Paradas" />
                     </Items>
