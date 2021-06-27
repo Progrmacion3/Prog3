@@ -22,16 +22,19 @@ namespace obligatorio.Presentacion
         }
         private bool FaltanDatos()
         {
-            if (this.InputDocument.Text == "" || this.InputEdad.Text == "" || this.InputName.Text == "" || this.InputPass.Text == "" || this.InputPosition.Text == "" || this.InputSecondName.Text == "" || this.InputTelefono.Text == "" || this.InputTipoLibreta.Text == "" || this.InputUser.Text == "")
+            if (!this.rdbAdministrador.Checked && !this.rdbCamionero.Checked)
                 return true;
+
+            if (this.InputDocument.Text == "" || this.InputName.Text == "" || this.InputPass.Text == "" || this.InputPosition.Text == "" || this.InputSecondName.Text == "" || this.InputTelefono.Text == "" || this.InputUser.Text == "")
+                return false;
 
             if (this.rdbAdministrador.Checked)
                 return true;
 
-            if (this.rdbCamionero.Checked && this.InputFechaVencimiento.SelectedDate < DateTime.Today.Date)
-                return false;
+            if (this.rdbCamionero.Checked && (this.InputFechaVencimiento.SelectedDate < DateTime.Today.Date || this.InputEdad.Text == "" || this.InputTipoLibreta.Text == ""))
+                return true;
 
-            return true;
+            return false;
         }
         private void ListarDatos()
         {
