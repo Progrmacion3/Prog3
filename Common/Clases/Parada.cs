@@ -10,5 +10,6 @@ namespace Common.Clases
         public short Id { get; set;}
         public string Tipo { get; set;}
         public string Comentario { get; set;}
+        public Viaje Viaje { get; set; }
     }
 }

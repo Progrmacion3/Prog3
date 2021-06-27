@@ -172,7 +172,10 @@ namespace Persistencia.Clases
                         Administrador.Cargo = oReader["cargoEmpleado"].ToString();
                         Administrador.Telefono = oReader["telefonoEmpleado"].ToString();
                         Administrador.Tipo = oReader["tipoEmpleado"].ToString();
-                        
+                        Administrador.Usuario = oReader["usuarioEmpleado"].ToString();
+                        Administrador.Password = oReader["passwordEmpleado"].ToString();
+
+
                     }
 
                     conn.Close();
@@ -215,6 +218,7 @@ namespace Persistencia.Clases
                         adm.Cargo = oReader["cargoEmpleado"].ToString();
                         adm.Telefono= oReader["telefonoEmpleado"].ToString();
                         adm.Tipo = oReader["tipoEmpleado"].ToString();
+
 
                         ListaAdministradores.Add(adm);
                     }

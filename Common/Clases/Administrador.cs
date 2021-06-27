@@ -8,4 +8,5 @@ namespace Common.Clases
     public class Administrador:Empleado
     {
     }
+    
 }

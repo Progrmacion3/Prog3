@@ -15,7 +15,7 @@ namespace Common.Clases
         public string Tipo { get; set;}
         public string Usuario { get; set;}
         public string Password { get; set;}
-        public short Estado { get; set;} 
+        public int Estado { get; set;} 
 
 
     }

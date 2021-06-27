@@ -58,6 +58,8 @@
     <Compile Include="Clases\pCamion.cs" />
     <Compile Include="Clases\pCamionero.cs" />
     <Compile Include="Clases\Persistencia.cs" />
+    <Compile Include="Clases\pParada.cs" />
+    <Compile Include="Clases\pViaje.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

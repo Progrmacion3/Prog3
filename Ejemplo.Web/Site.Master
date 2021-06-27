@@ -28,6 +28,7 @@
                         <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Categorias"/>
                         <asp:MenuItem NavigateUrl="~/Forms/frmEmpleado.aspx" Text="Empleado"/>
                         <asp:MenuItem NavigateUrl="~/Forms/frmCamion.aspx" Text="Camión"/>
+                        <asp:MenuItem NavigateUrl="~/Forms/frmViaje.aspx" Text="Viaje"/>
                     </Items>
                 </asp:Menu>
                 <asp:Menu ID="MenuCamionero" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">

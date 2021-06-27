@@ -177,6 +177,8 @@ namespace Persistencia.Clases
                         Camionero.Cargo = oReader["cargoEmpleado"].ToString();
                         Camionero.Telefono = oReader["telefonoEmpleado"].ToString();
                         Camionero.Tipo = oReader["tipoEmpleado"].ToString();
+                        Camionero.Usuario = oReader["usuarioEmpleado"].ToString();
+                        Camionero.Password = oReader["passwordEmpleado"].ToString();
                         Camionero.Edad = short.Parse(oReader["edadCamionero"].ToString());
                         Camionero.Tipo_Libreta = oReader["tipoLibretaCamionero"].ToString();
                         Camionero.FechaVencimientoLibreta = oReader["fechaVenc_LibretaCamionero"].ToString();

@@ -49,7 +49,6 @@ namespace Ejemplo.Web.Forms
             }
         }
 
-
         protected void btnAltaCamion(object sender, EventArgs e)
         {
             Common.Clases.Camion camion = new Common.Clases.Camion();
