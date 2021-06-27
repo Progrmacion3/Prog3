@@ -8,12 +8,12 @@ using obligatorio.Dominio;
 
 namespace obligatorio.Presentacion
 {
-    public partial class Empleados : System.Web.UI.Page // <- esto es camionero
+    public partial class Empleados : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            
+            if (!IsPostBack)
+                this.ListarDatos();
         }
 
         private void MostrarCampos()
@@ -58,12 +58,9 @@ namespace obligatorio.Presentacion
         {
             if (!FaltanDatos())
             {
+                Empresa empresa = new Empresa();
                 if (this.rdbCamionero.Checked)
                 {
-                    this.InputEdad.Visible = true;
-                    this.InputTipoLibreta.Visible = true;
-                    this.InputFechaVencimiento.Visible = true;
-                    Empresa empresa = new Empresa();
                     string mNombre = this.InputName.Text;
                     string mDocumento = this.InputDocument.Text;
                     string mApellido = this.InputSecondName.Text;
@@ -73,7 +70,7 @@ namespace obligatorio.Presentacion
                     string mTelefono = this.InputTelefono.Text;
                     string mTipoLibreta = this.InputTipoLibreta.Text;
                     int mEdad = int.Parse(this.InputEdad.Text);
-                    DateTime mVencimientoLibreta = DateTime.Parse(this.InputFechaVencimiento.ToString());
+                    DateTime mVencimientoLibreta = this.InputFechaVencimiento.SelectedDate;
                     Camionero unCamionero = new Camionero(mNombre, mApellido, mDocumento, mCargo, mTelefono, mUser, mPassword, mEdad, mTipoLibreta, mVencimientoLibreta);
 
                     if (empresa.MenuCamionero("alta", unCamionero))
@@ -87,7 +84,22 @@ namespace obligatorio.Presentacion
                 // #removeElsesFromProgramming
                 if (this.rdbAdministrador.Checked)
                 {
-                    Console.WriteLine("Holis");
+                    string mNombre = this.InputName.Text;
+                    string mDocumento = this.InputDocument.Text;
+                    string mApellido = this.InputSecondName.Text;
+                    string mCargo = this.InputPosition.Text;
+                    string mPassword = this.InputPass.Text;
+                    string mUser = this.InputUser.Text;
+                    string mTelefono = this.InputTelefono.Text;
+                    Administrador unAdmin = new Administrador(mNombre, mApellido, mDocumento, mCargo, mTelefono, mUser, mPassword);
+                    if(empresa.MenuAdmin("alta", unAdmin))
+                    {
+                        this.LimpiarCampos();
+                        this.ListarDatos();
+                        return;
+                        // avisar al usuario que se agrego
+                    }
+                    // avisar al usuario que no se agrego
                     return;
                 }
                 return;
@@ -96,14 +108,14 @@ namespace obligatorio.Presentacion
 
         protected void btnBaja_Click(object sender, EventArgs e)
         {
-
+            // con la grid, dsp hay que borrarlo
         }
 
         protected void btnModificar_Click(object sender, EventArgs e)
         {
             if (!FaltanDatos())
             {
-
+                // hay que hacer la grid
             }
         }
 
