@@ -46,7 +46,6 @@ namespace obligatorio.Presentacion
             if (!FaltanDatos())
             {
                 Empresa mEmpresa = new Empresa();
-                int mIdCamionero = int.Parse(this.txtCamionero.Text);
                 string mMatCamion = this.txtCamion.Text;
                 string mCarga = this.txtCarga.Text;
                 int mKilaje = int.Parse(this.txtKilaje.Text);
@@ -54,8 +53,9 @@ namespace obligatorio.Presentacion
                 string mDestino = this.txtDestino.Text;
                 DateTime mFechaInicio = this.dtpFechaInicio.SelectedDate;
                 DateTime mFechaFin = this.dtpFechaFin.SelectedDate;
-                Camion elCamion = mEmpresa.BuscarCamion(new Camion(mMatCamion));
-                Camionero elCamionero = mEmpresa.BuscarCamionero(new Camionero(mIdCamionero));
+                Camion elCamion = mEmpresa.BuscarCamion(new Camion(this.txtCamion.Text));
+                Camionero elCamionero = mEmpresa.BuscarCamionero(new Camionero(int.Parse(this.txtCamionero.Text)));
+
                 Viaje unViaje = new Viaje(elCamionero, elCamion, mCarga, mKilaje, mOrigen, mDestino, mFechaInicio, mFechaFin, "propuesto");
                 if(mEmpresa.MenuViaje("alta", unViaje))
                 {
@@ -78,12 +78,36 @@ namespace obligatorio.Presentacion
 
         protected void btnModificar_Click(object sender, EventArgs e)
         {
+            if (!FaltanDatos())
+            {
+                Empresa mEmpresa = new Empresa();
+                string mMatCamion = this.txtCamion.Text;
+                string mCarga = this.txtCarga.Text;
+                int mKilaje = int.Parse(this.txtKilaje.Text);
+                string mOrigen = this.txtOrigen.Text;
+                string mDestino = this.txtDestino.Text;
+                DateTime mFechaInicio = this.dtpFechaInicio.SelectedDate;
+                DateTime mFechaFin = this.dtpFechaFin.SelectedDate;
+                Camion elCamion = mEmpresa.BuscarCamion(new Camion(this.txtCamion.Text));
+                Camionero elCamionero = mEmpresa.BuscarCamionero(new Camionero(int.Parse(this.txtCamionero.Text)));
 
+                Viaje unViaje = new Viaje(elCamionero, elCamion, mCarga, mKilaje, mOrigen, mDestino, mFechaInicio, mFechaFin);
+                if(mEmpresa.MenuViaje("modificar", unViaje))
+                {
+                    this.LimpiarCampos();
+                    this.ListarDatos();
+                    //avisar que la opereishon tuvo ekzito
+                }
+                //avisar que la operasione tuvo una conclusion positiva
+                return;
+            }
+            //avisar que faltan datos
+            return;
         }
 
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {
-
+            this.LimpiarCampos();
         }
     }
 }
