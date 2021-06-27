@@ -29,7 +29,7 @@ namespace obligatorio.Dominio
 
         public bool AltaCamionero(Camionero unCamionero) //Alta de Camioneros
         {
-            if(BuscarCamionero(unCamionero) != null)
+            if (BuscarCamionero(unCamionero) != null)
             {
                 return false;
             }
@@ -54,22 +54,26 @@ namespace obligatorio.Dominio
         }
         public Camionero BuscarCamionero(Camionero unCamionero)
         {
-            Empresa empresa = new Dominio.Empresa();
-            Console.WriteLine(empresa.ListaCamioneros().ToString());
+            Empresa empresa = new Empresa();
             foreach (Camionero camionero in empresa.ListaCamioneros())
                 if (unCamionero.Id == camionero.Id)
                     return camionero;
-         
+
             return null;
         }
 
-        public Camionero(string pNombre, string pApellido, string pCedula, string pCargo, string pTelefono, string pUsuario, string pContrasena, int pEdad, string pTipoLibreta, DateTime pFechaVencimiento):
+        public Camionero(string pNombre, string pApellido, string pCedula, string pCargo, string pTelefono, string pUsuario, string pContrasena, int pEdad, string pTipoLibreta, DateTime pFechaVencimiento) :
             base(pNombre, pApellido, pCargo, pCargo, pTelefono, pUsuario, pContrasena)
         {
             Edad = pEdad;
             TipoLibreta = pTipoLibreta;
             FechaVencimiento = pFechaVencimiento;
         }
+        public Camionero(int pId) :
+            base(pId)
+        {
+
+        } 
         public Camionero()
         {
 
