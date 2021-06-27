@@ -20,7 +20,7 @@ namespace obligatorio.Presentacion
 
         private bool FaltanDatos() // comprobamos que todos los campos tengan datos y las fechas sean validas
         {
-            if (this.txtCamion.Text == "" || this.txtCamionero.Text == "" || this.txtCarga.Text == "" || this.txtDestino.Text == "" || this.txtEstado.Text == "" || this.txtKilaje.Text == "" || this.txtOrigen.Text == "" || this.dtpFechaFin.SelectedDate <= DateTime.Today.Date || this.dtpFechaInicio.SelectedDate < DateTime.Today.Date || this.dtpFechaFin.SelectedDate == this.dtpFechaInicio.SelectedDate)
+            if (this.txtCamion.Text == "" || this.txtCamionero.Text == "" || this.txtCarga.Text == "" || this.txtDestino.Text == "" || this.txtKilaje.Text == "" || this.txtOrigen.Text == "" || this.dtpFechaFin.SelectedDate <= DateTime.Today.Date || this.dtpFechaInicio.SelectedDate < DateTime.Today.Date || this.dtpFechaFin.SelectedDate == this.dtpFechaInicio.SelectedDate)
                 return false;
             return true;
         }
@@ -30,7 +30,6 @@ namespace obligatorio.Presentacion
             this.txtCamionero.Text = "";
             this.txtCarga.Text = "";
             this.txtDestino.Text = "";
-            this.txtEstado.Text = "";
             this.txtKilaje.Text = "";
             this.txtOrigen.Text = "";
             this.dtpFechaFin.SelectedDate = DateTime.Today.Date;
@@ -55,10 +54,9 @@ namespace obligatorio.Presentacion
                 string mDestino = this.txtDestino.Text;
                 DateTime mFechaInicio = this.dtpFechaInicio.SelectedDate;
                 DateTime mFechaFin = this.dtpFechaFin.SelectedDate;
-                string mEstado = this.txtEstado.Text;
                 Camion elCamion = mEmpresa.BuscarCamion(new Camion(mMatCamion));
                 Camionero elCamionero = mEmpresa.BuscarCamionero(new Camionero(mIdCamionero));
-                Viaje unViaje = new Viaje(elCamionero, elCamion, mCarga, mKilaje, mOrigen, mDestino, mFechaInicio, mFechaFin, mEstado);
+                Viaje unViaje = new Viaje(elCamionero, elCamion, mCarga, mKilaje, mOrigen, mDestino, mFechaInicio, mFechaFin, "propuesto");
                 if(mEmpresa.MenuViaje("alta", unViaje))
                 {
                     this.LimpiarCampos();
