@@ -210,14 +210,6 @@ namespace obligatorio.Presentacion
             this.LimpiarCampos();
         }
 
-        protected void grdEmpleados_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
-        {
 
-        }
-
-        protected void grdEmpleados_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
-
-        }
     }
 }
