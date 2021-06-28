@@ -11,5 +11,6 @@ namespace Common.Clases
         public string Tipo { get; set;}
         public string Comentario { get; set;}
         public Viaje Viaje { get; set; }
+        public int ViajeId { get { return Viaje.Id; } }
     }
 }

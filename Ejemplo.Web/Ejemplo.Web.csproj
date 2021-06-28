@@ -68,7 +68,6 @@
     <Content Include="Forms\frmInicioSesion.aspx" />
     <Content Include="Forms\frmViaje.aspx" />
     <Content Include="Styles\Site.css" />
-    <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
@@ -82,13 +81,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Forms\frmAgregarParada.aspx.cs">
       <DependentUpon>frmAgregarParada.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

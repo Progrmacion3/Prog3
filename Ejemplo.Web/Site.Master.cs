@@ -32,7 +32,7 @@ namespace Ejemplo.Web
                     MenuIniciarSersion.Visible = false;
                     MenuCamionero.Visible = false;
                     MenuAdministrador.Visible = true;
-                    //Response.Redirect("frmEmpleado.aspx");
+                    
                 }
             }
 

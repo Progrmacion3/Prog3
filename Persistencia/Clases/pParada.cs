@@ -112,7 +112,8 @@ namespace Persistencia.Clases
                     while (oReader.Read())
                     {
                         parada = new Common.Clases.Parada();
-                        parada.Id = short.Parse(oReader["matriculaCamion"].ToString());
+                        parada.Id = short.Parse(oReader["idParada"].ToString());
+                        parada.Viaje = new Common.Clases.Viaje();
                         parada.Viaje.Id = short.Parse(oReader["idViaje"].ToString());
                         parada.Tipo = oReader["tipoParada"].ToString();
                         parada.Comentario = oReader["comentarioParada"].ToString();
@@ -157,6 +158,7 @@ namespace Persistencia.Clases
                     {
                         parada = new Common.Clases.Parada();
                         parada.Id = short.Parse(oReader["idParada"].ToString());
+                        parada.Viaje = new Common.Clases.Viaje();
                         parada.Viaje.Id = short.Parse(oReader["idViaje"].ToString());
                         parada.Tipo = oReader["tipoParada"].ToString();
                         parada.Comentario = oReader["comentarioParada"].ToString();

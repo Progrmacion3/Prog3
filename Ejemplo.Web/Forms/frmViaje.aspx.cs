@@ -154,6 +154,7 @@ namespace Ejemplo.Web.Forms
                 throw ex;
             }
         }
+
         protected void btnAltaViaje_Click(object sender, EventArgs e)
         {
             Common.Clases.Viaje viaje = new Common.Clases.Viaje();
@@ -230,6 +231,7 @@ namespace Ejemplo.Web.Forms
                 throw ex;
             }
         }
+
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
 

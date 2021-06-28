@@ -27,10 +27,12 @@ namespace Ejemplo.Web.Forms
                 if (resultado == "Camionero")
                 {
                     Session["escamionero"] = true;
+                    Response.Redirect("frmAgregarParada.aspx");
                 }
                 else
                 {
                     Session["escamionero"] = false;
+                    Response.Redirect("frmEmpleado.aspx");
                 }
 
             }
