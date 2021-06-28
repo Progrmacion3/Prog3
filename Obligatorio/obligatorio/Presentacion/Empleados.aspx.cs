@@ -62,6 +62,8 @@ namespace obligatorio.Presentacion
             this.InputPosition.Text = "";
             this.InputSecondName.Text = "";
             this.InputUser.Text = "";
+            this.rdbCamionero.Checked = false;
+            this.rdbAdministrador.Checked = false;
         }
         private void OperacionOutput(string operacion)
         {
