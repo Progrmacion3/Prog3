@@ -44,6 +44,7 @@ namespace obligatorio.Presentacion
         {
             this.lblMissingKilaje.Text = "Te faltó el kilaje flaco.";
         }
+
         private void ResultadoOperacion(string operacion)
         {
             if (operacion == "alta" || operacion == "baja" || operacion == "modificación")
@@ -54,6 +55,7 @@ namespace obligatorio.Presentacion
             string[] rest = operacion.Split(' ');
             this.lblDataOutput.Text = $"Nada piola, la {rest[0]} salió mal. (T_T)";
         }
+
         private void AvisoFaltanDatos()
         {
             int output = new Random().Next(3);
@@ -70,7 +72,7 @@ namespace obligatorio.Presentacion
                 default:
                     this.lblDataOutput.Text = "Falta algún dato, revise por favor.";
                     break;
-        }
+            }
         }
 
         protected void btnAlta_Click(object sender, EventArgs e)

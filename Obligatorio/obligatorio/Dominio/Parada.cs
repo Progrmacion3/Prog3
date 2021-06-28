@@ -10,6 +10,7 @@ namespace obligatorio.Dominio
         private int _id;
         private string _razon;
         private string _comentario;
+        private int _idViaje;
 
         public int Id
         {
@@ -27,11 +28,18 @@ namespace obligatorio.Dominio
             set { _comentario = value; }
         }
 
-        public Parada(int pId, string pRazon, string pComentario)
+        public int IdViaje
+        {
+            get { return _idViaje; }
+            set { _idViaje = value; }
+        }
+
+        public Parada(int pId, string pRazon, string pComentario, int pIdViaje)
         {
             Id = pId;
             Razon = pRazon;
             Comentario = pComentario;
+            IdViaje = pIdViaje;
         }
     }
 }

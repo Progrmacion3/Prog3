@@ -76,8 +76,15 @@ namespace obligatorio.Dominio
 
         public bool AltaViaje(Viaje unViaje)
         {
-            return true;
+            if (BuscarViaje(unViaje) == null && Persistencia.Clases.pViaje.AgregarViaje(unViaje))
+            {
+                Empresa empresa = new Dominio.Empresa();
+                empresa.ListaViajes().Add(unViaje);
+                return true;
+            }
+            return false;
         }
+
         public bool BajaViaje(Viaje unViaje)
         {
            return true;
