@@ -375,6 +375,7 @@
     <Compile Include="Dominio\Camionero.cs" />
     <Compile Include="Dominio\Empleado.cs" />
     <Compile Include="Dominio\Empresa.cs" />
+    <Compile Include="Dominio\Login.cs" />
     <Compile Include="Dominio\Parada.cs" />
     <Compile Include="Dominio\Viaje.cs" />
     <Compile Include="Persistencia\Clases\pAdministrador.cs" />

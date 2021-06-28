@@ -1,5 +1,5 @@
 ﻿
-    <%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Empleados.aspx.cs" Inherits="obligatorio.Presentacion.Empleados" %>
+    <%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Empleados.aspx.cs" Inherits="obligatorio.Presentacion.Empleados" EnableEventValidation="false" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
           
   <h1>Gestión de Empleados</h1>
@@ -34,23 +34,26 @@
       </div>
         <div class="form-group">
         <label for="InputPosition">Edad</label>
-        <asp:TextBox runat="server" CssClass="form-control" ID="InputEdad" Visible="False"></asp:TextBox>
+        <asp:TextBox runat="server" CssClass="form-control" ID="InputEdad"></asp:TextBox>
               <asp:Label ID="lblEdadNotNumber" runat="server"></asp:Label>
       </div>
             <div class="form-group">
         <label for="InputPosition">Tipo de Libreta</label>
-        <asp:TextBox runat="server" CssClass="form-control" ID="InputTipoLibreta" Visible="False"></asp:TextBox>
+        <asp:TextBox runat="server" CssClass="form-control" ID="InputTipoLibreta"></asp:TextBox>
       </div>
       <div class="form-group">
         <label for="InputPosition">Fecha de Vencimiento</label>
         <asp:Calendar runat="server" ID="InputFechaVencimiento"></asp:Calendar>
       </div>
       <div class="checkbox">
-        <asp:RadioButton runat="server" ID="rdbCamionero" GroupName="checkbox" Text="Camionero" /> 
-        <asp:RadioButton runat="server" ID="rdbAdministrador" GroupName="checkbox" Text="Administrador" /> <br />
+          <asp:RadioButton ID="rdbCamionero" runat="server" Text="Camionero" />
+          <asp:RadioButton ID="rdbAdministrador" runat="server" Text="Administrador" />
+          <br />
     &nbsp;<asp:Label ID="lblRadioBtn" runat="server"></asp:Label>
           <br />
           <br />
+     </div>
+    <div>
 &nbsp;<asp:Button ID="btnAlta" runat="server" CssClass="btn-success" Text="Alta" OnClick="btnAlta_Click"/>
 &nbsp;&nbsp;&nbsp;
       <asp:Button ID="btnBaja" runat="server" Text="Baja" OnClick="btnBaja_Click" />
