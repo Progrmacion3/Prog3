@@ -49,24 +49,6 @@ namespace Ejemplo.Web {
         protected global::System.Web.UI.WebControls.TextBox txtContraseñaLogin;
         
         /// <summary>
-        /// Label3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
-        
-        /// <summary>
-        /// txtTipoLogin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTipoLogin;
-        
-        /// <summary>
         /// btnAceptarLogin control.
         /// </summary>
         /// <remarks>

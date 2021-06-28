@@ -34,9 +34,7 @@
             <asp:TextBox ID="txtContraseñaLogin" runat="server" style="margin-left: 12px" Width="129px"></asp:TextBox>
         </p>
         <p>
-            <asp:Label ID="Label3" runat="server" Text="Tipo"></asp:Label>
-            <asp:TextBox ID="txtTipoLogin" runat="server" style="margin-left: 12px"  Height="16px" Width="129px"></asp:TextBox>
-        </p>
+            &nbsp;</p>
         <asp:Button ID="btnAceptarLogin" runat="server" style="margin-left: 63px; " Text="Aceptar" Width="69px" CssClass="auto-style2" />
         </div>
         </div>
