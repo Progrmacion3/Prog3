@@ -38,7 +38,7 @@ namespace obligatorio.Presentacion
         }
         private void ListarDatos()
         {
-            //to-do
+            this.grdCamiones.DataBind();
         }
         private void AvisoOperacion(string operacion)
         {
@@ -87,28 +87,6 @@ namespace obligatorio.Presentacion
             return;
         }
 
-        protected void btnBaja_Click(object sender, EventArgs e) // dsp cambiar, se hace con la grid, + ez
-        {
-            if (!FaltaMatricula()) {
-                
-                Empresa empresa = new Empresa();
-                string matricula = this.InputMatricula.Text;
-                Camion camion = new Camion(matricula);
-
-                if (empresa.MenuCamion("baja", camion))
-                {
-                    this.ListarDatos();
-                    this.LimpiarCampos();
-                    this.AvisoOperacion("eliminación");
-                    return;
-                }
-                this.AvisoOperacion("eliminación no");
-                return;
-            }
-            this.AvisoFaltaMatricula();
-            return;
-        }
-
         protected void btnMod_Click(object sender, EventArgs e)
         {
             if (!FaltanDatos())
@@ -143,6 +121,40 @@ namespace obligatorio.Presentacion
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {
             this.LimpiarCampos();
+        }
+
+        
+
+        protected void grdCamiones_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            this.LimpiarCampos();
+            TableCell idCelda = grdCamiones.Rows[e.RowIndex].Cells[1];
+            Camion camion = new Empresa().BuscarCamion(new Camion(idCelda.Text));
+            bool output = new Empresa().MenuCamion("baja", camion);
+            if (output)
+            {
+                this.ListarDatos();
+                this.AvisoOperacion("baja");
+                return;
+            }
+            this.AvisoOperacion("baja no");
+        }
+
+        protected void grdCamiones_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+            this.LimpiarCampos();
+            TableCell idCelda = grdCamiones.Rows[e.NewSelectedIndex].Cells[1];
+            Camion camion = new Empresa().BuscarCamion(new Camion(idCelda.Text));
+            if(camion != null)
+            {
+                this.InputMarca.Text = camion.Marca;
+                this.InputModelo.Text = camion.Modelo;
+                this.InputAno.Text = camion.Ano.ToString();
+                this.InputMatricula.Text = camion.Matricula;
+                return;
+            }
+
+            this.lblDataOutput.Text = "Algo salió mal";
         }
     }
 }
