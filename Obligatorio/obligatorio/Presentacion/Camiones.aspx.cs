@@ -16,7 +16,6 @@ namespace obligatorio.Presentacion
                 ListarDatos();
         }
 
-
         private bool FaltanDatos()
         {
             if (this.InputAno.Text == "" || this.InputMarca.Text == "" || this.InputMatricula.Text == "" || this.InputModelo.Text == "")
@@ -31,15 +30,23 @@ namespace obligatorio.Presentacion
         }
         private void AvisoFaltanDatos()
         {
-            //crear un label y poner que falta algun dato
+            this.lblDataOutput.Text = "Algún campo está vacío, fijate vos qué es.";
         }
         private void AvisoEdadNoEsNumber()
         {
-            //mostrar en un label que edad no es numero
+            this.lblIdNotNum.Text = "Lo de arriba no es un número animal.";
         }
         private void ListarDatos()
         {
 
+        }
+        private void AvisoOperacion(string operacion)
+        {
+            this.lblDataOutput.Text = $"La {operacion} fue exitosa.";
+        }
+        private void AvisoFaltaMatricula()
+        {
+            this.lblMissingMat.Text = "Falta la matricula querid@";
         }
         private void LimpiarCampos()
         {
@@ -70,13 +77,13 @@ namespace obligatorio.Presentacion
                 {
                     this.ListarDatos();
                     this.LimpiarCampos();
-                    // avisar k funca
+                    this.AvisoOperacion("alta");
                     return;
                 }
-                //avisar k no funca
+                this.AvisoOperacion("alta no");
                 return;
             }
-            // avisar k falta data, k falta no es mi problem
+            this.AvisoFaltanDatos();
             return;
         }
 
@@ -92,14 +99,14 @@ namespace obligatorio.Presentacion
                 {
                     this.ListarDatos();
                     this.LimpiarCampos();
-                    //avisar k funca
+                    this.AvisoOperacion("eliminación");
                     return;
                 }
                 this.LimpiarCampos();
-                //avisar k no funca
+                this.AvisoOperacion("eliminación no");
                 return;
             }
-            //avisar k no hay matricula
+            this.AvisoFaltaMatricula();
             return;
         }
 
@@ -108,25 +115,29 @@ namespace obligatorio.Presentacion
             if (!FaltanDatos())
             {
                 int mAno;
-                if (!int.TryParse(this.InputAno.Text, out mAno)) //avisar k no es number
+                if (!int.TryParse(this.InputAno.Text, out mAno))
+                {
+                    this.AvisoEdadNoEsNumber();
                     return;
+                }
                 mAno = int.Parse(this.InputAno.Text);
                 Empresa empresa = new Empresa();
                 string mMarca = this.InputMarca.Text;
                 string mModelo = this.InputModelo.Text;
                 string mMatricula = this.InputMatricula.Text;
-
+                
                 Camion unCamion = new Camion(mMarca, mModelo, mMatricula, mAno);
                 if(empresa.MenuCamion("modificar", unCamion))
                 {
                     this.LimpiarCampos();
                     this.ListarDatos();
-                    //avisar k si funca
+                    this.AvisoOperacion("modificación");
                 }
                 this.LimpiarCampos();
-                //avisar k no funca
+                this.AvisoOperacion("modificación no");
+                return;
             }
-            //avisar k faltan datos
+            this.AvisoFaltaMatricula();
             return;
         }
 
