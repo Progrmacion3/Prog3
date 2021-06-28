@@ -7,25 +7,11 @@
         <p class="lead"> Programita to piola para la camionera "Camión Feroz"</p>
     </div>
 
-    <div class="row">
-        <div class="col-md-4">
-            <h2>La presenteishon</h2>
-            <p>
-                No se loco, viste vos que el profesor nos pidió un programita to piola ahí? Bueno flaco acá lo tengo, no está ni terminado y probablemente sea más frágil que feminista moderna pero ta, hicimos el intento viste loco?
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Algo ahí</h2>
-            <p>
-                Y ta vo, no tengo ni idea qué más decirte flaco
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>No se</h2>
-            <p>
-                Qué parte de que no tengo idea qué más decirte no entendés salame?
-            </p>
-        </div>
+    <div class="loginContainer">
+        <h2>Login</h2>
+        <label for="InputUser">User</label>          <asp:TextBox runat="server" CssClass="form-control" ID="InputUser" placeholder="Ingresa su user"></asp:TextBox>
+        <label for="InputContra">Contraseña</label>          <asp:TextBox runat="server" CssClass="form-control" ID="InputContra" placeholder="Ingresa su Contraseña"></asp:TextBox>
+        <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
     </div>
 
-</asp:Content>
+    </asp:Content>

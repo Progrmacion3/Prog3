@@ -377,8 +377,11 @@
     <Compile Include="Dominio\Empresa.cs" />
     <Compile Include="Dominio\Parada.cs" />
     <Compile Include="Dominio\Viaje.cs" />
+    <Compile Include="Persistencia\Clases\pAdministrador.cs" />
     <Compile Include="Persistencia\Clases\pCamion.cs" />
+    <Compile Include="Persistencia\Clases\pCamionero.cs" />
     <Compile Include="Persistencia\Clases\Persistencia.cs" />
+    <Compile Include="Persistencia\Clases\pParada.cs" />
     <Compile Include="Persistencia\Clases\pViaje.cs" />
     <Compile Include="Presentacion\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>

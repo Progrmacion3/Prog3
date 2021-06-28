@@ -7,12 +7,12 @@ namespace obligatorio.Dominio
 {
     public class Empresa
     { //esto es un comentario
-        private static List<Empleado> _listaCamioneros = new List<Empleado>();
+        private static List<Camionero> _listaCamioneros = new List<Camionero>();
         private static List<Administrador> _listaAdmins = new List<Administrador>();
         private static List<Camion> _listaCamiones = new List<Camion>();
         private static List<Viaje> _listaViajes = new List<Viaje>();
 
-        public List<Empleado> ListaCamioneros()
+        public List<Camionero> ListaCamioneros()
         {
             return _listaCamioneros;
         }
