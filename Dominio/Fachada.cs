@@ -51,6 +51,18 @@ namespace Dominio
             return Dominio.Clases.Camionero.ModificarCamionero(pCamionero);
         }
 
+        public static List<Common.Clases.Camionero> MostrarCamionero()
+        {
+            return Dominio.Clases.Camionero.MostrarCamionero();
+        }
+        public static Common.Clases.Camionero MostrarCamioneroEspecifico(Common.Clases.Camionero pCamionero)
+        {
+            return Dominio.Clases.Camionero.MostrarCamioneroEspecifico(pCamionero);
+        }
+        public static Common.Clases.Camionero MostrarCamioneroEspecifico2(Common.Clases.Camionero pCamionero)
+        {
+            return Dominio.Clases.Camionero.MostrarCamioneroEspecifico2(pCamionero);
+        }
         #endregion
         #region Metodos de Empleado
 
@@ -71,6 +83,10 @@ namespace Dominio
         public static List<Common.Clases.Empleado> MostarEmpleadosActivos()
         {
             return Dominio.Clases.Empleado.MostrarEmpleadosActivos();
+        }
+        public static List<Common.Clases.Empleado> MostarEmpleadosEliminados()
+        {
+            return Dominio.Clases.Empleado.MostrarEmpleadosEliminados();
         }
         #endregion
         #region Metodos de Camion
@@ -96,6 +112,10 @@ namespace Dominio
         public static Common.Clases.Camion MostrarCamionEspecifico(Common.Clases.Camion pCamion)
         {
             return Dominio.Clases.Camion.MostrarCamionEspecifico(pCamion);
+        }
+        public static Common.Clases.Camion MostrarCamionEspecifico2(Common.Clases.Camion pCamion)
+        {
+            return Dominio.Clases.Camion.MostrarCamionEspecifico2(pCamion);
         }
         #endregion
         #region Metodos de Parada
@@ -132,7 +152,14 @@ namespace Dominio
         {
             return Dominio.Clases.Viaje.ModificarViaje(pViaje);
         }
-
+        public static List<Common.Clases.Viaje> MostrarViajes()
+        {
+            return Dominio.Clases.Viaje.MostrarViajes();
+        }
+        public static Common.Clases.Viaje MostrarViajeEspecifico(Common.Clases.Viaje pViaje)
+        {
+            return Dominio.Clases.Viaje.MostrarViajeEspecifico(pViaje);
+        }
         #endregion
 
     }

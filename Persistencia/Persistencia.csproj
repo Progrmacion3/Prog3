@@ -56,7 +56,6 @@
     <Compile Include="Clases\Admin.cs" />
     <Compile Include="Clases\Camion.cs" />
     <Compile Include="Clases\Camionero.cs" />
-    <Compile Include="Clases\Categoria.cs" />
     <Compile Include="Clases\Empleado.cs" />
     <Compile Include="Clases\Parada.cs" />
     <Compile Include="Clases\Persistencia.cs" />

@@ -27,5 +27,9 @@ namespace Dominio.Clases
         {
             return Persistencia.Clases.Camion.MostrarCamionEspecifico(pCamion);
         }
+        public static Common.Clases.Camion MostrarCamionEspecifico2(Common.Clases.Camion pCamion)
+        {
+            return Persistencia.Clases.Camion.MostrarCamionEspecifico2(pCamion);
+        }
     }
 }

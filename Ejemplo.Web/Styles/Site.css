@@ -190,6 +190,24 @@ div.menu ul li a:active
 /* FORM ELEMENTS   
 ----------------------------------------------------------*/
 
+#Contenedor{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+#ViewForm{
+    flex:1;
+}
+#ViewListas{
+
+    width:500px;
+    height: 400px;
+    background-color:rgba(0,0,0,0.1);
+    color: #000;
+    font-size: large;
+    border-radius: 25px;
+    padding:12px;
+}
 fieldset
 {
     margin: 1em 0px;

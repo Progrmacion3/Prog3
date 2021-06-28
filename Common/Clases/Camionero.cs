@@ -7,9 +7,15 @@ namespace Common.Clases
 {
     public class Camionero : Empleado
     {
+        private int _idCamionero;
         private string _categoriaLibreta;
         private DateTime _fechaVencimiento;
 
+        public int IdCamionero
+        {
+            get { return _idCamionero; }
+            set { _idCamionero = value; }
+        }
         public string CategoriaLibreta
         {
             get { return _categoriaLibreta; }

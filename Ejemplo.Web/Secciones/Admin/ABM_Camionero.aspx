@@ -12,7 +12,7 @@
             <td align="left">Cedula:
             </td>
             <td>
-                <asp:TextBox ID="txtCedula" MaxLength="8" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtCedula" MaxLength="8" onkeydown="return (!(event.keyCode>=65) && event.keyCode!=32);" runat="server"></asp:TextBox>
             </td>
             <td>
                 <asp:RequiredFieldValidator ID="rfvCedula" runat="server" ErrorMessage="La cédula es obligatoria" ControlToValidate="txtCedula"></asp:RequiredFieldValidator>
@@ -62,7 +62,7 @@
             <td align="left">Telefono:
             </td>
             <td>
-                <asp:TextBox ID="txtTelefono" MaxLength="12" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtTelefono" MaxLength="12" onkeydown="return (!(event.keyCode>=65) && event.keyCode!=32);" runat="server"></asp:TextBox>
             </td>
             <td>
                 <asp:RequiredFieldValidator ID="rfvTelefono" runat="server" ErrorMessage="El telefono es obligatorio" ControlToValidate="txtTelefono"></asp:RequiredFieldValidator>
@@ -119,10 +119,21 @@
                 <asp:Button ID="btnEliminar" Text="Eliminar" runat="server" OnClick="btnEliminar_Click" />
                 <asp:Button ID="btnModificar" Text="Modificar" runat="server" OnClick="btnModificar_Click" />
                 <asp:Button ID="btnLimpiar" Text="Limpiar campos" runat="server" OnClick="btnLimpiar_Click" />
-                <div style="height: 232px; width: 912px">
-                </div>
             </td>
         </tr>
     </table>
+    <asp:GridView ID="grdCamioneros" Width="93%" runat="server" AutoGenerateColumns="true" ViewStateMode="Enabled" CellPadding="10" ForeColor="#333333"
+        OnSelectedIndexChanging="grdCamioneros_SelectedIndexChanging" AutoGenerateSelectButton="true" OnRowCreated="grdCamioneros_RowCreated"
+        EmptyDataText="No existen registros" ShowHeaderWhenEmpty="true" OnSelectedIndexChanged="grdCamioneros_SelectedIndexChanged">
+        <EditRowStyle BackColor="#3399ff" />
+        <FooterStyle BackColor="Black" Font-Bold="true" ForeColor="White" />
+        <HeaderStyle BackColor="Black" Font-Bold="true" ForeColor="White" Font-Size="X-Small"/>
+        <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Center" />
+        <RowStyle BackColor="White" ForeColor="Black" HorizontalAlign="Center" Font-Size="X-Small"/>
+        <SelectedRowStyle BackColor="#cccccc" ForeColor="Black" />
+        <SortedAscendingCellStyle BackColor="#c0c0c0" />
+        <SortedDescendingCellStyle BackColor="#c0c0c0" />
+        <SortedDescendingHeaderStyle BackColor="White" />
+    </asp:GridView>
 </asp:Content>
 

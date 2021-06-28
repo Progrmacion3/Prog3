@@ -10,187 +10,169 @@
 namespace Ejemplo.Web.Secciones.Admin {
     
     
-    public partial class ABM_Camionero {
+    public partial class ABM_Viaje {
         
         /// <summary>
-        /// Control txtCedula.
+        /// Control txtIdViaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCedula;
+        protected global::System.Web.UI.WebControls.TextBox txtIdViaje;
         
         /// <summary>
-        /// Control rfvCedula.
+        /// Control txtIdCamionero.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCedula;
+        protected global::System.Web.UI.WebControls.TextBox txtIdCamionero;
         
         /// <summary>
-        /// Control txtNombre.
+        /// Control rfvIdCamionero.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombre;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvIdCamionero;
         
         /// <summary>
-        /// Control rfvNombre.
+        /// Control txtIdCamion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNombre;
+        protected global::System.Web.UI.WebControls.TextBox txtIdCamion;
         
         /// <summary>
-        /// Control txtApellido.
+        /// Control rfvIdCamion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtApellido;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvIdCamion;
         
         /// <summary>
-        /// Control rfvApellido.
+        /// Control ddlTipoCarga.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvApellido;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoCarga;
         
         /// <summary>
-        /// Control txtFechaNacimiento.
+        /// Control rfvTipoCarga.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaNacimiento;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTipoCarga;
         
         /// <summary>
-        /// Control rfvFechaNacimiento.
+        /// Control txtKilaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFechaNacimiento;
+        protected global::System.Web.UI.WebControls.TextBox txtKilaje;
         
         /// <summary>
-        /// Control txtCargo.
+        /// Control rfvKilaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCargo;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvKilaje;
         
         /// <summary>
-        /// Control rfvCargo.
+        /// Control txtOrigen.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCargo;
+        protected global::System.Web.UI.WebControls.TextBox txtOrigen;
         
         /// <summary>
-        /// Control txtTelefono.
+        /// Control rfvOrigen.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTelefono;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvOrigen;
         
         /// <summary>
-        /// Control rfvTelefono.
+        /// Control txtDestino.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTelefono;
+        protected global::System.Web.UI.WebControls.TextBox txtDestino;
         
         /// <summary>
-        /// Control txtUsuario.
+        /// Control rfvDestino.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUsuario;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDestino;
         
         /// <summary>
-        /// Control rfvUsuario.
+        /// Control txtFechaInicio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUsuario;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaInicio;
         
         /// <summary>
-        /// Control txtContraseña.
+        /// Control rfvFechaInicio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContraseña;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFechaInicio;
         
         /// <summary>
-        /// Control rfvContraseña.
+        /// Control txtFechaFin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvContraseña;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaFin;
         
         /// <summary>
-        /// Control txtCatLibreta.
+        /// Control ddlEstado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCatLibreta;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
         
         /// <summary>
-        /// Control rfvCatLibreta.
+        /// Control rfvEstado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCatLibreta;
-        
-        /// <summary>
-        /// Control txtFechaVencimiento.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaVencimiento;
-        
-        /// <summary>
-        /// Control rfvFechaVencimiento.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFechaVencimiento;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEstado;
         
         /// <summary>
         /// Control lblResultado.
@@ -238,6 +220,15 @@ namespace Ejemplo.Web.Secciones.Admin {
         protected global::System.Web.UI.WebControls.Button btnLimpiar;
         
         /// <summary>
+        /// Control grdCamiones.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdCamiones;
+        
+        /// <summary>
         /// Control grdCamioneros.
         /// </summary>
         /// <remarks>
@@ -245,5 +236,14 @@ namespace Ejemplo.Web.Secciones.Admin {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdCamioneros;
+        
+        /// <summary>
+        /// Control grdViajes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdViajes;
     }
 }

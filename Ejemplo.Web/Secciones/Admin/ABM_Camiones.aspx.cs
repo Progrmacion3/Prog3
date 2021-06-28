@@ -92,7 +92,7 @@ namespace Ejemplo.Web.Secciones.Admin
         {
             this.lblResultado.Text = string.Empty;
 
-            TableCell celda = grdCamiones.Rows[e.NewSelectedIndex].Cells[1];
+            TableCell celda = grdCamiones.Rows[e.NewSelectedIndex].Cells[2];
             Common.Clases.Camion camion = new Common.Clases.Camion();
             camion.Matricula = celda.Text;
             camion = Dominio.Fachada.MostrarCamionEspecifico(camion);

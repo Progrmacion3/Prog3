@@ -23,5 +23,9 @@ namespace Dominio.Clases
         {
             return Persistencia.Clases.Empleado.MostrarEmpleadosActivos();
         }
+        public static List<Common.Clases.Empleado> MostrarEmpleadosEliminados()
+        {
+            return Persistencia.Clases.Empleado.MostrarEmpleadosEliminados();
+        }
     }
 }

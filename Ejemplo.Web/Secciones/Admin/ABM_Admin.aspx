@@ -11,7 +11,7 @@
             <td align="left">Cedula:
             </td>
             <td>
-                <asp:TextBox ID="txtCedula" MaxLength="8" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtCedula" onkeydown="return (!(event.keyCode>=65) && event.keyCode!=32);" MaxLength="8" runat="server"></asp:TextBox>
             </td>
             <td>
                 <asp:RequiredFieldValidator ID="rfvCedula" runat="server" ErrorMessage="La cédula es obligatoria" ControlToValidate="txtCedula"></asp:RequiredFieldValidator>
@@ -61,7 +61,7 @@
             <td align="left">Telefono:
             </td>
             <td>
-                <asp:TextBox ID="txtTelefono" MaxLength="12" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtTelefono" onkeydown="return (!(event.keyCode>=65) && event.keyCode!=32);" MaxLength="12" runat="server"></asp:TextBox>
             </td>
             <td>
                 <asp:RequiredFieldValidator ID="rfvTelefono" runat="server" ErrorMessage="El telefono es obligatorio" ControlToValidate="txtTelefono"></asp:RequiredFieldValidator>

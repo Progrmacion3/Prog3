@@ -19,5 +19,17 @@ namespace Dominio.Clases
         {
             return Persistencia.Clases.Camionero.ModificarCamionero(pCamionero);
         }
+        public static List<Common.Clases.Camionero> MostrarCamionero()
+        {
+            return Persistencia.Clases.Camionero.MostrarCamionero();
+        }
+        public static Common.Clases.Camionero MostrarCamioneroEspecifico(Common.Clases.Camionero pCamionero)
+        {
+            return Persistencia.Clases.Camionero.MostrarCamioneroEspecifico(pCamionero);
+        }
+        public static Common.Clases.Camionero MostrarCamioneroEspecifico2(Common.Clases.Camionero pCamionero)
+        {
+            return Persistencia.Clases.Camionero.MostrarCamioneroEspecifico2(pCamionero);
+        }
     }
 }

@@ -7,9 +7,9 @@ namespace Common.Clases
 {
     public class Viaje
     {
-        //private int _idViaje;
-        private Camionero _camionero;
-        private Camion _camion;
+        private int _idViaje;
+        private int _idCamionero;
+        private int _idCamion;
         private string _tipoCarga;
         private int _kilaje;
         private string _origen;
@@ -18,20 +18,20 @@ namespace Common.Clases
         private DateTime _fechaFinal;
         private string _estado;
 
-        //public int IdViaje
-        //{
-        //    get { return _idViaje; }
-        //    set { _idViaje = value; }
-        //}
-        public Camionero Camionero
+        public int IdViaje
         {
-            get { return _camionero; }
-            set { _camionero = value; }
+            get { return _idViaje; }
+            set { _idViaje = value; }
         }
-        public Camion Camion
+        public int IdCamionero
         {
-            get { return _camion; }
-            set { _camion = value; }
+            get { return _idCamionero; }
+            set { _idCamionero = value; }
+        }
+        public int IdCamion
+        {
+            get { return _idCamion; }
+            set { _idCamion = value; }
         }
         public string TipoCarga
         {
@@ -69,17 +69,10 @@ namespace Common.Clases
             set { _estado = value; }
         }
 
-        public Viaje(Camionero pCamionero, Camion pCamion, string pTipoCarga, int pKilaje, string pOrigen, string pDestino, DateTime pFechaInicio, DateTime pFechaFinal, string pEstado)
+
+
+        public Viaje()
         {
-            this.Camionero = pCamionero;
-            this.Camion = pCamion;
-            this.TipoCarga = pTipoCarga;
-            this.Kilaje = pKilaje;
-            this.Origen = pOrigen;
-            this.Destino = pDestino;
-            this.FechaInicio = pFechaInicio;
-            this.FechaFinal = pFechaFinal;
-            this.Estado = pEstado;
         }
     }
 }

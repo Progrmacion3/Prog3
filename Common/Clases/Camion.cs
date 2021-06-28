@@ -7,17 +7,17 @@ namespace Common.Clases
 {
     public class Camion
     {
-        //private int _idCamion;
+        private int _idCamion;
         private string _matricula;
         private string _marca;
         private string _modelo;
         private int _año;
 
-        //public int IdCamion
-        //{
-        //    get { return _idCamion; }
-        //    set { _idCamion = value; }
-        //}
+        public int IdCamion
+        {
+            get { return _idCamion; }
+            set { _idCamion = value; }
+        }
         public string Matricula
         {
             get { return _matricula; }

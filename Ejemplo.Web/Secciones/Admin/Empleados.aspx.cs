@@ -14,19 +14,15 @@ namespace Ejemplo.Web.Secciones.Admin
             this.ActualizarLista();
         }
 
-        protected void grdEmpleados_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
+
         protected void ActualizarLista()
         {
             this.grdEmpleados.DataSource = Dominio.Fachada.MostarEmpleadosActivos();
             this.grdEmpleados.DataBind();
+            this.grdExEmpleados.DataSource = Dominio.Fachada.MostarEmpleadosEliminados();
+            this.grdExEmpleados.DataBind();
         }
 
-        protected void grdEmpleados_SelectedIndexChanging(object sender, EventArgs e)
-        {
 
-        }
     }
 }

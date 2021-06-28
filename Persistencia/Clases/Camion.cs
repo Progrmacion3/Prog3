@@ -134,6 +134,7 @@ namespace Persistencia.Clases
                     while (oReader.Read())
                     {
                         camion = new Common.Clases.Camion();
+                        camion.IdCamion = int.Parse(oReader["IdCamion"].ToString());
                         camion.Matricula = oReader["Matricula"].ToString();
                         camion.Marca = oReader["Marca"].ToString();
                         camion.Modelo = oReader["Modelo"].ToString();
@@ -173,6 +174,38 @@ namespace Persistencia.Clases
                         retorno.Marca = oReader["Marca"].ToString();
                         retorno.Modelo = oReader["Modelo"].ToString();
                         retorno.Año = int.Parse(oReader["Año"].ToString());
+
+                    }
+                    conexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return retorno;
+        }
+        public static Common.Clases.Camion MostrarCamionEspecifico2(Common.Clases.Camion pCamion)
+        {
+            Common.Clases.Camion retorno = null;
+            try
+            {
+                var conexion = new SqlConnection(CadenaDeConexion);
+                conexion.Open();
+
+                SqlCommand cmd = new SqlCommand("mostrarCamionEspecifico2", conexion);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@idCamion", pCamion.IdCamion));
+
+                using (SqlDataReader oReader = cmd.ExecuteReader())
+                {
+                    while (oReader.Read())
+                    {
+                        retorno = new Common.Clases.Camion();
+                        retorno.IdCamion = int.Parse(oReader["IdCamion"].ToString());
+                        
 
                     }
                     conexion.Close();
