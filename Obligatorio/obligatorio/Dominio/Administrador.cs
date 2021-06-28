@@ -36,6 +36,12 @@ namespace obligatorio.Dominio
             return null;
         }
 
+        /*
+         * todos
+         * todos -id
+         * solo id
+         * vacio
+         */
         public Administrador(int pId, string pNombre, string pApellido, string pCedula, string pCargo, string pTelefono, string pUsuario, string pContrasena):
             base(pNombre, pApellido, pCargo, pCargo, pTelefono, pUsuario, pContrasena)
         {
