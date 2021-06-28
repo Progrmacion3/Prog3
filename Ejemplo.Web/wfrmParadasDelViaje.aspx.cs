@@ -81,14 +81,13 @@ namespace Ejemplo.Web
 
         protected void btnComentar_Click(object sender, EventArgs e)
         {
-            if (lstViajes.SelectedItem == null || lstParadas.SelectedItem == null)
+            if (lstViajes.SelectedItem == null)
                 return;
 
             var idViaje = int.Parse(lstViajes.SelectedValue);
-            var idEstado = int.Parse(lstParadas.SelectedValue);
             var viaje = new Viaje(idViaje);
-            var estado = new Estado(idEstado);
-            if (Fachada.Obtener(estado, viaje))
+            Estado estado;
+            if (Fachada.ObtenerEstadoActual(viaje, out estado))
             {
                 estado.Tipo = ddlEstado.SelectedValue;
                 estado.Comentario = txtComentario.Text;

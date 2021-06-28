@@ -292,3 +292,11 @@ div.accountInfo
     text-align: right;
     padding-right: 10px;
 }
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: #465c71;
+  float: none !important;
+}

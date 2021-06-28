@@ -42,8 +42,11 @@ namespace Ejemplo.Web
 
             var id = int.Parse(lstViajes.SelectedValue);
             var viaje = new Viaje(id);
+            Estado varEstado;
+         
             if (Fachada.Obtener(viaje))
             {
+                Fachada.ObtenerEstadoActual(viaje, out varEstado);
                 lblDetalle.Text = "Id: " + viaje.Id +
                                   "<br/> Fecha Inicio: " + viaje.Inicio.ToShortDateString() +
                                   "<br/> Fecha final: " + viaje.Fin.ToShortDateString() +
@@ -51,7 +54,8 @@ namespace Ejemplo.Web
                                   "<br/> Destino: " + viaje.Destino +
                                   "<br/> Carga: " + viaje.Carga +
                                   "<br/> Camionero: " + viaje.Camionero.Nombre + " " + viaje.Camionero.Apellido +
-                                  "<br/> Viaje realizado  en camión: " + viaje.Camión.Matrícula;
+                                  "<br/> Viaje realizado  en camión: " + viaje.Camión.Matrícula + 
+                                  "<br/> Estado: " + varEstado.Tipo;
                 lblMensajes.Text = "";
             }
             else
