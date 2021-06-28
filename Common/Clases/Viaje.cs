@@ -9,9 +9,11 @@ namespace Common.Clases
     {
         public short Id { get; set;}
         public Camionero Camionero { get; set;}
+        public int CamioneroCI { get { return Camionero.CI; }}
         public Camion Camion { get; set; }
+        public string CamionMatricula { get { return Camion.Matricula; } }
         public string TipoCarga { get; set;}
-        public string Kilaje { get; set;}
+        public int Kilaje { get; set;}
         public string Origen { get; set;}
         public string Destino { get; set;}
         public string FechaInicio { get; set;}

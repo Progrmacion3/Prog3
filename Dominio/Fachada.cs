@@ -147,5 +147,14 @@ namespace Dominio
         }
 
         #endregion
+
+        #region Utilidades
+
+        public static string TraerTipoEmpleado(Common.Clases.Empleado pEmpleado)
+        {
+            return Dominio.Clases.dUtilidades.TraerTipoEmpleado(pEmpleado);
+        }
+
+        #endregion
     }
 }

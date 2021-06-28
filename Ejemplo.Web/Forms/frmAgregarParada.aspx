@@ -1,8 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmViaje.aspx.cs" MasterPageFile="~/Site.master"
-    Inherits="Ejemplo.Web.Forms.frmViaje" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmAgregarParada.aspx.cs" MasterPageFile="~/Site.master" 
+     Inherits="Ejemplo.Web.Forms.frmAgregarParada" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
-    <style type="text/css">
+    <style type="text/css">w
         .auto-style1 {
             height: 180px;
         }
@@ -23,115 +23,33 @@
                 <td class="auto-style1">
                     <table>
                           <tr>
-                            <td align="left">Camionero:
+                            <td align="left">Viaje:
                             </td>
                             <td colspan="3" align="left">
-                                <asp:Label ID="lblCamionero" runat="server"></asp:Label>
-                                <asp:Label ID="lblCICamionero" runat="server"></asp:Label>
+                                <asp:TextBox ID="txtIdViaje" MaxLength="30" runat="server" ></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
-                            <td align="left" class="auto-style2">Camion:
+                            <td align="left" class="auto-style2">Tipo:
                             </td>
                             <td colspan="3" align="left" class="auto-style2">
-                                <asp:Label ID="lblCamion" runat="server"></asp:Label>
-                                <asp:Label ID="lblMatriculaCamion" runat="server"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="left">
-                                Tipo de Carga:
-                            </td>
-                            <td>
-                                <asp:DropDownList ID="ddlTipoCarga" runat="server">
-                                    <asp:ListItem>Grano</asp:ListItem>
-                                    <asp:ListItem>Contenedor</asp:ListItem>
-                                    <asp:ListItem>Ganado</asp:ListItem>
-                                </asp:DropDownList>
-                            </td>
-                            <td>
-                                <asp:RequiredFieldValidator ID="frvTipoDeCarga" runat="server" ErrorMessage="El tipo de Carga es obligatoria"
-                                    ControlToValidate="ddlTipoCarga"></asp:RequiredFieldValidator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="left">
-                                Kilaje:
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtKilaje" MaxLength="30" runat="server" ></asp:TextBox>
-                            </td>
-                            <td>
-                                <asp:RequiredFieldValidator ID="rfvKilaje" runat="server" ErrorMessage="El Kilaje es obligatorio"
-                                    ControlToValidate="txtKilaje"></asp:RequiredFieldValidator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="left">
-                                Origen:
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtOrigen" MaxLength="30" runat="server" ></asp:TextBox>
-                            </td>
-                            <td>
-                                <asp:RequiredFieldValidator ID="rfvOrigen" runat="server" ErrorMessage="El Origen es obligatorio"
-                                    ControlToValidate="txtOrigen"></asp:RequiredFieldValidator>
-                            </td>
-                        </tr>
-                          <tr>
-                            <td align="left">
-                                Destino:
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtDestino" MaxLength="30" runat="server" ></asp:TextBox>
-                            </td>
-                            <td>
-                                <asp:RequiredFieldValidator ID="rfvDestino" runat="server" ErrorMessage="El Destino es obligatorio"
-                                    ControlToValidate="txtDestino"></asp:RequiredFieldValidator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="left">
-                               Fecha De Inicio:
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtFechaInicio" MaxLength="12" runat="server"></asp:TextBox>
-                            </td>
-                            <td>
-                                <asp:RequiredFieldValidator ID="rfvFechaInicio" runat="server" ErrorMessage="La Fecha de Inicio es obligatoria"
-                                    ControlToValidate="txtFechaInicio"></asp:RequiredFieldValidator>
-                            </td>
-                        </tr>
-                         <tr>
-                            <td align="left">
-                               Fecha de Finalización:
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtFechaFinalización" MaxLength="30" runat="server"></asp:TextBox>
-                            </td>
-                            <td>
-                                <asp:RequiredFieldValidator ID="rvfFechaFinalización" runat="server" ErrorMessage="La Fecha de Finalización es obligatoria"
-                                    ControlToValidate="txtFechaFinalización"></asp:RequiredFieldValidator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="left">
-                               Estado:
-                            </td>
-                            <td>
                                 <asp:DropDownList ID="ddlEstado" runat="server">
-                                    <asp:ListItem>Propuesto</asp:ListItem>
-                                    <asp:ListItem>En Curso</asp:ListItem>
-                                    <asp:ListItem>Parado</asp:ListItem>
-                                    <asp:ListItem>Finalizado</asp:ListItem>
+                                    <asp:ListItem>Descanso</asp:ListItem>
+                                    <asp:ListItem>Rotura</asp:ListItem>
                                 </asp:DropDownList>
                             </td>
-                            <td>
-                                <asp:RequiredFieldValidator ID="rfvEstado" runat="server" ErrorMessage="El Estado es obligatorio"
-                                    ControlToValidate="ddlEstado"></asp:RequiredFieldValidator>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                Comantario:
                             </td>
-                        </tr>                                    
-                         
+                            <td>
+                                <asp:TextBox ID="txtComentario" MaxLength="150" runat="server" ></asp:TextBox>
+                            </td>
+                            <td>
+                                
+                            </td>
+                        </tr>
                         <tr>
                             <td colspan="3" align="left">
                                 <asp:Label ID="lblResultado" runat="server"></asp:Label>
@@ -139,9 +57,8 @@
                         </tr>
                         <tr>
                             <td colspan="3" align="left">
-                                <asp:Button ID="btnAltaViaje" Text="Alta" runat="server" OnClick="btnAltaViaje_Click" />
-                                <asp:Button ID="btnModificarViaje" runat="server" Text="Modificar" OnClick="btnModificarViaje_Click" />
-                                <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Visible="false" OnClick="btnCancelar_Click" />
+                                <asp:Button ID="btnAgregarParada" Text="Alta" runat="server" OnClick="btnAgregarParada_Click" />
+                                <asp:Button ID="btnEliminarParada" runat="server" Text="Modificar" Visible="false" OnClick="btnEliminarParada_Click" />
                             </td>
                         </tr>
                     </table>

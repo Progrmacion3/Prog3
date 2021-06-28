@@ -59,6 +59,7 @@
     <Compile Include="Clases\pCamionero.cs" />
     <Compile Include="Clases\Persistencia.cs" />
     <Compile Include="Clases\pParada.cs" />
+    <Compile Include="Clases\pUtilidades.cs" />
     <Compile Include="Clases\pViaje.cs" />
   </ItemGroup>
   <ItemGroup>

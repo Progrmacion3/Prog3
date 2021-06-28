@@ -22,6 +22,15 @@ namespace Ejemplo.Web.Forms {
         protected global::System.Web.UI.WebControls.Label lblCamionero;
         
         /// <summary>
+        /// Control lblCICamionero.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCICamionero;
+        
+        /// <summary>
         /// Control lblCamion.
         /// </summary>
         /// <remarks>
@@ -31,13 +40,22 @@ namespace Ejemplo.Web.Forms {
         protected global::System.Web.UI.WebControls.Label lblCamion;
         
         /// <summary>
-        /// Control txtTipoDeCarga.
+        /// Control lblMatriculaCamion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTipoDeCarga;
+        protected global::System.Web.UI.WebControls.Label lblMatriculaCamion;
+        
+        /// <summary>
+        /// Control ddlTipoCarga.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoCarga;
         
         /// <summary>
         /// Control frvTipoDeCarga.
@@ -164,6 +182,33 @@ namespace Ejemplo.Web.Forms {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblResultado;
+        
+        /// <summary>
+        /// Control btnAltaViaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAltaViaje;
+        
+        /// <summary>
+        /// Control btnModificarViaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnModificarViaje;
+        
+        /// <summary>
+        /// Control btnCancelar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelar;
         
         /// <summary>
         /// Control grdViajes.

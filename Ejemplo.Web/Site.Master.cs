@@ -14,28 +14,28 @@ namespace Ejemplo.Web
             MenuCamionero.Visible = false;
             MenuAdministrador.Visible = false;
             MenuIniciarSersion.Visible = true;
-        }
-        public void Seccion(bool pTipo)
-        {
-            bool escamionero = true;
-            Session["escamionero"] = pTipo;
+
+            bool escamionero;
             if (Session["escamionero"] != null)
             {
                 escamionero = bool.Parse(Session["escamionero"].ToString());
+
+                if (escamionero)
+                {
+                    MenuIniciarSersion.Visible = false;
+                    MenuCamionero.Visible = true;
+                    MenuAdministrador.Visible = false;
+                     
+                }
+                else
+                {
+                    MenuIniciarSersion.Visible = false;
+                    MenuCamionero.Visible = false;
+                    MenuAdministrador.Visible = true;
+                    //Response.Redirect("frmEmpleado.aspx");
+                }
             }
 
-            if (escamionero)
-            {
-                MenuCamionero.Visible = true;
-                MenuAdministrador.Visible = false;
-                MenuIniciarSersion.Visible = false;
-            }
-            else
-            {
-                MenuCamionero.Visible = false;
-                MenuAdministrador.Visible = true;
-                MenuIniciarSersion.Visible = false;
-            }
         }
     }
 }

@@ -167,10 +167,12 @@ namespace Persistencia.Clases
                     {
                         viaje = new Common.Clases.Viaje();
                         viaje.Id = short.Parse(oReader["idViaje"].ToString());
-                        viaje.Camionero.CI = short.Parse(oReader["camioneroViaje"].ToString());
+                        viaje.Camionero = new Common.Clases.Camionero();
+                        viaje.Camionero.CI = int.Parse(oReader["camioneroViaje"].ToString());
+                        viaje.Camion = new Common.Clases.Camion();
                         viaje.Camion.Matricula = oReader["camionViaje"].ToString();
                         viaje.TipoCarga = oReader["tipoDeCargaViaje"].ToString();
-                        viaje.Kilaje = oReader["kilajeViaje"].ToString();
+                        viaje.Kilaje = int.Parse(oReader["kilajeViaje"].ToString());
                         viaje.Origen = oReader["origenViaje"].ToString();
                         viaje.Destino = oReader["destinoViaje"].ToString();
                         viaje.FechaInicio = oReader["fechaInicioViaje"].ToString();
@@ -217,10 +219,12 @@ namespace Persistencia.Clases
                     {
                         viaje = new Common.Clases.Viaje();
                         viaje.Id = short.Parse(oReader["idViaje"].ToString());
-                        viaje.Camionero.CI = short.Parse(oReader["camioneroViaje"].ToString());
+                        viaje.Camionero = new Common.Clases.Camionero();
+                        viaje.Camionero.CI = int.Parse(oReader["camioneroViaje"].ToString());
+                        viaje.Camion = new Common.Clases.Camion();
                         viaje.Camion.Matricula = oReader["camionViaje"].ToString();
                         viaje.TipoCarga = oReader["tipoDeCargaViaje"].ToString();
-                        viaje.Kilaje = oReader["kilajeViaje"].ToString();
+                        viaje.Kilaje = int.Parse(oReader["kilajeViaje"].ToString());
                         viaje.Origen = oReader["origenViaje"].ToString();
                         viaje.Destino = oReader["destinoViaje"].ToString();
                         viaje.FechaInicio = oReader["fechaInicioViaje"].ToString();

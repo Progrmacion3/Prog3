@@ -11,26 +11,27 @@ namespace Ejemplo.Web.Forms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            string usuario = this.txtUsuario.Text;
-            string password = this.txtPassword.Text;
-            Ejemplo.Web.SiteMaster site = new SiteMaster();
+            Common.Clases.Empleado emp = new Common.Clases.Empleado();
+            emp.Usuario = this.txtUsuario.Text;
+            emp.Password = this.txtPassword.Text;
+
             try
             {
-                //string resultado = Dominio.Fachada.AltaCamion();
+                string resultado = Dominio.Fachada.TraerTipoEmpleado(emp);
 
-                //if (resultado == "camionero")
-                //{
-                //    site.Seccion(true);
-                //}
-                //else
-                //{
-                //    site.Seccion(false);
-                //}
+                if (resultado == "Camionero")
+                {
+                    Session["escamionero"] = true;
+                }
+                else
+                {
+                    Session["escamionero"] = false;
+                }
 
             }
             catch (Exception ex)

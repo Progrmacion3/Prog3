@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmCamion.aspx.cs" MasterPageFile="~/Site.master"
- Inherits="Ejemplo.Web.Forms.frmCamion" %>
+ Inherits="Ejemplo.Web.Forms.Form" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
     <style type="text/css">
