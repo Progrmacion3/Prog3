@@ -70,7 +70,7 @@ namespace obligatorio.Persistencia.Clases
             return retorno;
         }
 
-        public static bool ParadaCamion(Parada pParada)
+        public static bool ModificarParada(Parada pParada)
         {
             bool retorno = true;
             try
