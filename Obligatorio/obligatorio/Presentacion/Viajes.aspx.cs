@@ -38,17 +38,55 @@ namespace obligatorio.Presentacion
         }
         private void ListarDatos()
         {
-            return;
+            return; // -> to-do
+        }
+        private void AvisoFaltaKilaje()
+        {
+            this.lblMissingKilaje.Text = "Te faltó el kilaje flaco.";
+        }
+        private void ResultadoOperacion(string operacion)
+        {
+            if (operacion == "alta" || operacion == "baja" || operacion == "modificación")
+            {
+                this.lblDataOutput.Text = $"Todo piola, la {operacion} anduvo perfecta.";
+                return;
+            }
+            string[] rest = operacion.Split(' ');
+            this.lblDataOutput.Text = $"Nada piola, la {rest[0]} salió mal. (T_T)";
+        }
+        private void AvisoFaltanDatos()
+        {
+            int output = new Random().Next(3);
+            switch (output) {
+                case 1:
+                    this.lblDataOutput.Text = "Algó te faltó, fijate.";
+                    break;
+                case 2:
+                    this.lblDataOutput.Text = "O soy ciego o estás con hambre y te comiste algún dato, fijate gato.";
+                    break;
+                case 3:
+                    this.lblDataOutput.Text = "Te faltó algo ಠ_ಠ";
+                    break;
+                default:
+                    this.lblDataOutput.Text = "Falta algún dato, revise por favor.";
+                    break;
+        }
         }
 
         protected void btnAlta_Click(object sender, EventArgs e)
         {
             if (!FaltanDatos())
             {
+                int mKilaje;
+                if(!int.TryParse(this.txtKilaje.Text, out mKilaje))
+                {
+                    this.AvisoFaltaKilaje();
+                    return;
+                }
+                mKilaje = int.Parse(this.txtKilaje.Text);
                 Empresa mEmpresa = new Empresa();
                 string mMatCamion = this.txtCamion.Text;
                 string mCarga = this.txtCarga.Text;
-                int mKilaje = int.Parse(this.txtKilaje.Text);
                 string mOrigen = this.txtOrigen.Text;
                 string mDestino = this.txtDestino.Text;
                 DateTime mFechaInicio = this.dtpFechaInicio.SelectedDate;
@@ -61,13 +99,13 @@ namespace obligatorio.Presentacion
                 {
                     this.LimpiarCampos();
                     this.ListarDatos();
-                    //mandar mensaje al usuario o algo indicando que se agrego no se xd
+                    this.ResultadoOperacion("alta");
                     return;
                 }
-                //mandar mensaje indicando un error
+                this.ResultadoOperacion("alta no");
                 return;
             }
-            //avisar que faltan datos
+            this.AvisoFaltanDatos();
             return;
         }
 
@@ -80,10 +118,16 @@ namespace obligatorio.Presentacion
         {
             if (!FaltanDatos())
             {
+                int mKilaje;
+                if (!int.TryParse(this.txtKilaje.Text, out mKilaje))
+                {
+                    this.AvisoFaltaKilaje();
+                    return;
+                }
+                mKilaje = int.Parse(this.txtKilaje.Text);
                 Empresa mEmpresa = new Empresa();
                 string mMatCamion = this.txtCamion.Text;
                 string mCarga = this.txtCarga.Text;
-                int mKilaje = int.Parse(this.txtKilaje.Text);
                 string mOrigen = this.txtOrigen.Text;
                 string mDestino = this.txtDestino.Text;
                 DateTime mFechaInicio = this.dtpFechaInicio.SelectedDate;
@@ -96,12 +140,13 @@ namespace obligatorio.Presentacion
                 {
                     this.LimpiarCampos();
                     this.ListarDatos();
-                    //avisar que la opereishon tuvo ekzito
+                    this.ResultadoOperacion("modificación");
+                    return;
                 }
-                //avisar que la operasione tuvo una conclusion negativa
+                this.ResultadoOperacion("modificación no");
                 return;
             }
-            //avisar que faltan datos
+            this.AvisoFaltanDatos();
             return;
         }
 

@@ -38,7 +38,7 @@ namespace obligatorio.Presentacion
         }
         private void ListarDatos()
         {
-
+            //to-do
         }
         private void AvisoOperacion(string operacion)
         {
@@ -87,10 +87,10 @@ namespace obligatorio.Presentacion
             return;
         }
 
-        protected void btnBaja_Click(object sender, EventArgs e)
+        protected void btnBaja_Click(object sender, EventArgs e) // dsp cambiar, se hace con la grid, + ez
         {
             if (!FaltaMatricula()) {
-                // dsp cambiar, se hace con la grid, + ez
+                
                 Empresa empresa = new Empresa();
                 string matricula = this.InputMatricula.Text;
                 Camion camion = new Camion(matricula);
@@ -102,7 +102,6 @@ namespace obligatorio.Presentacion
                     this.AvisoOperacion("eliminación");
                     return;
                 }
-                this.LimpiarCampos();
                 this.AvisoOperacion("eliminación no");
                 return;
             }

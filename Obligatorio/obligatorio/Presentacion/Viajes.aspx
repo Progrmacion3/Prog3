@@ -14,6 +14,7 @@
     <br />
     <asp:Label ID="Label5" runat="server" Text="Kilaje:"></asp:Label>
     <asp:TextBox ID="txtKilaje" runat="server"></asp:TextBox>
+    <asp:Label ID="lblMissingKilaje" runat="server" Text="Label"></asp:Label>
     <br />
     <asp:Label ID="Label6" runat="server" Text="Origen:"></asp:Label>
     <asp:TextBox ID="txtOrigen" runat="server"></asp:TextBox>
@@ -34,6 +35,8 @@
         <asp:Button ID="btnBaja" Text="Baja" runat="server" OnClick="btnBaja_Click"/>    
         <asp:Button ID="btnModificar" Text="Modificar" runat="server" OnClick="btnModificar_Click"/>
         <asp:Button ID="btnLimpiar" Text="Limpiar" runat="server" OnClick="btnLimpiar_Click"/>
+        <br />
+        <asp:Label ID="lblDataOutput" runat="server" Text="Label"></asp:Label>
     </div>
 
 </asp:Content>

@@ -29,8 +29,6 @@ namespace obligatorio.Dominio
             return _listaViajes;
         }
 
-        // to do -> los menus, switch con funcion y llamar a la clase con la funcion -> 24/6 done
-
         public bool MenuCamion(string pFuncion, Camion unCamion)
         {
             switch (pFuncion)

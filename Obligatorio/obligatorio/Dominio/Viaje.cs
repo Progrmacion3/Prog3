@@ -88,12 +88,20 @@ namespace obligatorio.Dominio
         }
         public Viaje BuscarViaje(Viaje unViaje)
         {
-            int num = new Random().Next();
-            if (num == 1)
-                return null;
+            Empresa empresa = new Empresa();
+            foreach (Viaje elViaje in empresa.ListaViajes())
+                if (elViaje.Id == unViaje.Id)
+                    return elViaje;
             return null;
         }
 
+        /*
+         * con todo
+         * todo -id
+         * todo -id y estado
+         * solo id
+         * vacio (duh)
+         */
         public Viaje(int pId, Empleado pCamionero, Camion pCamion, string pCarga, int pKilaje, string pOrigen, string pDestino, DateTime pFechaInicio, DateTime pFechaFin, string pEstado)
         {
             Id = pId;
