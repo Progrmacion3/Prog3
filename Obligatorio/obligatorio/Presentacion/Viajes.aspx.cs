@@ -13,7 +13,9 @@ namespace obligatorio.Presentacion
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
+            {
                 ListarDatos();
+            }
         }
 
         private bool FaltanDatos() // comprobamos que todos los campos tengan datos y las fechas sean validas
@@ -42,6 +44,7 @@ namespace obligatorio.Presentacion
         {
             this.lblMissingKilaje.Text = "Te faltó el kilaje flaco.";
         }
+
         private void ResultadoOperacion(string operacion)
         {
             if (operacion == "alta" || operacion == "baja" || operacion == "modificación")
@@ -52,9 +55,10 @@ namespace obligatorio.Presentacion
             string[] rest = operacion.Split(' ');
             this.lblDataOutput.Text = $"Nada piola, la {rest[0]} salió mal. (T_T)";
         }
+
         private void AvisoFaltanDatos()
         {
-            int output = new Random().Next(4);
+            int output = new Random().Next(3);
             switch (output) {
                 case 1:
                     this.lblDataOutput.Text = "Algó te faltó, fijate.";

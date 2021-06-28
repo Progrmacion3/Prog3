@@ -108,6 +108,7 @@ namespace Ejemplo.Web
             }
         }
 
+
         protected void ModoEdicion(bool pVisible) 
         {
             this.txtId.Enabled = false;
