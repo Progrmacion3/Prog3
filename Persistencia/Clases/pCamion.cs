@@ -64,6 +64,7 @@ namespace Persistencia.Clases
 
                 cmd.CommandType = CommandType.StoredProcedure;
 
+                cmd.Parameters.Add(new SqlParameter("@idCamion", pCamion.idCamion));
                 cmd.Parameters.Add(new SqlParameter("@matriculaCamion", pCamion.Matricula));
                 cmd.Parameters.Add(new SqlParameter("@ModeloCamion ", pCamion.Modelo));
                 cmd.Parameters.Add(new SqlParameter("@marcaCamion", pCamion.Marca));
@@ -102,7 +103,7 @@ namespace Persistencia.Clases
 
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.Add(new SqlParameter("@matriculaCamion", pCamion.Matricula));
+                cmd.Parameters.Add(new SqlParameter("@idCamion", pCamion.idCamion));
 
                 int rtn = cmd.ExecuteNonQuery();
 

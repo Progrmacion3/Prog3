@@ -7,6 +7,7 @@ namespace Common.Clases
 {
    public class Empleado
     {
+        public int idEmpleado { get; set; }
         public int CI { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }

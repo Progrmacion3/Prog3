@@ -24,7 +24,7 @@ namespace Persistencia.Clases
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.Add(new SqlParameter("@idCamionero",pVia.Camionero.identificadorCam));
-                cmd.Parameters.Add(new SqlParameter("@matriculaCamion",pVia.Camion.Matricula));
+                cmd.Parameters.Add(new SqlParameter("@idCamion",pVia.Camion.idCamion));
                 cmd.Parameters.Add(new SqlParameter("@TipoCargaViaje",pVia.Tipo_Carga));
                 cmd.Parameters.Add(new SqlParameter("@KilajeViaje",pVia.Kilaje));
                 cmd.Parameters.Add(new SqlParameter("@OrigenViaje",pVia.Origen));
@@ -70,7 +70,7 @@ namespace Persistencia.Clases
 
                 cmd.Parameters.Add(new SqlParameter("@idViaje", pVia.identificadorViaje));
                 cmd.Parameters.Add(new SqlParameter("@idCamionero", pVia.Camionero.identificadorCam));
-                cmd.Parameters.Add(new SqlParameter("@matriculaCamion", pVia.Camion.Matricula));
+                cmd.Parameters.Add(new SqlParameter("@idCamion", pVia.Camion.idCamion));
                 cmd.Parameters.Add(new SqlParameter("@TipoCargaViaje", pVia.Tipo_Carga));
                 cmd.Parameters.Add(new SqlParameter("@KilajeViaje", pVia.Kilaje));
                 cmd.Parameters.Add(new SqlParameter("@OrigenViaje", pVia.Origen));

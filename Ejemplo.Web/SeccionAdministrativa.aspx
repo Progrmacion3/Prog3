@@ -31,9 +31,30 @@
             </div>
       </div>
     <div class="main">
+        <h2>
+            Bienvenido administrador
+        </h2>
+    <h3>
+        En esta seccion usted esta habilitado para la gestion de viajes,empleados,camioneros,camiones y paradas.Usted tiene el control de todos los datos almacenados en el sistema 
+    </h3>
+   <h4>
+       En la parte de abajo le daremos las instrucciones de como se realizan las gestiones de cada uno de los datos así que preste atención
+   </h4>
+    <p>
+         Para agregar:ingrese los datos correspondientes 
+    </p>
+    <p>
+        Para eliminar:ingrese el identificador de lo que desea eliminar(el primer dato a ingresar en la parte de arriba)
+    </p>
+    <p>
+        Para modificar:ingrese el identificador de lo que desea modificar y despues ingrese en el resto de casillas los nuevos datos
+    </p>
     </div>
+    <div>
     <div class="footer">
-        
+    <h5>
+        Ya teniendo todo lo basico puede empezar a cumplir su labor como administrador de la empresa, que tenga un buen día :)
+    </h5>
     </div>
     </div>
     </form>

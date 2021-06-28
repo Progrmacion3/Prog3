@@ -7,6 +7,7 @@ namespace Common.Clases
 {
     public class Camion
     {
+        public int idCamion { get; set; }
         public string Matricula { get; set; }
         public string Marca { get; set; }
         public string Modelo { get; set; }
