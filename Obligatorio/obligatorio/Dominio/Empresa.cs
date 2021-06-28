@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using obligatorio.Persistencia.Clases;
 
 namespace obligatorio.Dominio
 {
     public class Empresa
-    { //esto es un comentario
+    {
         private static List<Camionero> _listaCamioneros = new List<Camionero>();
         private static List<Administrador> _listaAdmins = new List<Administrador>();
         private static List<Camion> _listaCamiones = new List<Camion>();
@@ -22,7 +23,7 @@ namespace obligatorio.Dominio
         }
         public List<Camion> ListaCamiones()
         {
-            return _listaCamiones;
+            return _listaCamiones = pCamion.pListaCamiones();
         }
         public List<Viaje> ListaViajes()
         {

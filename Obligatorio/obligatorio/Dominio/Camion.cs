@@ -64,6 +64,7 @@ namespace obligatorio.Dominio
         }
         public Camion BuscarCamion(Camion unCamion)
         {
+            if (unCamion == null) return null;
             Empresa empresa = new Dominio.Empresa();
             foreach (Camion camion in empresa.ListaCamiones())
                 if (unCamion.Matricula == camion.Matricula)

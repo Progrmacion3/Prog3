@@ -36,10 +36,14 @@ namespace obligatorio.Presentacion
         {
             this.lblIdNotNum.Text = "Lo de arriba no es un número animal.";
         }
+
         private void ListarDatos()
         {
+            Empresa empresa = new Empresa();
+            this.grdCamiones.DataSource = empresa.ListaCamiones();
             this.grdCamiones.DataBind();
         }
+
         private void AvisoOperacion(string operacion)
         {
             this.lblDataOutput.Text = $"La {operacion} fue exitosa.";
@@ -128,7 +132,7 @@ namespace obligatorio.Presentacion
         protected void grdCamiones_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             this.LimpiarCampos();
-            TableCell idCelda = grdCamiones.Rows[e.RowIndex].Cells[1];
+            TableCell idCelda = grdCamiones.Rows[e.RowIndex].Cells[3];
             Camion camion = new Empresa().BuscarCamion(new Camion(idCelda.Text));
             bool output = new Empresa().MenuCamion("baja", camion);
             if (output)
@@ -143,7 +147,7 @@ namespace obligatorio.Presentacion
         protected void grdCamiones_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
             this.LimpiarCampos();
-            TableCell idCelda = grdCamiones.Rows[e.NewSelectedIndex].Cells[1];
+            TableCell idCelda = grdCamiones.Rows[e.NewSelectedIndex].Cells[3];
             Camion camion = new Empresa().BuscarCamion(new Camion(idCelda.Text));
             if(camion != null)
             {

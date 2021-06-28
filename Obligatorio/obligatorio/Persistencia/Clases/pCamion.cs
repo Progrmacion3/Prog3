@@ -101,5 +101,39 @@ namespace obligatorio.Persistencia.Clases
             }
             return retorno;
         }
+
+        public static List<Camion> pListaCamiones()
+        {
+            List<Camion> listaCamiones = new List<Camion>();
+            try
+            {
+                SqlConnection conn = new SqlConnection(CadenaDeConexion);
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("Camion_TraerTodos", conn);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                using(SqlDataReader oReader = cmd.ExecuteReader())
+                {
+                    while (oReader.Read())
+                    {
+                        Camion camion = new Camion();
+                        camion.Matricula = oReader["matriculaCamion"].ToString();
+                        camion.Marca = oReader["marca"].ToString();
+                        camion.Modelo = oReader["modelo"].ToString();
+                        camion.Ano = int.Parse(oReader["ano"].ToString());
+                        listaCamiones.Add(camion);
+                    }
+                    conn.Close();
+                }       
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return listaCamiones;
+        }
     }
 }
