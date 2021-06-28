@@ -98,7 +98,7 @@ namespace obligatorio.Presentacion
                     this.ListarDatos();
                     //avisar que la opereishon tuvo ekzito
                 }
-                //avisar que la operasione tuvo una conclusion positiva
+                //avisar que la operasione tuvo una conclusion negativa
                 return;
             }
             //avisar que faltan datos
