@@ -12,6 +12,7 @@ namespace obligatorio.Dominio
         private static List<Administrador> _listaAdmins = new List<Administrador>();
         private static List<Camion> _listaCamiones = new List<Camion>();
         private static List<Viaje> _listaViajes = new List<Viaje>();
+        private static List<Parada> _listaParadas = new List<Parada>();
 
         public List<Camionero> ListaCamioneros()
         {
@@ -28,6 +29,10 @@ namespace obligatorio.Dominio
         public List<Viaje> ListaViajes()
         {
             return _listaViajes;
+        }
+        public List<Parada> ListaParadas()
+        {
+            return _listaParadas;
         }
 
         public bool MenuCamion(string pFuncion, Camion unCamion)
@@ -99,6 +104,20 @@ namespace obligatorio.Dominio
                     return false;
             }
         }
+        public bool MenuParada(string pFuncion, Parada pParada)
+        {
+            switch (pFuncion)
+            {
+                case "alta":
+                    return new Parada().AgregarParada(pParada);
+                case "baja":
+                    return new Parada().EliminarParada(pParada);
+                case "modificar":
+                    return new Parada().ModificarParada(pParada);
+                default:
+                    return false;
+            }
+        }
 
         public Camion BuscarCamion(Camion unCamion)
         {
@@ -115,6 +134,10 @@ namespace obligatorio.Dominio
         public Viaje BuscarViaje(Viaje unViaje)
         {
             return new Viaje().BuscarViaje(unViaje);
+        }
+        public Parada BuscarParada(Parada unaParada)
+        {
+            return new Parada().BuscarParada(unaParada);
         }
     }
 }
