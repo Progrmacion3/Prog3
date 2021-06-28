@@ -85,6 +85,15 @@ namespace obligatorio.Presentacion {
         protected global::System.Web.UI.WebControls.TextBox InputEdad;
         
         /// <summary>
+        /// lblEdadNotNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEdadNotNumber;
+        
+        /// <summary>
         /// InputTipoLibreta control.
         /// </summary>
         /// <remarks>
@@ -121,6 +130,15 @@ namespace obligatorio.Presentacion {
         protected global::System.Web.UI.WebControls.RadioButton rdbAdministrador;
         
         /// <summary>
+        /// lblRadioBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRadioBtn;
+        
+        /// <summary>
         /// btnAlta control.
         /// </summary>
         /// <remarks>
@@ -155,5 +173,14 @@ namespace obligatorio.Presentacion {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnLimpiar;
+        
+        /// <summary>
+        /// lblDataOutput control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDataOutput;
     }
 }

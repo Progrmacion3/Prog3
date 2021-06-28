@@ -16,9 +16,9 @@ namespace obligatorio.Presentacion
                 this.ListarDatos();
         }
 
-        private void MostrarCampos()
+        private void EdadNoEsNumber()
         {
-
+            this.lblEdadNotNumber.Text = "Lo de arriba no es un número capo.";
         }
         private bool FaltanDatos()
         {
@@ -40,6 +40,10 @@ namespace obligatorio.Presentacion
         {
 
         }
+        private void AvisoFaltanDatos()
+        {
+            this.lblDataOutput.Text = "Falta alguna cosita, pegale una leida de nuevo ahí.";
+        }
         private void LimpiarCampos()
         {
             this.InputEdad.Text = "";
@@ -52,6 +56,20 @@ namespace obligatorio.Presentacion
             this.InputPosition.Text = "";
             this.InputSecondName.Text = "";
             this.InputUser.Text = "";
+        }
+        private void OperacionOutput(string operacion)
+        {
+            if (operacion == "alta" || operacion == "baja" || operacion == "modificación")
+            {
+                this.lblDataOutput.Text = $"Alto crack, la {operacion} salió perfecta.";
+                return;
+            }
+            string[] rest = operacion.Split(' ');
+            this.lblDataOutput.Text = $"Te caes a pedazos, la {rest[0]} salió mal. (T_T)";
+        }
+        private void NoSeleccionaCamioneroAdmin()
+        {
+            this.lblRadioBtn.Text = "Te faltó uno de los de arriba.";
         }
 
         public void btnAlta_Click(object sender, EventArgs e)
@@ -92,18 +110,21 @@ namespace obligatorio.Presentacion
                     string mUser = this.InputUser.Text;
                     string mTelefono = this.InputTelefono.Text;
                     Administrador unAdmin = new Administrador(mNombre, mApellido, mDocumento, mCargo, mTelefono, mUser, mPassword);
-                    if(empresa.MenuAdmin("alta", unAdmin))
+                    if (empresa.MenuAdmin("alta", unAdmin))
                     {
                         this.LimpiarCampos();
                         this.ListarDatos();
+                        this.OperacionOutput("alta");
                         return;
-                        // avisar al usuario que se agrego
                     }
-                    // avisar al usuario que no se agrego
+                    this.OperacionOutput("alta no");
                     return;
                 }
+                this.NoSeleccionaCamioneroAdmin();
                 return;
             }
+            this.AvisoFaltanDatos();
+            return;
         }
 
         protected void btnBaja_Click(object sender, EventArgs e)
@@ -115,8 +136,65 @@ namespace obligatorio.Presentacion
         {
             if (!FaltanDatos())
             {
-                // hay que hacer la grid
+                Empresa empresa = new Empresa();
+                if (this.rdbCamionero.Checked)
+                {
+                    int mEdad;
+                    if (!int.TryParse(this.InputEdad.Text, out mEdad))
+                    {
+                        return;
+                    }
+                    mEdad = int.Parse(this.InputEdad.Text);
+                    string mNombre = this.InputName.Text;
+                    string mDocumento = this.InputDocument.Text;
+                    string mApellido = this.InputSecondName.Text;
+                    string mCargo = this.InputPosition.Text;
+                    string mPassword = this.InputPass.Text;
+                    string mUser = this.InputUser.Text;
+                    string mTelefono = this.InputTelefono.Text;
+                    string mTipoLibreta = this.InputTipoLibreta.Text;
+
+                    DateTime mVencimientoLibreta = this.InputFechaVencimiento.SelectedDate;
+                    Camionero unCamionero = new Camionero(mNombre, mApellido, mDocumento, mCargo, mTelefono, mUser, mPassword, mEdad, mTipoLibreta, mVencimientoLibreta);
+
+                    if (empresa.MenuCamionero("modificación", unCamionero))
+                    {
+                        this.ListarDatos();
+                        this.LimpiarCampos();
+                        this.OperacionOutput("modificación");
+                        return;
+                    }
+                    this.OperacionOutput("modificación no");
+                    return;
+                }
+                // #removeElsesFromProgramming
+                if (this.rdbAdministrador.Checked)
+                {
+                    string mNombre = this.InputName.Text;
+                    string mDocumento = this.InputDocument.Text;
+                    string mApellido = this.InputSecondName.Text;
+                    string mCargo = this.InputPosition.Text;
+                    string mPassword = this.InputPass.Text;
+                    string mUser = this.InputUser.Text;
+                    string mTelefono = this.InputTelefono.Text;
+                    Administrador unAdmin = new Administrador(mNombre, mApellido, mDocumento, mCargo, mTelefono, mUser, mPassword);
+
+                    if (empresa.MenuAdmin("modificación", unAdmin))
+                    {
+                        this.LimpiarCampos();
+                        this.ListarDatos();
+                        this.OperacionOutput("modificación no");
+                        return;
+                    }
+                    this.OperacionOutput("modificación no");
+                    return;
+                }
+                this.NoSeleccionaCamioneroAdmin();
+                return;
             }
+            this.AvisoFaltanDatos();
+            return;
+            
         }
 
         protected void btnLimpiar_Click(object sender, EventArgs e)
