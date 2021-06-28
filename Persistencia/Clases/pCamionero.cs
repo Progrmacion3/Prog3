@@ -5,12 +5,12 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
-
 namespace Persistencia.Clases
 {
-    public class pEmpleado : Persistencia
+    public class pCamionero:Persistencia
     {
-        public static bool AgregarEmpleado(Common.Clases.Empleado pEmp)
+
+        public static bool AgregarCamionero(Common.Clases.Camionero pCamio)
         {
             bool retorno = true;
 
@@ -20,20 +20,23 @@ namespace Persistencia.Clases
                 conn.Open();
 
                 // 1. identificamos el store procedure a ejecutar
-                SqlCommand cmd = new SqlCommand("Empleados_Agregar", conn);
+                SqlCommand cmd = new SqlCommand("Camionero_Agregar", conn);
 
                 // 2. identificamos el tipo de ejecución, en este caso un SP
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 // 3. en caso de que los lleve se ponen los parametros del SP
-                cmd.Parameters.Add(new SqlParameter("@Cedula", pEmp.Cedula));
-                cmd.Parameters.Add(new SqlParameter("@Nombre", pEmp.Nombre));
-                cmd.Parameters.Add(new SqlParameter("@Apellido", pEmp.Apellido));
-                cmd.Parameters.Add(new SqlParameter("@Telefono", pEmp.Telefono));
-                cmd.Parameters.Add(new SqlParameter("@Tipo", pEmp.Tipo));
-                cmd.Parameters.Add(new SqlParameter("@Usuario", pEmp.Usuario));
-                cmd.Parameters.Add(new SqlParameter("@Contrasenia", pEmp.Contrasenia));
-                cmd.Parameters.Add(new SqlParameter("@Estado", pEmp.Estado));
+                cmd.Parameters.Add(new SqlParameter("@Cedula", pCamio.Cedula));
+                cmd.Parameters.Add(new SqlParameter("@Nombre", pCamio.Nombre));
+                cmd.Parameters.Add(new SqlParameter("@Apellido", pCamio.Apellido));
+               cmd.Parameters.Add(new SqlParameter("@Telefono", pCamio.Telefono));
+                cmd.Parameters.Add(new SqlParameter("@Tipo", pCamio.Telefono));
+                cmd.Parameters.Add(new SqlParameter("@Usuario", pCamio.Usuario));
+               cmd.Parameters.Add(new SqlParameter("@Contrasenia", pCamio.Contrasenia));
+                cmd.Parameters.Add(new SqlParameter("@Estado", pCamio.Estado));
+                cmd.Parameters.Add(new SqlParameter("@Edad", pCamio.Edad));
+                cmd.Parameters.Add(new SqlParameter("@TipoLibreta", pCamio.TipoLibreta));
+                cmd.Parameters.Add(new SqlParameter("@FechaVencLib", pCamio.FechaVenLib));
 
                 // ejecutamos el store desde c#
                 int rtn = cmd.ExecuteNonQuery();
@@ -165,15 +168,17 @@ namespace Persistencia.Clases
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 // 3. en caso de que los lleve se ponen los parametros del SP
-                cmd.Parameters.Add(new SqlParameter("@Cedula", pEmp.Cedula));
-                cmd.Parameters.Add(new SqlParameter("@Nombre", pEmp.Nombre));
-                cmd.Parameters.Add(new SqlParameter("@Apellido", pEmp.Apellido));
-                cmd.Parameters.Add(new SqlParameter("@Telefono", pEmp.Telefono));
-                cmd.Parameters.Add(new SqlParameter("@Tipo", pEmp.Tipo));
-                cmd.Parameters.Add(new SqlParameter("@Usuario", pEmp.Usuario));
-                cmd.Parameters.Add(new SqlParameter("@Contrasenia", pEmp.Contrasenia));
-                cmd.Parameters.Add(new SqlParameter("@Estado", pEmp.Estado));
-
+                cmd.Parameters.Add(new SqlParameter("@Cedula", pCamio.Cedula));
+                cmd.Parameters.Add(new SqlParameter("@Nombre", pCamio.Nombre));
+                cmd.Parameters.Add(new SqlParameter("@Apellido", pCamio.Apellido));
+                cmd.Parameters.Add(new SqlParameter("@Telefono", pCamio.Telefono));
+                cmd.Parameters.Add(new SqlParameter("@Tipo", pCamio.Telefono));
+                cmd.Parameters.Add(new SqlParameter("@Usuario", pCamio.Usuario));
+                cmd.Parameters.Add(new SqlParameter("@Contrasenia", pCamio.Contrasenia));
+                cmd.Parameters.Add(new SqlParameter("@Estado", pCamio.Estado));
+                cmd.Parameters.Add(new SqlParameter("@Edad", pCamio.Edad));
+                cmd.Parameters.Add(new SqlParameter("@TipoLibreta", pCamio.TipoLibreta));
+                cmd.Parameters.Add(new SqlParameter("@FechaVencLib", pCamio.FechaVenLib));
 
                 // ejecutamos el store desde c#
                 int rtn = cmd.ExecuteNonQuery();
@@ -195,7 +200,7 @@ namespace Persistencia.Clases
 
             return retorno;
         }
-        public static bool EliminarEmpleado(Common.Clases.Empleados pEmp)
+        public static bool EliminarCamionero(Common.Clases.Camionero pCamio)
         {
             bool retorno = true;
 
@@ -205,14 +210,14 @@ namespace Persistencia.Clases
                 conn.Open();
 
                 // 1. identificamos el store procedure a ejecutar
-                SqlCommand cmd = new SqlCommand("Cliente_Eliminar", conn);
+                SqlCommand cmd = new SqlCommand("Camionero_Eliminar", conn);
 
                 // 2. identificamos el tipo de ejecución, en este caso un SP
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 // 3. en caso de que los lleve se ponen los parametros del S
-                cmd.Parameters.Add(new SqlParameter("@Estado", pEmp.Estado));
-                cmd.Parameters.Add(new SqlParameter("@Cedula", pEmp.Cedula));
+                cmd.Parameters.Add(new SqlParameter("@Estado", pCamio.Estado));
+                cmd.Parameters.Add(new SqlParameter("@Cedula", pCamio.Cedula));
 
                 // ejecutamos el store desde c#
                 int rtn = cmd.ExecuteNonQuery();
@@ -237,10 +242,7 @@ namespace Persistencia.Clases
 
 
     }
+
+
 }
-
-
-
-
-
-
+}
