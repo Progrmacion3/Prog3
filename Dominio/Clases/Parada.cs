@@ -19,5 +19,9 @@ namespace Dominio.Clases
         {
             return Persistencia.Clases.Parada.ModificarParada(pParada);
         }
+        public static List <Common.Clases.Parada> MostrarParadas()
+        {
+            return Persistencia.Clases.Parada.MostrarParadas();
+        }
     }
 }

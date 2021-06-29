@@ -138,7 +138,10 @@ namespace Dominio
         {
             return Dominio.Clases.Parada.ModificarParada(pParada);
         }
-
+        public static List<Common.Clases.Parada> MostrarParadas()
+        {
+            return Dominio.Clases.Parada.MostrarParadas();
+        }
         #endregion
         #region Metodos de Viaje
 
@@ -155,6 +158,10 @@ namespace Dominio
         public static bool ViajeModificar(Common.Clases.Viaje pViaje)
         {
             return Dominio.Clases.Viaje.ModificarViaje(pViaje);
+        }
+        public static bool ViajeModificarCamionero(Common.Clases.Viaje pViaje)
+        {
+            return Dominio.Clases.Viaje.ModificarViajeCamionero(pViaje);
         }
         public static List<Common.Clases.Viaje> MostrarViajes()
         {

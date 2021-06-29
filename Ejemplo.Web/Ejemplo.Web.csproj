@@ -68,6 +68,7 @@
     <Content Include="Secciones\Admin\ABM_Viaje.aspx" />
     <Content Include="Secciones\Admin\Empleados.aspx" />
     <Content Include="Secciones\Admin\formAdmin.aspx" />
+    <Content Include="Secciones\Admin\Paradas.aspx" />
     <Content Include="Secciones\Camionero\formCamionero.aspx" />
     <Content Include="Secciones\Camionero\Paradas.aspx" />
     <Content Include="Secciones\Camionero\Roturas.aspx" />
@@ -135,6 +136,13 @@
     </Compile>
     <Compile Include="Secciones\Admin\formAdmin.aspx.designer.cs">
       <DependentUpon>formAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Secciones\Admin\Paradas.aspx.cs">
+      <DependentUpon>Paradas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Secciones\Admin\Paradas.aspx.designer.cs">
+      <DependentUpon>Paradas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Secciones\Camionero\formCamionero.aspx.cs">
       <DependentUpon>formCamionero.aspx</DependentUpon>
