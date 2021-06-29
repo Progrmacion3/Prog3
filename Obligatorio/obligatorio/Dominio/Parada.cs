@@ -55,6 +55,8 @@ namespace obligatorio.Dominio
         }
         public Parada BuscarParada(Parada pParada)
         {
+            if (pParada == null)
+                return null;
             foreach (Parada lParada in new Empresa().ListaParadas())
                 if (lParada.Id == pParada.Id)
                     return lParada;
@@ -78,6 +80,10 @@ namespace obligatorio.Dominio
         {
             Id = pId;
             IdViaje = pIdViaje;
+        }
+        public Parada(int pId)
+        {
+
         }
         public Parada()
         {
