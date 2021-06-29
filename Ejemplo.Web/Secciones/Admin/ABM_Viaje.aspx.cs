@@ -185,5 +185,21 @@ namespace Ejemplo.Web.Secciones.Admin
             e.Row.Cells[11].Visible = false;
             e.Row.Cells[12].Visible = false;
         }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            int cedula = int.Parse(this.txtCedulaCamionero.Text);
+            this.grdViajes.DataSource = Dominio.Fachada.MostrarViajesPorCamionero(cedula);
+            this.grdViajes.DataBind();
+            this.txtCedulaCamionero.Text = string.Empty;
+            this.txtCedulaCamionero.Focus();
+        }
+
+        protected void btnVerTodo_Click(object sender, EventArgs e)
+        {
+            this.ActualizarLista();
+            this.txtCedulaCamionero.Text = string.Empty;
+            this.txtCedulaCamionero.Focus();
+        }
     }
 }

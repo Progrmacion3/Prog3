@@ -201,6 +201,49 @@ namespace Persistencia.Clases
             }
             return retorno;
         }
+        public static List<Common.Clases.Viaje> MostrarViajesPorCamionero(int pCedula)
+        {
+            List<Common.Clases.Viaje> retorno = new List<Common.Clases.Viaje>();
+            Common.Clases.Viaje viaje;
+
+            try
+            {
+                var conexion = new SqlConnection(CadenaDeConexion);
+                conexion.Open();
+
+                SqlCommand cmd = new SqlCommand("mostrarViajesPorCamionero", conexion);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@cedula", pCedula));
+
+                using (SqlDataReader oReader = cmd.ExecuteReader())
+                {
+                    while (oReader.Read())
+                    {
+                        viaje = new Common.Clases.Viaje();
+                        viaje.IdViaje = int.Parse(oReader["IdViaje"].ToString());
+                        viaje.IdCamionero = int.Parse(oReader["IdCamionero"].ToString());
+                        viaje.IdCamion = int.Parse(oReader["IdCamion"].ToString());
+                        viaje.TipoCarga = oReader["TipoCarga"].ToString();
+                        viaje.Kilaje = int.Parse(oReader["Kilaje"].ToString());
+                        viaje.Origen = oReader["Origen"].ToString();
+                        viaje.Destino = oReader["Destino"].ToString();
+                        viaje.FechaInicio = Convert.ToDateTime(oReader["FechaInicio"].ToString());
+                        viaje.FechaFinal = Convert.ToDateTime(oReader["FechaFinal"].ToString());
+                        viaje.Estado = oReader["Estado"].ToString();
+
+                        retorno.Add(viaje);
+                    }
+                    conexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return retorno;
+        }
         public static Common.Clases.Viaje MostrarViajeEspecifico(Common.Clases.Viaje pViaje)
         {
             Common.Clases.Viaje retorno = null;
