@@ -20,16 +20,7 @@ namespace obligatorio
             string contra = this.InputContra.Text;
 
             Dominio.Login login = new Dominio.Login();
-            string check = login.loginCheck(user, contra);
-
-            if(check == "A")
-            {
-
-            }
-            else if(check == "C")
-            {
-
-            }
+            login.loginCheck(user, contra);
         }
     }
 }

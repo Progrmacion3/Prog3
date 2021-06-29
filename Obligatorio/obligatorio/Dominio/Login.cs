@@ -8,7 +8,14 @@ namespace obligatorio.Dominio
 {
     public class Login
     {
-        public string loginCheck(string user, string contra)
+        private static string _tipoLogin;
+        public string TipoLogin
+        {
+            get { return _tipoLogin; }
+            set { _tipoLogin = value; }
+        }
+
+        public void loginCheck(string user, string contra)
         {
             Empresa empresa = new Empresa();
             List<Administrador> listaA = empresa.ListaAdministradores();
@@ -17,16 +24,23 @@ namespace obligatorio.Dominio
             foreach(Administrador admin in listaA)
             {
                 if (admin.Usuario == user && admin.Contrasena == contra)
-                    return "A";
+                {
+                    _tipoLogin = "A";
+                    return;
+                }
+                    
             }
 
             foreach (Camionero camionero in listaC)
             {
                 if (camionero.Usuario == user && camionero.Contrasena == contra)
-                    return "C";
+                {
+                    _tipoLogin = "C";
+                    return;
+                }
             }
 
-            return null;
+            return;
         }
     }
 }
