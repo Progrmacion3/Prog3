@@ -265,6 +265,15 @@ namespace Ejemplo.Web.Secciones.Admin {
         protected global::System.Web.UI.WebControls.Button btnVerTodo;
         
         /// <summary>
+        /// Control btnVerMesActual.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVerMesActual;
+        
+        /// <summary>
         /// Control grdViajes.
         /// </summary>
         /// <remarks>

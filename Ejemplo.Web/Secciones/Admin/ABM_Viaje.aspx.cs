@@ -201,5 +201,13 @@ namespace Ejemplo.Web.Secciones.Admin
             this.txtCedulaCamionero.Text = string.Empty;
             this.txtCedulaCamionero.Focus();
         }
+
+        protected void btnVerMesActual_Click(object sender, EventArgs e)
+        {
+            this.grdViajes.DataSource = Dominio.Fachada.MostrarViajesMesActual();
+            this.grdViajes.DataBind();
+            this.txtCedulaCamionero.Text = string.Empty;
+            this.txtCedulaCamionero.Focus();
+        }
     }
 }

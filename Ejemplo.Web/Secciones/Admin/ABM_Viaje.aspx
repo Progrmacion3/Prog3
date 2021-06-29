@@ -171,6 +171,7 @@
                 <asp:TextBox runat="server" ID="txtCedulaCamionero" placeholder="Ingrese cedula..." />
                 <asp:Button runat="server" ID="btnBuscar" OnClick="btnBuscar_Click" Text="Buscar" CausesValidation="false" />
                 <asp:Button runat="server" ID="btnVerTodo" OnClick="btnVerTodo_Click" Text="Ver todo" CausesValidation="false" />
+                <asp:Button runat="server" ID="btnVerMesActual" OnClick="btnVerMesActual_Click" Text="Ver mes actual" CausesValidation="false" />
             </td>
         </tr>
     </table>
