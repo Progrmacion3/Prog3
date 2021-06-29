@@ -126,6 +126,40 @@ namespace Persistencia.Clases
             }
             return retorno;
         }
+        public static bool ModificarViajeCamionero(Common.Clases.Viaje pViaje)
+        {
+            bool retorno = true;
+
+            try
+            {
+                var conexion = new SqlConnection(CadenaDeConexion);
+                conexion.Open();
+
+                SqlCommand cmd = new SqlCommand("ModificarViajeCamionero", conexion);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@idViaje", pViaje.IdViaje));
+                cmd.Parameters.Add(new SqlParameter("@kilaje", pViaje.Kilaje));
+                cmd.Parameters.Add(new SqlParameter("@estado", pViaje.Estado));
+
+                int rtn = cmd.ExecuteNonQuery();
+                if (rtn <= 0)
+                {
+                    retorno = false;
+                }
+
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return retorno;
+        }
         public static List<Common.Clases.Viaje> MostrarViajes()
         {
             List<Common.Clases.Viaje> retorno = new List<Common.Clases.Viaje>();
