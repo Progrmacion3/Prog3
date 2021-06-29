@@ -5,12 +5,11 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
-
 namespace Persistencia.Clases
 {
-    public class pEmpleado : Persistencia
+    class pAdministrador
     {
-        public static bool AgregarEmpleado(Common.Clases.Empleado pEmp)
+        public static bool AgregarAdministrador(Common.Clases.Administrador pAdm)
         {
             bool retorno = true;
 
@@ -20,20 +19,20 @@ namespace Persistencia.Clases
                 conn.Open();
 
                 // 1. identificamos el store procedure a ejecutar
-                SqlCommand cmd = new SqlCommand("Empleados_Agregar", conn);
+                SqlCommand cmd = new SqlCommand("Administrador_Agregar", conn);
 
                 // 2. identificamos el tipo de ejecución, en este caso un SP
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 // 3. en caso de que los lleve se ponen los parametros del SP
-                cmd.Parameters.Add(new SqlParameter("@Cedula", pEmp.Cedula));
-                cmd.Parameters.Add(new SqlParameter("@Nombre", pEmp.Nombre));
-                cmd.Parameters.Add(new SqlParameter("@Apellido", pEmp.Apellido));
-                cmd.Parameters.Add(new SqlParameter("@Telefono", pEmp.Telefono));
-                cmd.Parameters.Add(new SqlParameter("@Tipo", pEmp.Tipo));
-                cmd.Parameters.Add(new SqlParameter("@Usuario", pEmp.Usuario));
-                cmd.Parameters.Add(new SqlParameter("@Contrasenia", pEmp.Contrasenia));
-                cmd.Parameters.Add(new SqlParameter("@Estado", pEmp.Estado));
+                cmd.Parameters.Add(new SqlParameter("@Cedula", pAdm.Cedula));
+                cmd.Parameters.Add(new SqlParameter("@Nombre", pAdm.Nombre));
+                cmd.Parameters.Add(new SqlParameter("@Apellido", pAdm.Apellido));
+                cmd.Parameters.Add(new SqlParameter("@Telefono", pAdm.Telefono));
+                cmd.Parameters.Add(new SqlParameter("@Tipo", pAdm.Tipo));
+                cmd.Parameters.Add(new SqlParameter("@Usuario", pAdm.Usuario));
+                cmd.Parameters.Add(new SqlParameter("@Contrasenia", pAdm.Contrasenia));
+                cmd.Parameters.Add(new SqlParameter("@Estado", pAdm.Estado));
 
                 // ejecutamos el store desde c#
                 int rtn = cmd.ExecuteNonQuery();
@@ -234,13 +233,5 @@ namespace Persistencia.Clases
 
             return retorno;
         }
-
-
     }
 }
-
-
-
-
-
-

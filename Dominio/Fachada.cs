@@ -89,7 +89,7 @@ namespace Dominio
         }
         #endregion
 
-        #region Metodos de Empleado
+        #region Metodos de Viajes
 
         public static bool Agregar_Viajes(Viaje pViaje)
         {
@@ -142,6 +142,35 @@ namespace Dominio
         public static bool ModificarCamion(Common.Clases.Camion pCamion)
         {
             return Dominio.Clases.dCamion.Modificar_Camion(pCamion);
+        }
+        #endregion
+
+
+
+
+        #region Metodos de Camionero
+
+        public static bool Agregar_Camionero(Camionero pCamionero)
+        {
+            return dCamionero.Agregar_Camionero(pCamionero);
+        }
+        /*  public static List<Common.Clases.Cliente> Empleado_TraerTodosLosClientes()
+          {
+              return Dominio.Clases.dCliente.TraerClientes();
+          }
+        */
+        /* public static Common.Clases.Cliente Cliente_TraerEspecifico(Common.Clases.Cliente pCliente)
+         {
+             return Dominio.Clases.dCliente.TraerEspecifico(pCliente);
+         }
+         */
+        public static bool EliminarCamionero(Common.Clases.Camionero pCamionero)
+        {
+            return Dominio.Clases.dCamionero.EliminarCamionero(pCamionero);
+        }
+        public static bool ModificarCamionero(Common.Clases.Camionero pCamionero)
+        {
+            return Dominio.Clases.dCamionero.Modificar_Camionero(pCamionero);
         }
         #endregion
 
