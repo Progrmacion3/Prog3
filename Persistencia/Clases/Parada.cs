@@ -12,7 +12,38 @@ namespace Persistencia.Clases
     {
         public static bool AgregarParada(Common.Clases.Parada pParada)
         {
-            throw new NotImplementedException();
+            bool retorno = true;
+
+            try
+            {
+                var conexion = new SqlConnection(CadenaDeConexion);
+                conexion.Open();
+
+                SqlCommand cmd = new SqlCommand("AgregarParadaCamionero", conexion);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@idViaje", pParada.IdViaje));
+                cmd.Parameters.Add(new SqlParameter("@TipoParada", pParada.Tipo));
+                cmd.Parameters.Add(new SqlParameter("@Comentario", pParada.Comentario));
+
+
+                int rtn = cmd.ExecuteNonQuery();
+                if (rtn <= 0)
+                {
+                    retorno = false;
+                }
+
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return retorno;
         }
 
         public static bool EliminarParada(Common.Clases.Parada pParada)
