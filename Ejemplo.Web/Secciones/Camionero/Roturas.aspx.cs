@@ -13,5 +13,13 @@ namespace Ejemplo.Web.Secciones.Camionero
         {
 
         }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            int pId = int.Parse(this.txtIdViaje.Text);
+            string pUsuario = Session["userName"].ToString();
+            this.txtResultado.Text = Dominio.Fachada.MostrarRotura(pId, pUsuario);
+            this.txtResultado.DataBind();
+        }
     }
 }

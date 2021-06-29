@@ -46,6 +46,37 @@ namespace Persistencia.Clases
             return retorno;
         }
 
+        public static string MostrarRotura(int pId, string pUsuario)
+        {
+            string retorno;
+
+            try
+            {
+                var conexion = new SqlConnection(CadenaDeConexion);
+                conexion.Open();
+
+                SqlCommand cmd = new SqlCommand("MostrarRotura", conexion);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@IdViaje", pId));
+                cmd.Parameters.Add(new SqlParameter("@Usuario", pUsuario));
+
+                using (SqlDataReader oReader = cmd.ExecuteReader())
+                {
+                    retorno = oReader["Comentario"].ToString();
+                }
+
+                conexion.Close();
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return retorno;
+        }
+
         public static bool EliminarParada(Common.Clases.Parada pParada)
         {
             throw new NotImplementedException();

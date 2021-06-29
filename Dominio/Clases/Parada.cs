@@ -23,5 +23,9 @@ namespace Dominio.Clases
         {
             return Persistencia.Clases.Parada.MostrarParadas();
         }
+        public static string MostrarRotura(int pId, string pUsuario)
+        {
+            return Persistencia.Clases.Parada.MostrarRotura(pId, pUsuario);
+        }
     }
 }
