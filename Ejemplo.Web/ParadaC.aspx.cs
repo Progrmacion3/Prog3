@@ -13,5 +13,10 @@ namespace Ejemplo.Web
         {
 
         }
+
+        protected void btnActualizarParada_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

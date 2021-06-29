@@ -13,5 +13,15 @@ namespace Ejemplo.Web
         {
 
         }
+
+        protected void btnAgregarCamionero_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnModificarCamionero_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

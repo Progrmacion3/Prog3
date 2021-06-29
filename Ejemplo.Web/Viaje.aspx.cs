@@ -13,5 +13,15 @@ namespace Ejemplo.Web
         {
 
         }
+
+        protected void btnAgregarViaje_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnModificarViaje_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -22,24 +22,6 @@ namespace Ejemplo.Web {
         protected global::System.Web.UI.WebControls.Menu NavigationMenu;
         
         /// <summary>
-        /// txtIdViaje control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdViaje;
-        
-        /// <summary>
-        /// rfvIdViaje control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvIdViaje;
-        
-        /// <summary>
         /// lblIDcamionero control.
         /// </summary>
         /// <remarks>
@@ -49,13 +31,13 @@ namespace Ejemplo.Web {
         protected global::System.Web.UI.WebControls.Label lblIDcamionero;
         
         /// <summary>
-        /// lblMatricula control.
+        /// lblIDcamion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMatricula;
+        protected global::System.Web.UI.WebControls.Label lblIDcamion;
         
         /// <summary>
         /// txtTipoCarga control.
@@ -184,13 +166,13 @@ namespace Ejemplo.Web {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEstadoViaje;
         
         /// <summary>
-        /// lblResultado control.
+        /// lblResultadoVia control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblResultado;
+        protected global::System.Web.UI.WebControls.Label lblResultadoVia;
         
         /// <summary>
         /// btnAgregarViaje control.
@@ -200,6 +182,15 @@ namespace Ejemplo.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAgregarViaje;
+        
+        /// <summary>
+        /// btnModificarViaje control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnModificarViaje;
         
         /// <summary>
         /// grillaViajes control.

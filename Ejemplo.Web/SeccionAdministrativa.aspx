@@ -42,12 +42,11 @@
    </h4>
     <p>
          Para agregar:ingrese los datos correspondientes 
-    </p>
+         y haga click en agregar</p>
     <p>
-        Para eliminar:ingrese el identificador de lo que desea eliminar(el primer dato a ingresar en la parte de arriba)
-    </p>
+        Para eliminar:haga click en delete en la grilla de datos correspondiente y listo</p>
     <p>
-        Para modificar:ingrese el identificador de lo que desea modificar y despues ingrese en el resto de casillas los nuevos datos
+        Para modificar:seleccione con el boton select la grilla que quiera modificar, despues ingrese en el resto de casillas los nuevos datos y haga click en modificar
     </p>
     </div>
     <div>
