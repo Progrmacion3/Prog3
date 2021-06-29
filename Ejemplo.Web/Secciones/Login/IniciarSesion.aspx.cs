@@ -21,7 +21,7 @@ namespace Ejemplo.Web.Secciones.Login
             string conectar = ConfigurationManager.ConnectionStrings["WindowsAuth"].ConnectionString;
             SqlConnection sqlConectar = new SqlConnection(conectar);
 
-            if (this.ckbAdmin.Checked)
+            if (this.ckbAdmin.Checked == true && this.ckbCamionero.Checked == false)
             {
                 SqlCommand cmd = new SqlCommand("ValidarAdmin", sqlConectar)
                 {
@@ -44,7 +44,7 @@ namespace Ejemplo.Web.Secciones.Login
                 }
                 cmd.Connection.Close();
             }
-            else if (this.ckbCamionero.Checked)
+            else if (this.ckbCamionero.Checked == true && this.ckbAdmin.Checked == false)
             {
                 SqlCommand cmd = new SqlCommand("ValidarCamionero", sqlConectar)
                 {
@@ -70,7 +70,7 @@ namespace Ejemplo.Web.Secciones.Login
             {
                 this.lblError.Text = "Seleccione UN tipo de usuario";
             }
-           
+
         }
     }
 }

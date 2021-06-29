@@ -33,6 +33,7 @@
                         <asp:MenuItem NavigateUrl="~/Secciones/Camionero/Viaje.aspx" Text="Viaje"/>
                         <asp:MenuItem NavigateUrl="~/Secciones/Camionero/Paradas.aspx" Text="Paradas"/>
                         <asp:MenuItem NavigateUrl="~/Secciones/Camionero/Roturas.aspx" Text="Roturas" />
+                        <asp:MenuItem NavigateUrl="~/Secciones/Camionero/formCamionero.aspx" Text="Salir"/>
                     </Items>
                 </asp:Menu>
             </div>
