@@ -35,6 +35,10 @@ namespace Dominio.Clases
         {
             return Persistencia.Clases.Viaje.MostrarViajesPorCamionero(pCedula);
         }
+        public static List<Common.Clases.Viaje> MostrarViajesDelCamionero(string pUsuario)
+        {
+            return Persistencia.Clases.Viaje.MostrarViajesDelCamionero(pUsuario);
+        }
         public static Common.Clases.Viaje MostrarViajeEspecifico(Common.Clases.Viaje pViaje)
         {
             return Persistencia.Clases.Viaje.MostrarViajeEspecifico(pViaje);

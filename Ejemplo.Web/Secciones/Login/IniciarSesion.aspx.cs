@@ -57,7 +57,7 @@ namespace Ejemplo.Web.Secciones.Login
                 SqlDataReader oReader = cmd.ExecuteReader();
                 if (oReader.Read())
                 {
-                     
+                    //sesion de camionero
                     Session["userName"] = this.txtUsuario.Text;
                     Session["esCamionero"] = true;
                     Response.Redirect("~/Secciones/Camionero/formCamionero.aspx");
