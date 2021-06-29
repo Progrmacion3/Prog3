@@ -22,6 +22,14 @@
             <tr>
                 <td class="auto-style1">
                     <table>
+                        <tr>
+                            <td align="left">
+                                <asp:Label ID="lblIdViajeText" Text="Id Viaje" Visible="false" runat="server"></asp:Label>
+                            </td>
+                            <td colspan="3" align="left">
+                                <asp:Label ID="lblIdViaje" runat="server"></asp:Label>
+                            </td>
+                        </tr>
                           <tr>
                             <td align="left">Camionero:
                             </td>

@@ -153,8 +153,6 @@ namespace Ejemplo.Web.Forms
             camion.Matricula = celdaId.Text;
             camion = Dominio.Fachada.TraerCamion(camion);
 
-
-
             if (camion != null)
             {
                 this.txtMatricula.Text = camion.Matricula.ToString();
