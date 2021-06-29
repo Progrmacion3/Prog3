@@ -30,7 +30,7 @@ namespace Persistencia.Clases
                 cmd.Parameters.Add(new SqlParameter("@Nombre", pCamio.Nombre));
                 cmd.Parameters.Add(new SqlParameter("@Apellido", pCamio.Apellido));
                cmd.Parameters.Add(new SqlParameter("@Telefono", pCamio.Telefono));
-                cmd.Parameters.Add(new SqlParameter("@Tipo", pCamio.Telefono));
+                cmd.Parameters.Add(new SqlParameter("@Tipo", pCamio.Tipo));
                 cmd.Parameters.Add(new SqlParameter("@Usuario", pCamio.Usuario));
                cmd.Parameters.Add(new SqlParameter("@Contrasenia", pCamio.Contrasenia));
                 cmd.Parameters.Add(new SqlParameter("@Estado", pCamio.Estado));
@@ -152,7 +152,7 @@ namespace Persistencia.Clases
 
               return retorno;
           }*/
-        public static bool ModificarEmpleado(Common.Clases.Empleado pEmp)
+        public static bool ModificarEmpleado(Common.Clases.Camionero pCamio)
         {
             bool retorno = true;
 
@@ -162,7 +162,7 @@ namespace Persistencia.Clases
                 conn.Open();
 
                 // 1. identificamos el store procedure a ejecutar
-                SqlCommand cmd = new SqlCommand("Empleado_Modificar", conn);
+                SqlCommand cmd = new SqlCommand("Camionero_Modificar", conn);
 
                 // 2. identificamos el tipo de ejecución, en este caso un SP
                 cmd.CommandType = CommandType.StoredProcedure;

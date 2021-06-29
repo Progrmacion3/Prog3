@@ -4,7 +4,7 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <h2>Administración de Camionero
+    <h2>Administración de Camionero 
     </h2>
     <table>
         <tr>
@@ -129,6 +129,17 @@
             </td>
         </tr>
         <tr>
+            <td align="left">Estado:
+            </td>
+            <td>
+                <asp:TextBox ID="txtEstado" MaxLength="50" runat="server"></asp:TextBox>
+            </td>
+            <td>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="El estado esobligatorio"
+                    ControlToValidate="txtEstado"></asp:RequiredFieldValidator>
+            </td>
+        </tr>
+        <tr>
             <td align="left">Categoria:
             </td>
             <td colspan="3" align="left">
@@ -179,10 +190,10 @@
 
 
             <td>
-                <asp:GridView ID="grillaCamionero" Width="100%" runat="server" AutoGenerateColumns="true"
+                <asp:GridView ID="grillaEmpleado" Width="100%" runat="server" AutoGenerateColumns="true"
                     ViewStateMode="Enabled" CellPadding="4" ForeColor="#333333" GridLines="None"
                     AutoGenerateSelectButton="true"
-                    OnSelectedIndexChanging="grillaCamionero_SelectedIndexChanging" EmptyDataText="No hay datos ingresados"
+                    OnSelectedIndexChanging="grillaEmpleado_SelectedIndexChanging" EmptyDataText="No hay datos ingresados"
                     ShowHeaderWhenEmpty="True">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <EditRowStyle BackColor="#999999" />

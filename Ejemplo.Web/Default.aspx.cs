@@ -16,9 +16,20 @@ namespace Ejemplo.Web
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            Common.Clases.Categoria cat = new Common.Clases.Categoria();
-            cat.Nombre = this.txtNombre.Text;
-
+            Common.Clases.Camionero cam = new Common.Clases.Camionero();
+            cam.Nombre = this.txtNombre.Text;
+            cam.Apellido = this.txtApellido.Text;
+            cam.Cedula = this.txtCedula.Text;
+            cam.Cargo = this.txtCargo.Text;
+            cam.Tipo = this.txtTipo.Text;
+            cam.Telefono = this.txtTelefono.Text;
+            cam.Usuario = this.txtUsuario.Text;
+            cam.Contrasenia = this.txtContrasenia.Text;
+            
+            cam.Edad= this.txtEdad.Text;
+            cam.Estado= this.txtEstado.Text;
+            cam.FechaVenLib= this.txtFecVenLib.Text;
+            cam.TipoLibreta= this.txtLibreta.Text;
             try
             {
                 bool resultado = Dominio.Fachada.Categoria_Agregar(cat);
