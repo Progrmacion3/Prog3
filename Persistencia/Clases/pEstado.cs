@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
 using System.Data;
+using Common.Clases;
 
 namespace Persistencia.Clases
 {
@@ -59,49 +60,17 @@ namespace Persistencia.Clases
 
         }
 
-        public static List<Common.Clases.Estado> TraerTodas()
+        public static bool AgregarEstado(Estado pEstado)
         {
-            List<Common.Clases.Estado> retorno = new List<Common.Clases.Estado>();
-            Common.Clases.Estado est;
-
-
-            try
-            {
-                var conn = new SqlConnection(CadenaDeConexion);
-                conn.Open();
-
-                //1. Identificamos el store Procedure a ejecutar
-                SqlCommand cmd = new SqlCommand("Estado_TraerTodas", conn);
-
-                //2. Identificamos el tipo de ejecucion, en este caso un SP
-                cmd.CommandType = CommandType.StoredProcedure;
-
-
-                //3. Ejecutamos el sotre desde C#
-                using (SqlDataReader oReader = cmd.ExecuteReader())
-                {
-                    while (oReader.Read())
-                    {
-                        est = new Common.Clases.Estado();
-                        est.Identificador = int.Parse(oReader["idEstado"].ToString());
-                        est.Estados = oReader["Estados"].ToString();
-                        est.Comentario = oReader["Categoria"].ToString();
-                        retorno.Add(est);
-                    }
-
-                    conn.Close();
-                }
-            }
-
-
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return retorno;
-
-
+            throw new NotImplementedException();
         }
+
+        public static bool Modificar(Camion pEstado)
+        {
+            throw new NotImplementedException();
+        }
+
+      
 
         public static bool Eliminar(Common.Clases.Estado pEstado)
         {
