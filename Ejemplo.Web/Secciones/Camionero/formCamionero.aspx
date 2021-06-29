@@ -6,7 +6,8 @@
     <h2>Seccion de Camionero</h2>
     <hr/>
     <div id="Salir" class="title">
-        <h3>¿Seguro que desea salir?</h3>
+        <asp:Label runat="server" ID="lblUserName" Font-Size="Large"></asp:Label>
+        <br />
         <asp:Button Text="Aceptar" runat="server" OnClick="btnSalir_Click" CssClass="salir"/>
     </div>
 </asp:Content>

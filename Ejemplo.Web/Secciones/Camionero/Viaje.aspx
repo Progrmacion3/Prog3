@@ -5,30 +5,30 @@
 <asp:Content ID="MenuCamionero" runat="server" ContentPlaceHolderID="MainContent">
     <h2>Seccion de Viaje</h2>
     <p>
-        <asp:Label ID="Label1" runat="server" Text="IdViaje"></asp:Label>
-        <asp:TextBox ID="txtIdViaje" runat="server" Width="272px"></asp:TextBox>
+        <asp:Label ID="lblIdViaje" runat="server" Text="IdViaje"></asp:Label>
+        <asp:TextBox ID="txtIdViaje" runat="server"></asp:TextBox>
     </p>
     <p>
         <asp:Label ID="lblKilaje" runat="server" Text="Kilaje"></asp:Label>
-        <asp:TextBox ID="txtKilaje" runat="server" Width="273px"></asp:TextBox>
+        <asp:TextBox ID="txtKilaje" runat="server"></asp:TextBox>
     </p>
     <p>
         <asp:Label ID="lblEstado" runat="server" Text="Estado"></asp:Label>
-        <asp:DropDownList runat="server" ID="ddlEstado" Height="16px" Width="286px">
-            <asp:ListItem>Propuesto</asp:ListItem>
-            <asp:ListItem>En curso</asp:ListItem>
+        <asp:DropDownList runat="server" ID="ddlEstado">
             <asp:ListItem>Parado</asp:ListItem>
+            <asp:ListItem>En curso</asp:ListItem>
             <asp:ListItem>Finalizado</asp:ListItem>
+            <asp:ListItem></asp:ListItem>
         </asp:DropDownList>
     </p>
     <p>
-        <asp:Label ID="lblResultado" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="lblResultado" runat="server"></asp:Label>
     </p>
     <p>
-        <asp:Button ID="btnActualizar" runat="server" OnClick="btnActualizar_Click" Text="Actualizar" Width="355px" />
+        <asp:Button ID="btnActualizar" runat="server" OnClick="btnActualizar_Click" Text="Actualizar"/>
     </p>
     <p>
-        <asp:GridView ID="grdViajes" Width="93%" runat="server" AutoGenerateColumns="true" ViewStateMode="Enabled" CellPadding="10" ForeColor="#333333"
+        <asp:GridView ID="grdViajes" Width="93%" runat="server" AutoGenerateColumns="true" ViewStateMode="Enabled" CellPadding="5" ForeColor="#333333"
         OnSelectedIndexChanging="grdViajes_SelectedIndexChanging" AutoGenerateSelectButton="true"
         EmptyDataText="No existen registros" ShowHeaderWhenEmpty="true">
         <EditRowStyle BackColor="#3399ff" />

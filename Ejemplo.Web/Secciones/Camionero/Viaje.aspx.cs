@@ -11,33 +11,12 @@ namespace Ejemplo.Web.Secciones.Camionero
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.ActualizarLista();
         }
 
         protected void txtEstado_TextChanged(object sender, EventArgs e)
         {
 
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            //Common.Clases.Viaje unViaje = new Common.Clases.Viaje();
-            //unViaje.IdViaje = int.Parse(this.txtViaje.Text);
-            
-            //unViaje.Kilaje = int.Parse(this.txtKilaje.Text);
-            
-            //unViaje.Estado = this.ddlEstado.SelectedItem.Text;
-
-            //bool verdadero = Dominio.Fachada.ViajeModificar(unViaje);
-
-            //if (verdadero)
-            //{
-            //    lblResultado.Text = "Se ha modificado el viaje de manera correcta.";
-            //}
-            //else
-            //{
-            //    lblResultado.Text = "No se ha podido modificar el viaje.";
-            //}
         }
 
         protected void btnActualizar_Click(object sender, EventArgs e)
@@ -51,6 +30,7 @@ namespace Ejemplo.Web.Secciones.Camionero
 
             if (verdadero)
             {
+                this.ActualizarLista();
                 lblResultado.Text = "Se ha modificado el viaje de forma correcta";
             }
             else
@@ -67,11 +47,33 @@ namespace Ejemplo.Web.Secciones.Camionero
         }
         protected void ActualizarLista()
         {
-            
+            if (Session["userName"] != null)
+            {
+                string usuario = Session["userName"].ToString();
+                this.grdViajes.DataSource = Dominio.Fachada.MostrarViajesDelCamionero(usuario);
+                this.grdViajes.DataBind();
+            }
         }
         protected void grdViajes_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
+            this.lblResultado.Text = string.Empty;
 
+            TableCell celda = grdViajes.Rows[e.NewSelectedIndex].Cells[1];
+            Common.Clases.Viaje viaje = new Common.Clases.Viaje();
+            viaje.IdViaje = int.Parse(celda.Text);
+            viaje = Dominio.Fachada.MostrarViajeEspecifico(viaje);
+
+            if (viaje != null)
+            {
+                this.txtIdViaje.Text = Convert.ToString(viaje.IdViaje);
+                this.txtKilaje.Text = Convert.ToString(viaje.Kilaje);
+                this.ddlEstado.SelectedItem.Text = viaje.Estado;
+
+            }
+            else
+            {
+                ClientScript.RegisterClientScriptBlock(GetType(), "alert", "alert ('ERROR: No se pudo cargar la fila.')", true);
+            }
         }
     }
 }

@@ -172,6 +172,18 @@ namespace Dominio
         {
             return Dominio.Clases.Viaje.MostrarViajes();
         }
+        public static List<Common.Clases.Viaje> MostrarViajesMesActual()
+        {
+            return Dominio.Clases.Viaje.MostrarViajesMesActual();
+        }
+        public static List<Common.Clases.Viaje> MostrarViajesPorCamionero(int pCedula)
+        {
+            return Dominio.Clases.Viaje.MostrarViajesPorCamionero(pCedula);
+        }
+        public static List<Common.Clases.Viaje> MostrarViajesDelCamionero(string pUsuario)
+        {
+            return Dominio.Clases.Viaje.MostrarViajesDelCamionero(pUsuario);
+        }
         public static Common.Clases.Viaje MostrarViajeEspecifico(Common.Clases.Viaje pViaje)
         {
             return Dominio.Clases.Viaje.MostrarViajeEspecifico(pViaje);
