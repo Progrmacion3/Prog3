@@ -182,6 +182,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Presentacion\About.aspx" />
     <Content Include="Account\AddPhoneNumber.aspx" />
     <Content Include="Account\Confirm.aspx" />
     <Content Include="Account\Forgot.aspx" />
@@ -198,6 +199,8 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="Presentacion\Camiones.aspx" />
+    <Content Include="Presentacion\Consultas.aspx" />
+    <Content Include="Presentacion\Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -371,6 +374,7 @@
     <Compile Include="Dominio\Administrador.cs" />
     <Compile Include="Dominio\Camion.cs" />
     <Compile Include="Dominio\Camionero.cs" />
+    <Compile Include="Dominio\Consultas.cs" />
     <Compile Include="Dominio\Empleado.cs" />
     <Compile Include="Dominio\Empresa.cs" />
     <Compile Include="Dominio\Login.cs" />
@@ -382,6 +386,12 @@
     <Compile Include="Persistencia\Clases\Persistencia.cs" />
     <Compile Include="Persistencia\Clases\pParada.cs" />
     <Compile Include="Persistencia\Clases\pViaje.cs" />
+    <Compile Include="Presentacion\About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
@@ -391,6 +401,19 @@
     </Compile>
     <Compile Include="Presentacion\Camiones.aspx.designer.cs">
       <DependentUpon>Camiones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Consultas.aspx.cs">
+      <DependentUpon>Consultas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Consultas.aspx.designer.cs">
+      <DependentUpon>Consultas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

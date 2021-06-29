@@ -128,4 +128,29 @@ namespace obligatorio.Dominio
             return new Parada().BuscarParada(unaParada);
         }
     }
+
+    ////////////////////////////////////////Consultas////////////////////////////////////////
+
+    //public List<Consultas> listaViajeCamionero(string pCi)
+    //{
+    //    foreach (Consultas unaConsulta in _listaConsultas)
+    //    {
+
+    //    }
+    //}
+
+    //    public List<Consulta> listaFecha(string pFecha, string pTipo)g        
+    //    {
+    //        List<Consulta> listaMascConsultadas = new List<Consulta>();
+    //        foreach (Consulta unaConsulta in _listaConsultas)
+    //        {
+    //            if (unaConsulta.Fecha == pFecha && unaConsulta.unaMascota.Tipo == pTipo)
+    //            {
+    //                listaMascConsultadas.Add(unaConsulta);
+
+    //            }
+    //        }
+    //        List<Consulta> ordenadaPorNombre = this.ordenoPerrosConsulta(listaMascConsultadas);
+    //        return ordenadaPorNombre;
+    //    }
 }
