@@ -29,27 +29,30 @@ namespace obligatorio.Dominio
 
         public bool AltaCamionero(Camionero unCamionero) //Alta de Camioneros
         {
-            if (BuscarCamionero(unCamionero) != null)
-            {
-                return false;
-            }
-            else
+            if (BuscarCamionero(unCamionero) == null && Persistencia.Clases.pCamionero.AgregarCamionero(unCamionero))
             {
                 return true;
             }
+            return false;
+          
         }
         public bool BajaCamionero(Camionero unCamionero)
         {
-            int num = new Random().Next();
-            if (num == 1)
+            if (BuscarCamionero(unCamionero) != null && Persistencia.Clases.pCamionero.EliminarCamionero(unCamionero))
+            {
+                Empresa empresa = new Dominio.Empresa();
+                Camionero camionero = BuscarCamionero(unCamionero);
+                empresa.ListaCamioneros().Remove(camionero);
                 return true;
+            }
             return false;
         }
         public bool ModificarCamionero(Camionero unCamionero)
         {
-            int num = new Random().Next();
-            if (num == 1)
+            if (BuscarCamionero(unCamionero) != null && Persistencia.Clases.pCamionero.ModificarCamionero(unCamionero))
+            {
                 return true;
+            }
             return false;
         }
         public Camionero BuscarCamionero(Camionero unCamionero)
@@ -62,8 +65,17 @@ namespace obligatorio.Dominio
             return null;
         }
 
+
+        public Camionero(int pId, string pNombre, string pApellido, string pCedula, string pCargo, string pTelefono, string pUsuario, string pContrasena, int pEdad, string pTipoLibreta, DateTime pFechaVencimiento) :
+            base(pId, pNombre, pApellido, pCedula, pCargo, pTelefono, pUsuario, pContrasena)
+        {
+            Edad = pEdad;
+            TipoLibreta = pTipoLibreta;
+            FechaVencimiento = pFechaVencimiento;
+        }
+
         public Camionero(string pNombre, string pApellido, string pCedula, string pCargo, string pTelefono, string pUsuario, string pContrasena, int pEdad, string pTipoLibreta, DateTime pFechaVencimiento) :
-            base(pNombre, pApellido, pCargo, pCargo, pTelefono, pUsuario, pContrasena)
+            base(pNombre, pApellido, pCedula, pCargo, pTelefono, pUsuario, pContrasena)
         {
             Edad = pEdad;
             TipoLibreta = pTipoLibreta;

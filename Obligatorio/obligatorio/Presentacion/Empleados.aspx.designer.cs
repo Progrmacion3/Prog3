@@ -13,6 +13,15 @@ namespace obligatorio.Presentacion {
     public partial class Empleados {
         
         /// <summary>
+        /// InputId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox InputId;
+        
+        /// <summary>
         /// InputName control.
         /// </summary>
         /// <remarks>
@@ -38,15 +47,6 @@ namespace obligatorio.Presentacion {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox InputDocument;
-        
-        /// <summary>
-        /// InputPosition control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox InputPosition;
         
         /// <summary>
         /// InputTelefono control.
@@ -148,15 +148,6 @@ namespace obligatorio.Presentacion {
         protected global::System.Web.UI.WebControls.Button btnAlta;
         
         /// <summary>
-        /// btnBaja control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBaja;
-        
-        /// <summary>
         /// btnModificar control.
         /// </summary>
         /// <remarks>
@@ -175,6 +166,15 @@ namespace obligatorio.Presentacion {
         protected global::System.Web.UI.WebControls.Button btnLimpiar;
         
         /// <summary>
+        /// grdCamioneros control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdCamioneros;
+        
+        /// <summary>
         /// lblDataOutput control.
         /// </summary>
         /// <remarks>
@@ -182,32 +182,5 @@ namespace obligatorio.Presentacion {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDataOutput;
-        
-        /// <summary>
-        /// grdEmpleados control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdEmpleados;
-        
-        /// <summary>
-        /// SqlDataSource2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
-        
-        /// <summary>
-        /// SqlDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }

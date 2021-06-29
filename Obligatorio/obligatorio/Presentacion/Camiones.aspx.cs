@@ -113,6 +113,7 @@ namespace obligatorio.Presentacion
                     this.LimpiarCampos();
                     this.ListarDatos();
                     this.AvisoOperacion("modificación");
+                    return;
                 }
                 this.LimpiarCampos();
                 this.AvisoOperacion("modificación no");

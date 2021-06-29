@@ -11,7 +11,7 @@ namespace obligatorio.Dominio
         private Empleado _camionero;
         private Camion _camion;
         private string _carga;
-        private int _kilaje;
+        private float _kilaje;
         private string _origen;
         private string _destino;
         private DateTime _fechaInicio;
@@ -39,7 +39,7 @@ namespace obligatorio.Dominio
             get { return _carga; }
             set { _carga = value; }
         }
-        public int Kilaje
+        public float Kilaje
         {
             get { return _kilaje; }
             set { _kilaje = value; }
@@ -87,11 +87,22 @@ namespace obligatorio.Dominio
 
         public bool BajaViaje(Viaje unViaje)
         {
-           return true;
+            if (BuscarViaje(unViaje) != null && Persistencia.Clases.pViaje.EliminarViaje(unViaje))
+            {
+                Empresa empresa = new Dominio.Empresa();
+                Viaje viaje = BuscarViaje(unViaje);
+                empresa.ListaViajes().Remove(viaje);
+                return true;
+            }
+            return false;
         }
         public bool ModificarViaje(Viaje unViaje)
         {
-            return true;
+            if (BuscarViaje(unViaje) != null && Persistencia.Clases.pViaje.ModificarViaje(unViaje))
+            {
+                return true;
+            }
+            return false;
         }
         public Viaje BuscarViaje(Viaje unViaje)
         {
@@ -104,6 +115,7 @@ namespace obligatorio.Dominio
 
         /*
          * con todo
+         * todo -estado
          * todo -id
          * todo -id y estado
          * solo id
@@ -121,6 +133,18 @@ namespace obligatorio.Dominio
             FechaInicio = pFechaInicio;
             FechaFin = pFechaFin;
             Estado = pEstado;
+        }
+        public Viaje(int pId, Empleado pCamionero, Camion pCamion, string pCarga, int pKilaje, string pOrigen, string pDestino, DateTime pFechaInicio, DateTime pFechaFin)
+        {
+            Id = pId;
+            Camionero = pCamionero;
+            Camion = pCamion;
+            Carga = pCarga;
+            Kilaje = pKilaje;
+            Origen = pOrigen;
+            Destino = pDestino;
+            FechaInicio = pFechaInicio;
+            FechaFin = pFechaFin;
         }
         public Viaje(Empleado pCamionero, Camion pCamion, string pCarga, int pKilaje, string pOrigen, string pDestino, DateTime pFechaInicio, DateTime pFechaFin, string pEstado)
         {

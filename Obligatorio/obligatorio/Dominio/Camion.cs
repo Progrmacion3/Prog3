@@ -57,9 +57,10 @@ namespace obligatorio.Dominio
         }
         public bool ModificarCamion(Camion unCamion)
         {
-            int num = new Random().Next();
-            if (num == 1)
+            if (BuscarCamion(unCamion) != null && Persistencia.Clases.pCamion.ModificarCamion(unCamion))
+            {
                 return true;
+            }
             return false;
         }
         public Camion BuscarCamion(Camion unCamion)

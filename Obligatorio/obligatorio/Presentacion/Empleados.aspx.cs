@@ -31,7 +31,7 @@ namespace obligatorio.Presentacion
             if (!this.rdbAdministrador.Checked && !this.rdbCamionero.Checked)
                 return true;
 
-            if (this.InputDocument.Text == "" || this.InputName.Text == "" || this.InputPass.Text == "" || this.InputPosition.Text == "" || this.InputSecondName.Text == "" || this.InputTelefono.Text == "" || this.InputUser.Text == "")
+            if (this.InputDocument.Text == "" || this.InputName.Text == "" || this.InputPass.Text == "" || this.InputSecondName.Text == "" || this.InputTelefono.Text == "" || this.InputUser.Text == "")
                 return true;
 
             if (this.rdbAdministrador.Checked)
@@ -44,8 +44,11 @@ namespace obligatorio.Presentacion
         }
         private void ListarDatos()
         {
-
+            Empresa empresa = new Empresa();
+            this.grdCamioneros.DataSource = empresa.ListaCamioneros();
+            this.grdCamioneros.DataBind();
         }
+
         private void AvisoFaltanDatos()
         {
             this.lblDataOutput.Text = "Falta alguna cosita, pegale una leida de nuevo ahí.";
@@ -59,7 +62,6 @@ namespace obligatorio.Presentacion
             this.InputName.Text = "";
             this.InputPass.Text = "";
             this.InputTelefono.Text = "";
-            this.InputPosition.Text = "";
             this.InputSecondName.Text = "";
             this.InputUser.Text = "";
             this.rdbCamionero.Checked = false;
@@ -90,7 +92,7 @@ namespace obligatorio.Presentacion
                     string mNombre = this.InputName.Text;
                     string mDocumento = this.InputDocument.Text;
                     string mApellido = this.InputSecondName.Text;
-                    string mCargo = this.InputPosition.Text;
+                    string mCargo = "Camionero";
                     string mPassword = this.InputPass.Text;
                     string mUser = this.InputUser.Text;
                     string mTelefono = this.InputTelefono.Text;
@@ -113,7 +115,7 @@ namespace obligatorio.Presentacion
                     string mNombre = this.InputName.Text;
                     string mDocumento = this.InputDocument.Text;
                     string mApellido = this.InputSecondName.Text;
-                    string mCargo = this.InputPosition.Text;
+                    string mCargo = "Admin";
                     string mPassword = this.InputPass.Text;
                     string mUser = this.InputUser.Text;
                     string mTelefono = this.InputTelefono.Text;
@@ -152,20 +154,21 @@ namespace obligatorio.Presentacion
                     {
                         return;
                     }
+                    int mId = int.Parse(this.InputId.Text);
                     mEdad = int.Parse(this.InputEdad.Text);
                     string mNombre = this.InputName.Text;
                     string mDocumento = this.InputDocument.Text;
                     string mApellido = this.InputSecondName.Text;
-                    string mCargo = this.InputPosition.Text;
+                    string mCargo = "Camionero";
                     string mPassword = this.InputPass.Text;
                     string mUser = this.InputUser.Text;
                     string mTelefono = this.InputTelefono.Text;
                     string mTipoLibreta = this.InputTipoLibreta.Text;
 
                     DateTime mVencimientoLibreta = this.InputFechaVencimiento.SelectedDate;
-                    Camionero unCamionero = new Camionero(mNombre, mApellido, mDocumento, mCargo, mTelefono, mUser, mPassword, mEdad, mTipoLibreta, mVencimientoLibreta);
+                    Camionero unCamionero = new Camionero(mId, mNombre, mApellido, mDocumento, mCargo, mTelefono, mUser, mPassword, mEdad, mTipoLibreta, mVencimientoLibreta);
 
-                    if (empresa.MenuCamionero("modificación", unCamionero))
+                    if (empresa.MenuCamionero("modificar", unCamionero))
                     {
                         this.ListarDatos();
                         this.LimpiarCampos();
@@ -181,7 +184,7 @@ namespace obligatorio.Presentacion
                     string mNombre = this.InputName.Text;
                     string mDocumento = this.InputDocument.Text;
                     string mApellido = this.InputSecondName.Text;
-                    string mCargo = this.InputPosition.Text;
+                    string mCargo = "Admin";
                     string mPassword = this.InputPass.Text;
                     string mUser = this.InputUser.Text;
                     string mTelefono = this.InputTelefono.Text;
@@ -210,6 +213,43 @@ namespace obligatorio.Presentacion
             this.LimpiarCampos();
         }
 
+        protected void grdCamioneros_RowDeleting(object sender, GridViewDeleteEventArgs e)
+      {
+            this.LimpiarCampos();
+            TableCell idCelda = grdCamioneros.Rows[e.RowIndex].Cells[4];
+            Camionero camionero = new Empresa().BuscarCamionero(new Camionero(int.Parse(idCelda.Text)));
+            bool output = new Empresa().MenuCamionero("baja", camionero);
+            if (output)
+            {
+                this.ListarDatos();
+                //this.AvisoOperacion("baja");
+                return;
+            }
+           //this.AvisoOperacion("baja no");
+        }
 
+        protected void grdCamioneros_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+            this.LimpiarCampos();
+            TableCell idCelda = grdCamioneros.Rows[e.NewSelectedIndex].Cells[4];
+            Camionero camionero = new Empresa().BuscarCamionero(new Camionero(int.Parse(idCelda.Text)));
+            if (camionero != null)
+            {
+                this.InputId.Text = camionero.Id.ToString();
+                this.InputName.Text = camionero.Nombre;
+                this.InputSecondName.Text = camionero.Apellido;
+                this.InputDocument.Text = camionero.Cedula;
+                this.InputEdad.Text = camionero.Edad.ToString();
+                this.InputFechaVencimiento.SelectedDate = camionero.FechaVencimiento;
+                this.InputPass.Text = camionero.Contrasena;
+                this.InputTelefono.Text = camionero.Telefono;
+                this.InputTipoLibreta.Text = camionero.TipoLibreta;
+                this.InputUser.Text = camionero.Usuario;
+                this.rdbCamionero.Checked = true;
+                return;
+            }
+
+            this.lblDataOutput.Text = "Algo salió mal";
+        }
     }
 }

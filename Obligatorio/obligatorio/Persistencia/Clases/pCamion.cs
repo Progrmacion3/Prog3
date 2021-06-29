@@ -87,7 +87,6 @@ namespace obligatorio.Persistencia.Clases
                 cmd.Parameters.Add(new SqlParameter("@marca", pCamion.Marca));
                 cmd.Parameters.Add(new SqlParameter("@ano", pCamion.Ano));
 
-
                 int rtn = cmd.ExecuteNonQuery();
 
                 if (conn.State == ConnectionState.Open)

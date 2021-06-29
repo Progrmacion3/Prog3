@@ -16,7 +16,7 @@ namespace obligatorio.Dominio
 
         public List<Camionero> ListaCamioneros()
         {
-            return _listaCamioneros;
+            return _listaCamioneros = pCamionero.pListaCamioneros();
         }
         public List<Administrador> ListaAdministradores()
         {
@@ -28,7 +28,7 @@ namespace obligatorio.Dominio
         }
         public List<Viaje> ListaViajes()
         {
-            return _listaViajes;
+            return _listaViajes = pViaje.pListaViajes();
         }
         public List<Parada> ListaParadas()
         {
@@ -55,21 +55,9 @@ namespace obligatorio.Dominio
             switch (pFuncion)
             {
                 case "alta":
-                    if (new Camionero().AltaCamionero(unCamionero))
-                    {
-                        _listaCamioneros.Add(unCamionero);
-                        return true;
-                    }
-                    return false;
-
-                    
+                    return new Camionero().AltaCamionero(unCamionero);
                 case "baja":
-                    if (new Camionero().BajaCamionero(unCamionero))
-                    {
-                        _listaCamioneros.Remove(unCamionero);
-                        return true;
-                    }
-                    return false;
+                    return new Camionero().BajaCamionero(unCamionero);
                 case "modificar":
                     return new Camionero().ModificarCamionero(unCamionero);
                 default:

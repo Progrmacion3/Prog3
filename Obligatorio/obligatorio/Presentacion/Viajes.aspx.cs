@@ -20,7 +20,7 @@ namespace obligatorio.Presentacion
 
         private bool FaltanDatos() // comprobamos que todos los campos tengan datos y las fechas sean validas
         {
-            if (this.txtCamion.Text == "" || this.txtCamionero.Text == "" || this.txtCarga.Text == "" || this.txtDestino.Text == "" || this.txtKilaje.Text == "" || this.txtOrigen.Text == "" || this.dtpFechaFin.SelectedDate <= DateTime.Today.Date || this.dtpFechaInicio.SelectedDate < DateTime.Today.Date || this.dtpFechaFin.SelectedDate == this.dtpFechaInicio.SelectedDate)
+            if (this.txtCamion.Text == "" || this.txtCamionero.Text == "" || this.txtCarga.Text == "" || this.txtDestino.Text == "" || this.txtKilaje.Text == "" || this.txtOrigen.Text == "" || this.dtpFechaFin.SelectedDate >= this.dtpFechaInicio.SelectedDate)
                 return false;
             return true;
         }
@@ -38,8 +38,11 @@ namespace obligatorio.Presentacion
         }
         private void ListarDatos()
         {
-            return; // -> to-do
+            Empresa empresa = new Empresa();
+            this.grdViajes.DataSource = empresa.ListaViajes();
+            this.grdViajes.DataBind();
         }
+
         private void AvisoFaltaKilaje()
         {
             this.lblMissingKilaje.Text = "Te faltó el kilaje flaco.";
@@ -111,11 +114,6 @@ namespace obligatorio.Presentacion
             return;
         }
 
-        protected void btnBaja_Click(object sender, EventArgs e)
-        {
-
-        }
-
         protected void btnModificar_Click(object sender, EventArgs e)
         {
             if (!FaltanDatos())
@@ -126,6 +124,7 @@ namespace obligatorio.Presentacion
                     this.AvisoFaltaKilaje();
                     return;
                 }
+                int mId = int.Parse(this.txtId.Text);
                 mKilaje = int.Parse(this.txtKilaje.Text);
                 Empresa mEmpresa = new Empresa();
                 string mMatCamion = this.txtCamion.Text;
@@ -137,7 +136,7 @@ namespace obligatorio.Presentacion
                 Camion elCamion = mEmpresa.BuscarCamion(new Camion(this.txtCamion.Text));
                 Camionero elCamionero = mEmpresa.BuscarCamionero(new Camionero(int.Parse(this.txtCamionero.Text)));
 
-                Viaje unViaje = new Viaje(elCamionero, elCamion, mCarga, mKilaje, mOrigen, mDestino, mFechaInicio, mFechaFin);
+                Viaje unViaje = new Viaje(mId, elCamionero, elCamion, mCarga, mKilaje, mOrigen, mDestino, mFechaInicio, mFechaFin);
                 if(mEmpresa.MenuViaje("modificar", unViaje))
                 {
                     this.LimpiarCampos();
@@ -155,6 +154,43 @@ namespace obligatorio.Presentacion
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {
             this.LimpiarCampos();
+        }
+
+        protected void grdViajes_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            this.LimpiarCampos();
+            TableCell idCelda = grdViajes.Rows[e.RowIndex].Cells[1];
+            Viaje viaje = new Empresa().BuscarViaje(new Viaje(int.Parse(idCelda.Text)));
+            bool output = new Empresa().MenuViaje("baja", viaje);
+            if (output)
+            {
+                this.ListarDatos();
+                //this.AvisoOperacion("baja");
+                return;
+            }
+            //this.AvisoOperacion("baja no");
+        }
+
+        protected void grdViajes_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+            this.LimpiarCampos();
+            TableCell idCelda = grdViajes.Rows[e.NewSelectedIndex].Cells[1];
+            Viaje viaje = new Empresa().BuscarViaje(new Viaje(int.Parse(idCelda.Text)));
+            if (viaje != null)
+            {
+                this.txtId.Text = viaje.Id.ToString();
+                this.txtCamion.Text = viaje.Camion.Matricula;
+                this.txtCamionero.Text = viaje.Camionero.Id.ToString();
+                this.txtCarga.Text = viaje.Carga;
+                this.txtOrigen.Text = viaje.Origen;
+                this.txtDestino.Text = viaje.Destino;
+                this.txtKilaje.Text = viaje.Kilaje.ToString();
+                this.dtpFechaInicio.SelectedDate = viaje.FechaInicio;
+                this.dtpFechaFin.SelectedDate = viaje.FechaFin;
+                return;
+            }
+
+            this.lblDataOutput.Text = "Algo salió mal";
         }
     }
 }

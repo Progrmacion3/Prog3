@@ -9,9 +9,10 @@ namespace obligatorio.Dominio
     {
         public bool AltaAdmin(Administrador unAdmin)
         {
-            int num = new Random().Next();
-            if (num == 1)
+            if (BuscarAdmin(unAdmin) == null && Persistencia.Clases.pAdministrador.AgregarAdministrador(unAdmin))
+            {
                 return true;
+            }
             return false;
         }
         public bool BajaAdmin(Administrador unAdmin)
@@ -30,9 +31,11 @@ namespace obligatorio.Dominio
         }
         public Administrador BuscarAdmin(Administrador unAdmin)
         {
-            int num = new Random().Next();
-            if (num == 1)
-                return null;
+            Empresa empresa = new Empresa();
+            foreach (Administrador admin in empresa.ListaAdministradores())
+                if (unAdmin.Id == admin.Id)
+                    return admin;
+
             return null;
         }
 
