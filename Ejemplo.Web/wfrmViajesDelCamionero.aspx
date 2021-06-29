@@ -14,13 +14,13 @@
         }
         .auto-style3 {
         }
-        .auto-style7 {
-            width: 81px;
+        .auto-style4 {
+            width: 196px;
         }
   </style>
 </asp:Content>
 <asp:Content ID="Content2" runat="server" contentplaceholderid="MainContent">
-    <table style="width: 740px">
+    <table style="width: 920px">
     <caption class="titulo">
       <br />
       VIAJES DEL CAMIONERO
@@ -32,8 +32,8 @@
       </td>
     </tr>
     <tr>
-      <td class="auto-style7" rowspan="3">
-        <asp:ListBox ID="lstCamioneros" runat="server" Width="495px" Height="145px" Font-Size="Small"
+      <td class="auto-style4" rowspan="3">
+        <asp:ListBox ID="lstCamioneros" runat="server" Width="574px" Height="145px" Font-Size="Small"
           OnSelectedIndexChanged="lstCamioneros_SelectedIndexChanged" AutoPostBack="True" />
       </td>
       <td class="auto-style2" colspan="2">
@@ -61,7 +61,7 @@
     </tr>
     <tr>
       <td class="auto-style3" colspan="3">
-        <asp:ListBox ID="lstViajes" runat="server" Width="720px" Height="190px" Font-Size="Small" Font-Overline="True" Font-Underline="False" style="margin-left: 0px" />
+        <asp:ListBox ID="lstViajes" runat="server" Width="893px" Height="190px" Font-Size="Small" Font-Overline="True" Font-Underline="False" style="margin-left: 0px" />
       </td>
     </tr>
     <tr>

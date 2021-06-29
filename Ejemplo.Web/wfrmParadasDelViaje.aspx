@@ -25,7 +25,7 @@
       <td class="auto-style1">
         <asp:Label ID="Label2" runat="server" style="font-family: 'Arial Black'" Text="Lista de paradas" />
         <br />
-        <asp:ListBox ID="lstParadas" runat="server" Width="410px" Height="107px" 
+        <asp:ListBox ID="lstParadas" runat="server" Width="389px" Height="107px" 
           Font-Size="Small" AutoPostBack="True" OnSelectedIndexChanged="lstParadas_SelectedIndexChanged" />
         <br />
         <asp:Label ID="Label3" runat="server" style="font-family: 'Arial Black'" Text="Comentario" />
