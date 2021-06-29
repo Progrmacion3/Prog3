@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 
+
 namespace Dominio.Clases
 {
     class dEstado
@@ -12,7 +13,7 @@ namespace Dominio.Clases
 
        
 
-        public static bool AgregarEstado(Estado pEstado)
+        public static bool AgregarEstado(Command.Clases Estado pEstado)
         {
             return Persistencia.Clases.pEstado.AgregarEstado(pEstado);
         }
