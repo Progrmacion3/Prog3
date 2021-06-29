@@ -13,5 +13,25 @@ namespace Ejemplo.Web
         {
 
         }
+
+        protected void btnAgregarCamion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnModificarCamion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void grillaCamiones_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+        }
+
+        protected void grillaCamiones_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+
+        }
     }
 }

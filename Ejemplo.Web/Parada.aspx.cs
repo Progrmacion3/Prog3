@@ -13,5 +13,25 @@ namespace Ejemplo.Web
         {
 
         }
+
+        protected void btnAgregarParada_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnModificarParada_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void grillaParadas_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+        }
+
+        protected void grillaParadas_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+
+        }
     }
 }

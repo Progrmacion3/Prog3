@@ -65,8 +65,8 @@
                          <asp:Button ID="btnActualizarViaje" runat="server" Text="Actualizar" OnClick="btnActualizarViaje_Click" Visible="false"/>
                          <asp:GridView ID="grillaViajes" Width="100%" runat="server" AutoGenerateColumns="true"
                                     ViewStateMode="Enabled" CellPadding="4" ForeColor="#333333" GridLines="None"
-                                    AutoGenerateSelectButton="true"
-                                    OnSelectedIndexChanging="grillaViajes_SelectedIndexChanging" EmptyDataText="No hay datos ingresados"
+                                    AutoGenerateSelectButton="true" OnSelectedIndexChanging="grillaViajes_SelectedIndexChanging"
+                                    EmptyDataText="No hay datos ingresados"
                                     ShowHeaderWhenEmpty="True">
                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                     <EditRowStyle BackColor="#999999" />

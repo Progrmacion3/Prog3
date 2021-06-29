@@ -124,8 +124,9 @@
                          <asp:Button ID="btnEliminarEmpleado" runat="server" Text="Eliminar" OnClick="btnEliminarEmpleado_Click" Visible="false"/>
                          <asp:Button ID="btnModificarEmpleado" runat="server" Text="Modificar" OnClick="btnModificarEmpleado_Click" Visible="false"/>
                          <asp:GridView ID="grillaEmpleados" Width="100%" runat="server" AutoGenerateColumns="true"
-                                    ViewStateMode="Enabled" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateSelectButton="true"
-                                    OnSelectedIndexChanging="grillaEmpleados_SelectedIndexChanging" EmptyDataText="No hay datos ingresados"
+                                    ViewStateMode="Enabled" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateSelectButton="true" 
+                                    OnSelectedIndexChanging="grillaEmpleados_SelectedIndexChanging"
+                                    EmptyDataText="No hay datos ingresados"
                                     ShowHeaderWhenEmpty="True">
                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                     <EditRowStyle BackColor="#999999" />

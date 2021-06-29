@@ -23,5 +23,15 @@ namespace Ejemplo.Web
         {
 
         }
+
+        protected void grillaCamioneros_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+        }
+
+        protected void grillaCamioneros_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+
+        }
     }
 }

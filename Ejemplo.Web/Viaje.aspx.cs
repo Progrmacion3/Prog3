@@ -23,5 +23,15 @@ namespace Ejemplo.Web
         {
 
         }
+
+        protected void grillaViajes_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+        }
+
+        protected void grillaViajes_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+
+        }
     }
 }

@@ -18,5 +18,10 @@ namespace Ejemplo.Web
         {
 
         }
+
+        protected void grillaParadas_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+
+        }
     }
 }

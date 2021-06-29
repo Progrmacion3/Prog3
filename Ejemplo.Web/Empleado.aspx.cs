@@ -13,5 +13,25 @@ namespace Ejemplo.Web
         {
 
         }
+
+        protected void btnAgregarEmpleado_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnEliminarEmpleado_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnModificarEmpleado_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void grillaEmpleados_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+
+        }
     }
 }
