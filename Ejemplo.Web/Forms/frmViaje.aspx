@@ -37,6 +37,10 @@
                                 <asp:Label ID="lblCamionero" runat="server"></asp:Label>
                                 <asp:Label ID="lblCICamionero" runat="server"></asp:Label>
                             </td>
+                            <td>
+                                <asp:RequiredFieldValidator ID="rfvCamionero" runat="server" ErrorMessage="Seleccione un Camionero de la lista"
+                                    ControlToValidate="lblCICamionero"></asp:RequiredFieldValidator>
+                            </td>
                         </tr>
                         <tr>
                             <td align="left" class="auto-style2">Camion:
@@ -44,6 +48,10 @@
                             <td colspan="3" align="left" class="auto-style2">
                                 <asp:Label ID="lblCamion" runat="server"></asp:Label>
                                 <asp:Label ID="lblMatriculaCamion" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:RequiredFieldValidator ID="rfvCamion" runat="server" ErrorMessage="Seleccione un Camion de la lista"
+                                    ControlToValidate="lblMatriculaCamion"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>

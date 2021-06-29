@@ -49,6 +49,15 @@ namespace Ejemplo.Web.Forms {
         protected global::System.Web.UI.WebControls.Label lblCICamionero;
         
         /// <summary>
+        /// Control rfvCamionero.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCamionero;
+        
+        /// <summary>
         /// Control lblCamion.
         /// </summary>
         /// <remarks>
@@ -65,6 +74,15 @@ namespace Ejemplo.Web.Forms {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMatriculaCamion;
+        
+        /// <summary>
+        /// Control rfvCamion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCamion;
         
         /// <summary>
         /// Control ddlTipoCarga.

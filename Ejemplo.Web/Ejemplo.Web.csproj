@@ -66,6 +66,7 @@
     <Content Include="Forms\frmCamion.aspx" />
     <Content Include="Forms\frmEmpleado.aspx" />
     <Content Include="Forms\frmInicioSesion.aspx" />
+    <Content Include="Forms\frmModificarKilaje.aspx" />
     <Content Include="Forms\frmViaje.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Global.asax" />
@@ -108,6 +109,13 @@
     </Compile>
     <Compile Include="Forms\frmInicioSesion.aspx.designer.cs">
       <DependentUpon>frmInicioSesion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmModificarKilaje.aspx.cs">
+      <DependentUpon>frmModificarKilaje.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmModificarKilaje.aspx.designer.cs">
+      <DependentUpon>frmModificarKilaje.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmViaje.aspx.cs">
       <DependentUpon>frmViaje.aspx</DependentUpon>

@@ -108,6 +108,14 @@ namespace Dominio
         {
             return Dominio.Clases.dViaje.ModificarViaje(pViaje);
         }
+        public static bool ModificarEstadoViaje(Common.Clases.Viaje pViaje)
+        {
+            return Dominio.Clases.dViaje.ModificarEstadoViaje(pViaje);
+        }
+        public static bool ModificarKilajeViaje(Common.Clases.Viaje pViaje)
+        {
+            return Dominio.Clases.dViaje.ModificarKilajeViaje(pViaje);
+        }
         public static List<Common.Clases.Viaje> ListarViajes()
         {
             return Dominio.Clases.dViaje.ListarViajes();

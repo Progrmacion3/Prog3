@@ -10,7 +10,7 @@
 namespace Ejemplo.Web.Forms {
     
     
-    public partial class frmAgregarParada {
+    public partial class frmModificarKilaje {
         
         /// <summary>
         /// Control lblIdViaje.
@@ -22,31 +22,49 @@ namespace Ejemplo.Web.Forms {
         protected global::System.Web.UI.WebControls.Label lblIdViaje;
         
         /// <summary>
-        /// Control ddlTipo.
+        /// Control lblKilaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipo;
+        protected global::System.Web.UI.WebControls.Label lblKilaje;
         
         /// <summary>
-        /// Control lblComentario.
+        /// Control txtKilaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblComentario;
+        protected global::System.Web.UI.WebControls.TextBox txtKilaje;
         
         /// <summary>
-        /// Control txtComentario.
+        /// Control lblKilajeViejo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtComentario;
+        protected global::System.Web.UI.WebControls.Label lblKilajeViejo;
+        
+        /// <summary>
+        /// Control rfvKilaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvKilaje;
+        
+        /// <summary>
+        /// Control ddlEstado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
         
         /// <summary>
         /// Control lblResultado.
@@ -67,13 +85,13 @@ namespace Ejemplo.Web.Forms {
         protected global::System.Web.UI.WebControls.Label lblResultado2;
         
         /// <summary>
-        /// Control btnAgregarParada.
+        /// Control btnModificarKilaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregarParada;
+        protected global::System.Web.UI.WebControls.Button btnModificarKilaje;
         
         /// <summary>
         /// Control btnCancelar.
@@ -92,14 +110,5 @@ namespace Ejemplo.Web.Forms {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdViajes;
-        
-        /// <summary>
-        /// Control grdParadas.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdParadas;
     }
 }

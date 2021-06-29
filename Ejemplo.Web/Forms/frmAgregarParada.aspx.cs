@@ -34,7 +34,8 @@ namespace Ejemplo.Web.Forms
         {
             this.lblIdViaje.Text = string.Empty;
             this.txtComentario.Text = string.Empty;
-           
+            this.lblResultado.Text = string.Empty;
+            this.lblResultado2.Text = string.Empty;
         }
 
         protected void btnAgregarParada_Click(object sender, EventArgs e)
@@ -42,29 +43,31 @@ namespace Ejemplo.Web.Forms
             Common.Clases.Parada parada = new Common.Clases.Parada();
             Common.Clases.Viaje viaje = new Common.Clases.Viaje();
             viaje.Id = short.Parse(this.lblIdViaje.Text);
-            viaje = Dominio.Fachada.TraerViaje(viaje);            
+            viaje = Dominio.Fachada.TraerViaje(viaje);
+            viaje.Estado = "Parado";         
             parada.Tipo= this.ddlTipo.Text;
             parada.Comentario = this.txtComentario.Text;
             parada.Viaje = viaje; 
-             
             
                 try
                 {
                     bool resultado = Dominio.Fachada.AltaParada(parada);
-                
+                    bool estadoViaje = Dominio.Fachada.ModificarEstadoViaje(viaje);
 
-                    if (resultado)
+                    if (resultado && estadoViaje)
                     {
-                        this.lblResultado.Text = "Agregado correctamente.";
                         this.LimpiarCampos();
+                        this.lblResultado.Text = "Parada agregada correctamente.";
+                        this.lblResultado2.Text = "Estado del viaje cambiado a Parado.";
                         this.ActualizarGrillaParadas();
-
+                        this.ActualizarGrillaViajes();
+                        this.btnAgregarParada.Visible = false;
                     }
                     else
                     {
                         this.lblResultado.Text = "ERROR: No se pudo agregar.";
                     }
-
+                    
                 }
                 catch (Exception ex)
                 {
@@ -85,6 +88,7 @@ namespace Ejemplo.Web.Forms
             if (viaje != null)
             {
                 this.lblIdViaje.Text = viaje.Id.ToString();
+                this.btnAgregarParada.Visible = true;
                 
 
                 Session["IdentificadorViaje"] = viaje.Id;
@@ -109,7 +113,7 @@ namespace Ejemplo.Web.Forms
 
             if (parada != null)
             {
-                
+                this.btnAgregarParada.Visible = true;
 
                 foreach (ListItem item in ddlTipo.Items)
                 {
@@ -185,6 +189,7 @@ namespace Ejemplo.Web.Forms
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
+            this.btnAgregarParada.Visible = false;
         }
 
         protected void ddlTipo_SelectedIndexChanged(object sender, EventArgs e)
@@ -205,6 +210,5 @@ namespace Ejemplo.Web.Forms
 
         }
 
-        
     }
 }

@@ -33,7 +33,8 @@
                 </asp:Menu>
                 <asp:Menu ID="MenuCamionero" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
                     <Items>
-                        <asp:MenuItem NavigateUrl="~/Forms/frmAgregarParada.aspx" Text="Parada"/>
+                        <asp:MenuItem NavigateUrl="~/Forms/frmAgregarParada.aspx" Text="Agregar Parada"/>
+                        <asp:MenuItem NavigateUrl="~/Forms/frmModificarKilaje.aspx" Text="Modificar Kilaje"/>
                     </Items>
                 </asp:Menu>
             </div>

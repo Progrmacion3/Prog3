@@ -1,26 +1,17 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmAgregarParada.aspx.cs" MasterPageFile="~/Site.master" 
-     Inherits="Ejemplo.Web.Forms.frmAgregarParada" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmModificarKilaje.aspx.cs" MasterPageFile="~/Site.master"
+    Inherits="Ejemplo.Web.Forms.frmModificarKilaje" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
-    <style type="text/css">w
-        .auto-style1 {
-            height: 180px;
-        }
-        .auto-style2 {
-            height: 21px;
-        }
-    </style>
+    
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <h2>
-       
-        Administración de Paradas - Viajes
+        Actualización de Kilaje 
     </h2>
     <br />
-    <center>
         <table>
             <tr>
-                <td class="auto-style1">
+                <td>
                     <table>
                         <tr>
                             <td align="left">Viaje:
@@ -31,26 +22,29 @@
                             
                         </tr>
                         <tr>
-                            <td align="left" class="auto-style2">Tipo:
+                            <td align="left">
+                                <asp:Label ID="lblKilaje" Text="Nueno Kilaje:" runat="server" ></asp:Label>
                             </td>
-                            <td colspan="3" align="left" class="auto-style2">
-                                <asp:DropDownList ID="ddlTipo" AutoPostBack="true" runat="server" OnSelectedIndexChanged="ddlTipo_SelectedIndexChanged" >
-                                    <asp:ListItem>Descanso</asp:ListItem>
-                                    <asp:ListItem>Rotura</asp:ListItem>
-                                </asp:DropDownList>
+                            <td>
+                                <asp:TextBox ID="txtKilaje" MaxLength="150" runat="server"></asp:TextBox>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblKilajeViejo" Visible="false" runat="server"></asp:Label>
+                                <asp:RequiredFieldValidator ID="rfvKilaje" runat="server" ErrorMessage="Ingrese el nuevo Kialje"
+                                    ControlToValidate="txtKilaje"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
-                            <td align="left">
-                                <asp:Label ID="lblComentario" Text="Comentario:" runat="server" Visible="False"></asp:Label>
+                            <td align="left">Estado:
                             </td>
-                            <td>
-                                <asp:TextBox ID="txtComentario" MaxLength="150" runat="server" Visible="False" ></asp:TextBox>
-                            </td>
-                            <td>
-                                
+                            <td colspan="3" align="left">
+                                <asp:DropDownList ID="ddlEstado" AutoPostBack="true" runat="server">
+                                    <asp:ListItem>Parado</asp:ListItem>
+                                    <asp:ListItem>En curso</asp:ListItem>
+                                </asp:DropDownList>
                             </td>
                         </tr>
+                        
                         <tr>
                             <td colspan="3" align="left">
                                 <asp:Label ID="lblResultado" runat="server"></asp:Label>
@@ -63,7 +57,7 @@
                         </tr>
                         <tr>
                             <td colspan="3" align="left">
-                                <asp:Button ID="btnAgregarParada" Text="Alta" runat="server" Visible="false" OnClick="btnAgregarParada_Click" />
+                                <asp:Button ID="btnModificarKilaje" Text="Modificar" runat="server" Visible="false" OnClick="btnModificarKilaje_Click" />
                                 <asp:Button ID="btnCancelar" Text="Cancelar" runat="server" OnClick="btnCancelar_Click" />
                                 
                             </td>
@@ -71,9 +65,9 @@
                     </table>
                 </td>
              </tr>
-            <td class="auto-style1">
-                    <table>
-                        <tr>
+            <td>
+                <table>
+                       <tr>
                             <td>
                                 <asp:GridView ID="grdViajes" Width="100%" runat="server"
                                     ViewStateMode="Enabled" CellPadding="4" ForeColor="#333333" GridLines="None"
@@ -95,30 +89,6 @@
                             </td>
                         </tr>
                     </table>
-                <table>
-                        <tr>
-                            <td>
-                                <asp:GridView ID="grdParadas" Width="100%" runat="server" AutoGenerateColumns="true"
-                                    ViewStateMode="Enabled" CellPadding="4" ForeColor="#333333" GridLines="None"
-                                    AutoGenerateDeleteButton="true" OnRowDeleting="grdParadas_RowDeleting1" AutoGenerateSelectButton="true"
-                                    OnSelectedIndexChanging="grdParadas_SelectedIndexChanging" EmptyDataText="No hay datos ingresados"
-                                    ShowHeaderWhenEmpty="True">
-                                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                                    <EditRowStyle BackColor="#999999" />
-                                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                                </asp:GridView>
-                            </td>
-                        </tr>
-                    </table>
                 </td>
         </table>
-    </center>
 </asp:Content>
