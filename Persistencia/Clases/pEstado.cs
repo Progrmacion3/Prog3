@@ -11,61 +11,13 @@ namespace Persistencia.Clases
     public class pEstado : Persistencia
     {
 
-        public static bool Agregar(Common.Clases.Estado pEstado)
-        {
-            bool retorno = true;
-
-
-            try
-            {
-                var conn = new SqlConnection(CadenaDeConexion);
-                conn.Open();
-
-                //1. Identeificamos el sotre procedure a ejecutar
-                SqlCommand cmd = new SqlCommand("Estado_Agregar", conn);
-
-                //2. Identificamos el tipo de ejecucion, en este caso un SP
-
-                cmd.CommandType = CommandType.StoredProcedure;
-
-
-                //3. En caso de que los lleve se ponen los parametros de SP
-                cmd.Parameters.Add(new SqlParameter("@idEstado", pEstado.Identificador));
-                cmd.Parameters.Add(new SqlParameter("@Estados", pEstado.Estados));
-                cmd.Parameters.Add(new SqlParameter("@Comentario", pEstado.Comentario));
-
-
-                //Ejecutamos el store desde c#
-                int rtn = cmd.ExecuteNonQuery();
-
-                if (rtn <= 0)
-                {
-                    retorno = false;
-                }
-
-                if (conn.State == ConnectionState.Open)
-                {
-                    conn.Close();
-                }
-            }
-
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-            return retorno;
-
-
-
-        }
-
+      
         public static bool AgregarEstado(Estado pEstado)
         {
             throw new NotImplementedException();
         }
 
-        public static bool Modificar(Camion pEstado)
+        public static bool Modificar(Estado pEstado)
         {
             throw new NotImplementedException();
         }
@@ -116,7 +68,7 @@ namespace Persistencia.Clases
         }
 
 
-        public static bool Modificar(Common.Clases.Estado pEstado)
+        public static bool Modificar(Estado pEstado)
         {
             bool retorno = true;
 

@@ -1,8 +1,8 @@
-﻿using Persistencia.Clases;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
 
 namespace Dominio.Clases
 {
@@ -12,7 +12,7 @@ namespace Dominio.Clases
 
        
 
-        public static bool AgregarEstado(Common.Clases.Estado pEstado)
+        public static bool AgregarEstado(Estado pEstado)
         {
             return Persistencia.Clases.pEstado.AgregarEstado(pEstado);
         }
