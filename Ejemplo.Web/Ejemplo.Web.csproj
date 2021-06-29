@@ -68,6 +68,7 @@
     <Content Include="Forms\frmInicioSesion.aspx" />
     <Content Include="Forms\frmModificarKilaje.aspx" />
     <Content Include="Forms\frmViaje.aspx" />
+    <Content Include="Forms\frmViajesCamionero.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
@@ -123,6 +124,13 @@
     </Compile>
     <Compile Include="Forms\frmViaje.aspx.designer.cs">
       <DependentUpon>frmViaje.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmViajesCamionero.aspx.cs">
+      <DependentUpon>frmViajesCamionero.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmViajesCamionero.aspx.designer.cs">
+      <DependentUpon>frmViajesCamionero.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
