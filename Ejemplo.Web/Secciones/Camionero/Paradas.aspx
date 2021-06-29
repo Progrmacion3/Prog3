@@ -3,33 +3,43 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="MenuCamionero" runat="server" ContentPlaceHolderID="MainContent">
-    <h2 style="margin-left: 40px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Seccion de Paradas</h2>
-    <p style="margin-left: 80px">&nbsp;<asp:Label ID="Label1" runat="server" Text="IdViaje"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="txtIdViaje" runat="server" Height="20px" style="margin-left: 47px" Width="225px"></asp:TextBox>
+    <h2 style="margin-left: 40px"> Seccion de Paradas</h2>
+    <p style="margin-left: 80px"><asp:Label ID="lblIdViaje" runat="server" Text="IdViaje"></asp:Label>
+        <asp:TextBox ID="txtIdViaje" Enabled="false" runat="server"></asp:TextBox>
+        <asp:RequiredFieldValidator runat="server" ID="rfvIdViaje" ErrorMessage="El ID del viaje es obligatorio" ControlToValidate="txtIdViaje">
+        </asp:RequiredFieldValidator>
     </p>
     <p style="margin-left: 80px">
-        <asp:Label ID="Label2" runat="server" Text="Tipo de parada"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:DropDownList runat="server" ID="ddlTipoParada" Height="16px" Width="237px" OnSelectedIndexChanged="ddlEstado_SelectedIndexChanged">
-            <asp:ListItem>Descanso</asp:ListItem>
-            <asp:ListItem>Rotura</asp:ListItem>
+        <asp:Label ID="lblParada" runat="server" Text="Tipo de parada"></asp:Label>
+        <asp:DropDownList runat="server" ID="ddlTipoParada" OnSelectedIndexChanged="ddlTipoParada_SelectedIndexChanged1">
+            <asp:ListItem Value="Descanso">Descanso</asp:ListItem>
+            <asp:ListItem Value="Rotura">Rotura</asp:ListItem>
         </asp:DropDownList>
+        
     </p>
     <p style="margin-left: 80px">
         <asp:Label ID="Label3" runat="server" Text="Comentario"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="txtComentario" runat="server" Height="20px" style="margin-left: 3px" Width="225px"></asp:TextBox>
+    </p>
+        <asp:TextBox style="margin-left: 80px" ID="txtComentario" TextMode="MultiLine" runat="server"></asp:TextBox>
+    <p style="margin-left: 80px">
+        <asp:Label ID="lblResultado" runat="server"></asp:Label>
     </p>
     <p style="margin-left: 80px">
-        <asp:Button ID="btnAgregarParada" runat="server" Text="Agregar" Width="342px" OnClick="btnAgregarParada_Click" />
+        <asp:Button ID="btnAgregarParada" runat="server" Text="Agregar" Width="225px" OnClick="btnAgregarParada_Click" />
     </p>
     <p style="margin-left: 80px">
-        <asp:GridView ID="GridView1" runat="server" Width="338px">
+        <asp:GridView ID="grdViaje" runat="server" Width="93%" AutoGenerateColumns="true" ViewStateMode="Enabled" CellPadding="5" ForeColor="#333333"
+        OnSelectedIndexChanging="grdParadas_SelectedIndexChanging" AutoGenerateSelectButton="true"
+        EmptyDataText="No existen registros" ShowHeaderWhenEmpty="true">
+        <EditRowStyle BackColor="#3399ff" />
+        <FooterStyle BackColor="Black" Font-Bold="true" ForeColor="White" />
+        <HeaderStyle BackColor="Black" Font-Bold="true" ForeColor="White" Font-Size="X-Small"/>
+        <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Center" />
+        <RowStyle BackColor="White" ForeColor="Black" HorizontalAlign="Center" Font-Size="X-Small"/>
+        <SelectedRowStyle BackColor="#cccccc" ForeColor="Black" />
+        <SortedAscendingCellStyle BackColor="#c0c0c0" />
+        <SortedDescendingCellStyle BackColor="#c0c0c0" />
+        <SortedDescendingHeaderStyle BackColor="White" />
         </asp:GridView>
     </p>
-    <p style="margin-left: 80px">
-        <asp:Label ID="lblResultado" runat="server" Text="Label"></asp:Label>
-    </p>
-    <p style="margin-left: 80px">&nbsp;</p>
 </asp:Content>

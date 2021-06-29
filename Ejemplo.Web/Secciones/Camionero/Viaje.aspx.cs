@@ -68,7 +68,6 @@ namespace Ejemplo.Web.Secciones.Camionero
                 this.txtIdViaje.Text = Convert.ToString(viaje.IdViaje);
                 this.txtKilaje.Text = Convert.ToString(viaje.Kilaje);
                 this.ddlEstado.SelectedItem.Text = viaje.Estado;
-
             }
             else
             {

@@ -11,40 +11,66 @@ namespace Ejemplo.Web.Secciones.Camionero
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void ddlEstado_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (ddlTipoParada.SelectedIndex == 0)
-            {
-                this.Label3.Visible = false;
-                this.txtComentario.Visible = false;
-            }
-
-            else if (ddlTipoParada.SelectedIndex == 1)
-            {
-                this.Label3.Visible = true;
-                this.txtComentario.Visible = true;
-            }
+            this.ActualizarLista();
         }
 
         protected void btnAgregarParada_Click(object sender, EventArgs e)
         {
             Common.Clases.Parada unaParada = new Common.Clases.Parada();
-            unaParada.Estado = this.ddlTipoParada.SelectedValue;
             unaParada.IdViaje = int.Parse(this.txtIdViaje.Text);
+            unaParada.Tipo = this.ddlTipoParada.SelectedValue;
             unaParada.Comentario = this.txtComentario.Text;
 
             bool verdadero = Dominio.Fachada.ParadaAgregar(unaParada);
 
             if (verdadero)
             {
-                lblResultado.Text = "Se ha modificado el viaje de forma correcta";
+                this.ActualizarLista();
+                lblResultado.Text = "Se ha agregado una parada.";
             }
             else
             {
-                lblResultado.Text = "No se ha podido moficiar el viaje";
+                lblResultado.Text = "No se ha podido agregar una parada.";
+            }
+        }
+        protected void ActualizarLista()
+        {
+            if (Session["userName"] != null)
+            {
+                string usuario = Session["userName"].ToString();
+                this.grdViaje.DataSource = Dominio.Fachada.MostrarViajesDelCamionero(usuario);
+                this.grdViaje.DataBind();
+            }
+        }
+
+        protected void grdParadas_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+            this.lblResultado.Text = string.Empty;
+
+            TableCell celda = grdViaje.Rows[e.NewSelectedIndex].Cells[1];
+            Common.Clases.Viaje viaje = new Common.Clases.Viaje();
+            viaje.IdViaje = int.Parse(celda.Text);
+            viaje = Dominio.Fachada.MostrarViajeEspecifico(viaje);
+
+            if (viaje != null)
+            {
+                this.txtIdViaje.Text = Convert.ToString(viaje.IdViaje);
+            }
+            else
+            {
+                ClientScript.RegisterClientScriptBlock(GetType(), "alert", "alert ('ERROR: No se pudo cargar la fila.')", true);
+            }
+        }
+
+        protected void ddlTipoParada_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+            if (ddlTipoParada.SelectedItem.Value == "Rotura")
+            {
+                this.txtComentario.Enabled = false;
+            }
+            else
+            {
+                this.txtComentario.Enabled = true;
             }
         }
     }

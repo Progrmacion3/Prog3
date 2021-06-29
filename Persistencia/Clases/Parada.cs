@@ -23,9 +23,9 @@ namespace Persistencia.Clases
 
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.Add(new SqlParameter("@idViaje", pParada.IdViaje));
+                cmd.Parameters.Add(new SqlParameter("@IdViaje", pParada.IdViaje));
                 cmd.Parameters.Add(new SqlParameter("@TipoParada", pParada.Tipo));
-                cmd.Parameters.Add(new SqlParameter("@Comentario", pParada.Comentario));
+                cmd.Parameters.Add(new SqlParameter("@comentario", pParada.Comentario));
 
 
                 int rtn = cmd.ExecuteNonQuery();
@@ -110,6 +110,7 @@ namespace Persistencia.Clases
                         parada.Tipo = oReader["TipoParada"].ToString();
                         parada.Comentario = oReader["Comentario"].ToString();
                         parada.Estado = oReader["Estado"].ToString();
+                        parada.Hora = Convert.ToDateTime(oReader["Hora"].ToString());
 
 
                         retorno.Add(parada);

@@ -12,6 +12,7 @@ namespace Common.Clases
         private string _tipo;
         private string _comentario;
         private string _estado;
+        private DateTime _hora;
 
         public int IdParada
         {
@@ -38,7 +39,11 @@ namespace Common.Clases
             get { return _estado; }
             set { _estado = value; }
         }
-
+        public DateTime Hora
+        {
+            get { return _hora; }
+            set { _hora = value; }
+        }
         public Parada(string pTipo, string pComentario)
         {
             this.Tipo = pTipo;

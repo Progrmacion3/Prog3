@@ -6,7 +6,7 @@
     <h2>Seccion de Viaje</h2>
     <p>
         <asp:Label ID="lblIdViaje" runat="server" Text="IdViaje"></asp:Label>
-        <asp:TextBox ID="txtIdViaje" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtIdViaje" Enabled="false" runat="server"></asp:TextBox>
     </p>
     <p>
         <asp:Label ID="lblKilaje" runat="server" Text="Kilaje"></asp:Label>
