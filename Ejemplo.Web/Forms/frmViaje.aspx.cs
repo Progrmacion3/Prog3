@@ -409,9 +409,34 @@ namespace Ejemplo.Web.Forms
                 this.txtFechaInicio.Text = viaje.FechaInicio;
                 this.txtFechaFinalización.Text = viaje.FechaFinalizacion;
 
-                foreach (ListItem item in ddlTipoCarga.Items)                {                    if (viaje.TipoCarga == item.Text)                    {                        item.Selected = true;                    }                    else                    {                        foreach (ListItem itmes in ddlTipoCarga.Items)                        {                            item.Selected = false;                        }                    }
+                foreach (ListItem item in ddlTipoCarga.Items)
+                {
+                    if (viaje.TipoCarga == item.Text)
+                    {
+                        item.Selected = true;
+                    }
+                    else
+                    {
+                        foreach (ListItem itmes in ddlTipoCarga.Items)
+                        {
+                            item.Selected = false;
+                        }
+                    }
                 }
-                foreach (ListItem item in ddlEstado.Items)                {                    if (viaje.Estado == item.Text)                    {                        item.Selected = true;                    }                    else                    {                        foreach (ListItem itmes in ddlEstado.Items)                        {                            item.Selected = false;                        }                    }
+                foreach (ListItem item in ddlEstado.Items)
+                {
+                    if (viaje.Estado == item.Text)
+                    {
+                        item.Selected = true;
+                    }
+                    else
+                    {
+                        foreach (ListItem itmes in ddlEstado.Items)
+                        {
+                            item.Selected = false;
+                        }
+
+                    }
                 }
 
 
@@ -539,8 +564,5 @@ namespace Ejemplo.Web.Forms
             this.ModoEdicion(false);
             
         }
-
-        
     }
-
 }

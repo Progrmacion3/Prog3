@@ -22,16 +22,18 @@ namespace Ejemplo.Web.Forms
 
             try
             {
-                string resultado = Dominio.Fachada.TraerTipoEmpleado(emp);
+                Common.Clases.Empleado empleado = Dominio.Fachada.TraerEmpleadoInicioSesion(emp);
 
-                if (resultado == "Camionero")
+                if (empleado.Tipo == "Camionero")
                 {
+                    Session["CiEmpleadoInicioSesion"] = empleado.CI;
                     Session["escamionero"] = true;
                     Response.Redirect("frmAgregarParada.aspx");
 
                 }
                 else
                 {
+                    Session["CiEmpleadoInicioSesion"] = empleado.CI;
                     Session["escamionero"] = false;
                     Response.Redirect("frmEmpleado.aspx");
 

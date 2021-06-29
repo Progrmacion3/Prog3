@@ -55,6 +55,7 @@ namespace Persistencia.Clases
 
             return retorno;
         }
+
         public static bool ModificarAdministrador(Common.Clases.Administrador pAdministrador)
         {
             bool retorno = true;
@@ -101,6 +102,7 @@ namespace Persistencia.Clases
 
             return retorno;
         }
+
         public static bool BajaAdministrador(Common.Clases.Administrador pAdministrador)
         {
             bool retorno = true;
@@ -140,6 +142,7 @@ namespace Persistencia.Clases
 
             return retorno;
         }
+
         public static Common.Clases.Administrador TraerAdministrador(Common.Clases.Administrador pAdministrador)
         {
             Common.Clases.Administrador Administrador = null;
@@ -189,6 +192,7 @@ namespace Persistencia.Clases
 
             return Administrador;
         }
+
         public static List<Common.Clases.Administrador> ListarAdministradores()
         {
             List<Common.Clases.Administrador> ListaAdministradores = new List<Common.Clases.Administrador>();

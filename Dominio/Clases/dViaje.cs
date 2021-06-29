@@ -23,6 +23,10 @@ namespace Dominio.Clases
         {
             return Persistencia.Clases.pViaje.ListarViajes();
         }
+        public static List<Common.Clases.Viaje> ListarViajesPorCamionero(Common.Clases.Camionero pCamionero)
+        {
+            return Persistencia.Clases.pViaje.ListarViajesPorCamionero(pCamionero);
+        }
         public static Common.Clases.Viaje TraerViaje(Common.Clases.Viaje pViaje)
         {
             return Persistencia.Clases.pViaje.TraerViaje(pViaje);

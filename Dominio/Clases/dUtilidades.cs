@@ -7,9 +7,9 @@ namespace Dominio.Clases
 {
     public class dUtilidades
     {
-        public static string TraerTipoEmpleado(Common.Clases.Empleado pEmpleado)
+        public static Common.Clases.Empleado TraerEmpleadoInicioSesion(Common.Clases.Empleado pEmpleado)
         {
-            return Persistencia.Clases.pUtilidades.TraerTipoEmpleado(pEmpleado);
+            return Persistencia.Clases.pUtilidades.TraerEmpleadoInicioSesion(pEmpleado);
         }
     }
 }

@@ -13,13 +13,14 @@ namespace Ejemplo.Web.Forms
         {
             ActualizarGrillaViajes();
             ActualizarGrillaParadas();
-            
         }
 
-        
         protected void ActualizarGrillaViajes()
         {
-            this.grdViajes.DataSource = Dominio.Fachada.ListarViajes();
+            Common.Clases.Camionero emp = new Common.Clases.Camionero();
+            emp.CI = int.Parse(Session["CiEmpleadoInicioSesion"].ToString());
+
+            this.grdViajes.DataSource = Dominio.Fachada.ListarViajesPorCamionero(emp);
             this.grdViajes.DataBind();
         }
 

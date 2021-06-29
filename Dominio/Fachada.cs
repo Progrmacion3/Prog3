@@ -112,6 +112,10 @@ namespace Dominio
         {
             return Dominio.Clases.dViaje.ListarViajes();
         }
+        public static List<Common.Clases.Viaje> ListarViajesPorCamionero(Common.Clases.Camionero pCamionero)
+        {
+            return Dominio.Clases.dViaje.ListarViajesPorCamionero(pCamionero);
+        }
         public static Common.Clases.Viaje TraerViaje(Common.Clases.Viaje pViaje)
         {
             return Dominio.Clases.dViaje.TraerViaje(pViaje);
@@ -121,9 +125,9 @@ namespace Dominio
 
         #region Utilidades
 
-        public static string TraerTipoEmpleado(Common.Clases.Empleado pEmpleado)
+        public static Common.Clases.Empleado TraerEmpleadoInicioSesion(Common.Clases.Empleado pEmpleado)
         {
-            return Dominio.Clases.dUtilidades.TraerTipoEmpleado(pEmpleado);
+            return Dominio.Clases.dUtilidades.TraerEmpleadoInicioSesion(pEmpleado);
         }
 
         #endregion

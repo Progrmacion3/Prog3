@@ -193,6 +193,58 @@ namespace Persistencia.Clases
             return ListaViajes;
         }
 
+        public static List<Common.Clases.Viaje> ListarViajesPorCamionero(Common.Clases.Camionero pCamionero)
+        {
+            List<Common.Clases.Viaje> ListaViajes = new List<Common.Clases.Viaje>();
+            Common.Clases.Viaje viaje;
+
+            try
+            {
+                var conn = new SqlConnection(CadenaDeConexion);
+                conn.Open();
+
+                // 1. identificamos el store procedure a ejecutar
+                SqlCommand cmd = new SqlCommand("ViajePorCamionero_TraerTodos", conn);
+
+                // 2. identificamos el tipo de ejecución, en este caso un SP
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@ci", pCamionero.CI));
+
+                // ejecutamos el store desde c#
+                using (SqlDataReader oReader = cmd.ExecuteReader())
+                {
+
+                    while (oReader.Read())
+                    {
+                        viaje = new Common.Clases.Viaje();
+                        viaje.Id = short.Parse(oReader["idViaje"].ToString());
+                        viaje.Camionero = new Common.Clases.Camionero();
+                        viaje.Camionero.CI = int.Parse(oReader["camioneroViaje"].ToString());
+                        viaje.Camion = new Common.Clases.Camion();
+                        viaje.Camion.Matricula = oReader["camionViaje"].ToString();
+                        viaje.TipoCarga = oReader["tipoDeCargaViaje"].ToString();
+                        viaje.Kilaje = int.Parse(oReader["kilajeViaje"].ToString());
+                        viaje.Origen = oReader["origenViaje"].ToString();
+                        viaje.Destino = oReader["destinoViaje"].ToString();
+                        viaje.FechaInicio = oReader["fechaInicioViaje"].ToString();
+                        viaje.FechaFinalizacion = oReader["fechaFinalizacionViaje"].ToString();
+                        viaje.Estado = oReader["estadoViaje"].ToString();
+                        ListaViajes.Add(viaje);
+                    }
+
+                    conn.Close();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return ListaViajes;
+        }
+
         public static Common.Clases.Viaje TraerViaje(Common.Clases.Viaje pViaje)
         {
             Common.Clases.Viaje viaje = null;

@@ -9,9 +9,9 @@ namespace Persistencia.Clases
 {
     public class pUtilidades: Persistencia
     {
-        public static string TraerTipoEmpleado(Common.Clases.Empleado pEmpleado)
+        public static Common.Clases.Empleado TraerEmpleadoInicioSesion(Common.Clases.Empleado pEmpleado)
         {
-            string retorno = "";
+            Common.Clases.Empleado empleado = null;
 
             try
             {
@@ -19,7 +19,7 @@ namespace Persistencia.Clases
                 conn.Open();
 
                 // 1. identificamos el store procedure a ejecutar
-                SqlCommand cmd = new SqlCommand("Empleado_TraerTipo", conn);
+                SqlCommand cmd = new SqlCommand("EmpleadoInicioSesion_TraerEspecifico", conn);
 
                 // 2. identificamos el tipo de ejecución, en este caso un SP
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -34,7 +34,15 @@ namespace Persistencia.Clases
 
                     while (oReader.Read())
                     {
-                        retorno = oReader["tipoEmpleado"].ToString();
+                        empleado = new Common.Clases.Empleado();
+                        empleado.CI = int.Parse(oReader["ciEmpleado"].ToString());
+                        empleado.Nombre = oReader["nombreEmpleado"].ToString();
+                        empleado.Apellido = oReader["apellidoEmpleado"].ToString();
+                        empleado.Cargo = oReader["cargoEmpleado"].ToString();
+                        empleado.Telefono = oReader["telefonoEmpleado"].ToString();
+                        empleado.Tipo = oReader["tipoEmpleado"].ToString();
+                        empleado.Usuario = oReader["usuarioEmpleado"].ToString();
+                        empleado.Password = oReader["passwordEmpleado"].ToString();
                     }
 
                     conn.Close();
@@ -45,7 +53,7 @@ namespace Persistencia.Clases
                 throw ex;
             }
 
-            return retorno;
+            return empleado;
         }
     }
 }
