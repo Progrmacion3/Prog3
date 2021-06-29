@@ -33,6 +33,10 @@ namespace Dominio
         {
             return Dominio.Clases.Admin.MostrarAdminEspecifico(pAdmin);
         }
+        public static Common.Clases.Admin ValidarAdmin(Common.Clases.Admin pAdmin)
+        {
+            return Dominio.Clases.Admin.ValidarAdmin(pAdmin);
+        }
         #endregion
         #region Metodos de Camionero
 

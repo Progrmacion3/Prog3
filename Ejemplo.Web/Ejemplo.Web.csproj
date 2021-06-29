@@ -67,13 +67,21 @@
     <Content Include="Secciones\Admin\ABM_Camiones.aspx" />
     <Content Include="Secciones\Admin\ABM_Viaje.aspx" />
     <Content Include="Secciones\Admin\Empleados.aspx" />
-    <Content Include="Styles\Site.css" />
-    <Content Include="Default.aspx" />
+    <Content Include="Secciones\Admin\formAdmin.aspx" />
+    <Content Include="Secciones\Camionero\formCamionero.aspx" />
+    <Content Include="Secciones\Camionero\Paradas.aspx" />
+    <Content Include="Secciones\Camionero\Roturas.aspx" />
+    <Content Include="Secciones\Camionero\Viaje.aspx" />
+    <Content Include="Secciones\Login\IniciarSesion.aspx" />
+    <Content Include="Styles\Login.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -82,13 +90,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -128,6 +129,48 @@
     <Compile Include="Secciones\Admin\Empleados.aspx.designer.cs">
       <DependentUpon>Empleados.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Secciones\Admin\formAdmin.aspx.cs">
+      <DependentUpon>formAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Secciones\Admin\formAdmin.aspx.designer.cs">
+      <DependentUpon>formAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Secciones\Camionero\formCamionero.aspx.cs">
+      <DependentUpon>formCamionero.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Secciones\Camionero\formCamionero.aspx.designer.cs">
+      <DependentUpon>formCamionero.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Secciones\Camionero\Paradas.aspx.cs">
+      <DependentUpon>Paradas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Secciones\Camionero\Paradas.aspx.designer.cs">
+      <DependentUpon>Paradas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Secciones\Camionero\Roturas.aspx.cs">
+      <DependentUpon>Roturas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Secciones\Camionero\Roturas.aspx.designer.cs">
+      <DependentUpon>Roturas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Secciones\Camionero\Viaje.aspx.cs">
+      <DependentUpon>Viaje.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Secciones\Camionero\Viaje.aspx.designer.cs">
+      <DependentUpon>Viaje.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Secciones\Login\IniciarSesion.aspx.cs">
+      <DependentUpon>IniciarSesion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Secciones\Login\IniciarSesion.aspx.designer.cs">
+      <DependentUpon>IniciarSesion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -138,8 +181,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Secciones\Camionero\" />
-    <Folder Include="Secciones\Login\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Master" />

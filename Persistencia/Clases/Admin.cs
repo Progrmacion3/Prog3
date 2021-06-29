@@ -202,5 +202,42 @@ namespace Persistencia.Clases
             }
             return retorno;
         }
+        public static Common.Clases.Admin ValidarAdmin(Common.Clases.Admin pAdmin)
+        {
+            Common.Clases.Admin retorno = null;
+            try
+            {
+
+                var conexion = new SqlConnection(CadenaDeConexion);
+                conexion.Open();
+
+                SqlCommand cmd = new SqlCommand("ValidarUsuario", conexion);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@usuario", SqlDbType.VarChar, 30).Value = retorno.Usuario;
+                cmd.Parameters.Add("@contrasenia", SqlDbType.VarChar, 30).Value = pAdmin.Contraseña;
+
+                using (SqlDataReader oReader = cmd.ExecuteReader())
+                {
+                    while (oReader.Read())
+                    {
+                        //sesion de usuario
+                        retorno = new Common.Clases.Admin();
+                        retorno.Usuario = oReader["Usuario"].ToString();
+                        retorno.Contraseña = oReader["Contrasenia"].ToString();
+                    }
+                    conexion.Close();
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return retorno;
+            
+            
+
+        }
     }
 }

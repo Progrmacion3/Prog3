@@ -27,5 +27,9 @@ namespace Dominio.Clases
         {
             return Persistencia.Clases.Admin.MostrarAdminEspecifico(pAdmin);
         }
+        public static Common.Clases.Admin ValidarAdmin(Common.Clases.Admin pAdmin)
+        {
+            return Persistencia.Clases.Admin.ValidarAdmin(pAdmin);
+        }
     }
 }

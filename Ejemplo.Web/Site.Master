@@ -17,7 +17,7 @@
             </div>
            
             <div class="clear hideSkiplink">
-                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                <asp:Menu ID="MenuAdmin" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
                     <Items>
                         <asp:MenuItem NavigateUrl="~/Secciones/Admin/ABM_Admin.aspx" Text="Administradores"/>
                         <asp:MenuItem NavigateUrl="~/Secciones/Admin/ABM_Camiones.aspx" Text="Camiones"/>
@@ -25,6 +25,14 @@
                         <asp:MenuItem NavigateUrl="~/Secciones/Admin/Empleados.aspx" Text="Empleados" />
                         <asp:MenuItem NavigateUrl="~/Secciones/Admin/ABM_Viaje.aspx" Text="Viajes" />
                         <asp:MenuItem NavigateUrl="~/Secciones/Admin/ABM_Camiones.aspx" Text="Paradas" />
+                        <asp:MenuItem NavigateUrl="~/Secciones/Admin/formAdmin.aspx" Text="Salir"/>
+                    </Items>
+                </asp:Menu>
+                <asp:Menu ID="MenuCamionero" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Secciones/Camionero/Viaje.aspx" Text="Viaje"/>
+                        <asp:MenuItem NavigateUrl="~/Secciones/Camionero/Paradas.aspx" Text="Paradas"/>
+                        <asp:MenuItem NavigateUrl="~/Secciones/Camionero/Roturas.aspx" Text="Roturas" />
                     </Items>
                 </asp:Menu>
             </div>

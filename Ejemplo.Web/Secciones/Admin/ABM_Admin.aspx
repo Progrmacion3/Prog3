@@ -2,7 +2,7 @@
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
-<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+<asp:Content ID="MenuAdmin" runat="server" ContentPlaceHolderID="MainContent">
     <h2>Administradores</h2>
     <br />
 
