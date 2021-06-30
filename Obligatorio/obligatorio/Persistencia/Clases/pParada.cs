@@ -91,6 +91,7 @@ namespace obligatorio.Persistencia.Clases
                 cmd.Parameters.Add(new SqlParameter("@comentario", pParada.Comentario));
                 cmd.Parameters.Add(new SqlParameter("@razon", pParada.Razon));
                 cmd.Parameters.Add(new SqlParameter("@idViaje", pParada.IdViaje));
+                cmd.Parameters.Add(new SqlParameter("@estado", pParada.Estado));
 
 
                 int rtn = cmd.ExecuteNonQuery();
@@ -129,6 +130,7 @@ namespace obligatorio.Persistencia.Clases
                         parada.Id= int.Parse(oReader["idParada"].ToString());
                         parada.Comentario = oReader["comentario"].ToString();
                         parada.Razon = oReader["razon"].ToString();
+                        parada.Estado = oReader["estado"].ToString();
                         parada.IdViaje = idViaje;
                         listaParadas.Add(parada);
                     }

@@ -8,11 +8,17 @@ namespace obligatorio.Dominio
 {
     public class Parada
     {
+        private int _idViaje;
         private int _id;
         private string _razon;
         private string _comentario;
-        private int _idViaje;
+        private string _estado;
 
+        public int IdViaje
+        {
+            get { return _idViaje; }
+            set { _idViaje = value; }
+        }
         public int Id
         {
             get { return _id; }
@@ -28,10 +34,10 @@ namespace obligatorio.Dominio
             get { return _comentario; }
             set { _comentario = value; }
         }
-        public int IdViaje
+        public string Estado
         {
-            get { return _idViaje; }
-            set { _idViaje = value; }
+            get { return _estado; }
+            set { _estado = value; }
         }
 
         public bool AgregarParada(Parada parParada)
@@ -77,6 +83,15 @@ namespace obligatorio.Dominio
             Razon = pRazon;
             Comentario = pComentario;
             IdViaje = pIdViaje;
+        }
+
+        public Parada(int pId, string pRazon, string pComentario, int pIdViaje, string pEstado)
+        {
+            Id = pId;
+            Razon = pRazon;
+            Comentario = pComentario;
+            IdViaje = pIdViaje;
+            Estado = pEstado;
         }
 
         public int ultimaId(int pIdViaje)

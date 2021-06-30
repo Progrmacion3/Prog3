@@ -15,6 +15,9 @@
     <asp:Label ID="Label4" runat="server" Text="Comentario (opcional):"></asp:Label>
     <asp:TextBox ID="txtComentario" runat="server"></asp:TextBox>
     <br />
+    <asp:Label ID="Label5" runat="server" Text="Actualizar Estado (Solo Admins):"></asp:Label>
+    <asp:TextBox ID="txtEstado" runat="server"></asp:TextBox>
+    <br />
     <br />
     <asp:Button ID="btnAlta" runat="server" Text="Alta" OnClick="btnAlta_Click" />
     <asp:Button ID="btnModificar" runat="server" Text="Modificar" OnClick="btnModificar_Click" />

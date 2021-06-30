@@ -26,6 +26,7 @@ namespace obligatorio.Presentacion
             {
                 this.Master.FindControl("btnViajes").Visible = true;
                 this.Master.FindControl("btnParadas").Visible = true;
+                this.txtEstado.Enabled = false;
             }
             if (!IsPostBack)
                 this.CargarDatos();
@@ -48,6 +49,7 @@ namespace obligatorio.Presentacion
             this.ddlViaje.SelectedIndex = 0;
             this.txtRazon.Text = "";
             this.txtComentario.Text = "";
+            this.txtEstado.Text = "";
         }
         private void IdViajeIncorrecta()
         {
@@ -141,8 +143,9 @@ namespace obligatorio.Presentacion
                 int idParada = idP;
                 string mComentario = this.CheckComentario();
                 string mRazon = this.txtRazon.Text;
+                string mEstado = this.txtEstado.Text;
 
-                Parada laParada = new Parada(idParada, mRazon, mComentario, mIdViaje);
+                Parada laParada = new Parada(idParada, mRazon, mComentario, mIdViaje, mEstado);
                 if(empresa.MenuParada("modificar", laParada))
                 {
                     this.CargarDatos();
@@ -164,8 +167,8 @@ namespace obligatorio.Presentacion
         protected void grdParadas_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             this.LimpiarCampos();
-            TableCell idParada = this.grdParadas.Rows[e.RowIndex].Cells[1];
-            TableCell idViaje = this.grdParadas.Rows[e.RowIndex].Cells[4];
+            TableCell idParada = this.grdParadas.Rows[e.RowIndex].Cells[2];
+            TableCell idViaje = this.grdParadas.Rows[e.RowIndex].Cells[1];
 
             Viaje viaje = new Empresa().BuscarViaje(new Viaje(int.Parse(idViaje.Text)));
             foreach (Parada parada in viaje.ListaParadas())
@@ -188,8 +191,8 @@ namespace obligatorio.Presentacion
         protected void grdParadas_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
             this.LimpiarCampos();
-            TableCell idParada = this.grdParadas.Rows[e.NewSelectedIndex].Cells[1];
-            TableCell idViaje = this.grdParadas.Rows[e.NewSelectedIndex].Cells[4];
+            TableCell idParada = this.grdParadas.Rows[e.NewSelectedIndex].Cells[2];
+            TableCell idViaje = this.grdParadas.Rows[e.NewSelectedIndex].Cells[1];
 
             Viaje viaje = new Empresa().BuscarViaje(new Viaje(int.Parse(idViaje.Text)));
             foreach(Parada parada in viaje.ListaParadas())
@@ -198,6 +201,7 @@ namespace obligatorio.Presentacion
                 {
                     this.txtComentario.Text = parada.Comentario;
                     this.txtRazon.Text = parada.Razon;
+                    this.txtEstado.Text = parada.Estado;
                     id = parada.IdViaje;
                     idP = parada.Id;
                     return;
