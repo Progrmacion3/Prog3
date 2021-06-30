@@ -120,6 +120,40 @@ namespace Persistencia.Clases
                 }
                 return retorno;
             }
+
+        public static List<Common.Clases.Camionero> TraerTodosLosCamioneros()
+        {
+            List<Common.Clases.Camionero> retornarCamionero = new List<Common.Clases.Camionero>();
+            Common.Clases.Camionero camionero;
+
+            try
+            {
+                var conn = new SqlConnection(CadenaDeConexion);
+
+                SqlCommand cmd = new SqlCommand("TraerTodosLosCamiones", conn);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                using (SqlDataReader oReader = cmd.ExecuteReader())
+                {
+                    while (oReader.Read())
+                    {
+                        camionero = new Common.Clases.Camionero();
+                        camionero.identificadorCam = int.Parse(oReader["idCamionero"].ToString());
+                        camionero.Edad = int.Parse(oReader["edadCamionero"].ToString());
+                        camionero.Tipo_Libreta = oReader["modeloCamion"].ToString();
+                        camionero.Fecha_Vencimiento_Libreta = DateTime.Parse(oReader["fechaVencimientoLibreta"].ToString());
+                        retornarCamionero.Add(camionero);
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return retornarCamionero;
         }
+    }
 }
 
