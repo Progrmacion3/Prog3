@@ -64,11 +64,21 @@ namespace obligatorio.Presentacion
 
         protected void btnC2_Click(object sender, EventArgs e)
         {
+            List<Viaje> ListaCamionerosViajes = new List<Viaje>();
             string ci = this.InputCiCamionero.Text;
             Empresa unaEmpresa = new Empresa();
-            this.lstViajesCamionero.DataSource = null;
-            this.lstViajesCamionero.DataSource = unaEmpresa.ListaViajes();
-            this.lstViajesCamionero.DataBind();
+            foreach (Viaje viaje in unaEmpresa.ListaViajes())
+            {
+                if(viaje.Camionero.Cedula == ci)
+                {
+                    ListaCamionerosViajes.Add(viaje);
+                }
+            }
+
+           this.lstViajesCamionero.DataSource = null;
+           this.lstViajesCamionero.DataSource = ListaCamionerosViajes;
+           this.lstViajesCamionero.DataBind();
+           
         }
 
         protected void btnC3_Click(object sender, EventArgs e)

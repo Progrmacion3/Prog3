@@ -8,6 +8,7 @@ namespace obligatorio.Dominio
 {
     public class Empresa
     {
+
         private static List<Camionero> _listaCamioneros = new List<Camionero>();
         private static List<Administrador> _listaAdmins = new List<Administrador>();
         private static List<Camion> _listaCamiones = new List<Camion>();
@@ -115,6 +116,7 @@ namespace obligatorio.Dominio
         {
             return new Camionero().BuscarCamionero(unCamionero);
         }
+ 
         public Administrador BuscarAdministrador(Administrador unAdmin)
         {
             return new Administrador().BuscarAdmin(unAdmin);

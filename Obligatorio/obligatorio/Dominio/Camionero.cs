@@ -64,8 +64,7 @@ namespace obligatorio.Dominio
 
             return null;
         }
-
-
+   
         public Camionero(int pId, string pNombre, string pApellido, string pCedula, string pCargo, string pTelefono, string pUsuario, string pContrasena, int pEdad, string pTipoLibreta, DateTime pFechaVencimiento) :
             base(pId, pNombre, pApellido, pCedula, pCargo, pTelefono, pUsuario, pContrasena)
         {
