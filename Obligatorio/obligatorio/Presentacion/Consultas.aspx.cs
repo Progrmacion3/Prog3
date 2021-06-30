@@ -40,9 +40,17 @@ namespace obligatorio.Presentacion
                 return true;
             return false;
         }
+        private bool FaltanDatosC2()
+        {
+            if(this.InputCiCamionero.Text == "" || this.InputCiCamionero.Text.Length != 8)
+            {
+                return true;
+            }
+            return false;
+        }
         private void AvisoFaltaCamioneroC3()
         {
-            this.lblMissingCamioneroC3.Text = "Te faltó seleccionar el camionero.";
+            this.lblMissingCamioneroC3.Text = "Te faltó seleccionar el viaje.";
         }
         private void LimpiarCampos()
         {
@@ -67,20 +75,24 @@ namespace obligatorio.Presentacion
 
         protected void btnC2_Click(object sender, EventArgs e)
         {
-            List<Viaje> ListaCamionerosViajes = new List<Viaje>();
-            string ci = this.InputCiCamionero.Text;
-            Empresa unaEmpresa = new Empresa();
-            foreach (Viaje viaje in unaEmpresa.ListaViajes())
+            if (!this.FaltanDatosC2())
             {
-                if(viaje.Camionero.Cedula == ci)
+                List<Viaje> ListaCamionerosViajes = new List<Viaje>();
+                string ci = this.InputCiCamionero.Text;
+                Empresa unaEmpresa = new Empresa();
+                foreach (Viaje viaje in unaEmpresa.ListaViajes())
                 {
-                    ListaCamionerosViajes.Add(viaje);
+                    if (viaje.Camionero.Cedula == ci)
+                    {
+                        ListaCamionerosViajes.Add(viaje);
+                    }
                 }
-            }
 
-           this.grdViajesCamionero.DataSource = null;
-           this.grdViajesCamionero.DataSource = ListaCamionerosViajes;
-           this.grdViajesCamionero.DataBind();
+                this.grdViajesCamionero.DataSource = null;
+                this.grdViajesCamionero.DataSource = ListaCamionerosViajes;
+                this.grdViajesCamionero.DataBind();
+            }
+            
            
         }
 
@@ -92,6 +104,7 @@ namespace obligatorio.Presentacion
                 Viaje viaje = new Empresa().BuscarViaje(new Viaje(idViaje));
                 grdParadas.DataSource = viaje.ListaParadas();
                 grdParadas.DataBind();
+                return;
             }
             this.AvisoFaltaCamioneroC3();
         }
