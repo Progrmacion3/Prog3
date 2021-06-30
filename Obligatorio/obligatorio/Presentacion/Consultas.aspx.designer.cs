@@ -58,6 +58,15 @@ namespace obligatorio.Presentacion {
         protected global::System.Web.UI.WebControls.ListBox lstViajesCamionero;
         
         /// <summary>
+        /// txtParadaC3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtParadaC3;
+        
+        /// <summary>
         /// btnC3 control.
         /// </summary>
         /// <remarks>
@@ -67,12 +76,30 @@ namespace obligatorio.Presentacion {
         protected global::System.Web.UI.WebControls.Button btnC3;
         
         /// <summary>
-        /// ListBox1 control.
+        /// lblMissingCamioneroC3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ListBox1;
+        protected global::System.Web.UI.WebControls.Label lblMissingCamioneroC3;
+        
+        /// <summary>
+        /// grdViajeC3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdViajeC3;
+        
+        /// <summary>
+        /// grdParadas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdParadas;
     }
 }
