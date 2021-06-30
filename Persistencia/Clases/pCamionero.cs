@@ -154,6 +154,41 @@ namespace Persistencia.Clases
             }
             return retornarCamionero;
         }
+
+        public static Common.Clases.Camionero TraerUnCamioneroEnEspecifico(Common.Clases.Camionero pCamionero)
+        {
+          
+            Common.Clases.Camionero camionero= null;
+
+            try
+            {
+                var conn = new SqlConnection(CadenaDeConexion);
+
+                SqlCommand cmd = new SqlCommand("TraerUnCamioneroEnEspecifico", conn);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@idCamionero", pCamionero.identificadorCam));
+
+                using (SqlDataReader oReader = cmd.ExecuteReader())
+                {
+                    while (oReader.Read())
+                    {
+                        camionero = new Common.Clases.Camionero();
+                        camionero.identificadorCam = int.Parse(oReader["idCamionero"].ToString());
+                        camionero.Edad = int.Parse(oReader["edadCamionero"].ToString());
+                        camionero.Tipo_Libreta = oReader["modeloCamion"].ToString();
+                        camionero.Fecha_Vencimiento_Libreta = DateTime.Parse(oReader["fechaVencimientoLibreta"].ToString());
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return camionero;
+        }
     }
 }
 

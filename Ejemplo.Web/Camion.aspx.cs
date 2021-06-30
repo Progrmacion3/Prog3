@@ -17,6 +17,24 @@ namespace Ejemplo.Web
 
 
         }
+        protected void ModoEdicionCamiones(bool pVisible)
+        {
+           
+        }
+
+        protected void ActualizarGrillaCamiones()
+        {
+            this.grillaCamiones.DataSource = Dominio.Fachada.Traer_Camiones();
+            this.grillaCamiones.DataBind();
+        }
+
+        protected void LimpiarCamposCamiones()
+        {
+            this.txtMatricula.Text = string.Empty;
+            this.txtMarca.Text = string.Empty;
+            this.txtModelo.Text = string.Empty;
+            this.txtAñoCam.Text = string.Empty;
+        }
 
         protected void btnAgregarCamion_Click(object sender, EventArgs e)
         {
@@ -33,6 +51,8 @@ namespace Ejemplo.Web
                 if (resultadoCamion)
                 {
                     lblResultadoCam.Text = "Se ha agregado correctamente un camion";
+                    LimpiarCamposCamiones();
+                    ActualizarGrillaCamiones();
                 }
                 else
                 {

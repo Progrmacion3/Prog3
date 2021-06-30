@@ -26,6 +26,11 @@ namespace Dominio.Clases
         {
             return Persistencia.Clases.pParada.TraerTodasLasParadas();
         }
+
+        public static Common.Clases.Parada Traer_UnaParada(Common.Clases.Parada pPar)
+        {
+            return Persistencia.Clases.pParada.TraerUnaParadaEnEspecifica(pPar);
+        }
     }
 }
 

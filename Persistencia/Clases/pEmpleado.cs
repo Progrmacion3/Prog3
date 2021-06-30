@@ -171,6 +171,47 @@ namespace Persistencia.Clases
             }
             return retornarEmp;
         }
+
+        public static Common.Clases.Empleado TraerUnEmpleadoEnEspecifico(Common.Clases.Empleado pEmp)
+        {
+            
+            Common.Clases.Empleado empleado=null;
+
+            try
+            {
+                var conn = new SqlConnection(CadenaDeConexion);
+
+                SqlCommand cmd = new SqlCommand("TraerUnEmpleadoEnEspecifico", conn);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@idEmpleado", pEmp.idEmpleado));
+
+                using (SqlDataReader oReader = cmd.ExecuteReader())
+                {
+                    while (oReader.Read())
+                    {
+                        empleado = new Common.Clases.Empleado();
+                        empleado.idEmpleado = int.Parse(oReader["idEmpleado"].ToString());
+                        empleado.CI = int.Parse(oReader["CIempleado"].ToString());
+                        empleado.Nombre = oReader["NombreEmpleado"].ToString();
+                        empleado.Apellido = oReader["ApellidoEmpleado"].ToString();
+                        empleado.Cargo = oReader["CargoEmpleado"].ToString();
+                        empleado.Telefono = int.Parse(oReader["TelefonoEmpleado"].ToString());
+                        empleado.Usuario = oReader["UsuarioEmpleado"].ToString();
+                        empleado.Contraseña = oReader["ContraseñaEmpleado"].ToString();
+                        empleado.Estado = int.Parse(oReader["estado"].ToString());
+                       
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return empleado;
+        }
     }
 }
 

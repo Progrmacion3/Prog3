@@ -26,5 +26,10 @@ namespace Dominio.Clases
         {
             return Persistencia.Clases.pCamionero.TraerTodosLosCamioneros();
         }
+
+        public static Common.Clases.Camionero Traer_UnCamionero(Common.Clases.Camionero pCamionero)
+        {
+            return Persistencia.Clases.pCamionero.TraerUnCamioneroEnEspecifico(pCamionero);
+        }
     }
 }

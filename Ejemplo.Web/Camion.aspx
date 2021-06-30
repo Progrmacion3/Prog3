@@ -86,6 +86,11 @@ Inherits="Ejemplo.Web.Camion" %>
                 <asp:Label ID="lblResultadoCam" runat="server" ForeColor="Red"></asp:Label>
             </td>
         </tr>
+            <tr>
+            <td colspan="3" align="left">
+                <asp:Label ID="lblIdCamion" runat="server" ForeColor="Red"></asp:Label>
+            </td>
+        </tr>
               <tr>
                   <td>
                          <asp:Button ID="btnAgregarCamion" runat="server" Text="Agregar" OnClick="btnAgregarCamion_Click" />

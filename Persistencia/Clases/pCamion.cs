@@ -158,5 +158,43 @@ namespace Persistencia.Clases
             }
             return retornarCamion;
         }
+
+        public static Common.Clases.Camion TraerUnCamionEnEspecifico(Common.Clases.Camion pCamion)
+        {
+           
+            Common.Clases.Camion camion=null;
+
+            try
+            {
+                var conn = new SqlConnection(CadenaDeConexion);
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("TraerUnCamionEnEspecifico", conn);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@idCamion", pCamion.idCamion));
+
+                using (SqlDataReader oReader = cmd.ExecuteReader())
+                {
+                    while (oReader.Read())
+                    {
+                        camion = new Common.Clases.Camion();
+                        camion.idCamion = int.Parse(oReader["idCamion"].ToString());
+                        camion.Matricula = oReader["matriculaCamion"].ToString();
+                        camion.Modelo = oReader["modeloCamion"].ToString();
+                        camion.Marca = oReader["marcaCamion"].ToString();
+                        camion.Año = int.Parse(oReader["añoCamion"].ToString());
+                       
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return camion;
+        }
     }
 }

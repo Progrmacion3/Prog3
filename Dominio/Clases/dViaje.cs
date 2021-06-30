@@ -26,6 +26,11 @@ namespace Dominio.Clases
         {
             return Persistencia.Clases.pViaje.TraerTodosLosViajes();
         }
-        
+
+        public static Common.Clases.Viaje Traer_UnViaje(Common.Clases.Viaje pVia)
+        {
+            return Persistencia.Clases.pViaje.TraerUnViajeEnEspecifico(pVia);
+        }
+
     }
 }

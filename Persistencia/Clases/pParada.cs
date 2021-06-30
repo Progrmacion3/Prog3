@@ -155,6 +155,41 @@ namespace Persistencia.Clases
             }
             return retornarPar;
         }
+
+        public static Common.Clases.Parada TraerUnaParadaEnEspecifica(Common.Clases.Parada pPar)
+        {
+
+            Common.Clases.Parada parada = null;
+
+            try
+            {
+                var conn = new SqlConnection(CadenaDeConexion);
+
+                SqlCommand cmd = new SqlCommand("TraerUnaParadaEnEspecifica", conn);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@idParada", pPar.identificadorPar));
+
+                using (SqlDataReader oReader = cmd.ExecuteReader())
+                {
+                    while (oReader.Read())
+                    {
+                        parada = new Common.Clases.Parada();
+                        parada.identificadorPar = int.Parse(oReader["idParada"].ToString());
+                        parada.EstadoParada = oReader["estadoParada"].ToString();
+                        parada.Tipo = oReader["tipoParada"].ToString();
+                        parada.Comentario = oReader["comentarioParada"].ToString();
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return parada;
+        }
     }
 }
 

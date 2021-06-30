@@ -27,6 +27,11 @@ namespace Dominio
         {
             return Dominio.Clases.dViaje.Traer_Viaje();
         }
+
+        public static Common.Clases.Viaje Traer_UnViaje(Common.Clases.Viaje pVia)
+        {
+            return Dominio.Clases.dViaje.Traer_UnViaje(pVia);
+        }
         #endregion
 
         #region Camion
@@ -48,6 +53,11 @@ namespace Dominio
         public static List<Common.Clases.Camion> Traer_Camiones()
         {
             return Dominio.Clases.dCamion.Traer_Camiones();
+        }
+
+        public static Common.Clases.Camion Traer_UnCamion(Common.Clases.Camion pCamion)
+        {
+            return Dominio.Clases.dCamion.Traer_UnCamion(pCamion);
         }
         #endregion
 
@@ -71,6 +81,11 @@ namespace Dominio
         {
             return Dominio.Clases.dCamionero.Traer_Camioneros();
         }
+
+        public static Common.Clases.Camionero Traer_UnCamionero(Common.Clases.Camionero pCamionero)
+        {
+            return Dominio.Clases.dCamionero.Traer_UnCamionero(pCamionero);
+        }
         #endregion
 
         #region Empleado
@@ -93,6 +108,12 @@ namespace Dominio
         {
             return Dominio.Clases.dEmpleado.Traer_Empleados();
         }
+
+        public static Common.Clases.Empleado Traer_UnCamion(Common.Clases.Empleado pEmp)
+        {
+            return Dominio.Clases.dEmpleado.Traer_UnEmpleado(pEmp);
+        }
+
         #endregion
 
         #region Parada
@@ -114,6 +135,11 @@ namespace Dominio
         public static List<Common.Clases.Parada> Traer_Paradas()
         {
             return Dominio.Clases.dParada.Traer_Paradas();
+        }
+
+        public static Common.Clases.Parada Traer_UnaParada(Common.Clases.Parada pPar)
+        {
+            return Dominio.Clases.dParada.Traer_UnaParada(pPar);
         }
         #endregion
     }

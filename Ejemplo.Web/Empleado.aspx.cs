@@ -94,11 +94,5 @@ namespace Ejemplo.Web
 
 
 
-<<<<<<< HEAD
-}   
-=======
 
-
-       
->>>>>>> bae5745cdac51adbdf04b2326459857e643a6e59
     

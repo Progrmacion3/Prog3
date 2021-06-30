@@ -26,5 +26,10 @@ namespace Dominio.Clases
         {
             return Persistencia.Clases.pEmpleado.TraerTodosLosEmpleados();
         }
+
+        public static Common.Clases.Empleado Traer_UnEmpleado(Common.Clases.Empleado pEmp)
+        {
+            return Persistencia.Clases.pEmpleado.TraerUnEmpleadoEnEspecifico(pEmp);
+        }
     }
 }
