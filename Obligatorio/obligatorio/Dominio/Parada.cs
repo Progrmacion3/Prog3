@@ -37,19 +37,27 @@ namespace obligatorio.Dominio
         public bool AgregarParada(Parada parParada)
         {
             if (this.BuscarParada(parParada) == null && pParada.AgregarParada(parParada))
+            {
+                Viaje viaje = new Empresa().BuscarViaje(new Viaje(parParada.IdViaje));
+                viaje.Estado = "Parado";
+                bool boolean = new Empresa().MenuViaje("modificar", viaje);
                 return true;
+            }
             return false;
 
         }
         public bool EliminarParada(Parada parParada)
         {
-            if (this.BuscarParada(parParada) != null && pParada.EliminarParada(parParada))
+            if (pParada.EliminarParada(parParada))
+            {
                 return true;
+            }
+                
             return false;
         }
         public bool ModificarParada(Parada parParada)
         {
-            if (this.BuscarParada(parParada) != null && pParada.ModificarParada(parParada))
+            if (pParada.ModificarParada(parParada))
                 return true;
             return false;
         }
@@ -70,8 +78,31 @@ namespace obligatorio.Dominio
             Comentario = pComentario;
             IdViaje = pIdViaje;
         }
+
+        public int ultimaId(int pIdViaje)
+        {
+            int max = 0;
+            Empresa empresa = new Empresa();
+            foreach (Viaje viaje in empresa.ListaViajes())
+            {
+                if (viaje.Id == pIdViaje)
+                {
+                    foreach (Parada parada in viaje.ListaParadas())
+                    {
+                        if (max <= parada.Id)
+                        {
+                            max = parada.Id;
+                        }
+
+                    }
+                }
+            }
+            return max;
+        }
+
         public Parada(string pRazon, string pComentario, int pIdViaje)
         {
+            Id = ultimaId(pIdViaje)+1;
             Razon = pRazon;
             Comentario = pComentario;
             IdViaje = pIdViaje;

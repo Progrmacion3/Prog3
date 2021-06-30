@@ -402,6 +402,13 @@
     <Compile Include="Presentacion\Consultas.aspx.designer.cs">
       <DependentUpon>Consultas.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Paradas.aspx.cs">
+      <DependentUpon>Consultas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Paradas.aspx.designer.cs">
+      <DependentUpon>Consultas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

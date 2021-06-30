@@ -9,10 +9,16 @@ namespace obligatorio.Dominio
     public class Login
     {
         private static string _tipoLogin;
+        private static Empleado _empLogeado;
         public string TipoLogin
         {
             get { return _tipoLogin; }
             set { _tipoLogin = value; }
+        }
+        public Empleado EmpLogeado
+        {
+            get { return _empLogeado; }
+            set { _empLogeado = value; }
         }
 
         public void loginCheck(string user, string contra)
@@ -26,6 +32,7 @@ namespace obligatorio.Dominio
                 if (admin.Usuario == user && admin.Contrasena == contra)
                 {
                     _tipoLogin = "A";
+                    _empLogeado = admin;
                     return;
                 }
                     
@@ -35,6 +42,7 @@ namespace obligatorio.Dominio
             {
                 if (camionero.Usuario == user && camionero.Contrasena == contra)
                 {
+                    _empLogeado = camionero;
                     _tipoLogin = "C";
                     return;
                 }

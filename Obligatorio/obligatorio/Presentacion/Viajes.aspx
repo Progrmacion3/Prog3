@@ -25,6 +25,14 @@
     <asp:Label ID="Label7" runat="server" Text="Destino:"></asp:Label>
     <asp:TextBox ID="txtDestino" runat="server"></asp:TextBox>
     <br />
+    <asp:Label ID="Label11" runat="server" Text="Estado del Viaje:"></asp:Label>
+    <asp:DropDownList ID="ddlEstado" runat="server">
+        <asp:ListItem Text="Propuesto" Value="Propuesto"></asp:ListItem>
+        <asp:ListItem Text="En Curso" Value="En Curso"></asp:ListItem>
+        <asp:ListItem Text="Parado" Value="Parado"></asp:ListItem>
+        <asp:ListItem Text="Finalizado" Value="Finalizado"></asp:ListItem>
+    </asp:DropDownList>
+    <br />
     <asp:Label ID="Label8" runat="server" Text="Fecha de inicio:"></asp:Label>
     <asp:Calendar ID="dtpFechaInicio" runat="server"></asp:Calendar>
     <br />

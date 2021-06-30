@@ -12,6 +12,19 @@ namespace obligatorio.Presentacion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Dominio.Login login = new Dominio.Login();
+            if (login.TipoLogin == "A")
+            {
+                this.Master.FindControl("btnEmp").Visible = true;
+                this.Master.FindControl("btnCamiones").Visible = true;
+                this.Master.FindControl("btnViajes").Visible = true;
+                this.Master.FindControl("btnParadas").Visible = true;
+            }
+            else if (login.TipoLogin == "C")
+            {
+                this.Master.FindControl("btnViajes").Visible = true;
+                this.Master.FindControl("btnParadas").Visible = true;
+            }
             if (!IsPostBack)
                 this.ListarDatos();
         }
@@ -47,6 +60,8 @@ namespace obligatorio.Presentacion
             Empresa empresa = new Empresa();
             this.grdCamioneros.DataSource = empresa.ListaCamioneros();
             this.grdCamioneros.DataBind();
+            this.grdAdmins.DataSource = empresa.ListaAdministradores();
+            this.grdAdmins.DataBind();
         }
 
         private void AvisoFaltanDatos()
@@ -109,7 +124,6 @@ namespace obligatorio.Presentacion
                     }
                     return;
                 }
-                // #removeElsesFromProgramming
                 if (this.rdbAdministrador.Checked)
                 {
                     string mNombre = this.InputName.Text;
@@ -137,10 +151,6 @@ namespace obligatorio.Presentacion
             return;
         }
 
-        protected void btnBaja_Click(object sender, EventArgs e)
-        {
-            // con la grid, dsp hay que borrarlo
-        }
 
         protected void btnModificar_Click(object sender, EventArgs e)
         {
@@ -178,9 +188,9 @@ namespace obligatorio.Presentacion
                     this.OperacionOutput("modificación no");
                     return;
                 }
-                // #removeElsesFromProgramming
                 if (this.rdbAdministrador.Checked)
                 {
+                    int mId = int.Parse(this.InputId.Text);
                     string mNombre = this.InputName.Text;
                     string mDocumento = this.InputDocument.Text;
                     string mApellido = this.InputSecondName.Text;
@@ -188,9 +198,9 @@ namespace obligatorio.Presentacion
                     string mPassword = this.InputPass.Text;
                     string mUser = this.InputUser.Text;
                     string mTelefono = this.InputTelefono.Text;
-                    Administrador unAdmin = new Administrador(mNombre, mApellido, mDocumento, mCargo, mTelefono, mUser, mPassword);
+                    Administrador unAdmin = new Administrador(mId, mNombre, mApellido, mDocumento, mCargo, mTelefono, mUser, mPassword);
 
-                    if (empresa.MenuAdmin("modificación", unAdmin))
+                    if (empresa.MenuAdmin("modificar", unAdmin))
                     {
                         this.LimpiarCampos();
                         this.ListarDatos();
@@ -222,10 +232,8 @@ namespace obligatorio.Presentacion
             if (output)
             {
                 this.ListarDatos();
-                //this.AvisoOperacion("baja");
                 return;
             }
-           //this.AvisoOperacion("baja no");
         }
 
         protected void grdCamioneros_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
@@ -246,6 +254,40 @@ namespace obligatorio.Presentacion
                 this.InputTipoLibreta.Text = camionero.TipoLibreta;
                 this.InputUser.Text = camionero.Usuario;
                 this.rdbCamionero.Checked = true;
+                return;
+            }
+
+            this.lblDataOutput.Text = "Algo salió mal";
+        }
+
+        protected void grdAdmins_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            this.LimpiarCampos();
+            TableCell idCelda = grdAdmins.Rows[e.RowIndex].Cells[1];
+            Administrador admin = new Empresa().BuscarAdministrador(new Administrador(int.Parse(idCelda.Text)));
+            bool output = new Empresa().MenuAdmin("baja", admin);
+            if (output)
+            {
+                this.ListarDatos();
+                return;
+            }
+        }
+
+        protected void grdAdmins_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+            this.LimpiarCampos();
+            TableCell idCelda = grdAdmins.Rows[e.NewSelectedIndex].Cells[1];
+            Administrador admin = new Empresa().BuscarAdministrador(new Administrador(int.Parse(idCelda.Text)));
+            if (admin != null)
+            {
+                this.InputId.Text = admin.Id.ToString();
+                this.InputName.Text = admin.Nombre;
+                this.InputSecondName.Text = admin.Apellido;
+                this.InputDocument.Text = admin.Cedula;
+                this.InputPass.Text = admin.Contrasena;
+                this.InputTelefono.Text = admin.Telefono;
+                this.InputUser.Text = admin.Usuario;
+                this.rdbAdministrador.Checked = true;
                 return;
             }
 

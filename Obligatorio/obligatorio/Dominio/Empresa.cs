@@ -20,7 +20,7 @@ namespace obligatorio.Dominio
         }
         public List<Administrador> ListaAdministradores()
         {
-            return _listaAdmins;
+            return _listaAdmins = pAdministrador.pListaAdmins();
         }
         public List<Camion> ListaCamiones()
         {

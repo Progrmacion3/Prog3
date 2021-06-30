@@ -10,15 +10,30 @@ namespace obligatorio.Presentacion
 {
     public partial class Paradas : System.Web.UI.Page
     {
+        static int id = -1;
+        static int idP = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Dominio.Login login = new Dominio.Login();
+            if (login.TipoLogin == "A")
+            {
+                this.Master.FindControl("btnEmp").Visible = true;
+                this.Master.FindControl("btnCamiones").Visible = true;
+                this.Master.FindControl("btnViajes").Visible = true;
+                this.Master.FindControl("btnParadas").Visible = true;
+            }
+            else if (login.TipoLogin == "C")
+            {
+                this.Master.FindControl("btnViajes").Visible = true;
+                this.Master.FindControl("btnParadas").Visible = true;
+            }
             if (!IsPostBack)
                 this.CargarDatos();
         }
 
         private bool FaltanDatos()
         {
-            if (this.txtRazon.Text == "" || this.txtViaje.Text == "")
+            if (this.txtRazon.Text == "" || this.ddlViaje.SelectedItem == null)
                 return true;
             return false;
         }
@@ -30,7 +45,7 @@ namespace obligatorio.Presentacion
         {
             this.lblMissingTrip.Text = "";
             this.lblDataOutput.Text = "";
-            this.txtViaje.Text = "";
+            this.ddlViaje.SelectedIndex = 0;
             this.txtRazon.Text = "";
             this.txtComentario.Text = "";
         }
@@ -47,13 +62,49 @@ namespace obligatorio.Presentacion
         private void ResultadoOperacion(string operacion)
         {
             if(operacion == "alta" || operacion == "baja" || operacion == "modificación")
+            {
                 this.lblDataOutput.Text = $"Todo piolaaaaaaaaaa con la {operacion}";
+                return;
+            }    
             this.lblDataOutput.Text = $"NADA PIOLA CON LA {operacion}, TODO MAL CON VOS";
         }
         private void CargarDatos()
         {
-            this.grdParadas.DataSource = new Empresa().ListaParadas();
-            this.grdParadas.DataBind();
+            if (this.ddlViaje.Text != "")
+            {
+                id = int.Parse(ddlViaje.Text);
+            }
+            foreach (Viaje viaje in new Empresa().ListaViajes())
+            {
+                if (id >= 0)
+                {
+                    if (viaje.Id == id)
+                    {
+                        this.grdParadas.DataSource = viaje.ListaParadas();
+                        this.grdParadas.DataBind();
+                    }
+                }
+                
+            }
+            
+
+            List<string> listaIdViajes = new List<string>();
+            listaIdViajes.Add("");
+            foreach(Viaje viaje in new Empresa().ListaViajes())
+            {
+                Dominio.Login login = new Dominio.Login();
+                if(login.TipoLogin == "C" && viaje.Camionero.Id == login.EmpLogeado.Id)
+                {
+                    listaIdViajes.Add(viaje.Id.ToString());
+                }
+                else
+                {
+                    listaIdViajes.Add(viaje.Id.ToString());
+                }
+                
+            }
+            this.ddlViaje.DataSource = listaIdViajes;
+            this.ddlViaje.DataBind();
         }
 
         protected void btnAlta_Click(object sender, EventArgs e)
@@ -61,13 +112,8 @@ namespace obligatorio.Presentacion
             if (!FaltanDatos())
             {
                 int mIdViaje;
-                if(int.TryParse(this.txtViaje.Text, out mIdViaje))
-                {
-                    this.IdViajeIncorrecta();
-                    return;
-                }
                 Empresa empresa = new Empresa();
-                mIdViaje = int.Parse(this.txtViaje.Text);
+                mIdViaje = id;
                 string mComentario = this.CheckComentario();
                 string mRazon = this.txtRazon.Text;
 
@@ -90,17 +136,13 @@ namespace obligatorio.Presentacion
             if (!FaltanDatos())
             {
                 int mIdViaje;
-                if(int.TryParse(this.txtViaje.Text, out mIdViaje))
-                {
-                    this.IdViajeIncorrecta();
-                    return;
-                }
                 Empresa empresa = new Empresa();
-                mIdViaje = int.Parse(this.txtViaje.Text);
+                mIdViaje = id;
+                int idParada = idP;
                 string mComentario = this.CheckComentario();
                 string mRazon = this.txtRazon.Text;
 
-                Parada laParada = new Parada(mRazon, mComentario, mIdViaje);
+                Parada laParada = new Parada(idParada, mRazon, mComentario, mIdViaje);
                 if(empresa.MenuParada("modificar", laParada))
                 {
                     this.CargarDatos();
@@ -122,14 +164,23 @@ namespace obligatorio.Presentacion
         protected void grdParadas_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             this.LimpiarCampos();
-            TableCell idCelda = this.grdParadas.Rows[e.RowIndex].Cells[1];
-            Parada laParada = new Empresa().BuscarParada(new Parada(int.Parse(idCelda.Text)));
-            bool output = new Empresa().MenuParada("baja", laParada);
-            if (output)
+            TableCell idParada = this.grdParadas.Rows[e.RowIndex].Cells[1];
+            TableCell idViaje = this.grdParadas.Rows[e.RowIndex].Cells[4];
+
+            Viaje viaje = new Empresa().BuscarViaje(new Viaje(int.Parse(idViaje.Text)));
+            foreach (Parada parada in viaje.ListaParadas())
             {
-                this.CargarDatos();
-                this.ResultadoOperacion("baja");
-                return;
+                if (parada.Id == int.Parse(idParada.Text))
+                {
+                    bool output = new Empresa().MenuParada("baja", parada);
+                    if (output)
+                    {
+                        this.ResultadoOperacion("baja");
+                        this.CargarDatos();
+                        return;
+                    }
+                        
+                }
             }
             this.ResultadoOperacion("baja no");
         }
@@ -137,17 +188,27 @@ namespace obligatorio.Presentacion
         protected void grdParadas_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
             this.LimpiarCampos();
-            TableCell idCelda = this.grdParadas.Rows[e.NewSelectedIndex].Cells[1];
-            Parada laParada = new Empresa().BuscarParada(new Parada(int.Parse(idCelda.Text));
-            if(laParada != null)
+            TableCell idParada = this.grdParadas.Rows[e.NewSelectedIndex].Cells[1];
+            TableCell idViaje = this.grdParadas.Rows[e.NewSelectedIndex].Cells[4];
+
+            Viaje viaje = new Empresa().BuscarViaje(new Viaje(int.Parse(idViaje.Text)));
+            foreach(Parada parada in viaje.ListaParadas())
             {
-                this.txtComentario.Text = laParada.Comentario;
-                this.txtRazon.Text = laParada.Razon;
-                this.txtViaje.Text = laParada.Id.ToString();
-                return;
+                if(parada.Id == int.Parse(idParada.Text))
+                {
+                    this.txtComentario.Text = parada.Comentario;
+                    this.txtRazon.Text = parada.Razon;
+                    id = parada.IdViaje;
+                    idP = parada.Id;
+                    return;
+                }
             }
             this.lblDataOutput.Text = "Algo salió mal.";
         }
 
+        protected void ddlViaje_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           this.CargarDatos();
+        }
     }
 }

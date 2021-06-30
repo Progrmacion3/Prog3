@@ -17,7 +17,7 @@ namespace obligatorio.Dominio
         private DateTime _fechaInicio;
         private DateTime _fechaFin;
         private string _estado;
-        private static List<Parada> _listaParadas = new List<Parada>();
+        private List<Parada> _listaParadas = new List<Parada>();
 
         public int Id
         {

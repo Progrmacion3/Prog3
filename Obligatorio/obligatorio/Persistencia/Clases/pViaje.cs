@@ -95,7 +95,7 @@ namespace obligatorio.Persistencia.Clases
                 cmd.Parameters.Add(new SqlParameter("@destinoViaje", pViaje.Destino));
                 cmd.Parameters.Add(new SqlParameter("@fechaInicio", pViaje.FechaInicio));
                 cmd.Parameters.Add(new SqlParameter("@fechaFin", pViaje.FechaFin));
-                cmd.Parameters.Add(new SqlParameter("@estado", "propuesto"));
+                cmd.Parameters.Add(new SqlParameter("@estado", pViaje.Estado));
                 cmd.Parameters.Add(new SqlParameter("@idCamionero", pViaje.Camionero.Id));
                 cmd.Parameters.Add(new SqlParameter("@matriculaCamion", pViaje.Camion.Matricula));
 
@@ -141,6 +141,14 @@ namespace obligatorio.Persistencia.Clases
                         viaje.Estado = oReader["estado"].ToString();
                         viaje.Camionero = new Empresa().BuscarCamionero(new Camionero(int.Parse(oReader["idCamionero"].ToString())));
                         viaje.Camion = new Empresa().BuscarCamion(new Camion(oReader["idCamion"].ToString()));
+
+                        List<Parada> listaParadas = new List<Parada>();
+                        listaParadas = pParada.pListaParadasPorViaje(viaje.Id);
+                        foreach(Parada parada in listaParadas)
+                        {
+                            viaje.ListaParadas().Add(parada);
+                        }
+
                         listaViajes.Add(viaje);
                     }
                     conn.Close();

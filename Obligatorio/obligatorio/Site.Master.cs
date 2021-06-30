@@ -69,35 +69,9 @@ namespace obligatorio
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-          /* Dominio.Login login = new Dominio.Login();
-            if(login.TipoLogin == "A")
-            {
-                this.btnCamiones.Visible = true;
-                this.btnEmp.Visible = true;
-                this.btnParadas.Visible = true;
-                this.btnViajes.Visible = true;
-            }
-            else if(login.TipoLogin == "C")
-            {
-                this.btnParadas.Visible = true;
-            }*/
+
         }
 
-        protected void MainContent_Init(object sender, EventArgs e)
-        {
-            Dominio.Login login = new Dominio.Login();
-            if (login.TipoLogin == "A")
-            {
-                this.btnCamiones.Visible = true;
-                this.btnEmp.Visible = true;
-                this.btnParadas.Visible = true;
-                this.btnViajes.Visible = true;
-            }
-            else if (login.TipoLogin == "C")
-            {
-                this.btnParadas.Visible = true;
-            }
-        }
     }
 
 }

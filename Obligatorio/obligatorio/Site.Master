@@ -9,7 +9,6 @@
     <title><%: Page.Title %> - Gestión Camionera "Camioncito Feroz"</title>
 
     <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -54,12 +53,13 @@
                         <li visible="false" runat="server" id="btnCamiones"><a runat="server" href="~/Presentacion/Camiones">Camiones</a></li>
                         <li visible="false" runat="server" id="btnViajes"><a runat="server" href="~/Presentacion/Viajes">Viajes</a></li>
                         <li visible="false" runat="server" id="btnParadas"><a runat="server" href="~/Presentacion/Paradas">Paradas</a></li>
+                        <li visible="false" runat="server" id="btnConsultas"><a runat="server" href="~/Presentacion/Consultas">Consultas</a></li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server" OnInit="MainContent_Init">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
             <footer>

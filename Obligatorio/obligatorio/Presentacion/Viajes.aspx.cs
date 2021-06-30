@@ -12,6 +12,27 @@ namespace obligatorio.Presentacion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Dominio.Login login = new Dominio.Login();
+            if (login.TipoLogin == "A")
+            {
+                this.Master.FindControl("btnEmp").Visible = true;
+                this.Master.FindControl("btnCamiones").Visible = true;
+                this.Master.FindControl("btnViajes").Visible = true;
+                this.Master.FindControl("btnParadas").Visible = true;
+            }
+            else if (login.TipoLogin == "C")
+            {
+                this.Master.FindControl("btnViajes").Visible = true;
+                this.Master.FindControl("btnParadas").Visible = true;
+                this.txtCamion.Enabled = false;
+                this.txtCamionero.Enabled = false;
+                this.txtCarga.Enabled = false;
+                this.txtDestino.Enabled = false;
+                this.txtOrigen.Enabled = false;
+                this.btnAlta.Enabled = false;
+                this.dtpFechaInicio.Enabled = false;
+                this.dtpFechaFin.Enabled = false;
+            }
             if (!IsPostBack)
             {
                 ListarDatos();
@@ -98,8 +119,9 @@ namespace obligatorio.Presentacion
                 DateTime mFechaFin = this.dtpFechaFin.SelectedDate;
                 Camion elCamion = mEmpresa.BuscarCamion(new Camion(this.txtCamion.Text));
                 Camionero elCamionero = mEmpresa.BuscarCamionero(new Camionero(int.Parse(this.txtCamionero.Text)));
+                string mEstado = this.ddlEstado.Text;
 
-                Viaje unViaje = new Viaje(elCamionero, elCamion, mCarga, mKilaje, mOrigen, mDestino, mFechaInicio, mFechaFin, "propuesto");
+                Viaje unViaje = new Viaje(elCamionero, elCamion, mCarga, mKilaje, mOrigen, mDestino, mFechaInicio, mFechaFin, mEstado);
                 if(mEmpresa.MenuViaje("alta", unViaje))
                 {
                     this.LimpiarCampos();
@@ -135,8 +157,9 @@ namespace obligatorio.Presentacion
                 DateTime mFechaFin = this.dtpFechaFin.SelectedDate;
                 Camion elCamion = mEmpresa.BuscarCamion(new Camion(this.txtCamion.Text));
                 Camionero elCamionero = mEmpresa.BuscarCamionero(new Camionero(int.Parse(this.txtCamionero.Text)));
+                string mEstado = this.ddlEstado.Text;
 
-                Viaje unViaje = new Viaje(mId, elCamionero, elCamion, mCarga, mKilaje, mOrigen, mDestino, mFechaInicio, mFechaFin);
+                Viaje unViaje = new Viaje(mId, elCamionero, elCamion, mCarga, mKilaje, mOrigen, mDestino, mFechaInicio, mFechaFin, mEstado);
                 if(mEmpresa.MenuViaje("modificar", unViaje))
                 {
                     this.LimpiarCampos();
@@ -192,5 +215,6 @@ namespace obligatorio.Presentacion
 
             this.lblDataOutput.Text = "Algo salió mal";
         }
+
     }
 }

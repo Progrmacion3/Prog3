@@ -17,16 +17,18 @@ namespace obligatorio.Dominio
         }
         public bool BajaAdmin(Administrador unAdmin)
         {
-            int num = new Random().Next();
-            if (num == 1)
+            if (BuscarAdmin(unAdmin) != null && Persistencia.Clases.pAdministrador.EliminarAdministrador(unAdmin))
+            {
                 return true;
+            }
             return false;
         }
         public bool ModificarAdmin(Administrador unAdmin)
         {
-            int num = new Random().Next();
-            if (num == 1)
+            if (BuscarAdmin(unAdmin) != null && Persistencia.Clases.pAdministrador.ModificarAdministrador(unAdmin))
+            {
                 return true;
+            }
             return false;
         }
         public Administrador BuscarAdmin(Administrador unAdmin)
@@ -46,7 +48,7 @@ namespace obligatorio.Dominio
          * vacio
          */
         public Administrador(int pId, string pNombre, string pApellido, string pCedula, string pCargo, string pTelefono, string pUsuario, string pContrasena):
-            base(pNombre, pApellido, pCargo, pCargo, pTelefono, pUsuario, pContrasena)
+            base(pId, pNombre, pApellido, pCedula, pCargo, pTelefono, pUsuario, pContrasena)
         {
 
         }

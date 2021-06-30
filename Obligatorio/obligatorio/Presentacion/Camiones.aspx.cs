@@ -12,6 +12,19 @@ namespace obligatorio.Presentacion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Dominio.Login login = new Dominio.Login();
+            if (login.TipoLogin == "A")
+            {
+                this.Master.FindControl("btnEmp").Visible = true;
+                this.Master.FindControl("btnCamiones").Visible = true;
+                this.Master.FindControl("btnViajes").Visible = true;
+                this.Master.FindControl("btnParadas").Visible = true;
+            }
+            else if (login.TipoLogin == "C")
+            {
+                this.Master.FindControl("btnViajes").Visible = true;
+                this.Master.FindControl("btnParadas").Visible = true;
+            }
             if (!IsPostBack)
                 ListarDatos();
         }

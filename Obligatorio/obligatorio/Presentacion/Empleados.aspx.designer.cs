@@ -76,6 +76,33 @@ namespace obligatorio.Presentacion {
         protected global::System.Web.UI.WebControls.TextBox InputPass;
         
         /// <summary>
+        /// rdbCamionero control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdbCamionero;
+        
+        /// <summary>
+        /// rdbAdministrador control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdbAdministrador;
+        
+        /// <summary>
+        /// lblRadioBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRadioBtn;
+        
+        /// <summary>
         /// InputEdad control.
         /// </summary>
         /// <remarks>
@@ -112,33 +139,6 @@ namespace obligatorio.Presentacion {
         protected global::System.Web.UI.WebControls.Calendar InputFechaVencimiento;
         
         /// <summary>
-        /// rdbCamionero control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdbCamionero;
-        
-        /// <summary>
-        /// rdbAdministrador control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdbAdministrador;
-        
-        /// <summary>
-        /// lblRadioBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRadioBtn;
-        
-        /// <summary>
         /// btnAlta control.
         /// </summary>
         /// <remarks>
@@ -166,6 +166,24 @@ namespace obligatorio.Presentacion {
         protected global::System.Web.UI.WebControls.Button btnLimpiar;
         
         /// <summary>
+        /// lblDataOutput control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDataOutput;
+        
+        /// <summary>
+        /// lblC control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblC;
+        
+        /// <summary>
         /// grdCamioneros control.
         /// </summary>
         /// <remarks>
@@ -175,12 +193,21 @@ namespace obligatorio.Presentacion {
         protected global::System.Web.UI.WebControls.GridView grdCamioneros;
         
         /// <summary>
-        /// lblDataOutput control.
+        /// lblA control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDataOutput;
+        protected global::System.Web.UI.WebControls.Label lblA;
+        
+        /// <summary>
+        /// grdAdmins control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdAdmins;
     }
 }
