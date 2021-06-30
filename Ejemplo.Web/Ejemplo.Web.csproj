@@ -66,6 +66,7 @@
     <Content Include="Forms\frmCamion.aspx" />
     <Content Include="Forms\frmEmpleado.aspx" />
     <Content Include="Forms\frmInicioSesion.aspx" />
+    <Content Include="Forms\frmListaParadas.aspx" />
     <Content Include="Forms\frmModificarKilaje.aspx" />
     <Content Include="Forms\frmViaje.aspx" />
     <Content Include="Forms\frmViajesCamionero.aspx" />
@@ -74,7 +75,9 @@
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -110,6 +113,13 @@
     </Compile>
     <Compile Include="Forms\frmInicioSesion.aspx.designer.cs">
       <DependentUpon>frmInicioSesion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmListaParadas.aspx.cs">
+      <DependentUpon>frmListaParadas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmListaParadas.aspx.designer.cs">
+      <DependentUpon>frmListaParadas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmModificarKilaje.aspx.cs">
       <DependentUpon>frmModificarKilaje.aspx</DependentUpon>
