@@ -69,6 +69,17 @@
                     ControlToValidate="txtApellidoEmp"></asp:RequiredFieldValidator>
             </td>
         </tr>
+               <tr>
+            <td align="left"> Cargo del empleado:
+            </td>
+            <td>
+                <asp:TextBox ID="txtCargo" MaxLength="50" runat="server"></asp:TextBox>
+            </td>
+            <td>
+                 <asp:RequiredFieldValidator ID="rfvCargo" runat="server" ErrorMessage="El cargo del empleado es obligatorio"
+                    ControlToValidate="txtCargo"></asp:RequiredFieldValidator>
+            </td>
+        </tr>
               <tr>
             <td align="left"> Tipo de empleado:
             </td>

@@ -7,7 +7,7 @@ namespace Dominio
 {
     public class Fachada
     {
-        #region ABMViaje
+        #region Viaje
         public static bool Agregar_Viaje(Common.Clases.Viaje pVia)
         {
             return Dominio.Clases.dViaje.Agregar_Viaje(pVia);
@@ -22,9 +22,14 @@ namespace Dominio
         {
             return Dominio.Clases.dViaje.Modificar_Viaje(pVia);
         }
+
+        public static List<Common.Clases.Viaje> Traer_Viaje()
+        {
+            return Dominio.Clases.dViaje.Traer_Viaje();
+        }
         #endregion
 
-        #region ABMCamion
+        #region Camion
         public static bool Agregar_Camion(Common.Clases.Camion pCamion)
         {
             return Dominio.Clases.dCamion.Agregar_Camion(pCamion);
@@ -39,9 +44,14 @@ namespace Dominio
         {
             return Dominio.Clases.dCamion.Modificar_Camion(pCamion);
         }
+
+        public static List<Common.Clases.Camion> Traer_Camiones()
+        {
+            return Dominio.Clases.dCamion.Traer_Camiones();
+        }
         #endregion
 
-        #region ABMCamionero
+        #region Camionero
         public static bool Agregar_Camionero(Common.Clases.Camionero pCamionero)
         {
             return Dominio.Clases.dCamionero.Agregar_Camionero(pCamionero);
@@ -56,9 +66,14 @@ namespace Dominio
         {
             return Dominio.Clases.dCamionero.Modificar_Camionero(pCamionero);
         }
+
+        public static List<Common.Clases.Camionero> Traer_Camioneros()
+        {
+            return Dominio.Clases.dCamionero.Traer_Camioneros();
+        }
         #endregion
 
-        #region ABMEmpleado
+        #region Empleado
         public static bool Agregar_Empleado(Common.Clases.Empleado pEmp)
         {
             return Dominio.Clases.dEmpleado.Agregar_Empleado(pEmp);
@@ -73,9 +88,14 @@ namespace Dominio
         {
             return Dominio.Clases.dEmpleado.Modificar_Empleado(pEmp);
         }
+
+        public static List<Common.Clases.Empleado> Traer_Empleados()
+        {
+            return Dominio.Clases.dEmpleado.Traer_Empleados();
+        }
         #endregion
 
-        #region ABMParada
+        #region Parada
         public static bool Agregar_Parada(Common.Clases.Parada pPar)
         {
             return Dominio.Clases.dParada.Agregar_Parada(pPar);
@@ -89,6 +109,11 @@ namespace Dominio
         public static bool Modificar_Parada(Common.Clases.Parada pPar)
         {
             return Dominio.Clases.dParada.Modificar_Parada(pPar);
+        }
+
+        public static List<Common.Clases.Parada> Traer_Paradas()
+        {
+            return Dominio.Clases.dParada.Traer_Paradas();
         }
         #endregion
     }

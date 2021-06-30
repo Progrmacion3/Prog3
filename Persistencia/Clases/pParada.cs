@@ -121,6 +121,40 @@ namespace Persistencia.Clases
             }
             return retorno;
         }
+
+        public static List<Common.Clases.Parada> TraerTodasLasParadas()
+        {
+            List<Common.Clases.Parada> retornarPar = new List<Common.Clases.Parada>();
+            Common.Clases.Parada parada;
+
+            try
+            {
+                var conn = new SqlConnection(CadenaDeConexion);
+
+                SqlCommand cmd = new SqlCommand("TraerTodasLasParadas", conn);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                using (SqlDataReader oReader = cmd.ExecuteReader())
+                {
+                    while (oReader.Read())
+                    {
+                        parada = new Common.Clases.Parada();
+                        parada.identificadorPar = int.Parse(oReader["idParada"].ToString());
+                        parada.EstadoParada= oReader["estadoParada"].ToString();
+                        parada.Tipo = oReader["tipoParada"].ToString();
+                        parada.Comentario = oReader["comentarioParada"].ToString();
+                        retornarPar.Add(parada);
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return retornarPar;
+        }
     }
 }
 

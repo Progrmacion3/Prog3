@@ -21,5 +21,10 @@ namespace Dominio.Clases
         {
             return Persistencia.Clases.pCamion.ModificarCamion(pCamion);
         }
+
+        public static List<Common.Clases.Camion> Traer_Camiones()
+        {
+            return Persistencia.Clases.pCamion.TraerTodosLosCamiones();
+        }    
     }
 }

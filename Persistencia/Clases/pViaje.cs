@@ -132,5 +132,45 @@ namespace Persistencia.Clases
             }
             return retorno;
         }
+
+        public static List<Common.Clases.Viaje> TraerTodosLosViajes()
+        {
+            List<Common.Clases.Viaje> retornarVia = new List<Common.Clases.Viaje>();
+            Common.Clases.Viaje viaje;
+
+            try
+            {
+                var conn = new SqlConnection(CadenaDeConexion);
+
+                SqlCommand cmd = new SqlCommand("TraerTodosLosViajes", conn);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                using (SqlDataReader oReader = cmd.ExecuteReader())
+                {
+                    while (oReader.Read())
+                    {
+                        viaje = new Common.Clases.Viaje();
+                        viaje.identificadorViaje = int.Parse(oReader["idViaje"].ToString());
+                        viaje.Camionero.identificadorCam = int.Parse(oReader["idCamionero"].ToString());
+                        viaje.Camion.idCamion = int.Parse(oReader["idCamion"].ToString());
+                        viaje.Tipo_Carga = oReader["TipoCargaViaje"].ToString();
+                        viaje.Kilaje = int.Parse (oReader["KilajeViaje"].ToString());
+                        viaje.Origen = oReader["OrigenViaje"].ToString();
+                        viaje.Destino = oReader["DestinoViaje"].ToString();
+                        viaje.Fecha_Inicio = DateTime.Parse(oReader["FechaInicioViaje"].ToString());
+                        viaje.Fecha_Finalizacion = DateTime.Parse(oReader["FechaFinalizacionViaje"].ToString());
+                        viaje.EstadoViaje = oReader["estadoViaje"].ToString();
+                        retornarVia.Add(viaje);
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return retornarVia;
+        }
     }
 }

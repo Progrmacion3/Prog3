@@ -21,6 +21,11 @@ namespace Dominio.Clases
         {
             return Persistencia.Clases.pParada.ModificarParada(pPar);
         }
+
+        public static List<Common.Clases.Parada> Traer_Paradas()
+        {
+            return Persistencia.Clases.pParada.TraerTodasLasParadas();
+        }
     }
 }
 

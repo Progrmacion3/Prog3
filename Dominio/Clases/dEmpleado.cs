@@ -21,5 +21,10 @@ namespace Dominio.Clases
         {
             return Persistencia.Clases.pEmpleado.ModificarEmpleado(pEmp);
         }
+
+        public static List<Common.Clases.Empleado> Traer_Empleados()
+        {
+            return Persistencia.Clases.pEmpleado.TraerTodosLosEmpleados();
+        }
     }
 }

@@ -76,6 +76,24 @@ namespace Ejemplo.Web {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvApellidoEmp;
         
         /// <summary>
+        /// txtCargo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCargo;
+        
+        /// <summary>
+        /// rfvCargo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCargo;
+        
+        /// <summary>
         /// txtTipoEmp control.
         /// </summary>
         /// <remarks>
