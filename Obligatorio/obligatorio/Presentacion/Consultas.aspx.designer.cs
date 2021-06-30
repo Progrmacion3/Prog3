@@ -22,6 +22,15 @@ namespace obligatorio.Presentacion {
         protected global::System.Web.UI.WebControls.Button btnC1;
         
         /// <summary>
+        /// grdC1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdC1;
+        
+        /// <summary>
         /// InputCiCamionero control.
         /// </summary>
         /// <remarks>
@@ -49,13 +58,13 @@ namespace obligatorio.Presentacion {
         protected global::System.Web.UI.WebControls.Button btnC2;
         
         /// <summary>
-        /// lstViajesCamionero control.
+        /// grdViajesCamionero control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstViajesCamionero;
+        protected global::System.Web.UI.WebControls.GridView grdViajesCamionero;
         
         /// <summary>
         /// txtParadaC3 control.

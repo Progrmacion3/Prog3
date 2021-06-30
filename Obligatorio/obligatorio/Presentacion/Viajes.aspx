@@ -19,7 +19,7 @@
     <br />
     <asp:Label ID="Label5" runat="server" Text="Kilaje:"></asp:Label>
     <asp:TextBox ID="txtKilaje" runat="server"></asp:TextBox>
-    <asp:Label ID="lblMissingKilaje" runat="server" Text="Label"></asp:Label>
+    <asp:Label ID="lblMissingKilaje" runat="server" Text=""></asp:Label>
     <br />
     <asp:Label ID="Label6" runat="server" Text="Origen:"></asp:Label>
     <asp:TextBox ID="txtOrigen" runat="server"></asp:TextBox>

@@ -59,7 +59,10 @@ namespace obligatorio.Presentacion
 
         protected void btnC1_Click(object sender, EventArgs e)
         {
-            
+            List<Viaje> listaViajes = new Empresa().ListaViajes();
+            List<Viaje> listaViajesOrdenada = new Empresa().OrdenoBurbujaViajes(listaViajes);
+            this.grdC1.DataSource = listaViajesOrdenada;
+            this.grdC1.DataBind();
         }
 
         protected void btnC2_Click(object sender, EventArgs e)
@@ -75,9 +78,9 @@ namespace obligatorio.Presentacion
                 }
             }
 
-           this.lstViajesCamionero.DataSource = null;
-           this.lstViajesCamionero.DataSource = ListaCamionerosViajes;
-           this.lstViajesCamionero.DataBind();
+           this.grdViajesCamionero.DataSource = null;
+           this.grdViajesCamionero.DataSource = ListaCamionerosViajes;
+           this.grdViajesCamionero.DataBind();
            
         }
 
@@ -85,7 +88,10 @@ namespace obligatorio.Presentacion
         {
             if (!FaltaParadaC3())
             {
-                int idParada = int.Parse(this.txtParadaC3.Text);
+                int idViaje = int.Parse(this.txtParadaC3.Text);
+                Viaje viaje = new Empresa().BuscarViaje(new Viaje(idViaje));
+                grdParadas.DataSource = viaje.ListaParadas();
+                grdParadas.DataBind();
             }
             this.AvisoFaltaCamioneroC3();
         }
@@ -109,7 +115,7 @@ namespace obligatorio.Presentacion
         protected void grdViajeC3_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
             this.LimpiarCampos();
-            int idViaje = int.Parse(this.grdViajeC3.Rows[e.NewSelectedIndex].Cells[3].Text);
+            int idViaje = int.Parse(this.grdViajeC3.Rows[e.NewSelectedIndex].Cells[1].Text);
 
             Viaje elViaje = new Empresa().BuscarViaje(new Viaje(idViaje));
             if(elViaje == null)
@@ -121,6 +127,11 @@ namespace obligatorio.Presentacion
         }
 
         protected void lstViajesCamionero_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void grdC1_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
 
         }

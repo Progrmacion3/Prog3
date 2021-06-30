@@ -129,8 +129,36 @@ namespace obligatorio.Dominio
         {
             return new Parada().BuscarParada(unaParada);
         }
+
+        public List<Viaje> OrdenoBurbujaViajes(List<Viaje> listaViajes)
+        {
+            List<Viaje> listaViajesMes = new List<Viaje>();
+            foreach(Viaje viaje in listaViajes)
+            {
+                if(viaje.FechaInicio.Month == DateTime.Today.Month)
+                {
+                    listaViajesMes.Add(viaje);
+                }
+            }
+            for(int i = 0; i < listaViajesMes.Count; i++)
+            {
+                for(int j = 0; j< listaViajesMes.Count-1; j++)
+                {
+                    if(listaViajesMes[j].FechaInicio > listaViajesMes[j + 1].FechaInicio)
+                    {
+                        Viaje viajeAux = listaViajesMes[j];
+                        listaViajesMes[j] = listaViajesMes[j + 1];
+                        listaViajesMes[j + 1] = viajeAux;
+                    }
+                }
+            }
+
+            return listaViajesMes;
+        }
     }
 
+
+    
     ////////////////////////////////////////Consultas////////////////////////////////////////
 
     //public List<Consultas> listaViajeCamionero(string pCi)
@@ -141,7 +169,7 @@ namespace obligatorio.Dominio
     //    }
     //}
 
-    //    public List<Consulta> listaFecha(string pFecha, string pTipo)g        
+    //public List<Consulta> listaFecha(string pFecha, string pTipo)      
     //    {
     //        List<Consulta> listaMascConsultadas = new List<Consulta>();
     //        foreach (Consulta unaConsulta in _listaConsultas)
