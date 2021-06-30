@@ -16,22 +16,112 @@ namespace Ejemplo.Web
 
         protected void btnAgregarParada_Click(object sender, EventArgs e)
         {
+            Common.Clases.Parada parada = new Common.Clases.Parada();
+            parada.Comentario = this.txtComentarioAdmin.Text;
+            parada.EstadoParada = this.txtEstadoParada.Text;
+            parada.Tipo = this.txtTipoParada.Text;
 
+            try
+            {
+                bool resultadoParada = Dominio.Fachada.Agregar_Parada(parada);
+
+                if (resultadoParada)
+                {
+                    lblResultadoParada.Text = "Se ha agregado correctamente una parada";
+                }
+                else
+                {
+                    lblResultadoParada.Text = "Error: no se agrego la parada";
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         protected void btnModificarParada_Click(object sender, EventArgs e)
         {
+            Common.Clases.Parada parada = new Common.Clases.Parada();
+            parada.Comentario = this.txtComentarioAdmin.Text;
+            parada.EstadoParada = this.txtEstadoParada.Text;
+            parada.Tipo = this.txtTipoParada.Text;
 
+            try
+            {
+                bool resultadoParada = Dominio.Fachada.Modificar_Parada(parada);
+
+                if (resultadoParada)
+                {
+                    lblResultadoParada.Text = "Se ha agregado correctamente una parada";
+                }
+                else
+                {
+                    lblResultadoParada.Text = "Error: no se agrego la parada";
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         protected void grillaParadas_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            try
+            {
+                this.lblResultadoParada.Text = string.Empty;
 
+                TableCell celdaIdpar = grillaParadas.Rows[e.RowIndex].Cells[1];
+                Common.Clases.Parada parada = new Common.Clases.Parada();
+                parada.identificadorPar = int.Parse(celdaIdpar.Text);
+
+                bool resultado = Dominio.Fachada.Eliminar_Parada(parada);
+
+                if (resultado)
+                {
+                    ClientScript.RegisterClientScriptBlock(GetType(), "alert", "alert('Parada eliminado exitosamente')", true);
+
+                }
+
+                else
+                {
+                    ClientScript.RegisterClientScriptBlock(GetType(), "alert", "alert('Error: no se pudo eliminar la parada')", true);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         protected void grillaParadas_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
+            try
+            {
+                this.lblResultadoParada.Text = string.Empty;
 
+                TableCell celdaId = grillaParadas.Rows[e.NewSelectedIndex].Cells[1];
+                Common.Clases.Parada parada = new Common.Clases.Parada();
+                parada.identificadorPar = int.Parse(celdaId.Text);
+                parada = Dominio.Fachada.
+
+
+            if (parada != null)
+                {
+                    this.txtComentarioAdmin.Text = parada.Comentario;
+                    this.txtEstadoParada.Text = parada.EstadoParada;
+                    this.txtTipoParada.Text = parada.Tipo;
+                }
+                else
+                {
+                    ClientScript.RegisterClientScriptBlock(GetType(), "alert", "alert('Error: no se pudo eliminar')", true);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
