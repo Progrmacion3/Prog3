@@ -18,6 +18,7 @@ namespace obligatorio
                 this.Master.FindControl("btnCamiones").Visible = true;
                 this.Master.FindControl("btnViajes").Visible = true;
                 this.Master.FindControl("btnParadas").Visible = true;
+                this.Master.FindControl("btnConsultas").Visible = true;
             }
             else if (login.TipoLogin == "C")
             {
