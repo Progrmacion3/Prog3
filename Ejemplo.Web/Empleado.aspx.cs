@@ -74,95 +74,27 @@ namespace Ejemplo.Web
                 throw ex;
             }
         }
-    }
 
         protected void btnEliminarEmpleado_Click(object sender, EventArgs e)
         {
-        Common.Clases.Empleado empleado = new Common.Clases.Empleado();
-        //empleado.idEmpleado = int.Parse(lblEm.Text);
-        //
-        //
-        if (Dominio.Fachada.Eliminar_Empleado(empleado))
-        {
-            ///    Edicion(false)
-            lbl.Text = "Se ha eliminado el cliente de manera correcta";
-            ///
+            
         }
-        else
+
+        protected void btnModificarEmpleado_Click(object sender, EventArgs e)
         {
-          ///  lbl.Text = "No se ha eliminado el empleado";
+
         }
-}
-
-    protected void btnModificarEmpleado_Click(object sender, EventArgs e)
-    {
-        Common.Clases.Empleado empleado = new Common.Clases.Empleado();
-        empleado.Apellido = this.txtApellidoEmp.Text;
-        empleado.CI = int.Parse(this.txtCI.Text);
-        empleado.Contraseña = this.txtContraseña.Text;
-        empleado.Nombre = this.txtNombreEmp.Text;
-        empleado.Telefono = int.Parse(this.txtTelefono.Text);
-        empleado.Tipo = this.txtTipoEmp.Text;
-        empleado.Usuario = this.txtUsuario.Text;
-
-
-        try
-        {
-            bool resultadoEmpleado = Dominio.Fachada.Agregar_Empleado(empleado);
-
-            if (resultadoEmpleado)
-            {
-                lblResultadoEmpleado.Text = "Se ha agregado correctamente un empleado";
-            }
-            else
-            {
-                lblResultadoEmpleado.Text = "Error: no se agrego el empleado";
-            }
-        }
-        catch (Exception ex)
-        {
-            throw ex;
-        }
-    }
-
-
-
-
 
         protected void grillaEmpleados_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
-        try
-        {
-            ////this.lbl.Text = string.Empty;
 
-            TableCell celdaIdEmpleado = grillaEmpleados.Rows[e.NewSelectedIndex].Cells[1];
-            Common.Clases.Empleado empleado = new Common.Clases.Empleado();
-            empleado.idEmpleado = int.Parse(celdaIdEmpleado.Text);
-            empleado = Dominio.Fachada.
-
-
-            if (empleado != null)
-            {
-                this.txtApellidoEmp.Text = empleado.Apellido;
-                this.txtCI.Text = empleado.CI.ToString();
-                this.txtContraseña.Text = empleado.Contraseña;
-                this.txtNombreEmp.Text = empleado.Nombre;
-                this.txtTelefono.Text = empleado.Telefono.ToString();
-                this.txtTipoEmp.Text = empleado.Tipo;
-                this.txtUsuario.Text = empleado.Usuario;
-
-              
-            }
-            else
-            {
-                ClientScript.RegisterClientScriptBlock(GetType(), "alert", "alert('Error: no se pudo eliminar')", true);
-            }
         }
-        catch (Exception ex)
-        {
-            throw ex;
-        }
-    }
-
+    } 
 }
+
+
+
+
+
+       
     

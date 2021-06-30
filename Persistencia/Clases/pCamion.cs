@@ -123,5 +123,40 @@ namespace Persistencia.Clases
             }
             return retorno;
         }
+
+        public static List<Common.Clases.Camion> TraerTodosLosCamiones()
+        {
+            List<Common.Clases.Camion> retornarCamion = new List<Common.Clases.Camion>();
+            Common.Clases.Camion camion;
+
+            try
+            {
+                var conn = new SqlConnection(CadenaDeConexion);
+
+                SqlCommand cmd = new SqlCommand("TraerTodosLosCamiones", conn);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                using (SqlDataReader oReader = cmd.ExecuteReader())
+                {
+                    while(oReader.Read())
+                    {
+                        camion = new Common.Clases.Camion();
+                        camion.idCamion = int.Parse(oReader["idCamion"].ToString());
+                        camion.Matricula = oReader["matriculaCamion"].ToString();
+                        camion.Modelo = oReader["modeloCamion"].ToString();
+                        camion.Marca = oReader["marcaCamion"].ToString();
+                        camion.Año = int.Parse(oReader["añoCamion"].ToString());
+                        retornarCamion.Add(camion);
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return retornarCamion;
+        }
     }
 }
