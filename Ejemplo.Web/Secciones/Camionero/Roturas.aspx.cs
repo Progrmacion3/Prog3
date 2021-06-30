@@ -16,17 +16,24 @@ namespace Ejemplo.Web.Secciones.Camionero
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
+            if (this.txtIdViaje.Text != string.Empty)
+            {
             int pId = int.Parse(this.txtIdViaje.Text);
             string pUsuario = Session["userName"].ToString();
             this.grdParadas.DataSource = Dominio.Fachada.MostrarEstadoRoturas(pId, pUsuario);
             this.grdParadas.DataBind();
+            }
+            else
+            {
+                this.txtIdViaje.Focus();           
+            }
         }
 
         protected void grdParadas_RowCreated(object sender, GridViewRowEventArgs e)
         {
-            e.Row.Cells[0].Visible = false;
-            e.Row.Cells[2].Visible = false;
-            e.Row.Cells[4].Visible = false;
+            //e.Row.Cells[0].Visible = false;
+            //e.Row.Cells[2].Visible = false;
+            //e.Row.Cells[4].Visible = false;
         }
     }
 }

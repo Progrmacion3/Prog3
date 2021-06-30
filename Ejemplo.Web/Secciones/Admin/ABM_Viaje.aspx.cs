@@ -34,7 +34,7 @@ namespace Ejemplo.Web.Secciones.Admin
                 this.txtDestino.Text = viaje.Destino;
                 this.txtFechaInicio.Text = Convert.ToString(viaje.FechaInicio);
                 this.txtFechaFin.Text = Convert.ToString(viaje.FechaFinal);
-                this.ddlEstado.SelectedItem.Text = viaje.Estado; 
+                this.ddlEstado.SelectedItem.Text = viaje.Estado;
             }
             else
             {
@@ -188,11 +188,18 @@ namespace Ejemplo.Web.Secciones.Admin
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            int cedula = int.Parse(this.txtCedulaCamionero.Text);
-            this.grdViajes.DataSource = Dominio.Fachada.MostrarViajesPorCamionero(cedula);
-            this.grdViajes.DataBind();
-            this.txtCedulaCamionero.Text = string.Empty;
-            this.txtCedulaCamionero.Focus();
+            if (this.txtCedulaCamionero.Text != string.Empty)
+            {
+                int cedula = int.Parse(this.txtCedulaCamionero.Text);
+                this.grdViajes.DataSource = Dominio.Fachada.MostrarViajesPorCamionero(cedula);
+                this.grdViajes.DataBind();
+                this.txtCedulaCamionero.Text = string.Empty;
+                this.txtCedulaCamionero.Focus();
+            }
+            else
+            {
+                this.txtCedulaCamionero.Focus();
+            }
         }
 
         protected void btnVerTodo_Click(object sender, EventArgs e)
