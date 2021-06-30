@@ -9,6 +9,17 @@ namespace Ejemplo.Web
 {
     public partial class Camionero : System.Web.UI.Page
     {
+        protected void ModoEdicionCamionero(bool pCamionero)
+        {
+            this.btnModificarCamionero.Visible = pCamionero;
+            this.btnAgregarCamionero.Visible = !pCamionero;
+
+            if (!pCamionero)
+            {
+                this.
+            }
+
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
 
