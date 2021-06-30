@@ -11,7 +11,7 @@
     </p>
     <p style="margin-left: 80px">
         <asp:Label ID="lblParada" runat="server" Text="Tipo de parada"></asp:Label>
-        <asp:DropDownList runat="server" ID="ddlTipoParada" OnSelectedIndexChanged="ddlTipoParada_SelectedIndexChanged1">
+        <asp:DropDownList runat="server" ID="ddlTipoParada">
             <asp:ListItem Value="Descanso">Descanso</asp:ListItem>
             <asp:ListItem Value="Rotura">Rotura</asp:ListItem>
         </asp:DropDownList>

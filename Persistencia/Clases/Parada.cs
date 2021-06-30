@@ -63,7 +63,7 @@ namespace Persistencia.Clases
 
                 using (SqlDataReader oReader = cmd.ExecuteReader())
                 {
-                    retorno = oReader["Comentario"].ToString();
+                    retorno = Convert.ToString(oReader["Comentario"]).ToString();
                 }
 
                 conexion.Close();
@@ -76,7 +76,44 @@ namespace Persistencia.Clases
 
             return retorno;
         }
+        public static List<Common.Clases.Parada> MostrarEstadoRotura(int pIdViaje, string pUsuario)
+        {
+            List<Common.Clases.Parada> retorno = new List<Common.Clases.Parada>();
+            Common.Clases.Parada parada;
 
+            try
+            {
+                var conexion = new SqlConnection(CadenaDeConexion);
+                conexion.Open();
+
+                SqlCommand cmd = new SqlCommand("MostrarRotura", conexion);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@IdViaje", pIdViaje));
+                cmd.Parameters.Add(new SqlParameter("@Usuario", pUsuario));
+
+                using (SqlDataReader oReader = cmd.ExecuteReader())
+                {
+                    while (oReader.Read())
+                    {
+                        parada = new Common.Clases.Parada();
+
+                        parada.IdViaje = int.Parse(oReader["IdViaje"].ToString());
+                        parada.Comentario = oReader["Comentario"].ToString();
+                        parada.Hora = Convert.ToDateTime(oReader["Hora"].ToString());
+                        
+                        retorno.Add(parada);
+                    }
+                    conexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return retorno;
+        }
         public static bool EliminarParada(Common.Clases.Parada pParada)
         {
             throw new NotImplementedException();

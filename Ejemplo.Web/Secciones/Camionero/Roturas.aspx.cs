@@ -18,8 +18,15 @@ namespace Ejemplo.Web.Secciones.Camionero
         {
             int pId = int.Parse(this.txtIdViaje.Text);
             string pUsuario = Session["userName"].ToString();
-            this.txtResultado.Text = Dominio.Fachada.MostrarRotura(pId, pUsuario);
-            this.txtResultado.DataBind();
+            this.grdParadas.DataSource = Dominio.Fachada.MostrarEstadoRoturas(pId, pUsuario);
+            this.grdParadas.DataBind();
+        }
+
+        protected void grdParadas_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            e.Row.Cells[0].Visible = false;
+            e.Row.Cells[2].Visible = false;
+            e.Row.Cells[4].Visible = false;
         }
     }
 }

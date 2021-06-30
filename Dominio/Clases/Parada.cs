@@ -27,5 +27,9 @@ namespace Dominio.Clases
         {
             return Persistencia.Clases.Parada.MostrarRotura(pId, pUsuario);
         }
+        public static List<Common.Clases.Parada> MostrarEstadoRoturas(int pIdViaje, string pUsuario)
+        {
+            return Persistencia.Clases.Parada.MostrarEstadoRotura(pIdViaje, pUsuario);
+        }
     }
 }

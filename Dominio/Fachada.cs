@@ -147,6 +147,10 @@ namespace Dominio
         {
             return Dominio.Clases.Parada.MostrarRotura(pId, pUsuario);
         }
+        public static List<Common.Clases.Parada> MostrarEstadoRoturas(int pIdViaje, string pUsuario)
+        {
+            return Dominio.Clases.Parada.MostrarEstadoRoturas(pIdViaje, pUsuario);
+        }
         #endregion
         #region Metodos de Viaje
 
