@@ -15,13 +15,14 @@ namespace Ejemplo.Web.Forms
             ActualizarGrillaCamiones();
             ActualizarGrillaViajes();
         }
+
         protected void ActualizarGrillaCamioneros()
         {
             this.grdCamioneros.DataSource = Dominio.Fachada.ListarCamioneros();
             this.grdCamioneros.DataBind();
         }
 
-         protected void ActualizarGrillaCamiones()
+        protected void ActualizarGrillaCamiones()
         {
             this.grdCamiones.DataSource = Dominio.Fachada.ListarCamiones();
             this.grdCamiones.DataBind();

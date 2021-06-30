@@ -19,7 +19,13 @@
                             <td colspan="3" align="left">
                                 <asp:Label ID="lblIdViaje" runat="server"></asp:Label>
                             </td>
-                            
+                        </tr>
+                        <tr>
+                            <td align="left">Parada:
+                            </td>
+                            <td colspan="3" align="left">
+                                <asp:Label ID="lblIdParada" runat="server"></asp:Label>
+                            </td>
                         </tr>
                         
                         <tr>
@@ -37,9 +43,9 @@
                                 <asp:Label ID="lblComentario" Text="Comentario:" runat="server" ></asp:Label>
                             </td>
                             <td>
-                                <asp:TextBox ID="txtComentario" MaxLength="150" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtComentarioEstado" MaxLength="150" runat="server"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="rfv" runat="server" ErrorMessage="Ingrese un Comentario"
-                                    ControlToValidate="txtComentario"></asp:RequiredFieldValidator>
+                                    ControlToValidate="txtComentarioEstado"></asp:RequiredFieldValidator>
                             </td>
                                                       
                         </tr>
@@ -47,6 +53,11 @@
                         <tr>
                             <td colspan="3" align="left">
                                 <asp:Label ID="lblResultado" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" align="left">
+                                <asp:Label ID="lblResultado2" runat="server"></asp:Label>
                             </td>
                         </tr>
                         

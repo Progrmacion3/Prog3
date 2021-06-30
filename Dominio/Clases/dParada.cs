@@ -11,17 +11,30 @@ namespace Dominio.Clases
         {
             return Persistencia.Clases.pParada.AltaParada(pParada);
         }
+
         public static bool BajaParada(Common.Clases.Parada pParada)
         {
             return Persistencia.Clases.pParada.BajaParada(pParada);
         }
-       public static List<Common.Clases.Parada> ListarParadas()
+
+        public static List<Common.Clases.Parada> ListarParadas()
         {
             return Persistencia.Clases.pParada.ListarParadas();
         }
+
         public static Common.Clases.Parada TraerParada(Common.Clases.Parada pParada)
         {
             return Persistencia.Clases.pParada.TraerParada(pParada);
+        }
+
+        public static List<Common.Clases.Parada> ListarParadasAvisar()
+        {
+            return Persistencia.Clases.pParada.ListarParadasAvisar();
+        }
+
+        public static bool BajaParadaAvisar(Common.Clases.Parada pParada)
+        {
+            return Persistencia.Clases.pParada.BajaParadaAvisar(pParada);
         }
 
 

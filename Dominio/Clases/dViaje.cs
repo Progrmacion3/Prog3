@@ -11,30 +11,42 @@ namespace Dominio.Clases
         {
             return Persistencia.Clases.pViaje.AltaViaje(pViaje);
         }
+
         public static bool BajaViaje(Common.Clases.Viaje pViaje)
         {
             return Persistencia.Clases.pViaje.BajaViaje(pViaje);
         }
+
         public static bool ModificarViaje(Common.Clases.Viaje pViaje)
         {
             return Persistencia.Clases.pViaje.ModificarViaje(pViaje);
         }
+
         public static bool ModificarEstadoViaje(Common.Clases.Viaje pViaje)
         {
             return Persistencia.Clases.pViaje.ModificarEstadoViaje(pViaje);
         }
+
         public static bool ModificarKilajeViaje(Common.Clases.Viaje pViaje)
         {
             return Persistencia.Clases.pViaje.ModificarKilajeViaje(pViaje);
         }
+
+        public static bool AgregarComentarioViaje(Common.Clases.Viaje pViaje)
+        {
+            return Persistencia.Clases.pViaje.AgregarComentarioViaje(pViaje);
+        }
+
         public static List<Common.Clases.Viaje> ListarViajes()
         {
             return Persistencia.Clases.pViaje.ListarViajes();
         }
+
         public static List<Common.Clases.Viaje> ListarViajesPorCamionero(Common.Clases.Camionero pCamionero)
         {
             return Persistencia.Clases.pViaje.ListarViajesPorCamionero(pCamionero);
         }
+
         public static Common.Clases.Viaje TraerViaje(Common.Clases.Viaje pViaje)
         {
             return Persistencia.Clases.pViaje.TraerViaje(pViaje);

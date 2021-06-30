@@ -22,6 +22,15 @@ namespace Ejemplo.Web.Forms {
         protected global::System.Web.UI.WebControls.Label lblIdViaje;
         
         /// <summary>
+        /// Control lblIdParada.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIdParada;
+        
+        /// <summary>
         /// Control ddlEstado.
         /// </summary>
         /// <remarks>
@@ -40,13 +49,13 @@ namespace Ejemplo.Web.Forms {
         protected global::System.Web.UI.WebControls.Label lblComentario;
         
         /// <summary>
-        /// Control txtComentario.
+        /// Control txtComentarioEstado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtComentario;
+        protected global::System.Web.UI.WebControls.TextBox txtComentarioEstado;
         
         /// <summary>
         /// Control rfv.
@@ -65,6 +74,15 @@ namespace Ejemplo.Web.Forms {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblResultado;
+        
+        /// <summary>
+        /// Control lblResultado2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResultado2;
         
         /// <summary>
         /// Control btnModificarEstado.

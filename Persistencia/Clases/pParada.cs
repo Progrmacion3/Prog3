@@ -176,5 +176,87 @@ namespace Persistencia.Clases
 
             return parada;
         }
+
+        public static List<Common.Clases.Parada> ListarParadasAvisar()
+        {
+            List<Common.Clases.Parada> ListaParadas = new List<Common.Clases.Parada>();
+            Common.Clases.Parada parada;
+
+            try
+            {
+                var conn = new SqlConnection(CadenaDeConexion);
+                conn.Open();
+
+                // 1. identificamos el store procedure a ejecutar
+                SqlCommand cmd = new SqlCommand("ParadasAviso_TraerTodas", conn);
+
+                // 2. identificamos el tipo de ejecución, en este caso un SP
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                // ejecutamos el store desde c#
+                using (SqlDataReader oReader = cmd.ExecuteReader())
+                {
+
+                    while (oReader.Read())
+                    {
+                        parada = new Common.Clases.Parada();
+                        parada.Id = short.Parse(oReader["idParada"].ToString());
+                        parada.Viaje = new Common.Clases.Viaje();
+                        parada.Viaje.Id = short.Parse(oReader["idViaje"].ToString());
+                        parada.Tipo = oReader["tipoParada"].ToString();
+                        parada.Comentario = oReader["comentarioParada"].ToString();
+                        ListaParadas.Add(parada);
+                    }
+
+                    conn.Close();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return ListaParadas;
+        }
+
+        public static bool BajaParadaAvisar(Common.Clases.Parada pParada)
+        {
+            bool retorno = true;
+
+            try
+            {
+                var conn = new SqlConnection(CadenaDeConexion);
+                conn.Open();
+
+                // 1. identificamos el store procedure a ejecutar
+                SqlCommand cmd = new SqlCommand("ParadasAviso_Eliminar", conn);
+
+                // 2. identificamos el tipo de ejecución, en este caso un SP
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                // 3. en caso de que los lleve se ponen los parametros del SP
+                cmd.Parameters.Add(new SqlParameter("@idViaje", pParada.Viaje.Id));
+
+                // ejecutamos el store desde c#
+                int rtn = cmd.ExecuteNonQuery();
+
+                if (rtn <= 0)
+                {
+                    retorno = false;
+                }
+
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return retorno;
+        }
     }
 }

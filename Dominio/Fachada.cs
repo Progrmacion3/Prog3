@@ -93,6 +93,15 @@ namespace Dominio
         {
             return Dominio.Clases.dParada.TraerParada(pParada);
         }
+
+        public static List<Common.Clases.Parada> ListarParadasAvisar()
+        {
+            return Dominio.Clases.dParada.ListarParadasAvisar();
+        }
+        public static bool BajaParadaAvisar(Common.Clases.Parada pParada)
+        {
+            return Dominio.Clases.dParada.BajaParadaAvisar(pParada);
+        }
         #endregion
 
         #region Viaje
@@ -115,6 +124,10 @@ namespace Dominio
         public static bool ModificarKilajeViaje(Common.Clases.Viaje pViaje)
         {
             return Dominio.Clases.dViaje.ModificarKilajeViaje(pViaje);
+        }
+        public static bool AgregarComentarioViaje(Common.Clases.Viaje pViaje)
+        {
+            return Dominio.Clases.dViaje.AgregarComentarioViaje(pViaje);
         }
         public static List<Common.Clases.Viaje> ListarViajes()
         {
