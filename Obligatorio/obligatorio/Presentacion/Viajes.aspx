@@ -7,10 +7,12 @@
     <asp:TextBox ID="txtId" runat="server" Enabled="False"></asp:TextBox>
     <br />
     <asp:Label ID="Label2" runat="server" Text="Camionero:"></asp:Label>
-    <asp:TextBox ID="txtCamionero" runat="server"></asp:TextBox>
+    <asp:DropDownList ID="ddlCamionero" runat="server">
+    </asp:DropDownList>
     <br />
     <asp:Label ID="Label3" runat="server" Text="Camión:"></asp:Label>
-    <asp:TextBox ID="txtCamion" runat="server"></asp:TextBox>
+    <asp:DropDownList ID="ddlCamion" runat="server">
+    </asp:DropDownList>
     <br />
     <asp:Label ID="Label4" runat="server" Text="Carga:"></asp:Label>
     <asp:TextBox ID="txtCarga" runat="server"></asp:TextBox>

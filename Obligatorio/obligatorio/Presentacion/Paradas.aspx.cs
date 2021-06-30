@@ -90,14 +90,14 @@ namespace obligatorio.Presentacion
 
             List<string> listaIdViajes = new List<string>();
             listaIdViajes.Add("");
-            foreach(Viaje viaje in new Empresa().ListaViajes())
+            foreach (Viaje viaje in new Empresa().ListaViajes())
             {
                 Dominio.Login login = new Dominio.Login();
-                if(login.TipoLogin == "C" && viaje.Camionero.Id == login.EmpLogeado.Id)
+                if (login.TipoLogin == "C" && viaje.Camionero.Id == login.EmpLogeado.Id)
                 {
                     listaIdViajes.Add(viaje.Id.ToString());
                 }
-                else
+                else if (login.TipoLogin == "A")
                 {
                     listaIdViajes.Add(viaje.Id.ToString());
                 }

@@ -24,8 +24,8 @@ namespace obligatorio.Presentacion
             {
                 this.Master.FindControl("btnViajes").Visible = true;
                 this.Master.FindControl("btnParadas").Visible = true;
-                this.txtCamion.Enabled = false;
-                this.txtCamionero.Enabled = false;
+                this.ddlCamion.Enabled = false;
+                this.ddlCamionero.Enabled = false;
                 this.txtCarga.Enabled = false;
                 this.txtDestino.Enabled = false;
                 this.txtOrigen.Enabled = false;
@@ -41,14 +41,14 @@ namespace obligatorio.Presentacion
 
         private bool FaltanDatos() // comprobamos que todos los campos tengan datos y las fechas sean validas
         {
-            if (this.txtCamion.Text == "" || this.txtCamionero.Text == "" || this.txtCarga.Text == "" || this.txtDestino.Text == "" || this.txtKilaje.Text == "" || this.txtOrigen.Text == "" || this.dtpFechaFin.SelectedDate >= this.dtpFechaInicio.SelectedDate)
+            if (this.ddlCamion.Text == "" || this.ddlCamionero.Text == "" || this.txtCarga.Text == "" || this.txtDestino.Text == "" || this.txtKilaje.Text == "" || this.txtOrigen.Text == "" || this.dtpFechaFin.SelectedDate >= this.dtpFechaInicio.SelectedDate)
                 return false;
             return true;
         }
         private void LimpiarCampos()
         {
-            this.txtCamion.Text = "";
-            this.txtCamionero.Text = "";
+            this.ddlCamion.SelectedIndex = 0;
+            this.ddlCamionero.SelectedIndex = 0;
             this.txtCarga.Text = "";
             this.txtDestino.Text = "";
             this.txtKilaje.Text = "";
@@ -62,6 +62,26 @@ namespace obligatorio.Presentacion
             Empresa empresa = new Empresa();
             this.grdViajes.DataSource = empresa.ListaViajes();
             this.grdViajes.DataBind();
+
+            List<string> listaMatriculasCamiones = new List<string>();
+            listaMatriculasCamiones.Add("");
+            foreach (Camion camion in new Empresa().ListaCamiones())
+            {
+                listaMatriculasCamiones.Add(camion.Matricula.ToString());
+            }
+
+            ddlCamion.DataSource = listaMatriculasCamiones;
+            ddlCamion.DataBind();
+
+            List<string> listaIdCamioneros = new List<string>();
+            listaIdCamioneros.Add("");
+            foreach (Camionero camionero in new Empresa().ListaCamioneros())
+            {
+                listaIdCamioneros.Add(camionero.Id.ToString());
+            }
+
+            ddlCamionero.DataSource = listaIdCamioneros;
+            ddlCamionero.DataBind();
         }
 
         private void AvisoFaltaKilaje()
@@ -111,14 +131,14 @@ namespace obligatorio.Presentacion
                 }
                 mKilaje = int.Parse(this.txtKilaje.Text);
                 Empresa mEmpresa = new Empresa();
-                string mMatCamion = this.txtCamion.Text;
+                string mMatCamion = this.ddlCamion.Text;
                 string mCarga = this.txtCarga.Text;
                 string mOrigen = this.txtOrigen.Text;
                 string mDestino = this.txtDestino.Text;
                 DateTime mFechaInicio = this.dtpFechaInicio.SelectedDate;
                 DateTime mFechaFin = this.dtpFechaFin.SelectedDate;
-                Camion elCamion = mEmpresa.BuscarCamion(new Camion(this.txtCamion.Text));
-                Camionero elCamionero = mEmpresa.BuscarCamionero(new Camionero(int.Parse(this.txtCamionero.Text)));
+                Camion elCamion = mEmpresa.BuscarCamion(new Camion(this.ddlCamion.Text));
+                Camionero elCamionero = mEmpresa.BuscarCamionero(new Camionero(int.Parse(this.ddlCamionero.Text)));
                 string mEstado = this.ddlEstado.Text;
 
                 Viaje unViaje = new Viaje(elCamionero, elCamion, mCarga, mKilaje, mOrigen, mDestino, mFechaInicio, mFechaFin, mEstado);
@@ -149,14 +169,14 @@ namespace obligatorio.Presentacion
                 int mId = int.Parse(this.txtId.Text);
                 mKilaje = int.Parse(this.txtKilaje.Text);
                 Empresa mEmpresa = new Empresa();
-                string mMatCamion = this.txtCamion.Text;
+                string mMatCamion = this.ddlCamion.Text;
                 string mCarga = this.txtCarga.Text;
                 string mOrigen = this.txtOrigen.Text;
                 string mDestino = this.txtDestino.Text;
                 DateTime mFechaInicio = this.dtpFechaInicio.SelectedDate;
                 DateTime mFechaFin = this.dtpFechaFin.SelectedDate;
-                Camion elCamion = mEmpresa.BuscarCamion(new Camion(this.txtCamion.Text));
-                Camionero elCamionero = mEmpresa.BuscarCamionero(new Camionero(int.Parse(this.txtCamionero.Text)));
+                Camion elCamion = mEmpresa.BuscarCamion(new Camion(this.ddlCamion.Text));
+                Camionero elCamionero = mEmpresa.BuscarCamionero(new Camionero(int.Parse(this.ddlCamionero.Text)));
                 string mEstado = this.ddlEstado.Text;
 
                 Viaje unViaje = new Viaje(mId, elCamionero, elCamion, mCarga, mKilaje, mOrigen, mDestino, mFechaInicio, mFechaFin, mEstado);
@@ -202,8 +222,8 @@ namespace obligatorio.Presentacion
             if (viaje != null)
             {
                 this.txtId.Text = viaje.Id.ToString();
-                this.txtCamion.Text = viaje.Camion.Matricula;
-                this.txtCamionero.Text = viaje.Camionero.Id.ToString();
+                this.ddlCamion.Text = viaje.Camion.Matricula;
+                this.ddlCamionero.Text = viaje.Camionero.Id.ToString();
                 this.txtCarga.Text = viaje.Carga;
                 this.txtOrigen.Text = viaje.Origen;
                 this.txtDestino.Text = viaje.Destino;

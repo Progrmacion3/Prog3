@@ -49,13 +49,13 @@ namespace obligatorio.Presentacion {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// txtCamionero control.
+        /// ddlCamionero control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCamionero;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCamionero;
         
         /// <summary>
         /// Label3 control.
@@ -67,13 +67,13 @@ namespace obligatorio.Presentacion {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// txtCamion control.
+        /// ddlCamion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCamion;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCamion;
         
         /// <summary>
         /// Label4 control.
