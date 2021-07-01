@@ -104,18 +104,16 @@ namespace Ejemplo.Web
                 TableCell celdaId = grillaParadas.Rows[e.NewSelectedIndex].Cells[1];
                 Common.Clases.Parada parada = new Common.Clases.Parada();
                 parada.identificadorPar = int.Parse(celdaId.Text);
-                parada = Dominio.Fachada.
+                parada = Dominio.Fachada.Traer_UnaParada(parada);
 
 
             if (parada != null)
                 {
-                    this.txtComentarioAdmin.Text = parada.Comentario;
-                    this.txtEstadoParada.Text = parada.EstadoParada;
-                    this.txtTipoParada.Text = parada.Tipo;
+                      
                 }
                 else
                 {
-                    ClientScript.RegisterClientScriptBlock(GetType(), "alert", "alert('Error: no se pudo eliminar')", true);
+                    ClientScript.RegisterClientScriptBlock(GetType(), "alert", "alert('Error: no se pudo cargar el dato')", true);
                 }
             }
             catch (Exception ex)

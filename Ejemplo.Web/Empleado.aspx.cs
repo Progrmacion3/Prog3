@@ -10,33 +10,7 @@ namespace Ejemplo.Web
     public partial class Empleado : System.Web.UI.Page
     {
 
-        protected void ModoEdicionEmpleado(bool value)
-        {
-            if (value)
-            {
-                this.btnAgregarEmpleado.Visible = false;
-                this.btnModificarEmpleado.Visible = true;
-                this.btnEliminarEmpleado.Visible = true;
-                this.grillaEmpleados.Enabled = false;
-            }
-            else
-            {
-                this.btnAgregarEmpleado.Visible = true;
-                this.btnModificarEmpleado.Visible = false;
-                this.btnEliminarEmpleado.Visible = false;
-                this.grillaEmpleados.Enabled = true;
-                this.txtNombreEmp.Text = string.Empty;
-                this.txtApellidoEmp.Text = string.Empty;
-                this.txtContraseña.Text = string.Empty;
-                this.txtCI.Text = string.Empty;
-                this.txtTelefono.Text = string.Empty;
-                this.txtTipoEmp.Text = string.Empty;
-                this.txtUsuario.Text = string.Empty;
-                
-            
-
-            }
-  }
+       
          
 
         protected void Page_Load(object sender, EventArgs e)

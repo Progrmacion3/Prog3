@@ -131,7 +131,7 @@ namespace Ejemplo.Web
                 TableCell celdaId = grillaCamiones.Rows[e.NewSelectedIndex].Cells[1];
                 Common.Clases.Camion camion = new Common.Clases.Camion();
                 camion.idCamion = int.Parse(celdaId.Text);
-                camion = Dominio.Fachada.
+                camion = Dominio.Fachada.Traer_UnCamion(camion);
 
 
             if (camion != null)

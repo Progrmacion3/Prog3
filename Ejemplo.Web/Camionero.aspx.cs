@@ -9,17 +9,7 @@ namespace Ejemplo.Web
 {
     public partial class Camionero : System.Web.UI.Page
     {
-        protected void ModoEdicionCamionero(bool pCamionero)
-        {
-            this.btnModificarCamionero.Visible = pCamionero;
-            this.btnAgregarCamionero.Visible = !pCamionero;
-
-            if (!pCamionero)
-            {
-                this.
-            }
-
-        }
+      
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -116,7 +106,7 @@ namespace Ejemplo.Web
                 TableCell celdaIdcamionero = grillaCamioneros.Rows[e.NewSelectedIndex].Cells[1];
                 Common.Clases.Camionero camionero = new Common.Clases.Camionero();
                 camionero.identificadorCam = int.Parse(celdaIdcamionero.Text);
-                camionero = Dominio.Fachada.
+                camionero = Dominio.Fachada.Traer_UnCamionero(camionero);
 
 
             if (camionero != null)

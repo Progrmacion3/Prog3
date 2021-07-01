@@ -49,7 +49,7 @@ namespace Ejemplo.Web
                 TableCell celdaId = grillaParadas.Rows[e.NewSelectedIndex].Cells[1];
                 Common.Clases.Parada paradaC = new Common.Clases.Parada();
                 paradaC.identificadorPar = int.Parse(celdaId.Text);
-                paradaC = Dominio.Fachada.
+                paradaC = Dominio.Fachada.Traer_UnaParada(paradaC);
 
 
             if (paradaC != null)
