@@ -17,10 +17,7 @@ namespace Ejemplo.Web
 
 
         }
-        protected void ModoEdicionCamiones(bool pVisible)
-        {
-           
-        }
+      
 
         protected void ActualizarGrillaCamiones()
         {

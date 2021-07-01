@@ -9,22 +9,25 @@ namespace Ejemplo.Web
 {
     public partial class Camionero : System.Web.UI.Page
     {
-        protected void ModoEdicionCamionero(bool pCamionero)
-        {
-            this.btnModificarCamionero.Visible = pCamionero;
-            this.btnAgregarCamionero.Visible = !pCamionero;
-
-            if (!pCamionero)
-            {
-                this.
-            }
-
-        }
+      
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
+        protected void ActualizarGrillaCamioneros()
+
+        {
+            this.grillaCamioneros.DataSource = Dominio.Fachada.Traer_Camioneros();
+            this.grillaCamioneros.DataBind();
+        }
+
+        protected void LimpiarCamposCamioneros()
+        {
+            this.txtEdadCam.Text = string.Empty;
+            this.txtFechaVencimientoLibreta.Text = string.Empty;
+            this.txtTipoLibreta.Text = string.Empty;
+        }
         protected void btnAgregarCamionero_Click(object sender, EventArgs e)
         {
             Common.Clases.Camionero camionero = new Common.Clases.Camionero();
