@@ -12,9 +12,25 @@ namespace Ejemplo.Web
       
         protected void Page_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
+=======
 
         }
+>>>>>>> f1474fbb30a7df7149dc6184d0a9830d329fb780
 
+        protected void ActualizarGrillaCamioneros()
+
+        {
+            this.grillaCamioneros.DataSource = Dominio.Fachada.Traer_Camioneros();
+            this.grillaCamioneros.DataBind();
+        }
+
+        protected void LimpiarCamposCamioneros()
+        {
+            this.txtEdadCam.Text = string.Empty;
+            this.txtFechaVencimientoLibreta.Text = string.Empty;
+            this.txtTipoLibreta.Text = string.Empty;
+        }
         protected void btnAgregarCamionero_Click(object sender, EventArgs e)
         {
             Common.Clases.Camionero camionero = new Common.Clases.Camionero();
