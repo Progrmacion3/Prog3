@@ -31,5 +31,9 @@ namespace Dominio.Clases
         {
             return Persistencia.Clases.Parada.MostrarEstadoRotura(pIdViaje, pUsuario);
         }
+        public static Common.Clases.Parada MostrarParadaEspecifica(Common.Clases.Parada pParada)
+        {
+            return Persistencia.Clases.Parada.MostrarParadaEspecifica(pParada);
+        }
     }
 }

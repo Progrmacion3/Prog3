@@ -100,6 +100,7 @@ namespace Persistencia.Clases
                         parada = new Common.Clases.Parada();
 
                         parada.IdViaje = int.Parse(oReader["IdViaje"].ToString());
+                        parada.IdParada = int.Parse(oReader["IdParada"].ToString());
                         parada.Comentario = oReader["Comentario"].ToString();
                         parada.Hora = Convert.ToDateTime(oReader["Hora"].ToString());
                         
@@ -121,7 +122,39 @@ namespace Persistencia.Clases
 
         public static bool ModificarParada(Common.Clases.Parada pParada)
         {
-            throw new NotImplementedException();
+            bool retorno = true;
+
+            try
+            {
+                var conexion = new SqlConnection(CadenaDeConexion);
+                conexion.Open();
+
+                SqlCommand cmd = new SqlCommand("ModificarParadasAdmin", conexion);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@idViaje", pParada.IdViaje));
+                cmd.Parameters.Add(new SqlParameter("@idParada", pParada.IdParada));
+                cmd.Parameters.Add(new SqlParameter("@Comentario", pParada.Comentario));
+                cmd.Parameters.Add(new SqlParameter("@Estado", pParada.Estado));
+
+
+                int rtn = cmd.ExecuteNonQuery();
+                if (rtn <= 0)
+                {
+                    retorno = false;
+                }
+
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return retorno;
         }
         public static List<Common.Clases.Parada> MostrarParadas()
         {
@@ -151,6 +184,41 @@ namespace Persistencia.Clases
 
 
                         retorno.Add(parada);
+                    }
+                    conexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return retorno;
+        }
+        public static Common.Clases.Parada MostrarParadaEspecifica(Common.Clases.Parada pParada)
+        {
+            Common.Clases.Parada retorno = null;
+            try
+            {
+                var conexion = new SqlConnection(CadenaDeConexion);
+                conexion.Open();
+
+                SqlCommand cmd = new SqlCommand("mostrarParadaEspecifica", conexion);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@idParada", pParada.IdParada));
+
+                using (SqlDataReader oReader = cmd.ExecuteReader())
+                {
+                    while (oReader.Read())
+                    {
+                        retorno = new Common.Clases.Parada();
+                        retorno.IdParada = int.Parse(oReader["IdParada"].ToString());
+                        retorno.IdViaje = int.Parse(oReader["IdViaje"].ToString());
+                        retorno.Tipo = oReader["TipoParada"].ToString();
+                        retorno.Comentario = oReader["Comentario"].ToString();
+                        retorno.Hora = Convert.ToDateTime(oReader["Hora"].ToString());
+     
                     }
                     conexion.Close();
                 }

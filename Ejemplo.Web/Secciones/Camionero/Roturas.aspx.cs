@@ -57,7 +57,6 @@ namespace Ejemplo.Web.Secciones.Camionero
         }
         protected void grdParadas_RowCreated(object sender, GridViewRowEventArgs e)
         {
-
         }
 
         protected void grdParadas_Unload(object sender, EventArgs e)

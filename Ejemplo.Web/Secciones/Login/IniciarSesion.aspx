@@ -28,12 +28,14 @@
                         </div>
                         <div>
                             <asp:Label ID="lblContraseña" runat="server" Text="Contraseña:"></asp:Label>
-                            <asp:TextBox ID="txtContraseña" CssClass="form-control" runat="server" placeholder="Ingrese contraseña..."></asp:TextBox>
+                            <asp:TextBox ID="txtContraseña" CssClass="form-control" runat="server" TextMode="Password" placeholder="Ingrese contraseña..."></asp:TextBox>
                         </div>
                         <div id="cajaCheckBox">
-                        <asp:CheckBox runat="server" ID="ckbAdmin" Text="Admin"/>
-                        <asp:CheckBox runat="server" ID="ckbCamionero" Text="Camionero"/>
+                            <asp:CheckBox runat="server" ID="ckbAdmin" Text="Admin" />
+                            <asp:CheckBox runat="server" ID="ckbCamionero" Text="Camionero" />
                         </div>
+                        <input type="checkbox" onchange="document.getElementById('txtContraseña').type = this.checked ? 'text' : 'password'" />
+                        Mostrar contraseña
                         <hr />
                         <div class="row">
                             <asp:Label runat="server" ID="lblError" CssClass="alert-danger"></asp:Label>
