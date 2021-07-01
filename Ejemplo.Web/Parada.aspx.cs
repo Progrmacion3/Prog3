@@ -14,6 +14,20 @@ namespace Ejemplo.Web
 
         }
 
+        protected void ActualizarGrillaParadas()
+        {
+            this.grillaParadas.DataSource = Dominio.Fachada.Traer_Paradas();
+            this.grillaParadas.DataBind();
+        }
+
+        protected void LimpiarCamposParadas()
+        {
+            this.txtComentarioAdmin.Text = string.Empty;
+            this.txtEstadoParada.Text = string.Empty;
+            this.txtTipoParada.Text = string.Empty;
+          
+        }
+
         protected void btnAgregarParada_Click(object sender, EventArgs e)
         {
             Common.Clases.Parada parada = new Common.Clases.Parada();
