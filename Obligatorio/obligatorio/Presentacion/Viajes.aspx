@@ -1,39 +1,46 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Viajes.aspx.cs" Inherits="obligatorio.Presentacion.Viajes" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:Label ID="Label1" runat="server" Text="Gestión viajes" Font-Size="Larger"></asp:Label>
+    <br />
+    <b><asp:Label ID="Label1" runat="server" Text="Gestión viajes" Font-Size="Larger"></asp:Label></b>
     <br /> <br />
 
-    <asp:Label ID="Label10" runat="server" Text="Id:"></asp:Label>
-    <asp:TextBox ID="txtId" runat="server" Enabled="False"></asp:TextBox>
-    <br />
-    <asp:Label ID="Label2" runat="server" Text="Camionero:"></asp:Label>
-    <asp:DropDownList ID="ddlCamionero" runat="server">
-    </asp:DropDownList>
-    <br />
-    <asp:Label ID="Label3" runat="server" Text="Camión:"></asp:Label>
-    <asp:DropDownList ID="ddlCamion" runat="server">
-    </asp:DropDownList>
-    <br />
-    <asp:Label ID="Label4" runat="server" Text="Carga:"></asp:Label>
-    <asp:TextBox ID="txtCarga" runat="server"></asp:TextBox>
-    <br />
-    <asp:Label ID="Label5" runat="server" Text="Kilaje:"></asp:Label>
-    <asp:TextBox ID="txtKilaje" runat="server"></asp:TextBox>
-    <asp:Label ID="lblMissingKilaje" runat="server" Text=""></asp:Label>
-    <br />
-    <asp:Label ID="Label6" runat="server" Text="Origen:"></asp:Label>
-    <asp:TextBox ID="txtOrigen" runat="server"></asp:TextBox>
-    <br />
-    <asp:Label ID="Label7" runat="server" Text="Destino:"></asp:Label>
-    <asp:TextBox ID="txtDestino" runat="server"></asp:TextBox>
-    <br />
-    <asp:Label ID="Label11" runat="server" Text="Estado del Viaje:"></asp:Label>
-    <asp:DropDownList ID="ddlEstado" runat="server">
-        <asp:ListItem Text="Propuesto" Value="Propuesto"></asp:ListItem>
-        <asp:ListItem Text="En Curso" Value="En Curso"></asp:ListItem>
-        <asp:ListItem Text="Parado" Value="Parado"></asp:ListItem>
-        <asp:ListItem Text="Finalizado" Value="Finalizado"></asp:ListItem>
-    </asp:DropDownList>
+    <div class="form-group">
+        <label for="txtId">Id:</label>
+        <asp:TextBox runat="server" CssClass="form-control" ID="txtId" Enabled="false"></asp:TextBox>
+      </div>
+    <div class="form-group">
+        <label for="ddlCamion">Camionero:</label>
+        <asp:DropDownList runat="server" CssClass="form-control" ID="ddlCamionero"></asp:DropDownList>
+      </div>
+    <div class="form-group">
+        <label for="ddlCamion">Camión:</label>
+        <asp:DropDownList runat="server" CssClass="form-control" ID="ddlCamion"></asp:DropDownList>
+      </div>
+    <div class="form-group">
+        <label for="txtCarga">Carga:</label>
+        <asp:TextBox runat="server" CssClass="form-control" ID="txtCarga"></asp:TextBox>
+      </div>
+    <div class="form-group">
+        <label for="txtKilaje">Kilaje:</label>
+        <asp:TextBox runat="server" CssClass="form-control" ID="txtKilaje"></asp:TextBox><asp:Label ID="lblMissingKilaje" runat="server" Text=""></asp:Label>
+      </div>
+    <div class="form-group">
+        <label for="txtOrigen">Origen:</label>
+        <asp:TextBox runat="server" CssClass="form-control" ID="txtOrigen"></asp:TextBox>
+      </div>
+    <div class="form-group">
+        <label for="txtDestino">Destino:</label>
+        <asp:TextBox runat="server" CssClass="form-control" ID="txtDestino"></asp:TextBox>
+      </div>
+    <div class="form-group">
+        <label for="ddlEstado">Estado del Viaje:</label>
+        <asp:DropDownList runat="server" CssClass="form-control" ID="ddlEstado">
+            <asp:ListItem Text="Propuesto" Value="Propuesto"></asp:ListItem>
+            <asp:ListItem Text="En Curso" Value="En Curso"></asp:ListItem>
+            <asp:ListItem Text="Parado" Value="Parado"></asp:ListItem>
+            <asp:ListItem Text="Finalizado" Value="Finalizado"></asp:ListItem>
+        </asp:DropDownList>
+      </div>
     <br />
     <asp:Label ID="Label8" runat="server" Text="Fecha de inicio:"></asp:Label>
     <asp:Calendar ID="dtpFechaInicio" runat="server"></asp:Calendar>

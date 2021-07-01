@@ -112,8 +112,8 @@ namespace obligatorio.Presentacion
         protected void grdParadas_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
             this.LimpiarCampos();
-            int idParada = int.Parse(this.grdParadas.Rows[e.NewSelectedIndex].Cells[0].Text);
-            int idViaje = int.Parse(this.grdParadas.Rows[e.NewSelectedIndex].Cells[3].Text);
+            int idParada = int.Parse(this.grdParadas.Rows[e.NewSelectedIndex].Cells[2].Text);
+            int idViaje = int.Parse(this.grdParadas.Rows[e.NewSelectedIndex].Cells[1].Text);
 
             Viaje elViaje = new Empresa().BuscarViaje(new Viaje(idViaje));
             foreach (Parada unaParada in elViaje.ListaParadas())

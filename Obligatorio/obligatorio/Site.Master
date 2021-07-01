@@ -45,7 +45,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    Camionera &quot;Camión Feroz&quot;</div>
+                    <p style="color:white">Camionera &quot;Camión Feroz&quot;</p></div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/Presentacion/Default">Inicio</a>

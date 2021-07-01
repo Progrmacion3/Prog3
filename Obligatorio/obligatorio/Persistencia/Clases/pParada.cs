@@ -86,9 +86,13 @@ namespace obligatorio.Persistencia.Clases
                 SqlCommand cmd = new SqlCommand("Parada_Modificar", conn);
 
                 cmd.CommandType = CommandType.StoredProcedure;
-
+                string comment = "";
+                if(pParada.Comentario != null)
+                {
+                    comment = pParada.Comentario;
+                }
                 cmd.Parameters.Add(new SqlParameter("@idParada", pParada.Id));
-                cmd.Parameters.Add(new SqlParameter("@comentario", pParada.Comentario));
+                cmd.Parameters.Add(new SqlParameter("@comentario", comment));
                 cmd.Parameters.Add(new SqlParameter("@razon", pParada.Razon));
                 cmd.Parameters.Add(new SqlParameter("@idViaje", pParada.IdViaje));
                 cmd.Parameters.Add(new SqlParameter("@estado", pParada.Estado));

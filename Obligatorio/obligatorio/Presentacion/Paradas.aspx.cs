@@ -203,6 +203,7 @@ namespace obligatorio.Presentacion
                     this.txtComentario.Text = parada.Comentario;
                     this.txtRazon.Text = parada.Razon;
                     this.txtEstado.Text = parada.Estado;
+                    this.ddlViaje.Text = parada.IdViaje.ToString();
                     id = parada.IdViaje;
                     idP = parada.Id;
                     return;

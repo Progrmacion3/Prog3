@@ -53,7 +53,7 @@ namespace obligatorio.Dominio
 
         }
         public Administrador(string pNombre, string pApellido, string pCedula, string pCargo, string pTelefono, string pUsuario, string pContrasena) :
-            base(pNombre, pApellido, pCargo, pCargo, pTelefono, pUsuario, pContrasena)
+            base(pNombre, pApellido, pCedula, pCargo, pTelefono, pUsuario, pContrasena)
         {
 
         }

@@ -71,6 +71,7 @@ namespace obligatorio.Presentacion
         }
         private void LimpiarCampos()
         {
+            this.InputId.Text = "";
             this.InputEdad.Text = "";
             this.InputDocument.Text = "";
             this.InputTipoLibreta.Text = "";

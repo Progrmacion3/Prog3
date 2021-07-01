@@ -34,8 +34,8 @@
         <asp:GridView ID="grdViajeC3" runat="server" AutoGenerateColumns="true"
              AutoGenerateSelectButton="true" OnSelectedIndexChanging="grdViajeC3_SelectedIndexChanging" EmptyDataText="No hay viajes agregados." ></asp:GridView>
     <br />
-    <label> Selecciona luego la parada</label>
-           <asp:GridView ID="grdParadas" runat="server" AutoGenerateSelectButton="True"
+    <label> Paradas</label>
+           <asp:GridView ID="grdParadas" runat="server"
             CellPadding="4" OnSelectedIndexChanging="grdParadas_SelectedIndexChanging"
             AutoGenerateColumns="true" EmptyDataText="No hay paradas para el viaje seleccionado.">
        </asp:GridView>

@@ -56,6 +56,7 @@ namespace obligatorio.Presentacion
             this.txtOrigen.Text = "";
             this.dtpFechaFin.SelectedDate = DateTime.Today.Date;
             this.dtpFechaInicio.SelectedDate = DateTime.Today.Date;
+            this.txtId.Text = "";
             return;
         }
         private void ListarDatos()
