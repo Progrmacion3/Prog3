@@ -10,10 +10,15 @@ namespace Ejemplo.Web
     public partial class Empleado : System.Web.UI.Page
     {
 
+<<<<<<< HEAD
+       
+         
+=======
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
+>>>>>>> f1474fbb30a7df7149dc6184d0a9830d329fb780
 
         protected void ActualizarGrillaEmpleados()
         {

@@ -13,5 +13,10 @@ namespace Ejemplo.Web
         {
 
         }
+
+        protected void btnAceptarLogin_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

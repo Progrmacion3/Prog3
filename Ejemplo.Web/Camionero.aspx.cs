@@ -12,8 +12,11 @@ namespace Ejemplo.Web
       
         protected void Page_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
+=======
 
         }
+>>>>>>> f1474fbb30a7df7149dc6184d0a9830d329fb780
 
         protected void ActualizarGrillaCamioneros()
 
@@ -119,7 +122,7 @@ namespace Ejemplo.Web
                 TableCell celdaIdcamionero = grillaCamioneros.Rows[e.NewSelectedIndex].Cells[1];
                 Common.Clases.Camionero camionero = new Common.Clases.Camionero();
                 camionero.identificadorCam = int.Parse(celdaIdcamionero.Text);
-                camionero = Dominio.Fachada.
+                camionero = Dominio.Fachada.Traer_UnCamionero(camionero);
 
 
             if (camionero != null)

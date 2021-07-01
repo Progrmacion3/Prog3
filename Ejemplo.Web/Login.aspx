@@ -35,7 +35,7 @@
         </p>
         <p>
             &nbsp;</p>
-        <asp:Button ID="btnAceptarLogin" runat="server" style="margin-left: 63px; " Text="Aceptar" Width="69px" CssClass="auto-style2" />
+        <asp:Button ID="btnAceptarLogin" runat="server" style="margin-left: 63px; " Text="Aceptar" OnClick="btnAceptarLogin_Click" Width="69px" CssClass="auto-style2" />
         </div>
         </div>
         
