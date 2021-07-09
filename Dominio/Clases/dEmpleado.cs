@@ -31,5 +31,10 @@ namespace Dominio.Clases
         {
             return Persistencia.Clases.pEmpleado.TraerUnEmpleadoEnEspecifico(pEmp);
         }
+
+        public static Common.Clases.Empleado Revisar_Usuario_Contraseña(Common.Clases.Empleado pEmp)
+        {
+            return Persistencia.Clases.pEmpleado.RevisarDatosDelLogin(pEmp);
+        }
     }
 }

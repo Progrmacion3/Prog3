@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
 namespace Ejemplo.Web
 {
     public partial class Login : System.Web.UI.Page
@@ -16,7 +17,34 @@ namespace Ejemplo.Web
 
         protected void btnAceptarLogin_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Common.Clases.Empleado empleado = new Common.Clases.Empleado();
+                empleado.Usuario = this.txtUsuarioLogin.Text;
+                empleado.Contraseña = this.txtContraseñaLogin.Text;
+                empleado = Dominio.Fachada.Revisar_Usuario_Contraseña(empleado);
 
+                if(empleado != null)
+                {
+                    if (empleado.Tipo == "administrador")
+                    {
+                        Response.Redirect("~/SeccionAdministrativa.aspx");
+                    }
+                    else if (empleado.Tipo == "camionero")
+                    {
+                        Response.Redirect("~/SeccionCamionero.aspx");
+                    }
+                }
+                else
+                {
+                    lblErrorLogin.Text = "Usuario y/o Contraseña incorrectas,por favor ingrese de nuevo los datos";
+                }
+            }
+    
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

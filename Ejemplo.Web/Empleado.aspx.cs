@@ -10,15 +10,12 @@ namespace Ejemplo.Web
     public partial class Empleado : System.Web.UI.Page
     {
 
-<<<<<<< HEAD
-       
-         
-=======
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
->>>>>>> f1474fbb30a7df7149dc6184d0a9830d329fb780
+
 
         protected void ActualizarGrillaEmpleados()
         {
@@ -72,7 +69,7 @@ namespace Ejemplo.Web
         protected void btnEliminarEmpleado_Click(object sender, EventArgs e)
         {
             Common.Clases.Empleado empleado = new Common.Clases.Empleado();
-            empleado.idEmpleado = int.Parse()
+            empleado.idEmpleado = int.Parse(lblIdEmpleado.Text);
             int estado = (int)Common.Clases.Constantes.Estado.Eliminado;
             empleado.Estado = estado;
             if (Dominio.Fachada.Eliminar_Empleado(empleado))
@@ -127,7 +124,7 @@ namespace Ejemplo.Web
                 TableCell celdaId = grillaEmpleados.Rows[e.NewSelectedIndex].Cells[1];
                 Common.Clases.Empleado empleado = new Common.Clases.Empleado();
                 empleado.idEmpleado = int.Parse(celdaId.Text);
-                empleado = Dominio.Fachada.
+                empleado = Dominio.Fachada.Traer_UnEmpleado(empleado);
 
 
             if (empleado != null)

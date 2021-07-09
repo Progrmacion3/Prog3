@@ -109,11 +109,15 @@ namespace Dominio
             return Dominio.Clases.dEmpleado.Traer_Empleados();
         }
 
-        public static Common.Clases.Empleado Traer_UnCamion(Common.Clases.Empleado pEmp)
+        public static Common.Clases.Empleado Traer_UnEmpleado(Common.Clases.Empleado pEmp)
         {
             return Dominio.Clases.dEmpleado.Traer_UnEmpleado(pEmp);
         }
 
+        public static Common.Clases.Empleado Revisar_Usuario_Contraseña(Common.Clases.Empleado pEmp)
+        {
+            return Dominio.Clases.dEmpleado.Revisar_Usuario_Contraseña(pEmp);
+        }
         #endregion
 
         #region Parada

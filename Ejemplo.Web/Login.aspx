@@ -34,7 +34,13 @@
             <asp:TextBox ID="txtContraseñaLogin" runat="server" style="margin-left: 12px" Width="129px"></asp:TextBox>
         </p>
         <p>
-            &nbsp;</p>
+        <tr>
+            <td colspan="3" align="left" class="auto-style1">
+            <p>
+                <asp:Label ID="lblErrorLogin" runat="server" Text="." ForeColor="Red"></asp:Label>
+            </p>
+            </td>
+        </tr>
         <asp:Button ID="btnAceptarLogin" runat="server" style="margin-left: 63px; " Text="Aceptar" OnClick="btnAceptarLogin_Click" Width="69px" CssClass="auto-style2" />
         </div>
         </div>

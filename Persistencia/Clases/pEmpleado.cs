@@ -212,6 +212,48 @@ namespace Persistencia.Clases
             }
             return empleado;
         }
+
+        public static Common.Clases.Empleado RevisarDatosDelLogin(Common.Clases.Empleado pEmp)
+        {
+
+            Common.Clases.Empleado empleado = null;
+
+            try
+            {
+                var conn = new SqlConnection(CadenaDeConexion);
+
+                SqlCommand cmd = new SqlCommand("RevisarDatosLogin", conn);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@Usuario", pEmp.Usuario));
+                cmd.Parameters.Add(new SqlParameter("@Contraseña", pEmp.Contraseña));
+
+                using (SqlDataReader oReader = cmd.ExecuteReader())
+                {
+                    while (oReader.Read())
+                    {
+                        empleado = new Common.Clases.Empleado();
+                        empleado.idEmpleado = int.Parse(oReader["idEmpleado"].ToString());
+                        empleado.CI = int.Parse(oReader["CIempleado"].ToString());
+                        empleado.Nombre = oReader["NombreEmpleado"].ToString();
+                        empleado.Apellido = oReader["ApellidoEmpleado"].ToString();
+                        empleado.Cargo = oReader["CargoEmpleado"].ToString();
+                        empleado.Telefono = int.Parse(oReader["TelefonoEmpleado"].ToString());
+                        empleado.Usuario = oReader["UsuarioEmpleado"].ToString();
+                        empleado.Contraseña = oReader["ContraseñaEmpleado"].ToString();
+                        empleado.Estado = int.Parse(oReader["estado"].ToString());
+
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return empleado;
+        }
     }
 }
 

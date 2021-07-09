@@ -49,7 +49,7 @@ namespace Ejemplo.Web
                 TableCell celdaId = grillaViajes.Rows[e.NewSelectedIndex].Cells[1];
                 Common.Clases.Viaje viajeC = new Common.Clases.Viaje();
                 viajeC.identificadorViaje = int.Parse(celdaId.Text);
-                viajeC = Dominio.Fachada.
+                viajeC = Dominio.Fachada.Traer_UnViaje(viajeC);
 
 
             if (viajeC != null)
