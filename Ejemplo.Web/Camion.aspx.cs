@@ -13,11 +13,27 @@ namespace Ejemplo.Web
        
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
-
+            ActualizarGrillaCamiones();
         }
       
+        protected void ModoEdicionCamion(bool pVisible)
+        {
+            this.txtIdCamion.Enabled = false;
+            this.txtIdCamion.Visible = pVisible;
+            this.lblIDCamion.Visible = pVisible;
+            this.btnModificarCamion.Visible = pVisible;
+            this.btnAgregarCamion.Visible = !pVisible;
+
+            if(!pVisible)
+            {
+                this.txtIdCamion.Text = string.Empty;
+                this.txtMarca.Text = string.Empty;
+                this.txtMatricula.Text = string.Empty;
+                this.txtModelo.Text = string.Empty;
+                this.txtAñoCam.Text = string.Empty;
+                this.grillaCamiones.SelectedIndex = -1;
+            }
+        }
 
         protected void ActualizarGrillaCamiones()
         {
@@ -77,6 +93,8 @@ namespace Ejemplo.Web
                 if (resultadoCamion)
                 {
                     lblResultadoCam.Text = "Se ha agregado correctamente un camion";
+                    ActualizarGrillaCamiones();
+                    ModoEdicionCamion(false);
                 }
                 else
                 {
@@ -106,7 +124,8 @@ namespace Ejemplo.Web
                 if (resultado)
                 {
                     ClientScript.RegisterClientScriptBlock(GetType(), "alert", "alert('Camion eliminado exitosamente')", true);
-
+                    ActualizarGrillaCamiones();
+                    ModoEdicionCamion(false);
                 }
 
                 else
@@ -133,13 +152,16 @@ namespace Ejemplo.Web
 
             if (camion != null)
                 {
+                    this.txtIdCamion.Text = camion.idCamion.ToString(); 
                     this.txtMatricula.Text = camion.Matricula;
                     this.txtModelo.Text = camion.Modelo;
                     this.txtMarca.Text = camion.Marca;
                     this.txtAñoCam.Text = camion.Año.ToString();
+                    ModoEdicionCamion(true);
                 }
                 else
                 {
+                    ModoEdicionCamion(false);
                     ClientScript.RegisterClientScriptBlock(GetType(), "alert", "alert('Error: no se pudo eliminar')", true);
                 }
             }

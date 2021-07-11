@@ -42,6 +42,14 @@
         </h2>
         <table>
              <tr>
+            <td align="left"> 
+            <asp:Label ID="lblIdentificadorCam" Text="identificadorCam:" runat="server" Visible="false"></asp:Label>
+            </td>
+            <td>
+                <asp:TextBox ID="txtIdentificadorCam" MaxLength="50" runat="server" Visible="false"></asp:TextBox>
+            </td>
+        </tr>
+             <tr>
             <td align="left"> Edad del camionero:
             </td>
             <td>
@@ -76,7 +84,7 @@
         </tr>
               <tr>
             <td colspan="3" align="left" class="auto-style1">
-                <asp:Label ID="lblResultadoCamionero" runat="server" ForeColor="Red"></asp:Label>
+                <asp:Label ID="lblResultadoCamionero" Text="." runat="server" ForeColor="Red"></asp:Label>
             </td>
         </tr>
              <tr>

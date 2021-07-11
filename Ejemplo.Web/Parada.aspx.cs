@@ -11,8 +11,26 @@ namespace Ejemplo.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ActualizarGrillaParadas();
         }
+        protected void ModoEdicionParada(bool pVisible)
+        {
+            this.txtIdentificadorPar.Enabled = false;
+            this.txtIdentificadorPar.Visible = pVisible;
+            this.lblIdentificadorPar.Visible = pVisible;
+            this.btnModificarParada.Visible = pVisible;
+            this.btnAgregarParada.Visible = !pVisible;
+
+            if (!pVisible)
+            {
+                this.txtIdentificadorPar.Text = string.Empty;
+                this.txtEstadoParada.Text = string.Empty;
+                this.txtTipoParada.Text = string.Empty;
+                this.txtComentarioAdmin.Text = string.Empty;
+                this.grillaParadas.SelectedIndex = -1;
+            }
+        }
+
 
         protected void ActualizarGrillaParadas()
         {

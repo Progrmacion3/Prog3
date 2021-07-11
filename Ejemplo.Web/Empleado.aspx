@@ -36,6 +36,14 @@
             Administración de los empleados
         </h2>
         <table>
+             <tr>
+            <td align="left"> 
+            <asp:Label ID="lblIDempleado" Text="IDempleado:" runat="server" Visible="false"></asp:Label>
+            </td>
+            <td>
+                <asp:TextBox ID="txtIdEmpleado" MaxLength="50" runat="server" Visible="false"></asp:TextBox>
+            </td>
+        </tr>
               <tr>
             <td align="left"> Cedula de identidad del empleado:
             </td>
@@ -131,7 +139,7 @@
         </tr>
         <tr>
            <td colspan="3" align="left" class="auto-style1">
-            <asp:Label ID="lblIdEmpleado" runat="server" Text="." ForeColor="Red"></asp:Label>
+            <asp:Label ID="lblIdEmp" runat="server" Text="." ForeColor="Red"></asp:Label>
           </td>
         </tr>
              <tr>

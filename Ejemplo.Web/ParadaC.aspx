@@ -34,6 +34,14 @@
         </h2>
         <table>
              <tr>
+            <td align="left"> 
+            <asp:Label ID="lblIdentificadorParC" Text="identificadorCam:" runat="server" Visible="false"></asp:Label>
+            </td>
+            <td>
+                <asp:TextBox ID="txtIdentificadorParC" MaxLength="50" runat="server" Visible="false"></asp:TextBox>
+            </td>
+        </tr>
+             <tr>
             <td align="left"> Estado de la parada:
             </td>
             <td>

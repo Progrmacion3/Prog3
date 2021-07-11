@@ -12,7 +12,26 @@ namespace Ejemplo.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            ActualizarGrillaCamioneros();
         }
+        protected void ModoEdicionCamionero(bool pVisible)
+        {
+            this.txtIdentificadorCam.Enabled = false;
+            this.txtIdentificadorCam.Visible = pVisible;
+            this.lblIdentificadorCam.Visible = pVisible;
+            this.btnModificarCamionero.Visible = pVisible;
+            this.btnAgregarCamionero.Visible = !pVisible;
+
+            if (!pVisible)
+            {
+                this.txtIdentificadorCam.Text = string.Empty;
+                this.txtEdadCam.Text = string.Empty;
+                this.txtFechaVencimientoLibreta.Text = string.Empty;
+                this.txtTipoLibreta.Text = string.Empty;
+                this.grillaCamioneros.SelectedIndex = -1;
+            }
+        }
+
 
         protected void ActualizarGrillaCamioneros()
 

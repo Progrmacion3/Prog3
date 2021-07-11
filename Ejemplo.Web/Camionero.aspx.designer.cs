@@ -22,6 +22,24 @@ namespace Ejemplo.Web {
         protected global::System.Web.UI.WebControls.Menu NavigationMenu;
         
         /// <summary>
+        /// lblIdentificadorCam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIdentificadorCam;
+        
+        /// <summary>
+        /// txtIdentificadorCam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtIdentificadorCam;
+        
+        /// <summary>
         /// txtEdadCam control.
         /// </summary>
         /// <remarks>

@@ -22,6 +22,24 @@ namespace Ejemplo.Web {
         protected global::System.Web.UI.WebControls.Menu NavigationMenu;
         
         /// <summary>
+        /// lblIDempleado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIDempleado;
+        
+        /// <summary>
+        /// txtIdEmpleado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtIdEmpleado;
+        
+        /// <summary>
         /// txtCI control.
         /// </summary>
         /// <remarks>
@@ -175,13 +193,13 @@ namespace Ejemplo.Web {
         protected global::System.Web.UI.WebControls.Label lblResultadoEmpleado;
         
         /// <summary>
-        /// lblIdEmpleado control.
+        /// lblIdEmp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIdEmpleado;
+        protected global::System.Web.UI.WebControls.Label lblIdEmp;
         
         /// <summary>
         /// btnAgregarEmpleado control.

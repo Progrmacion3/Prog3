@@ -37,6 +37,14 @@
         </h2>
         <table>
              <tr>
+            <td align="left"> 
+            <asp:Label ID="lblIdentificadorPar" Text="identificadorCam:" runat="server" Visible="false"></asp:Label>
+            </td>
+            <td>
+                <asp:TextBox ID="txtIdentificadorPar" MaxLength="50" runat="server" Visible="false"></asp:TextBox>
+            </td>
+        </tr>
+             <tr>
             <td align="left"> Estado de la parada:
             </td>
             <td>
@@ -71,7 +79,7 @@
         </tr>
               <tr>
             <td colspan="3" align="left" class="auto-style1">
-                <asp:Label ID="lblResultadoParada" runat="server" ForeColor="Red"></asp:Label>
+                <asp:Label ID="lblResultadoParada" Text="." runat="server" ForeColor="Red"></asp:Label>
             </td>
         </tr>
              <tr>

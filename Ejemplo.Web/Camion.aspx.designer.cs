@@ -22,6 +22,24 @@ namespace Ejemplo.Web {
         protected global::System.Web.UI.WebControls.Menu NavigationMenu;
         
         /// <summary>
+        /// lblIDCamion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIDCamion;
+        
+        /// <summary>
+        /// txtIdCamion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtIdCamion;
+        
+        /// <summary>
         /// txtMatricula control.
         /// </summary>
         /// <remarks>
@@ -101,15 +119,6 @@ namespace Ejemplo.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblResultadoCam;
-        
-        /// <summary>
-        /// lblIdCamion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIdCamion;
         
         /// <summary>
         /// btnAgregarCamion control.

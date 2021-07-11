@@ -13,7 +13,31 @@ namespace Ejemplo.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            ActualizarGrillaEmpleados();
+        }
 
+        protected void ModoEdicionEmpleado(bool pVisible)
+        {
+            this.txtIdEmpleado.Enabled = false;
+            this.txtIdEmpleado.Visible = pVisible;
+            this.lblIDempleado.Visible = pVisible;
+            this.btnModificarEmpleado.Visible = pVisible;
+            this.btnEliminarEmpleado.Visible = pVisible;
+            this.btnAgregarEmpleado.Visible = !pVisible;
+
+            if (!pVisible)
+            {
+                this.txtIdEmpleado.Text = string.Empty;
+                this.txtCI.Text = string.Empty;
+                this.txtNombreEmp.Text = string.Empty;
+                this.txtApellidoEmp.Text = string.Empty;
+                this.txtTelefono.Text = string.Empty;
+                this.txtTipoEmp.Text = string.Empty;
+                this.txtCargo.Text = string.Empty;
+                this.txtUsuario.Text = string.Empty;
+                this.txtContraseña.Text = string.Empty;
+                this.grillaEmpleados.SelectedIndex = -1;
+            }
         }
 
 
@@ -69,7 +93,7 @@ namespace Ejemplo.Web
         protected void btnEliminarEmpleado_Click(object sender, EventArgs e)
         {
             Common.Clases.Empleado empleado = new Common.Clases.Empleado();
-            empleado.idEmpleado = int.Parse(lblIdEmpleado.Text);
+            empleado.idEmpleado = int.Parse(lblIdEmp.Text);
             int estado = (int)Common.Clases.Constantes.Estado.Eliminado;
             empleado.Estado = estado;
             if (Dominio.Fachada.Eliminar_Empleado(empleado))
