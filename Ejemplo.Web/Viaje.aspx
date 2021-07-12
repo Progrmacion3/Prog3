@@ -148,6 +148,11 @@
                 <asp:Label ID="lblResultadoVia" runat="server" ForeColor="Red"></asp:Label>
             </td>
           </tr>
+          <tr>   <td colspan="3" align="left" class="auto-style1">
+                <asp:Label ID="lblIdViaje" runat="server" ForeColor="Red"></asp:Label>
+            </td>
+             
+          </tr>
              <tr>
                   <td>
                          <asp:Button ID="btnAgregarViaje" runat="server" Text="Agregar" OnClick="btnAgregarViaje_Click" />
