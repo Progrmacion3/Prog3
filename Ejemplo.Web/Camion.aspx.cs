@@ -92,13 +92,13 @@ namespace Ejemplo.Web
 
                 if (resultadoCamion)
                 {
-                    lblResultadoCam.Text = "Se ha agregado correctamente un camion";
+                    lblResultadoCam.Text = "Se ha modificado correctamente un camion";
                     ActualizarGrillaCamiones();
                     ModoEdicionCamion(false);
                 }
                 else
                 {
-                    lblResultadoCam.Text = "Error: no se agrego el camion";
+                    lblResultadoCam.Text = "Error: no se modifico el camion";
                 }
             }
             catch (Exception ex)

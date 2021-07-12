@@ -35,7 +35,7 @@
         <table>
              <tr>
             <td align="left"> 
-            <asp:Label ID="lblIdentificadorParC" Text="identificadorCam:" runat="server" Visible="false"></asp:Label>
+            <asp:Label ID="lblIdentificadorParC" Text="identificadorPar:" runat="server" Visible="false"></asp:Label>
             </td>
             <td>
                 <asp:TextBox ID="txtIdentificadorParC" MaxLength="50" runat="server" Visible="false"></asp:TextBox>

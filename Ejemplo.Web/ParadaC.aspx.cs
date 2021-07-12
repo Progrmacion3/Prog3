@@ -11,7 +11,29 @@ namespace Ejemplo.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            ActualizarGrillaParadas();
+        }
+        protected void ModoEdicionParadaC(bool pVisible)
+        {
+            this.txtIdentificadorParC.Enabled = false;
+            this.txtIdentificadorParC.Visible = pVisible;
+            this.lblIdentificadorParC.Visible = pVisible;
+            this.btnActualizarParada.Visible = pVisible;
+
+            if (!pVisible)
+            {
+                this.txtIdentificadorParC.Text = string.Empty;
+                this.txtEstadoParadaC.Text = string.Empty;
+                this.txtTipoParadaC.Text = string.Empty;
+                this.txtComentarioCam.Text = string.Empty;
+                this.grillaParadas.SelectedIndex = -1;
+            }
+        }
+
+        protected void ActualizarGrillaParadas()
+        {
+            this.grillaParadas.DataSource = Dominio.Fachada.Traer_Paradas();
+            this.grillaParadas.DataBind();
         }
 
         protected void btnActualizarParada_Click(object sender, EventArgs e)
@@ -27,11 +49,15 @@ namespace Ejemplo.Web
 
                 if (resultadoParada)
                 {
-                    lblResultadoParadaC.Text = "Se ha agregado correctamente una parada";
+
+                    lblResultadoParadaC.Text = "Se ha actualizado correctamente una parada";
+                    ActualizarGrillaParadas();
+                    ModoEdicionParadaC(false);
+                    
                 }
                 else
                 {
-                    lblResultadoParadaC.Text = "Error: no se agrego la parada";
+                    lblResultadoParadaC.Text = "Error: no se actualizo la parada";
                 }
             }
             catch (Exception ex)
@@ -54,12 +80,15 @@ namespace Ejemplo.Web
 
             if (paradaC != null)
                 {
+                    this.txtIdentificadorParC.Text = paradaC.identificadorPar.ToString();
                     this.txtComentarioCam.Text = paradaC.Comentario;
                     this.txtEstadoParadaC.Text = paradaC.EstadoParada;
                     this.txtTipoParadaC.Text = paradaC.Tipo;
+                    ModoEdicionParadaC(true);
                 }
                 else
                 {
+                    ModoEdicionParadaC(false);
                     ClientScript.RegisterClientScriptBlock(GetType(), "alert", "alert('Error: no se pudo eliminar')", true);
                 }
             }

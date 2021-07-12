@@ -85,11 +85,13 @@ namespace Ejemplo.Web
 
                 if (resultadoCamionero)
                 {
-                    lblResultadoCamionero.Text = "Se ha agregado correctamente un camionero";
+                    lblResultadoCamionero.Text = "Se ha modificado correctamente un camionero";
+                    ActualizarGrillaCamioneros();
+                    ModoEdicionCamionero(false);
                 }
                 else
                 {
-                    lblResultadoCamionero.Text = "Error: no se agrego el camionero";
+                    lblResultadoCamionero.Text = "Error: no se modifico el camionero";
                 }
             }
             catch (Exception ex)
@@ -113,7 +115,8 @@ namespace Ejemplo.Web
                 if (resultado)
                 {
                     ClientScript.RegisterClientScriptBlock(GetType(), "alert", "alert('Camionero eliminado exitosamente')", true);
-
+                    ActualizarGrillaCamioneros();
+                    ModoEdicionCamionero(false);
                 }
 
                 else
@@ -142,13 +145,16 @@ namespace Ejemplo.Web
 
             if (camionero != null)
                 {
+                    this.txtIdentificadorCam.Text = camionero.identificadorCam.ToString();
                     this.txtEdadCam.Text = camionero.Edad.ToString();
                     this.txtFechaVencimientoLibreta.Text = camionero.Fecha_Vencimiento_Libreta.ToString();
                     this.txtTipoLibreta.Text = camionero.Tipo_Libreta;
+                    ModoEdicionCamionero(true);
                     
                 }
                 else
                 {
+                    ModoEdicionCamionero(false);
                     ClientScript.RegisterClientScriptBlock(GetType(), "alert", "alert('Error: no se pudo eliminar')", true);
                 }
             }

@@ -78,6 +78,8 @@ namespace Ejemplo.Web
                 if (resultadoEmpleado)
                 {
                     lblResultadoEmpleado.Text = "Se ha agregado correctamente un empleado";
+                    LimpiarCamposEmpleados();
+                    ActualizarGrillaEmpleados();
                 }
                 else
                 {
@@ -100,6 +102,7 @@ namespace Ejemplo.Web
             {
                 lblResultadoEmpleado.Text = "Se ha eliminado empleado de manera correcta";
                 ActualizarGrillaEmpleados();
+                ModoEdicionEmpleado(false);
             }
             else
             {
@@ -125,11 +128,13 @@ namespace Ejemplo.Web
 
                 if (resultadoEmpleado)
                 {
-                    lblResultadoEmpleado.Text = "Se ha agregado correctamente un empleado";
+                    lblResultadoEmpleado.Text = "Se ha modificado correctamente un empleado";
+                    ActualizarGrillaEmpleados();
+                    ModoEdicionEmpleado(false);
                 }
                 else
                 {
-                    lblResultadoEmpleado.Text = "Error: no se agrego el empleado";
+                    lblResultadoEmpleado.Text = "Error: no se modifico el empleado";
                 }
             }
             catch (Exception ex)
@@ -153,6 +158,7 @@ namespace Ejemplo.Web
 
             if (empleado != null)
                 {
+                    this.txtIdEmpleado.Text = empleado.idEmpleado.ToString();
                     this.txtApellidoEmp.Text = empleado.Apellido;
                     this.txtCargo.Text = empleado.Cargo;
                     this.txtCI.Text = empleado.CI.ToString();
@@ -161,9 +167,11 @@ namespace Ejemplo.Web
                     this.txtTelefono.Text = empleado.Telefono.ToString();
                     this.txtTipoEmp.Text = empleado.Tipo;
                     this.txtUsuario.Text = empleado.Usuario;
+                    ModoEdicionEmpleado(true);
                 }
                 else
                 {
+                    ModoEdicionEmpleado(false);
                     ClientScript.RegisterClientScriptBlock(GetType(), "alert", "alert('Error: no se pudo eliminar')", true);
                 }
             }

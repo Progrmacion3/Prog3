@@ -60,6 +60,8 @@ namespace Ejemplo.Web
                 if (resultadoParada)
                 {
                     lblResultadoParada.Text = "Se ha agregado correctamente una parada";
+                    LimpiarCamposParadas();
+                    ActualizarGrillaParadas();
                 }
                 else
                 {
@@ -85,11 +87,13 @@ namespace Ejemplo.Web
 
                 if (resultadoParada)
                 {
-                    lblResultadoParada.Text = "Se ha agregado correctamente una parada";
+                    lblResultadoParada.Text = "Se ha modificado correctamente una parada";
+                    ActualizarGrillaParadas();
+                    ModoEdicionParada(false);
                 }
                 else
                 {
-                    lblResultadoParada.Text = "Error: no se agrego la parada";
+                    lblResultadoParada.Text = "Error: no se modifico la parada";
                 }
             }
             catch (Exception ex)
