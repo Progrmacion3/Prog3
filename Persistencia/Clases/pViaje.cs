@@ -141,6 +141,7 @@ namespace Persistencia.Clases
             try
             {
                 var conn = new SqlConnection(CadenaDeConexion);
+                conn.Open();
 
                 SqlCommand cmd = new SqlCommand("TraerTodosLosViajes", conn);
 
@@ -181,6 +182,7 @@ namespace Persistencia.Clases
             try
             {
                 var conn = new SqlConnection(CadenaDeConexion);
+                conn.Open();
 
                 SqlCommand cmd = new SqlCommand("TraerUnViajeEnEspecifico", conn);
 

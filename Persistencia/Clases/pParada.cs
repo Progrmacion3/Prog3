@@ -130,6 +130,7 @@ namespace Persistencia.Clases
             try
             {
                 var conn = new SqlConnection(CadenaDeConexion);
+                conn.Open();
 
                 SqlCommand cmd = new SqlCommand("TraerTodasLasParadas", conn);
 
@@ -164,6 +165,7 @@ namespace Persistencia.Clases
             try
             {
                 var conn = new SqlConnection(CadenaDeConexion);
+                conn.Open();
 
                 SqlCommand cmd = new SqlCommand("TraerUnaParadaEnEspecifica", conn);
 

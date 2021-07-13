@@ -141,6 +141,7 @@ namespace Persistencia.Clases
             try
             {
                 var conn = new SqlConnection(CadenaDeConexion);
+                conn.Open();
 
                 SqlCommand cmd = new SqlCommand("TraerTodosLosEmpleados", conn);
 
@@ -180,6 +181,7 @@ namespace Persistencia.Clases
             try
             {
                 var conn = new SqlConnection(CadenaDeConexion);
+                conn.Open();
 
                 SqlCommand cmd = new SqlCommand("TraerUnEmpleadoEnEspecifico", conn);
 
@@ -221,6 +223,7 @@ namespace Persistencia.Clases
             try
             {
                 var conn = new SqlConnection(CadenaDeConexion);
+                conn.Open();
 
                 SqlCommand cmd = new SqlCommand("RevisarDatosLogin", conn);
 

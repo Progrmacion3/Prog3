@@ -132,6 +132,7 @@ namespace Persistencia.Clases
             try
             {
                 var conn = new SqlConnection(CadenaDeConexion);
+                conn.Open();
 
                 SqlCommand cmd = new SqlCommand("TraerTodosLosCamiones", conn);
 
@@ -139,7 +140,8 @@ namespace Persistencia.Clases
 
                 using (SqlDataReader oReader = cmd.ExecuteReader())
                 {
-                    while(oReader.Read())
+                    
+                    while (oReader.Read())
                     {
                         camion = new Common.Clases.Camion();
                         camion.idCamion = int.Parse(oReader["idCamion"].ToString());
