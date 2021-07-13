@@ -34,17 +34,7 @@
                                     ControlToValidate="txtKilaje"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
-                        <tr>
-                            <td align="left">Estado:
-                            </td>
-                            <td colspan="3" align="left">
-                                <asp:DropDownList ID="ddlEstado" AutoPostBack="true" runat="server">
-                                    <asp:ListItem>Parado</asp:ListItem>
-                                    <asp:ListItem>En curso</asp:ListItem>
-                                </asp:DropDownList>
-                            </td>
-                        </tr>
-                        
+                                                
                         <tr>
                             <td colspan="3" align="left">
                                 <asp:Label ID="lblResultado" runat="server"></asp:Label>
