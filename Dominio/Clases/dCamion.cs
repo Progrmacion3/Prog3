@@ -17,14 +17,16 @@ namespace Dominio.Clases
             return Persistencia.Clases.pCamion.ModificarCamion(pCamion);
         }
 
-        /*public static List<Common.Clases.Cliente> TraerClientes()
+        public static List<Common.Clases.Camion> TraerCamion()
         {
-            return Persistencia.Clases.pCliente.TraerTodosLosClientes();
+            return Persistencia.Clases.pCamion.TraerTodosLosCamiones();
         }
-        public static Common.Clases.Cliente TraerEspecifico(Common.Clases.Cliente pCliente)
+        
+        public static Common.Clases.Camion TraerEspecifico(Common.Clases.Camion pCamion)
         {
-            return Persistencia.Clases.pCliente.TraerEspecifico(pCliente);
-        }*/
+            return Persistencia.Clases.pCamion.TraerEspecifico(pCamion);
+        }
+
         public static bool EliminarCamion(Common.Clases.Camion pCamion)
         {
             return Persistencia.Clases.pCamion.EliminarCamion(pCamion);

@@ -54,32 +54,31 @@ namespace Persistencia.Clases
 
             return retorno;
         }
-        /*public static Common.Clases.Cliente TraerEspecifico(Common.Clases.Cliente pCli)
+        public static Common.Clases.Camion TraerEspecifico(Common.Clases.Camion pCamion)
         {
-            Common.Clases.Cliente cli = null;
+            Common.Clases.Camion cam = null;
 
             try
             {
                 var conn = new SqlConnection(CadenaDeConexion);
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand("Cliente_TraerEspecifico", conn);
+                SqlCommand cmd = new SqlCommand("Camion_TraerEspecifico", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(new SqlParameter("@Identificador", pCli.Identificador));
+                cmd.Parameters.Add(new SqlParameter("@Matricula", pCamion.Matricula));
 
                 using (SqlDataReader oReader = cmd.ExecuteReader())
                 {
                     while (oReader.Read())
                     {
-                        cli = new Common.Clases.Cliente();
+                        cam = new Common.Clases.Camion();
 
-                        cli.Identificador = int.Parse(oReader["IdentificadorCli"].ToString());
-                        cli.Nombre = oReader["Nombre"].ToString();
-                        cli.Apellido = oReader["Apellido"].ToString();
-                        cli.Direccion = oReader["Direccion"].ToString();
-                        cli.Categoria = new Common.Clases.Categoria();
-                        cli.Categoria.Identificador = int.Parse(oReader["IdCategoria"].ToString());
-                        cli.Categoria.Nombre = oReader["cat_nombre"].ToString();
+                        cam.Matricula = oReader["Matricula"].ToString();
+                        cam.Marca = oReader["Marca"].ToString();
+                        cam.Modelo = oReader["Modelo"].ToString();
+                        cam.Anio = DateTime.Parse(oReader["Anio"].ToString());
+
+                       
                     }
                     conn.Close();
                 }
@@ -90,17 +89,17 @@ namespace Persistencia.Clases
                 throw ex;
             }
 
-            return cli;
+            return cam;
 
-        }*/
-
-
+        }
 
 
-        /*  public static List<Common.Clases.Cliente> TraerTodosLosClientes()
+
+
+          public static List<Common.Clases.Camion> TraerTodosLosCamiones()
           {
-              List<Common.Clases.Cliente> retorno = new List<Common.Clases.Cliente>();
-              Common.Clases.Cliente cli;
+              List<Common.Clases.Camion> retorno = new List<Common.Clases.Camion>();
+              Common.Clases.Camion cam;
 
               try
               {
@@ -108,7 +107,7 @@ namespace Persistencia.Clases
                   conn.Open();
 
                   // 1. identificamos el store procedure a ejecutar
-                  SqlCommand cmd = new SqlCommand("Cliente_TraerTodos", conn);
+                  SqlCommand cmd = new SqlCommand("Camion_TraerTodos", conn);
 
                   // 2. identificamos el tipo de ejecución, en este caso un SP
                   cmd.CommandType = CommandType.StoredProcedure;
@@ -119,20 +118,14 @@ namespace Persistencia.Clases
 
                       while (oReader.Read())
                       {
-                          cli = new Common.Clases.Cliente();
+                          cam = new Common.Clases.Camion();
 
-                          cli.Identificador = int.Parse(oReader["IdentificadorCli"].ToString());
+                        cam.Matricula = oReader["Matricula"].ToString();
+                        cam.Marca = oReader["Marca"].ToString();
+                        cam.Modelo = oReader["Modelo"].ToString();
+                        cam.Anio = DateTime.Parse(oReader["Anio"].ToString());
 
-                          cli.Nombre = oReader["Nombre"].ToString();
-
-                          cli.Apellido = oReader["Apellido"].ToString();
-
-                          cli.Direccion = oReader["Direccion"].ToString();
-
-                          cli.Categoria = new Common.Clases.Categoria();
-                          cli.Categoria.Identificador = int.Parse(oReader["IdCategoria"].ToString());
-
-                          retorno.Add(cli);
+                        retorno.Add(cam);
 
 
                       }
@@ -147,7 +140,9 @@ namespace Persistencia.Clases
               }
 
               return retorno;
-          }*/
+          }
+
+
         public static bool ModificarCamion(Common.Clases.Camion pCam)
         {
             bool retorno = true;

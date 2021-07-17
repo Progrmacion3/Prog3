@@ -63,22 +63,24 @@ namespace Dominio
         }
         #endregion
 
+
+
         #region Metodos de Camion
 
         public static bool Agregar_Camion(Camion pCamion)
         {
             return dCamion.Agregar_Camion(pCamion);
         }
-        /*  public static List<Common.Clases.Cliente> Empleado_TraerTodosLosClientes()
+         public static List<Common.Clases.Camion> Camione_TraerTodosLosCamiones()
           {
-              return Dominio.Clases.dCliente.TraerClientes();
+              return Dominio.Clases.dCamion.TraerCamion();
           }
-        */
-        /* public static Common.Clases.Cliente Cliente_TraerEspecifico(Common.Clases.Cliente pCliente)
+        
+         public static Common.Clases.Camion Camione_TraerEspecifico(Common.Clases.Camion pCamion)
          {
-             return Dominio.Clases.dCliente.TraerEspecifico(pCliente);
+             return Dominio.Clases.dCamion.TraerEspecifico(pCamion);
          }
-         */
+         
         public static bool EliminarCamion(Common.Clases.Camion pCamion)
         {
             return Dominio.Clases.dCamion.EliminarCamion(pCamion);
