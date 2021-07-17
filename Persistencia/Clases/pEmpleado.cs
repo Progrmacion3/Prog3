@@ -30,6 +30,7 @@ namespace Persistencia.Clases
                 cmd.Parameters.Add(new SqlParameter("@Nombre", pEmp.Nombre));
                 cmd.Parameters.Add(new SqlParameter("@Apellido", pEmp.Apellido));
                 cmd.Parameters.Add(new SqlParameter("@Telefono", pEmp.Telefono));
+                cmd.Parameters.Add(new SqlParameter("@Cargo", pEmp.Cargo));
                 cmd.Parameters.Add(new SqlParameter("@Tipo", pEmp.Tipo));
                 cmd.Parameters.Add(new SqlParameter("@Usuario", pEmp.Usuario));
                 cmd.Parameters.Add(new SqlParameter("@Contrasenia", pEmp.Contrasenia));
@@ -174,6 +175,7 @@ namespace Persistencia.Clases
                 cmd.Parameters.Add(new SqlParameter("@Nombre", pEmp.Nombre));
                 cmd.Parameters.Add(new SqlParameter("@Apellido", pEmp.Apellido));
                 cmd.Parameters.Add(new SqlParameter("@Telefono", pEmp.Telefono));
+                cmd.Parameters.Add(new SqlParameter("@Cargo", pEmp.Cargo));
                 cmd.Parameters.Add(new SqlParameter("@Tipo", pEmp.Tipo));
                 cmd.Parameters.Add(new SqlParameter("@Usuario", pEmp.Usuario));
                 cmd.Parameters.Add(new SqlParameter("@Contrasenia", pEmp.Contrasenia));
