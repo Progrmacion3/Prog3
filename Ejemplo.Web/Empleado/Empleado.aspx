@@ -31,33 +31,85 @@
             </td>
         </tr>
         <tr>
-            <td align="left">Direccion:
+            <td align="left">Cedula:
             </td>
             <td>
-                <asp:TextBox ID="txtDireccion" MaxLength="50" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtCedula" MaxLength="50" runat="server"></asp:TextBox>
             </td>
             <td>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="La direccion es obligatorio"
-                    ControlToValidate="txtDireccion"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="El cedula es obligatorio"
+                    ControlToValidate="txtCedula"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
-            <td align="left">Categoria:
+            <td align="left">Cargo:
             </td>
-            <td colspan="3" align="left">
-                <asp:Label ID="lblCategoria" runat="server"></asp:Label>
+            <td>
+                <asp:TextBox ID="txtCargo" MaxLength="50" runat="server"></asp:TextBox>
             </td>
-        </tr>
-        <tr>
-            <td colspan="3" align="left">
-                <asp:Label ID="lblResultado" runat="server" ForeColor="Red"></asp:Label>
+            <td>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="ElCargo es obligatorio"
+                    ControlToValidate="txtCargo"></asp:RequiredFieldValidator>
             </td>
         </tr>
          <tr>
-            <td colspan="3" align="left">
-                <asp:Label ID="lblId" runat="server" Visible="false" ForeColor="Red"></asp:Label>
+            <td align="left">Telefono:
+            </td>
+            <td>
+                <asp:TextBox ID="txtTelefono" MaxLength="50" runat="server"></asp:TextBox>
+            </td>
+            <td>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="El Telefono es obligatorio"
+                    ControlToValidate="txtTelefono"></asp:RequiredFieldValidator>
             </td>
         </tr>
+         <tr>
+            <td align="left">Tipo:
+            </td>
+            <td>
+                <asp:TextBox ID="txtTipo" MaxLength="50" runat="server"></asp:TextBox>
+            </td>
+            <td>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="El Tipo es obligatorio"
+                    ControlToValidate="txtTipo"></asp:RequiredFieldValidator>
+            </td>
+        </tr>
+         <tr>
+            <td align="left">Usuario:
+            </td>
+            <td>
+                <asp:TextBox ID="txtUsuario" MaxLength="50" runat="server"></asp:TextBox>
+            </td>
+            <td>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="El Usuario es obligatorio"
+                    ControlToValidate="txtUsuario"></asp:RequiredFieldValidator>
+            </td>
+        </tr>
+         <tr>
+            <td align="left">Contrasenia:
+            </td>
+            <td>
+                <asp:TextBox ID="txtContrasenia" MaxLength="50" runat="server"></asp:TextBox>
+            </td>
+            <td>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="La contraseña es obligatorio"
+                    ControlToValidate="txtContrasenia"></asp:RequiredFieldValidator>
+            </td>
+        </tr>
+         <tr>
+            <td align="left">Estado:
+            </td>
+            <td>
+                <asp:TextBox ID="txtEstado" MaxLength="50" runat="server"></asp:TextBox>
+            </td>
+            <td>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="El Estado es obligatorio"
+                    ControlToValidate="txtEstado"></asp:RequiredFieldValidator>
+            </td>
+        </tr>
+       
+       
+        
         <tr>
             <td colspan="3" align="left">
                 <asp:Button ID="btnAgregar" Text="Agregar" runat="server" OnClick="btnAgregar_Click" />
