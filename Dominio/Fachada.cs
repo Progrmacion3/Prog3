@@ -100,16 +100,16 @@ namespace Dominio
         {
             return dCamionero.Agregar_Camionero(pCamionero);
         }
-        /*  public static List<Common.Clases.Cliente> Empleado_TraerTodosLosClientes()
+          public static List<Common.Clases.Camionero> Camionero_TraerTodosLosCamioneros()
           {
-              return Dominio.Clases.dCliente.TraerClientes();
+              return Dominio.Clases.dCamionero.TraerCamionero();
           }
-        */
-        /* public static Common.Clases.Cliente Cliente_TraerEspecifico(Common.Clases.Cliente pCliente)
+        
+         public static Common.Clases.Camionero Cliente_TraerEspecifico(Common.Clases.Camionero pCamionero)
          {
-             return Dominio.Clases.dCliente.TraerEspecifico(pCliente);
+             return Dominio.Clases.dCamionero.TraerEspecifico(pCamionero);
          }
-         */
+         
         public static bool EliminarCamionero(Common.Clases.Camionero pCamionero)
         {
             return Dominio.Clases.dCamionero.EliminarCamionero(pCamionero);
