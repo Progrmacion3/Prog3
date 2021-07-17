@@ -55,33 +55,34 @@ namespace Persistencia.Clases
 
             return retorno;
         }
-        /* public static Common.Clases.Cliente TraerEspecifico(Common.Clases.Cliente pCli)
+         public static Common.Clases.Viaje TraerEspecifico(Common.Clases.Viaje pViaje)
          {
-             Common.Clases.Cliente cli = null;
+             Common.Clases.Viaje via = null;
 
              try
              {
                  var conn = new SqlConnection(CadenaDeConexion);
                  conn.Open();
 
-                 SqlCommand cmd = new SqlCommand("Cliente_TraerEspecifico", conn);
+                 SqlCommand cmd = new SqlCommand("Viajes_TraerEspecifico", conn);
                  cmd.CommandType = CommandType.StoredProcedure;
-                 cmd.Parameters.Add(new SqlParameter("@Identificador", pCli.Identificador));
+                 cmd.Parameters.Add(new SqlParameter("@idViaje", pViaje.idViaje));
 
                  using (SqlDataReader oReader = cmd.ExecuteReader())
                  {
                      while (oReader.Read())
                      {
-                         cli = new Common.Clases.Cliente();
+                         via = new Common.Clases.Viaje();
 
-                         cli.Identificador = int.Parse(oReader["IdentificadorCli"].ToString());
-                         cli.Nombre = oReader["Nombre"].ToString();
-                         cli.Apellido = oReader["Apellido"].ToString();
-                         cli.Direccion = oReader["Direccion"].ToString();
-                         cli.Categoria = new Common.Clases.Categoria();
-                         cli.Categoria.Identificador = int.Parse(oReader["IdCategoria"].ToString());
-                         cli.Categoria.Nombre = oReader["cat_nombre"].ToString();
-                     }
+                        via.idViaje = int.Parse(oReader["idViaje"].ToString());
+                        via.CedulaCam = int.Parse(oReader["CedulaCam"].ToString());
+                        via.Matricula = oReader["Matricula"].ToString();
+                        via.TipoCarga = oReader["TipoCarga"].ToString();
+                        via.Origen = oReader["Origen"].ToString();
+                        via.Destino = oReader["Destino"].ToString();
+                        via.FechaIni =DateTime.Parse(oReader["FechaIni"].ToString());
+                        via.FechaFin = DateTime.Parse(oReader["FechaFin"].ToString());
+                    }
                      conn.Close();
                  }
 
@@ -98,10 +99,10 @@ namespace Persistencia.Clases
 
 
 
-         public static List<Common.Clases.Cliente> TraerTodosLosClientes()
+         public static List<Common.Clases.Viaje> TraerTodosLosViajes()
          {
-             List<Common.Clases.Cliente> retorno = new List<Common.Clases.Cliente>();
-             Common.Clases.Cliente cli;
+             List<Common.Clases.Viaje> retorno = new List<Common.Clases.Viaje>();
+             Common.Clases.Viaje via;
 
              try
              {
@@ -109,7 +110,7 @@ namespace Persistencia.Clases
                  conn.Open();
 
                  // 1. identificamos el store procedure a ejecutar
-                 SqlCommand cmd = new SqlCommand("Cliente_TraerTodos", conn);
+                 SqlCommand cmd = new SqlCommand("Viajes_TraerTodos", conn);
 
                  // 2. identificamos el tipo de ejecución, en este caso un SP
                  cmd.CommandType = CommandType.StoredProcedure;
@@ -120,21 +121,18 @@ namespace Persistencia.Clases
 
                      while (oReader.Read())
                      {
-                         cli = new Common.Clases.Cliente();
+                         via = new Common.Clases.Viaje();
 
-                         cli.Identificador = int.Parse(oReader["IdentificadorCli"].ToString());
+                        via.idViaje = int.Parse(oReader["idViaje"].ToString());
+                        via.CedulaCam = int.Parse(oReader["CedulaCam"].ToString());
+                        via.Matricula = oReader["Matricula"].ToString();
+                        via.TipoCarga = oReader["TipoCarga"].ToString();
+                        via.Origen = oReader["Origen"].ToString();
+                        via.Destino = oReader["Destino"].ToString();
+                        via.FechaIni = DateTime.Parse(oReader["FechaIni"].ToString());
+                        via.FechaFin = DateTime.Parse(oReader["FechaFin"].ToString());
 
-                         cli.Nombre = oReader["Nombre"].ToString();
-
-                         cli.Apellido = oReader["Apellido"].ToString();
-
-                         cli.Direccion = oReader["Direccion"].ToString();
-
-                         cli.Categoria = new Common.Clases.Categoria();
-                         cli.Categoria.Identificador = int.Parse(oReader["IdCategoria"].ToString());
-
-                         retorno.Add(cli);
-
+                        retorno.Add(via);
 
                      }
 
@@ -148,7 +146,7 @@ namespace Persistencia.Clases
              }
 
              return retorno;
-         }*/
+         }
 
         public static bool ModificarViaje(Common.Clases.Viaje pVia)
         {

@@ -9,76 +9,24 @@ namespace Dominio
 {
     public class Fachada
     {
-        #region Metodos de Categoria
+      
 
-        public static bool Categoria_Agregar(Common.Clases.Categoria pCategoria)
-        {
-            return Dominio.Clases.Categoria.Agregar(pCategoria);
-        }
-
-        public static List<Common.Clases.Categoria> Cateogoria_TraerTodas()
-        {
-            return Dominio.Clases.Categoria.Traer777Todas();
-        }
-
-        public static bool Categoria_Eliminar(Common.Clases.Categoria pCategoria)
-        {
-            return Dominio.Clases.Categoria.Eliminar(pCategoria);
-        }
-
-        public static Common.Clases.Categoria Cateogoria_TraerEspecifica(Common.Clases.Categoria pCategoria)
-        {
-            return Dominio.Clases.Categoria.TraerEspecifica(pCategoria);
-        }
-
-        public static bool Categoria_Modificar(Common.Clases.Categoria pCategoria)
-        {
-            return Dominio.Clases.Categoria.Modificar(pCategoria);
-        }
-
-        #endregion
-
-        #region Metodos de Cliente
-
-        public static bool Agregar_cliente(Cliente pCliente)
-        {
-            return dCliente.Agregar_Cliente(pCliente);
-        }
-        public static List<Common.Clases.Cliente> Cliente_TraerTodosLosClientes()
-        {
-            return Dominio.Clases.dCliente.TraerClientes();
-        }
-
-        public static Common.Clases.Cliente Cliente_TraerEspecifico(Common.Clases.Cliente pCliente)
-        {
-            return Dominio.Clases.dCliente.TraerEspecifico(pCliente);
-        }
-        public static bool EliminarCliente(Common.Clases.Cliente pCliente)
-        {
-            return Dominio.Clases.dCliente.EliminarCliente(pCliente);
-        }
-        public static bool ModificarCliente(Common.Clases.Cliente pCliente)
-        {
-            return Dominio.Clases.dCliente.Modificar_Cliente(pCliente);
-        }
-        #endregion
+   
 
         #region Metodos de Empleado
+        public static List<Common.Clases.Empleado> Empleados_TraerTodos()
+        {
+            return Dominio.Clases.dEmpleado.TraerEmpleados();
+        }
 
+        public static Common.Clases.Empleado Empleados_TraerEspecifico(Common.Clases.Empleado pEmpleado)
+        {
+            return Dominio.Clases.dEmpleado.TraerEspecifico(pEmpleado);
+        }
         public static bool Agregar_Empleado(Empleado pEmpleado)
         {
             return dEmpleado.Agregar_Empleado(pEmpleado);
         }
-        /*  public static List<Common.Clases.Cliente> Empleado_TraerTodosLosClientes()
-          {
-              return Dominio.Clases.dCliente.TraerClientes();
-          }
-        */
-        /* public static Common.Clases.Cliente Cliente_TraerEspecifico(Common.Clases.Cliente pCliente)
-         {
-             return Dominio.Clases.dCliente.TraerEspecifico(pCliente);
-         }
-         */
         public static bool EliminarEmpleado(Common.Clases.Empleado pEmpleado)
         {
             return Dominio.Clases.dEmpleado.EliminarEmpleado(pEmpleado);
@@ -95,16 +43,16 @@ namespace Dominio
         {
             return dViaje.Agregar_Viajes(pViaje);
         }
-        /*  public static List<Common.Clases.Cliente> Empleado_TraerTodosLosClientes()
+         public static List<Common.Clases.Viaje> Viaje_TraerTodosLosViajes()
           {
-              return Dominio.Clases.dCliente.TraerClientes();
+              return Dominio.Clases.dViaje.TraerViajes();
           }
-        */
-        /* public static Common.Clases.Cliente Cliente_TraerEspecifico(Common.Clases.Cliente pCliente)
+        
+         public static Common.Clases.Viaje Cliente_TraerEspecifico(Common.Clases.Viaje pViaje)
          {
-             return Dominio.Clases.dCliente.TraerEspecifico(pCliente);
+             return Dominio.Clases.dViaje.TraerEspecifico(pViaje);
          }
-         */
+         
         public static bool EliminarViajes(Common.Clases.Viaje pViaje)
         {
             return Dominio.Clases.dViaje.EliminarViajes(pViaje);
@@ -114,10 +62,6 @@ namespace Dominio
             return Dominio.Clases.dViaje.Modificar_Viajes(pViaje);
         }
         #endregion
-
-
-
-
 
         #region Metodos de Camion
 

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Common.Clases
 {
-    public class Viaje
+    public class Viaje:Camionero
     {
         public int idViaje { get; set; }
         public int CedulaCam { get; set; }

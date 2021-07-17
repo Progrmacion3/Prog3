@@ -55,32 +55,37 @@ namespace Persistencia.Clases
 
             return retorno;
         }
-        /*public static Common.Clases.Cliente TraerEspecifico(Common.Clases.Cliente pCli)
+        public static Common.Clases.Empleado TraerEspecifico(Common.Clases.Empleado pEmp)
         {
-            Common.Clases.Cliente cli = null;
+            Common.Clases.Empleado emp = null;
 
             try
             {
                 var conn = new SqlConnection(CadenaDeConexion);
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand("Cliente_TraerEspecifico", conn);
+                SqlCommand cmd = new SqlCommand("Empleados_TraerEspecifico", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(new SqlParameter("@Identificador", pCli.Identificador));
+                cmd.Parameters.Add(new SqlParameter("@Cedula", pEmp.Cedula));
 
                 using (SqlDataReader oReader = cmd.ExecuteReader())
                 {
                     while (oReader.Read())
                     {
-                        cli = new Common.Clases.Cliente();
+                        emp = new Common.Clases.Empleado();
 
-                        cli.Identificador = int.Parse(oReader["IdentificadorCli"].ToString());
-                        cli.Nombre = oReader["Nombre"].ToString();
-                        cli.Apellido = oReader["Apellido"].ToString();
-                        cli.Direccion = oReader["Direccion"].ToString();
-                        cli.Categoria = new Common.Clases.Categoria();
-                        cli.Categoria.Identificador = int.Parse(oReader["IdCategoria"].ToString());
-                        cli.Categoria.Nombre = oReader["cat_nombre"].ToString();
+                        emp.Cedula = int.Parse(oReader["IdentificadorCli"].ToString());
+                        emp.Nombre = oReader["Nombre"].ToString();
+                        emp.Apellido = oReader["Apellido"].ToString();
+                        emp.Cargo = oReader["Cargo"].ToString();
+                        emp.Telefono = oReader["Telfono"].ToString();
+                        emp.Tipo = oReader["Tipo"].ToString();
+                        emp.Usuario = oReader["Usuario"].ToString();
+                        emp.Contrasenia = oReader["Contrasenia"].ToString();
+                        emp.Estado =oReader["Estado"].ToString();
+
+
+
                     }
                     conn.Close();
                 }
@@ -91,17 +96,17 @@ namespace Persistencia.Clases
                 throw ex;
             }
 
-            return cli;
+            return emp;
 
-        }*/
-
-
+        }
 
 
-        /*  public static List<Common.Clases.Cliente> TraerTodosLosClientes()
+
+
+          public static List<Common.Clases.Empleado> TraerTodosLosEmpleados()
           {
-              List<Common.Clases.Cliente> retorno = new List<Common.Clases.Cliente>();
-              Common.Clases.Cliente cli;
+              List<Common.Clases.Empleado> retorno = new List<Common.Clases.Empleado>();
+              Common.Clases.Empleado emp;
 
               try
               {
@@ -109,7 +114,7 @@ namespace Persistencia.Clases
                   conn.Open();
 
                   // 1. identificamos el store procedure a ejecutar
-                  SqlCommand cmd = new SqlCommand("Cliente_TraerTodos", conn);
+                  SqlCommand cmd = new SqlCommand("Empleados_TraerTodos", conn);
 
                   // 2. identificamos el tipo de ejecución, en este caso un SP
                   cmd.CommandType = CommandType.StoredProcedure;
@@ -120,20 +125,19 @@ namespace Persistencia.Clases
 
                       while (oReader.Read())
                       {
-                          cli = new Common.Clases.Cliente();
+                          emp = new Common.Clases.Empleado();
 
-                          cli.Identificador = int.Parse(oReader["IdentificadorCli"].ToString());
+                        emp.Cedula = int.Parse(oReader["IdentificadorCli"].ToString());
+                        emp.Nombre = oReader["Nombre"].ToString();
+                        emp.Apellido = oReader["Apellido"].ToString();
+                        emp.Cargo = oReader["Cargo"].ToString();
+                        emp.Telefono = oReader["Telfono"].ToString();
+                        emp.Tipo = oReader["Tipo"].ToString();
+                        emp.Usuario = oReader["Usuario"].ToString();
+                        emp.Contrasenia = oReader["Contrasenia"].ToString();
+                        emp.Estado = oReader["Estado"].ToString();
 
-                          cli.Nombre = oReader["Nombre"].ToString();
-
-                          cli.Apellido = oReader["Apellido"].ToString();
-
-                          cli.Direccion = oReader["Direccion"].ToString();
-
-                          cli.Categoria = new Common.Clases.Categoria();
-                          cli.Categoria.Identificador = int.Parse(oReader["IdCategoria"].ToString());
-
-                          retorno.Add(cli);
+                        retorno.Add(emp);
 
 
                       }
@@ -148,7 +152,8 @@ namespace Persistencia.Clases
               }
 
               return retorno;
-          }*/
+          }
+
         public static bool ModificarEmpleado(Common.Clases.Empleado pEmp)
         {
             bool retorno = true;
@@ -195,7 +200,7 @@ namespace Persistencia.Clases
 
             return retorno;
         }
-        public static bool EliminarEmpleado(Common.Clases.Empleados pEmp)
+        public static bool EliminarEmpleado(Common.Clases.Empleado pEmp)
         {
             bool retorno = true;
 

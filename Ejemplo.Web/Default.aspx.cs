@@ -32,7 +32,7 @@ namespace Ejemplo.Web
             cam.TipoLibreta= this.txtLibreta.Text;
             try
             {
-                bool resultado = Dominio.Fachada.Categoria_Agregar(cat);
+                bool resultado = Dominio.Fachada.Camionero_Agregar(cam);
 
                 if (resultado)
                 {
@@ -55,7 +55,7 @@ namespace Ejemplo.Web
 
         protected void ActualizarGrillaDeDatos() 
         {
-            this.grdCategorias.DataSource = Dominio.Fachada.Cateogoria_TraerTodas();
+            this.grdCategorias.DataSource = Dominio.Fachada.camionero_TraerTodos();
             this.grdCategorias.DataBind();
         }
 
@@ -65,17 +65,17 @@ namespace Ejemplo.Web
             this.txtNombre.Text = string.Empty;
         }
 
-        protected void grdCategorias_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void grdCamionero_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             try
             {
                 this.lblResultado.Text = string.Empty;
 
-                TableCell celdaId = grdCategorias.Rows[e.RowIndex].Cells[1];
-                Common.Clases.Categoria cat = new Common.Clases.Categoria();
+                TableCell celdaId = grdCamionero.Rows[e.RowIndex].Cells[1];
+                Common.Clases.Camionero cat = new Common.Clases.Camionero();
                 cat.Identificador = int.Parse(celdaId.Text);
                 
-                bool resultado = Dominio.Fachada.Categoria_Eliminar(cat);
+                bool resultado = Dominio.Fachada.Camionero_Eliminar(cam);
 
                 if (resultado)
                 {
@@ -95,21 +95,21 @@ namespace Ejemplo.Web
             }
         }
 
-        protected void grdCategorias_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        protected void grdCamionero_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
             this.lblResultado.Text = string.Empty;
 
-            TableCell celdaId = grdCategorias.Rows[e.NewSelectedIndex].Cells[1];
-            Common.Clases.Categoria cat = new Common.Clases.Categoria();
-            cat.Identificador = int.Parse(celdaId.Text);
-            cat = Dominio.Fachada.Cateogoria_TraerEspecifica(cat);
+            TableCell celdaId = grdCamionero.Rows[e.NewSelectedIndex].Cells[1];
+            Common.Clases.Camionero cam = new Common.Clases.Camionero();
+            cam.Cedula= int.Parse(celdaId.Text);
+            cam = Dominio.Fachada.Camionero_TraerEspecifico(cam);
             
            
 
-            if (cat != null)
+            if (cam != null)
             {
-                this.txtId.Text = cat.Identificador.ToString();
-                this.txtNombre.Text = cat.Nombre;
+                this.txtId.Text = cam.Cedula.ToString();
+                this.txtNombre.Text = cam.Nombre;
                 ModoEdicion(true);
             }
             else
@@ -133,7 +133,7 @@ namespace Ejemplo.Web
             {
                 this.txtId.Text = string.Empty;
                 this.txtNombre.Text = string.Empty;
-                this.grdCategorias.SelectedIndex = -1;
+                this.grdCamionero.SelectedIndex = -1;
             }
         }
 
@@ -144,13 +144,13 @@ namespace Ejemplo.Web
 
         protected void btnActualizar_Click(object sender, EventArgs e)
         {
-            Common.Clases.Categoria cat = new Common.Clases.Categoria();
-            cat.Identificador = int.Parse(this.txtId.Text);
-            cat.Nombre = this.txtNombre.Text;
+            Common.Clases.Camionero cam = new Common.Clases.Camionero();
+            cam.Cedula = int.Parse(this.txtId.Text);
+            cam.Nombre = this.txtNombre.Text;
             
             try
             {
-                bool resultado = Dominio.Fachada.Categoria_Modificar(cat);
+                bool resultado = Dominio.Fachada.Camionero_Modificar(cam);
 
                 if (resultado)
                 {

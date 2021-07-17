@@ -36,14 +36,14 @@ namespace Dominio.Clases
             return Persistencia.Clases.pViaje.ModificarViaje(pViaje);
         }
 
-        /*public static List<Common.Clases.Cliente> TraerClientes()
+        public static List<Common.Clases.Viaje> TraerViajes()
         {
-            return Persistencia.Clases.pCliente.TraerTodosLosClientes();
+            return Persistencia.Clases.pViaje.TraerTodosLosViajes();
         }
-        public static Common.Clases.Cliente TraerEspecifico(Common.Clases.Cliente pCliente)
+        public static Common.Clases.Viaje TraerEspecifico(Common.Clases.Viaje pViaje)
         {
-            return Persistencia.Clases.pCliente.TraerEspecifico(pCliente);
-        }*/
+            return Persistencia.Clases.pViaje.TraerEspecifico(pViaje);
+        }
 
         public static bool EliminarViajes(Common.Clases.Viaje pViaje)
         {
