@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <h2>
-        Administración de categorías
+        Administración de Empleados
     </h2>
     <br />
     <center>

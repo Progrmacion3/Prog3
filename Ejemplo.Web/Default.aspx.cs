@@ -18,21 +18,21 @@ namespace Ejemplo.Web
         {
             Common.Clases.Camionero cam = new Common.Clases.Camionero();
             cam.Nombre = this.txtNombre.Text;
-            cam.Apellido = this.txtApellido.Text;
-            cam.Cedula = this.txtCedula.Text;
-            cam.Cargo = this.txtCargo.Text;
-            cam.Tipo = this.txtTipo.Text;
-            cam.Telefono = this.txtTelefono.Text;
-            cam.Usuario = this.txtUsuario.Text;
-            cam.Contrasenia = this.txtContrasenia.Text;
+            //cam.Apellido = this.txtApellido.Text;
+            //cam.Cedula = this.txtCedula.Text;
+            //cam.Cargo = this.txtCargo.Text;
+            //cam.Tipo = this.txtTipo.Text;
+            //cam.Telefono = this.txtTelefono.Text;
+            //cam.Usuario = this.txtUsuario.Text;
+            //cam.Contrasenia = this.txtContrasenia.Text;
             
-            cam.Edad= this.txtEdad.Text;
-            cam.Estado= this.txtEstado.Text;
-            cam.FechaVenLib= this.txtFecVenLib.Text;
-            cam.TipoLibreta= this.txtLibreta.Text;
+            ////cam.Edad= this.txtEdad.Text;
+            //cam.Estado= this.txtEstado.Text;
+            //cam.FechaVenLib= this.txtFecVenLib.Text;
+            //cam.TipoLibreta= this.txtLibreta.Text;
             try
             {
-                bool resultado = Dominio.Fachada.Camionero_Agregar(cam);
+                bool resultado = Dominio.Fachada.Agregar_Camionero(cam);
 
                 if (resultado)
                 {
@@ -55,8 +55,8 @@ namespace Ejemplo.Web
 
         protected void ActualizarGrillaDeDatos() 
         {
-            this.grdCategorias.DataSource = Dominio.Fachada.camionero_TraerTodos();
-            this.grdCategorias.DataBind();
+            this.grdCamionero.DataSource = Dominio.Fachada.Camionero_TraerTodosLosCamioneros();
+            this.grdCamionero.DataBind();
         }
 
         protected void LimpiarCampos() 
@@ -72,10 +72,10 @@ namespace Ejemplo.Web
                 this.lblResultado.Text = string.Empty;
 
                 TableCell celdaId = grdCamionero.Rows[e.RowIndex].Cells[1];
-                Common.Clases.Camionero cat = new Common.Clases.Camionero();
-                cat.Identificador = int.Parse(celdaId.Text);
+                Common.Clases.Camionero cam = new Common.Clases.Camionero();
+                cam.Cedula = int.Parse(celdaId.Text);
                 
-                bool resultado = Dominio.Fachada.Camionero_Eliminar(cam);
+                bool resultado = Dominio.Fachada.EliminarCamionero(cam);
 
                 if (resultado)
                 {
@@ -146,11 +146,11 @@ namespace Ejemplo.Web
         {
             Common.Clases.Camionero cam = new Common.Clases.Camionero();
             cam.Cedula = int.Parse(this.txtId.Text);
-            cam.Nombre = this.txtNombre.Text;
+            //cam.Nombre = this.txtNombre.Text;
             
             try
             {
-                bool resultado = Dominio.Fachada.Camionero_Modificar(cam);
+                bool resultado = Dominio.Fachada.ModificarCamionero(cam);
 
                 if (resultado)
                 {

@@ -76,7 +76,7 @@ namespace Dominio
               return Dominio.Clases.dCamion.TraerCamion();
           }
         
-         public static Common.Clases.Camion Camione_TraerEspecifico(Common.Clases.Camion pCamion)
+         public static Common.Clases.Camion Camionero_TraerEspecifico(Common.Clases.Camion pCamion)
          {
              return Dominio.Clases.dCamion.TraerEspecifico(pCamion);
          }
