@@ -31,6 +31,15 @@ namespace Ejemplo.Web {
         protected global::System.Web.UI.WebControls.TextBox txtUsuarioLogin;
         
         /// <summary>
+        /// rfvUsuarioLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUsuarioLogin;
+        
+        /// <summary>
         /// Label2 control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace Ejemplo.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtContraseñaLogin;
+        
+        /// <summary>
+        /// rfvContraseñaLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvContraseñaLogin;
         
         /// <summary>
         /// lblErrorLogin control.

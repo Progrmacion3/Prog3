@@ -12,7 +12,7 @@ namespace Ejemplo.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+          
         }
 
         protected void btnAceptarLogin_Click(object sender, EventArgs e)
@@ -20,12 +20,16 @@ namespace Ejemplo.Web
             try
             {
                 Common.Clases.Empleado empleado = new Common.Clases.Empleado();
+                Session["UsuarioEmpleado"] = empleado.Usuario;
+                Session["ContraseñaEmpleado"] = empleado.Contraseña;
                 empleado.Usuario = this.txtUsuarioLogin.Text;
                 empleado.Contraseña = this.txtContraseñaLogin.Text;
                 empleado = Dominio.Fachada.Revisar_Usuario_Contraseña(empleado);
+               
 
                 if(empleado != null)
                 {
+
                     if (empleado.Tipo == "administrador")
                     {
                         Response.Redirect("~/SeccionAdministrativa.aspx");

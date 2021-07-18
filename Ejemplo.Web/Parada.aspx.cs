@@ -19,6 +19,7 @@ namespace Ejemplo.Web
             this.txtIdentificadorPar.Visible = pVisible;
             this.lblIdentificadorPar.Visible = pVisible;
             this.btnModificarParada.Visible = pVisible;
+            this.btnCancelarParada.Visible = pVisible;
             this.btnAgregarParada.Visible = !pVisible;
 
             if (!pVisible)
@@ -156,6 +157,11 @@ namespace Ejemplo.Web
             {
                 throw ex;
             }
+        }
+
+        protected void btnCancelarParada_Click(object sender, EventArgs e)
+        {
+            ModoEdicionParada(false);
         }
     }
 }

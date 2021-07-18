@@ -5,6 +5,11 @@
 <head runat="server">
     <title></title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .auto-style1 {
+            margin-top: 3px;
+        }
+    </style>
 </head>
 <body>
     <form runat="server">
@@ -47,6 +52,9 @@
         Para eliminar:haga click en delete en la grilla de datos correspondiente y listo</p>
     <p>
         Para modificar:seleccione con el boton select la grilla que quiera modificar, despues ingrese en el resto de casillas los nuevos datos y haga click en modificar
+    </p>
+    <p>
+        <asp:Button ID="btnVolverLoginA" runat="server" Text="Volver al Login" OnClick="btnVolverLoginA_Click" CssClass="auto-style1" Height="22px" />
     </p>
     </div>
     <div>

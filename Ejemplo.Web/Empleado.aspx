@@ -146,6 +146,7 @@
                   <td>
                          <asp:Button ID="btnAgregarEmpleado" runat="server" Text="Agregar" OnClick="btnAgregarEmpleado_Click" />
                          <asp:Button ID="btnEliminarEmpleado" runat="server" Text="Eliminar" OnClick="btnEliminarEmpleado_Click" Visible="false"/>
+                         <asp:Button ID="btnCancelarEmpleado" runat="server" Text="Cancelar" OnClick="btnCancelarEmpleado_Click" Visible="false" />
                          <asp:Button ID="btnModificarEmpleado" runat="server" Text="Modificar" OnClick="btnModificarEmpleado_Click" Visible="false"/>
                          <asp:GridView ID="grillaEmpleados" Width="100%" runat="server" AutoGenerateColumns="true"
                                     ViewStateMode="Enabled" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateSelectButton="true" 

@@ -24,16 +24,20 @@
                 </h1>
             </div>
     </div>
+
     <div>
         <p>
             <asp:Label ID="Label1" runat="server" Text="Usuario"></asp:Label>
             <asp:TextBox ID="txtUsuarioLogin" runat="server" style="margin-left: 12px"  Width="129px"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvUsuarioLogin" runat="server" ErrorMessage="El usuario es obligatorio"
+                    ControlToValidate="txtUsuarioLogin"></asp:RequiredFieldValidator>
         </p>
         <p>
             <asp:Label ID="Label2" runat="server" Text="Contraseña"></asp:Label>
             <asp:TextBox ID="txtContraseñaLogin" runat="server" style="margin-left: 12px" Width="129px"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvContraseñaLogin" runat="server" ErrorMessage= "La contraseña es obligatoria"
+                    ControlToValidate="txtContraseñaLogin"></asp:RequiredFieldValidator>
         </p>
-        <p>
         <tr>
             <td colspan="3" align="left" class="auto-style1">
             <p>

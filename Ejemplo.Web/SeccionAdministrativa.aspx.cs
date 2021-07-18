@@ -9,6 +9,9 @@ namespace Ejemplo.Web
 {
     public partial class SeccionAdministrativa : System.Web.UI.Page
     {
-      
+        protected void btnVolverLoginA_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Login.aspx");
+        }
     }
 }

@@ -20,6 +20,7 @@ namespace Ejemplo.Web
             this.txtIdentificadorCam.Visible = pVisible;
             this.lblIdentificadorCam.Visible = pVisible;
             this.btnModificarCamionero.Visible = pVisible;
+            this.btnCancelarCamionero.Visible = pVisible;
             this.btnAgregarCamionero.Visible = !pVisible;
 
             if (!pVisible)
@@ -162,6 +163,11 @@ namespace Ejemplo.Web
             {
                 throw ex;
             }
+        }
+
+        protected void btnCancelarCamionero_Click(object sender, EventArgs e)
+        {
+            ModoEdicionCamionero(false);
         }
     }
 }

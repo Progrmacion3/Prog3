@@ -131,7 +131,7 @@ namespace Persistencia.Clases
                 var conn = new SqlConnection(CadenaDeConexion);
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand("TraerTodosLosCamiones", conn);
+                SqlCommand cmd = new SqlCommand("TraerTodosLosCamioneros", conn);
 
                 cmd.CommandType = CommandType.StoredProcedure;
 

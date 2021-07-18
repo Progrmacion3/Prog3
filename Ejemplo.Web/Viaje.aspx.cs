@@ -83,6 +83,7 @@ namespace Ejemplo.Web
             {
                 this.btnAgregarViaje.Visible = false;
                 this.btnModificarViaje.Visible = true;
+                this.btnCancelarViaje.Visible = true;
                 this.grillaCamiones.Enabled = false;
                 this.grillaCamioneros.Enabled = false;
             }
@@ -264,6 +265,11 @@ namespace Ejemplo.Web
                 limpiarCamposCamion();
             }
 
+        }
+
+        protected void btnCancelarViaje_Click(object sender, EventArgs e)
+        {
+            ModoEdicionViaje(false);
         }
     }
 }

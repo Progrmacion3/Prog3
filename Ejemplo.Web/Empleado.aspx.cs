@@ -23,6 +23,7 @@ namespace Ejemplo.Web
             this.lblIDempleado.Visible = pVisible;
             this.btnModificarEmpleado.Visible = pVisible;
             this.btnEliminarEmpleado.Visible = pVisible;
+            this.btnCancelarEmpleado.Visible = pVisible;
             this.btnAgregarEmpleado.Visible = !pVisible;
 
             if (!pVisible)
@@ -181,6 +182,10 @@ namespace Ejemplo.Web
             }
         }
 
+        protected void btnCancelarEmpleado_Click(object sender, EventArgs e)
+        {
+            ModoEdicionEmpleado(false);
+        }
     }
     
 }

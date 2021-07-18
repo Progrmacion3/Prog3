@@ -7,6 +7,11 @@
 <head runat="server">
     <title></title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .auto-style1 {
+            margin-top: 26px;
+        }
+    </style>
 </head>
 <body>
     <form runat="server">
@@ -30,6 +35,15 @@
             </div>
     </div>
       <div class="main">
+          <h2>
+              Bienvenido camionero
+          </h2>
+          <p>
+           Esta es su sección donde podra modificar datos de sus respectivas paradas tanto como del kilaje y estado de su respectivo viaje tan solo tiene que seleccionar el viaje o parada que quiere actualizar/modificar y listo
+          </p>
+       <p>
+           <asp:Button ID="btnVolverLoginC" runat="server" Text="Volver al Login" OnClick="btnVolverLoginC_Click" CssClass="auto-style1" />
+       </p>
     </div>
     <div class="footer">
         

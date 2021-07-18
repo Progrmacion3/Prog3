@@ -121,6 +121,15 @@ namespace Ejemplo.Web {
         protected global::System.Web.UI.WebControls.Button btnModificarParada;
         
         /// <summary>
+        /// btnCancelarParada control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelarParada;
+        
+        /// <summary>
         /// grillaParadas control.
         /// </summary>
         /// <remarks>
