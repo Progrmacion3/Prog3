@@ -22,6 +22,11 @@ namespace Dominio.Clases
             return Persistencia.Clases.pViaje.ModificarViaje(pVia);
         }
 
+        public static bool Modificar_ViajeC(Common.Clases.Viaje pVia)
+        {
+            return Persistencia.Clases.pViaje.ModificarViajeC(pVia);
+        }
+
         public static List<Common.Clases.Viaje> Traer_Viaje()
         {
             return Persistencia.Clases.pViaje.TraerTodosLosViajes();

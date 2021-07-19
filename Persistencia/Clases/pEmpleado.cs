@@ -64,7 +64,7 @@ namespace Persistencia.Clases
                 var conn = new SqlConnection(CadenaDeConexion);
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand("Modificar_Empleadp", conn);
+                SqlCommand cmd = new SqlCommand("Modificar_Empleado", conn);
 
                 cmd.CommandType = CommandType.StoredProcedure;
 

@@ -23,6 +23,11 @@ namespace Dominio
             return Dominio.Clases.dViaje.Modificar_Viaje(pVia);
         }
 
+        public static bool Modificar_ViajeC(Common.Clases.Viaje pVia)
+        {
+            return Dominio.Clases.dViaje.Modificar_Viaje(pVia);
+        }
+
         public static List<Common.Clases.Viaje> Traer_Viaje()
         {
             return Dominio.Clases.dViaje.Traer_Viaje();

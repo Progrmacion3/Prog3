@@ -76,6 +76,7 @@ namespace Ejemplo.Web
         protected void btnModificarCamionero_Click(object sender, EventArgs e)
         {
             Common.Clases.Camionero camionero = new Common.Clases.Camionero();
+            camionero.identificadorCam = int.Parse(this.txtIdentificadorCam.Text);
             camionero.Edad = int.Parse(this.txtEdadCam.Text);
             camionero.Fecha_Vencimiento_Libreta = DateTime.Parse(this.txtFechaVencimientoLibreta.Text);
             camionero.Tipo_Libreta = this.txtTipoLibreta.Text;

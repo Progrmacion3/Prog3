@@ -114,6 +114,7 @@ namespace Ejemplo.Web
         protected void btnModificarEmpleado_Click(object sender, EventArgs e)
         {
             Common.Clases.Empleado empleado = new Common.Clases.Empleado();
+            empleado.idEmpleado = int.Parse(this.txtIdEmpleado.Text);
             empleado.Apellido = this.txtApellidoEmp.Text;
             empleado.Cargo = this.txtCargo.Text;
             empleado.Contraseña = this.txtContraseña.Text;

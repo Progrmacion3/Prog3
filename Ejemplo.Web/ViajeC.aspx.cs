@@ -11,8 +11,34 @@ namespace Ejemplo.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ActualizarGrilaDeViaje();
+        }
+
+        protected void ActualizarGrilaDeViaje()
+        {
+            this.grillaViajes.DataSource = Dominio.Fachada.Traer_Viaje();
+            this.grillaViajes.DataBind();
+        }
+
+        protected void ModoEdicionViajeC(bool value)
+        {
+            if (value)
+            {
+                this.btnActualizarViaje.Visible = true;
+                this.btnCancelarViaje.Visible = true;
+            }
+            else
+            {
+                this.btnActualizarViaje.Visible = false;
+                this.btnCancelarViaje.Visible = false;
+                this.txtEstadoViajeC.Text = string.Empty;
+                this.txtKilajeC.Text = string.Empty;
+             
+            }
 
         }
+
+       
 
         protected void btnActualizarViaje_Click(object sender, EventArgs e)
         {
@@ -23,15 +49,17 @@ namespace Ejemplo.Web
 
             try
             {
-                bool resultadoViaje = Dominio.Fachada.Modificar_Viaje(viajeC);
+                bool resultadoViaje = Dominio.Fachada.Modificar_ViajeC(viajeC);
 
                 if (resultadoViaje)
                 {
-                    lblResultadoViaC.Text = "Se ha agregado correctamente una viaje";
+                    lblResultadoViaC.Text = "Se ha actualizado correctamente el estado y kilaje del viaje";
+                    ActualizarGrilaDeViaje();
+                    ModoEdicionViajeC(false);
                 }
                 else
                 {
-                    lblResultadoViaC.Text = "Error: no se agrego la viaje";
+                    lblResultadoViaC.Text = "Error: no se actualizo ni el kilaje ni el estado";
                 }
             }
             catch (Exception ex)
@@ -68,6 +96,11 @@ namespace Ejemplo.Web
                 throw ex;
             }
 
+        }
+
+        protected void btnCancelarViaje_Click(object sender, EventArgs e)
+        {
+            ModoEdicionViajeC(false);
         }
     }
 }

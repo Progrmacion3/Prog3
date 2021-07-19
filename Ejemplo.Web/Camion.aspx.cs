@@ -82,6 +82,7 @@ namespace Ejemplo.Web
         protected void btnModificarCamion_Click(object sender, EventArgs e)
         {
             Common.Clases.Camion camion = new Common.Clases.Camion();
+            camion.idCamion = int.Parse(this.txtIdCamion.Text);
             camion.Matricula = this.txtMatricula.Text;
             camion.Modelo = this.txtModelo.Text;
             camion.Marca = this.txtMarca.Text;

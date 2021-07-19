@@ -19,6 +19,7 @@ namespace Ejemplo.Web
             this.txtIdentificadorParC.Visible = pVisible;
             this.lblIdentificadorParC.Visible = pVisible;
             this.btnActualizarParada.Visible = pVisible;
+            this.btnCancelarParada.Visible = pVisible;
 
             if (!pVisible)
             {
@@ -39,6 +40,7 @@ namespace Ejemplo.Web
         protected void btnActualizarParada_Click(object sender, EventArgs e)
         {
             Common.Clases.Parada paradaC = new Common.Clases.Parada();
+            paradaC.identificadorPar = int.Parse(this.txtIdentificadorParC.Text);
             paradaC.Comentario = this.txtComentarioCam.Text;
             paradaC.EstadoParada = this.txtEstadoParadaC.Text;
             paradaC.Tipo = this.txtTipoParadaC.Text;
@@ -98,5 +100,9 @@ namespace Ejemplo.Web
             }
         }
 
+        protected void btnCancelarParada_Click(object sender, EventArgs e)
+        {
+            ModoEdicionParadaC(false);
+        }
     }
 }

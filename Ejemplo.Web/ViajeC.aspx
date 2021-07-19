@@ -63,11 +63,13 @@
              <tr>
                   <td>
                          <asp:Button ID="btnActualizarViaje" runat="server" Text="Actualizar" OnClick="btnActualizarViaje_Click" Visible="false"/>
-                         <asp:GridView ID="grillaViajes" Width="100%" runat="server" AutoGenerateColumns="true"
+                         <asp:Button ID="btnCancelarViaje" runat="server" Text="Cancelar" OnClick="btnCancelarViaje_Click" Visible="false" />
+                          <asp:GridView ID="grillaViajes" Width="100%" runat="server" AutoGenerateColumns="true"
                                     ViewStateMode="Enabled" CellPadding="4" ForeColor="#333333" GridLines="None"
-                                    AutoGenerateSelectButton="true" OnSelectedIndexChanging="grillaViajes_SelectedIndexChanging"
+                                    AutoGenerateSelectButton="true" 
+                                    OnSelectedIndexChanging="grillaViajes_SelectedIndexChanging"
                                     EmptyDataText="No hay datos ingresados"
-                                    ShowHeaderWhenEmpty="True">
+                                    ShowHeaderWhenEmpty="true" Height="23px">
                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                     <EditRowStyle BackColor="#999999" />
                                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -79,7 +81,10 @@
                                     <SortedAscendingHeaderStyle BackColor="#506C8C" />
                                     <SortedDescendingCellStyle BackColor="#FFFDF8" />
                                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                                </asp:GridView>
+                                </asp:GridView>   
+                         
+                        
+                         
                       </td>
                 </tr>
         </table>

@@ -78,6 +78,7 @@ namespace Ejemplo.Web
         protected void btnModificarParada_Click(object sender, EventArgs e)
         {
             Common.Clases.Parada parada = new Common.Clases.Parada();
+            parada.identificadorPar = int.Parse(this.txtIdentificadorPar.Text);
             parada.Comentario = this.txtComentarioAdmin.Text;
             parada.EstadoParada = this.txtEstadoParada.Text;
             parada.Tipo = this.txtTipoParada.Text;

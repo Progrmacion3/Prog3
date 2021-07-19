@@ -11,14 +11,14 @@
             height: 22px;
         }
         .auto-style2 {
-            width: 943px;
+            width: 941px;
             height: 448px;
         }
         .auto-style3 {
             padding: 0px 12px;
             margin: 12px 8px 8px 8px;
             min-height: 420px;
-            width: 966px;
+            width: 1092px;
             height: 515px;
         }
     </style>

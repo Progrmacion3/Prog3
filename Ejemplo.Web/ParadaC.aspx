@@ -82,6 +82,7 @@
              <tr>
                   <td>
                          <asp:Button ID="btnActualizarParada" runat="server" Text="Actualizar" OnClick="btnActualizarParada_Click" Visible="false"/>
+                         <asp:Button ID="btnCancelarParada" runat="server" Text="Cancelar" OnClick="btnCancelarParada_Click" Visible="false" />
                          <asp:GridView ID="grillaParadas" Width="100%" runat="server" AutoGenerateColumns="true"
                                     ViewStateMode="Enabled" CellPadding="4" ForeColor="#333333" GridLines="None"
                                     AutoGenerateSelectButton="true" OnSelectedIndexChanging="grillaParadas_SelectedIndexChanging"

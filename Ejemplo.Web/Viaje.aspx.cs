@@ -91,6 +91,7 @@ namespace Ejemplo.Web
             {
                 this.btnAgregarViaje.Visible = true;
                 this.btnModificarViaje.Visible = false;
+                this.btnCancelarViaje.Visible = false;
                 this.grillaCamiones.Enabled= true;
                 this.grillaCamioneros.Enabled = true;
                 this.lblIDcamion.Text = string.Empty;
