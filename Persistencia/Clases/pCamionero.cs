@@ -179,7 +179,7 @@ namespace Persistencia.Clases
                         camionero = new Common.Clases.Camionero();
                         camionero.identificadorCam = int.Parse(oReader["idCamionero"].ToString());
                         camionero.Edad = int.Parse(oReader["edadCamionero"].ToString());
-                        camionero.Tipo_Libreta = oReader["modeloCamion"].ToString();
+                        camionero.Tipo_Libreta = oReader["tipoLibretaCamionero"].ToString();
                         camionero.Fecha_Vencimiento_Libreta = DateTime.Parse(oReader["fechaVencimientoLibreta"].ToString());
                     }
                     conn.Close();
