@@ -17,10 +17,7 @@ namespace Persistencia.Clases
             throw new NotImplementedException();
         }
 
-        public static bool Modificar(Estado pEstado)
-        {
-            throw new NotImplementedException();
-        }
+
 
       
 

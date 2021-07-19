@@ -89,7 +89,7 @@ namespace Persistencia.Clases
                         cam.Telefono = oReader["Telefono"].ToString();
                         cam.Usuario= oReader["Usuario"].ToString();
                         cam.Contrasenia = oReader["Contrasenia"].ToString();
-                        cam.Estado= oReader["Estado"].ToString();
+                        cam.Estado= int.Parse(oReader["Estado"].ToString());
                        
                     }
                     conn.Close();
@@ -142,7 +142,7 @@ namespace Persistencia.Clases
                         cam.Telefono = oReader["Telefono"].ToString();
                         cam.Usuario= oReader["Usuario"].ToString();
                         cam.Contrasenia = oReader["Contrasenia"].ToString();
-                        cam.Estado= oReader["Estado"].ToString();
+                        cam.Estado= int.Parse(oReader["Estado"].ToString());
 
                           retorno.Add(cam);
 

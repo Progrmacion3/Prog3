@@ -9,11 +9,9 @@ namespace Dominio.Clases
 {
     class dEstado
     {
-      
+    
 
-       
-
-        public static bool AgregarEstado(Command.Clases Estado pEstado)
+        public static bool AgregarEstado(Common.Clases.Estado pEstado)
         {
             return Persistencia.Clases.pEstado.AgregarEstado(pEstado);
         }

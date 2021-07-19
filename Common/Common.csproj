@@ -37,6 +37,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Clases\Administrador.cs" />
     <Compile Include="Clases\Camion.cs" />
     <Compile Include="Clases\Camionero.cs" />
     <Compile Include="Clases\Categoria.cs" />

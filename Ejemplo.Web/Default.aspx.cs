@@ -14,25 +14,25 @@ namespace Ejemplo.Web
             ActualizarGrillaDeDatos();
         }
 
-        protected void btnAgregar_Click(object sender, EventArgs e)
+        protected void btnAgregar_Click_Empleado(object sender, EventArgs e)
         {
-            Common.Clases.Camionero cam = new Common.Clases.Camionero();
-            cam.Nombre = this.txtNombre.Text;
-            //cam.Apellido = this.txtApellido.Text;
-            //cam.Cedula = this.txtCedula.Text;
-            //cam.Cargo = this.txtCargo.Text;
-            //cam.Tipo = this.txtTipo.Text;
-            //cam.Telefono = this.txtTelefono.Text;
-            //cam.Usuario = this.txtUsuario.Text;
-            //cam.Contrasenia = this.txtContrasenia.Text;
+            Common.Clases.Empleado emp = new Common.Clases.Empleado();
+            emp.Nombre = this.txtNombre.Text;
+           emp.Apellido = this.txtApellido.Text;
+            emp.Cedula = Convert.ToInt32(this.txtCedula.Text);
+            emp.Cargo = this.txtCargo.Text;
+            emp.Tipo = this.txtTipo.Text;
+            emp.Telefono = this.txtTelefono.Text;
+            emp.Usuario = this.txtUsuario.Text;
+            emp.Contrasenia = this.txtContrasenia.Text;
+            emp.Estado= this.txtEstado.Text;
             
-            ////cam.Edad= this.txtEdad.Text;
-            //cam.Estado= this.txtEstado.Text;
-            //cam.FechaVenLib= this.txtFecVenLib.Text;
-            //cam.TipoLibreta= this.txtLibreta.Text;
+            ////emp.Edad= this.txtEdad.Text;
+            //emp.FechaVenLib= this.txtFecVenLib.Text;
+            //emp.TipoLibreta= this.txtLibreta.Text;
             try
             {
-                bool resultado = Dominio.Fachada.Agregar_Camionero(cam);
+                bool resultado = Dominio.Fachada.Agregar_Empleado(emp);
 
                 if (resultado)
                 {
@@ -55,27 +55,27 @@ namespace Ejemplo.Web
 
         protected void ActualizarGrillaDeDatos() 
         {
-            this.grdCamionero.DataSource = Dominio.Fachada.Camionero_TraerTodosLosCamioneros();
-            this.grdCamionero.DataBind();
+            this.grdEmpleado.DataSource = Dominio.Fachada.Empleados_TraerTodos();
+            this.grdEmpleado.DataBind();
         }
 
         protected void LimpiarCampos() 
         {
-            this.txtId.Text = string.Empty;
+            this.txtCedula.Text = string.Empty;
             this.txtNombre.Text = string.Empty;
         }
 
-        protected void grdCamionero_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void btnEliminar_Click_Empleado(object sender, GridViewDeleteEventArgs e)
         {
             try
             {
                 this.lblResultado.Text = string.Empty;
 
-                TableCell celdaId = grdCamionero.Rows[e.RowIndex].Cells[1];
-                Common.Clases.Camionero cam = new Common.Clases.Camionero();
-                cam.Cedula = int.Parse(celdaId.Text);
+                TableCell celdaId = grdEmpleado.Rows[e.RowIndex].Cells[1];
+                Common.Clases.Empleado emp = new Common.Clases.Empleado();
+                emp.Cedula = int.Parse(celdaId.Text);
                 
-                bool resultado = Dominio.Fachada.EliminarCamionero(cam);
+                bool resultado = Dominio.Fachada.EliminarEmpleado(emp);
 
                 if (resultado)
                 {
@@ -95,21 +95,21 @@ namespace Ejemplo.Web
             }
         }
 
-        protected void grdCamionero_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        protected void grdEmpleado_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
             this.lblResultado.Text = string.Empty;
 
-            TableCell celdaId = grdCamionero.Rows[e.NewSelectedIndex].Cells[1];
-            Common.Clases.Camionero cam = new Common.Clases.Camionero();
-            cam.Cedula= int.Parse(celdaId.Text);
-            cam = Dominio.Fachada.Camionero_TraerEspecifico(cam);
+            TableCell celdaId = grdEmpleado.Rows[e.NewSelectedIndex].Cells[1];
+            Common.Clases.Empleado emp = new Common.Clases.Empleado();
+            emp.Cedula= int.Parse(celdaId.Text);
+            emp = Dominio.Fachada.Empleados_TraerEspecifico(emp);
             
            
 
-            if (cam != null)
+            if (emp != null)
             {
-                this.txtId.Text = cam.Cedula.ToString();
-                this.txtNombre.Text = cam.Nombre;
+                this.txtCedula.Text = emp.Cedula.ToString();
+                this.txtNombre.Text = emp.Nombre;
                 ModoEdicion(true);
             }
             else
@@ -122,35 +122,35 @@ namespace Ejemplo.Web
 
         protected void ModoEdicion(bool pVisible) 
         {
-            this.txtId.Enabled = false;
-            this.txtId.Visible = pVisible;
-            this.lblIdentificador.Visible = pVisible;
-            this.btnActualizar.Visible = pVisible;
+            this.txtCedula.Enabled = false;
+            this.txtCedula.Visible = pVisible;
+            //this.txtCedula.Visible = pVisible;
+            this.btnModificar.Visible = pVisible;
             this.btnCancelar.Visible = pVisible;
             this.btnAgregar.Visible = !pVisible;
             
             if(!pVisible)
             {
-                this.txtId.Text = string.Empty;
+                this.txtCedula.Text = string.Empty;
                 this.txtNombre.Text = string.Empty;
-                this.grdCamionero.SelectedIndex = -1;
+                this.grdEmpleado.SelectedIndex = -1;
             }
         }
 
-        protected void btnCancelar_Click(object sender, EventArgs e)
+        protected void btnCancelar_Click_Empleado(object sender, EventArgs e)
         {
             ModoEdicion(false);
         }
 
-        protected void btnActualizar_Click(object sender, EventArgs e)
+        protected void btnModificar_Click_Empleado(object sender, EventArgs e)
         {
-            Common.Clases.Camionero cam = new Common.Clases.Camionero();
-            cam.Cedula = int.Parse(this.txtId.Text);
-            //cam.Nombre = this.txtNombre.Text;
+            Common.Clases.Empleado emp = new Common.Clases.Empleado();
+            emp.Cedula = int.Parse(this.txtCedula.Text);
+            //emp.Nombre = this.txtNombre.Text;
             
             try
             {
-                bool resultado = Dominio.Fachada.ModificarCamionero(cam);
+                bool resultado = Dominio.Fachada.ModificarEmpleado(emp);
 
                 if (resultado)
                 {

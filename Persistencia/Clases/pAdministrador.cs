@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Persistencia.Clases
 {
-    class pAdministrador
+    class pAdministrador: Persistencia
     {
         public static bool AgregarAdministrador(Common.Clases.Administrador pAdm)
         {
@@ -194,7 +194,7 @@ namespace Persistencia.Clases
 
             return retorno;
         }
-        public static bool EliminarEmpleado(Common.Clases.Empleados pEmp)
+        public static bool EliminarEmpleado(Common.Clases.Empleado pEmp)
         {
             bool retorno = true;
 

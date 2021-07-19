@@ -1,12 +1,11 @@
 ﻿
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="abmEmpleado.aspx.cs" MasterPageFile="~/Site.master"
-    Inherits="Ejemplo.Web.Cliente.abmEmpleados" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="abmCamionero.aspx.cs" MasterPageFile="~/Site.master"
+    Inherits="Ejemplo.Web.Cliente.abmCamionero" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <h2>Administración de Empleado
-    </h2>
+    <h2>Administración de Camionero</h2>
     <table>
         <tr>
             <td align="left">Nombre:
@@ -122,10 +121,10 @@
         <tr>
 
             <td>
-                <asp:GridView ID="grdEmpleado" Width="100%" runat="server" AutoGenerateColumns="true"
+                <asp:GridView ID="grdCamionero" Width="100%" runat="server" AutoGenerateColumns="true"
                     ViewStateMode="Enabled" CellPadding="4" ForeColor="#333333" GridLines="None"
                     AutoGenerateSelectButton="true"
-                    OnSelectedIndexChanging="grdEmpleado_SelectedIndexChanging" EmptyDataText="No hay datos ingresados"
+                    OnSelectedIndexChanging="grdCamionero_SelectedIndexChanging" EmptyDataText="No hay datos ingresados"
                     ShowHeaderWhenEmpty="True">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <EditRowStyle BackColor="#999999" />

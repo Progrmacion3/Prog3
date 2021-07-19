@@ -12,7 +12,7 @@ namespace Persistencia.Clases
         {
             get
             {
-                return ConfigurationManager.ConnectionStrings["SqlServerAuth"].ToString(); 
+                return ConfigurationManager.ConnectionStrings["WindowsAuth"].ToString(); 
                 //@"Server=WINDOWS-LHK6TF8\ESTEBANM;Database=Ejemplo;User Id=sa; password=@MartinezAnchen;";
             }
         }

@@ -20,7 +20,7 @@
             <div class="clear hideSkiplink">
                 <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
                     <Items>
-                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Categorias"/>
+                        <asp:MenuItem NavigateUrl="~/Camionero.aspx" Text="Camionero"/>
                     </Items>
                 </asp:Menu>
             </div>
