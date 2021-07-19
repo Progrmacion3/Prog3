@@ -75,11 +75,11 @@ namespace Persistencia.Clases
                     {
                         emp = new Common.Clases.Empleado();
 
-                        emp.Cedula = int.Parse(oReader["IdentificadorCli"].ToString());
+                        emp.Cedula = int.Parse(oReader["Cedula"].ToString());
                         emp.Nombre = oReader["Nombre"].ToString();
                         emp.Apellido = oReader["Apellido"].ToString();
                         emp.Cargo = oReader["Cargo"].ToString();
-                        emp.Telefono = oReader["Telfono"].ToString();
+                        emp.Telefono = oReader["Telefono"].ToString();
                         emp.Tipo = oReader["Tipo"].ToString();
                         emp.Usuario = oReader["Usuario"].ToString();
                         emp.Contrasenia = oReader["Contrasenia"].ToString();

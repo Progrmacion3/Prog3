@@ -19,13 +19,13 @@ namespace Ejemplo.Web
             Common.Clases.Empleado emp = new Common.Clases.Empleado();
             emp.Nombre = this.txtNombre.Text;
            emp.Apellido = this.txtApellido.Text;
-            emp.Cedula = Convert.ToInt32(this.txtCedula.Text);
+            emp.Cedula = int.Parse(this.txtCedula.Text);
             emp.Cargo = this.txtCargo.Text;
             emp.Tipo = this.txtTipo.Text;
             emp.Telefono = this.txtTelefono.Text;
             emp.Usuario = this.txtUsuario.Text;
             emp.Contrasenia = this.txtContrasenia.Text;
-            emp.Estado= this.txtEstado.Text;
+            emp.Estado= int.Parse(this.txtEstado.Text);
             
             ////emp.Edad= this.txtEdad.Text;
             //emp.FechaVenLib= this.txtFecVenLib.Text;
@@ -110,6 +110,13 @@ namespace Ejemplo.Web
             {
                 this.txtCedula.Text = emp.Cedula.ToString();
                 this.txtNombre.Text = emp.Nombre;
+                this.txtApellido.Text = emp.Apellido;
+                this.txtCargo.Text = emp.Cargo;
+                this.txtTelefono.Text = emp.Telefono;
+                this.txtTipo.Text = emp.Tipo;
+                this.txtContrasenia.Text = emp.Contrasenia;
+                this.txtUsuario.Text = emp.Usuario;
+                this.txtEstado.Text = emp.Estado.ToString();
                 ModoEdicion(true);
             }
             else
@@ -145,9 +152,17 @@ namespace Ejemplo.Web
         protected void btnModificar_Click_Empleado(object sender, EventArgs e)
         {
             Common.Clases.Empleado emp = new Common.Clases.Empleado();
-            emp.Cedula = int.Parse(this.txtCedula.Text);
+            emp.Nombre = this.txtNombre.Text;
+            emp.Apellido = this.txtApellido.Text;
+            emp.Cedula = Convert.ToInt32(this.txtCedula.Text);
+            emp.Cargo = this.txtCargo.Text;
+            emp.Tipo = this.txtTipo.Text;
+            emp.Telefono = this.txtTelefono.Text;
+            emp.Usuario = this.txtUsuario.Text;
+            emp.Contrasenia = this.txtContrasenia.Text;
+            emp.Estado = int.Parse(this.txtEstado.Text);
             //emp.Nombre = this.txtNombre.Text;
-            
+
             try
             {
                 bool resultado = Dominio.Fachada.ModificarEmpleado(emp);
