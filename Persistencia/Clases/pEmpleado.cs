@@ -26,7 +26,7 @@ namespace Persistencia.Clases
                 cmd.Parameters.Add(new SqlParameter("@CIEmpleado",        pEmp.CI));
                 cmd.Parameters.Add(new SqlParameter("@NombreEmpleado",    pEmp.Nombre));
                 cmd.Parameters.Add(new SqlParameter("@ApellidoEmpleado",  pEmp.Apellido));
-                cmd.Parameters.Add(new SqlParameter("@CargoEmpleado",     pEmp.Estado));
+                cmd.Parameters.Add(new SqlParameter("@CargoEmpleado",     pEmp.Cargo));
                 cmd.Parameters.Add(new SqlParameter("@TelefonoEmpleado",  pEmp.Telefono));
                 cmd.Parameters.Add(new SqlParameter("@TipoEmpleado",      pEmp.Tipo));
                 cmd.Parameters.Add(new SqlParameter("@UsuarioEmpleado",   pEmp.Usuario));
@@ -72,7 +72,7 @@ namespace Persistencia.Clases
                 cmd.Parameters.Add(new SqlParameter("@CIEmpleado", pEmp.CI));
                 cmd.Parameters.Add(new SqlParameter("@NombreEmpleado", pEmp.Nombre));
                 cmd.Parameters.Add(new SqlParameter("@ApellidoEmpleado", pEmp.Apellido));
-                cmd.Parameters.Add(new SqlParameter("@CargoEmpleado", pEmp.Estado));
+                cmd.Parameters.Add(new SqlParameter("@CargoEmpleado", pEmp.Cargo));
                 cmd.Parameters.Add(new SqlParameter("@TelefonoEmpleado", pEmp.Telefono));
                 cmd.Parameters.Add(new SqlParameter("@TipoEmpleado", pEmp.Tipo));
                 cmd.Parameters.Add(new SqlParameter("@UsuarioEmpleado", pEmp.Usuario));
@@ -157,6 +157,7 @@ namespace Persistencia.Clases
                         empleado.Nombre = oReader["NombreEmpleado"].ToString();
                         empleado.Apellido = oReader["ApellidoEmpleado"].ToString();
                         empleado.Cargo = oReader["CargoEmpleado"].ToString();
+                        empleado.Tipo = oReader["TipoEmpleado"].ToString();
                         empleado.Telefono = int.Parse(oReader["TelefonoEmpleado"].ToString());
                         empleado.Usuario = oReader["UsuarioEmpleado"].ToString();
                         empleado.Contraseña = oReader["ContraseñaEmpleado"].ToString();

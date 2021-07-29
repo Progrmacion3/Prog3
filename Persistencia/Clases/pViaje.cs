@@ -31,7 +31,8 @@ namespace Persistencia.Clases
                 cmd.Parameters.Add(new SqlParameter("@DestinoViaje",pVia.Destino));
                 cmd.Parameters.Add(new SqlParameter("@FechaInicioViaje",pVia.Fecha_Inicio));
                 cmd.Parameters.Add(new SqlParameter("@FechaFinalizacionViaje",pVia.Fecha_Finalizacion));
-                cmd.Parameters.Add(new SqlParameter("@estadoViaje",pVia.EstadoViaje));
+                cmd.Parameters.Add(new SqlParameter("@estadoViaje", pVia.EstadoViaje));
+               
 
                 int rtn = cmd.ExecuteNonQuery();
 
@@ -187,6 +188,8 @@ namespace Persistencia.Clases
                     {
                         viaje = new Common.Clases.Viaje();
                         viaje.identificadorViaje = int.Parse(oReader["idViaje"].ToString());
+                        viaje.Camionero = new Common.Clases.Camionero();
+                        viaje.Camion = new Common.Clases.Camion();
                         viaje.Camionero.identificadorCam = int.Parse(oReader["idCamionero"].ToString());
                         viaje.Camion.idCamion = int.Parse(oReader["idCamion"].ToString());
                         viaje.Tipo_Carga = oReader["TipoCargaViaje"].ToString();
@@ -230,6 +233,8 @@ namespace Persistencia.Clases
                     {
                         viaje = new Common.Clases.Viaje();
                         viaje.identificadorViaje = int.Parse(oReader["idViaje"].ToString());
+                        viaje.Camionero = new Common.Clases.Camionero();
+                        viaje.Camion = new Common.Clases.Camion();
                         viaje.Camionero.identificadorCam = int.Parse(oReader["idCamionero"].ToString());
                         viaje.Camion.idCamion = int.Parse(oReader["idCamion"].ToString());
                         viaje.Tipo_Carga = oReader["TipoCargaViaje"].ToString();

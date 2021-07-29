@@ -6,6 +6,11 @@
 <head runat="server">
     <title></title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .auto-style1 {
+            width: 328px;
+        }
+    </style>
 </head>
 <body>
     <form runat="server">
@@ -34,7 +39,7 @@
     </h2>
         <table>
        <tr>
-           <td align="left"> Kilaje:
+           <td align="left" class="auto-style1"> Kilaje:
             </td>
             <td>
                 <asp:TextBox ID="txtKilajeC" MaxLength="50" runat="server"></asp:TextBox>
@@ -45,7 +50,7 @@
             </td>
        </tr>
             <tr>
-            <td align="left"> Estado del viaje:
+            <td align="left" class="auto-style1"> Estado del viaje:
             </td>
             <td>
                 <asp:TextBox ID="txtEstadoViajeC" MaxLength="50" runat="server"></asp:TextBox>
@@ -56,17 +61,88 @@
             </td>
             </tr>
             <tr>
+            <td align="left"> Tipo de carga:
+            </td>
+            <td>
+                <asp:TextBox ID="txtTipoCargaC" MaxLength="50" runat="server"></asp:TextBox>
+            </td>
+            <td>
+                 <asp:RequiredFieldValidator ID="rfvTipoCargaC" runat="server" ErrorMessage="El tipo de carga del viaje es obligatorio"
+                    ControlToValidate="txtTipoCargaC"></asp:RequiredFieldValidator>
+            </td>
+        </tr>
+        <tr>
+           <td align="left"> Origen del viaje:
+            </td>
+            <td>
+                <asp:TextBox ID="txtOrigenC" MaxLength="50" runat="server"></asp:TextBox>
+            </td>
+            <td>
+                 <asp:RequiredFieldValidator ID="rfvOrigenC" runat="server" ErrorMessage="El origen del viaje es obligatorio"
+                    ControlToValidate="txtOrigenC"></asp:RequiredFieldValidator>
+            </td>
+       </tr>
+       <tr>
+           <td align="left"> Destino del viaje:
+            </td>
+            <td>
+                <asp:TextBox ID="txtDestinoC" MaxLength="50" runat="server"></asp:TextBox>
+            </td>
+            <td>
+                 <asp:RequiredFieldValidator ID="rfvDestinoC" runat="server" ErrorMessage="El destino del viaje es obligatorio"
+                    ControlToValidate="txtDestinoC"></asp:RequiredFieldValidator>
+            </td>
+       </tr>
+            <tr>
+                <td align="left"> Fecha de inicio del viaje:
+            </td>
+            <td>
+                <asp:TextBox ID="txtFechaInicioC" MaxLength="50" runat="server"></asp:TextBox>
+            </td>
+            <td>
+                 <asp:RequiredFieldValidator ID="rfvFechaInicioC" runat="server" ErrorMessage="La fecha de inicio del viaje es obligatorio"
+                    ControlToValidate="txtFechaInicioC"></asp:RequiredFieldValidator>
+            </td>
+            </tr>
+            <tr>
+                <td align="left"> Fecha de finalización del viaje:
+            </td>
+            <td>
+                <asp:TextBox ID="txtFechaFinalizacionC" MaxLength="50" runat="server"></asp:TextBox>
+            </td>
+            <td>
+                 <asp:RequiredFieldValidator ID="rfvFechaFinalizacionC" runat="server" ErrorMessage="La fecha de finalización del viaje es obligatorio"
+                    ControlToValidate="txtFechaFinalizacionC"></asp:RequiredFieldValidator>
+            </td>
+            </tr>
+                <tr>
+            <td colspan ="3" align="left">
+                <asp:Label ID="lblIDcamioneroC" runat="server"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+               <asp:Label ID="lblIDcamionC" runat="server"></asp:Label>
+            </td>
+        </tr>
+               
+            <tr>
             <td colspan="3" align="left">
                 <asp:Label ID="lblResultadoViaC" runat="server" ForeColor="Red"></asp:Label>
             </td>
         </tr>
+        <tr>
+            <td class="auto-style1">
+                <asp:Label ID="lblIDviaje" runat="server" ForeColor="Red"></asp:Label>
+            </td>
+        </tr>
              <tr>
-                  <td>
+                  <td class="auto-style1">
                          <asp:Button ID="btnActualizarViaje" runat="server" Text="Actualizar" OnClick="btnActualizarViaje_Click" Visible="false"/>
                          <asp:Button ID="btnCancelarViaje" runat="server" Text="Cancelar" OnClick="btnCancelarViaje_Click" Visible="false" />
                           <asp:GridView ID="grillaViajes" Width="100%" runat="server" AutoGenerateColumns="true"
                                     ViewStateMode="Enabled" CellPadding="4" ForeColor="#333333" GridLines="None"
-                                    AutoGenerateSelectButton="true" 
+                                    AutoGenerateSelectButton="true"
                                     OnSelectedIndexChanging="grillaViajes_SelectedIndexChanging"
                                     EmptyDataText="No hay datos ingresados"
                                     ShowHeaderWhenEmpty="true" Height="23px">

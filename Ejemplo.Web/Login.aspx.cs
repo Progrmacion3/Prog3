@@ -20,8 +20,6 @@ namespace Ejemplo.Web
             try
             {
                 Common.Clases.Empleado empleado = new Common.Clases.Empleado();
-                Session["UsuarioEmpleado"] = empleado.Usuario;
-                Session["ContraseñaEmpleado"] = empleado.Contraseña;
                 empleado.Usuario = this.txtUsuarioLogin.Text;
                 empleado.Contraseña = this.txtContraseñaLogin.Text;
                 empleado = Dominio.Fachada.Revisar_Usuario_Contraseña(empleado);
@@ -29,15 +27,7 @@ namespace Ejemplo.Web
 
                 if(empleado != null)
                 {
-
-                    if (empleado.Tipo == "administrador")
-                    {
-                        Response.Redirect("~/SeccionAdministrativa.aspx");
-                    }
-                    else if (empleado.Tipo == "camionero")
-                    {
-                        Response.Redirect("~/SeccionCamionero.aspx");
-                    }
+                    Response.Redirect("~/SeccionLogin.aspx"); 
                 }
                 else
                 {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common.Clases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -66,6 +67,7 @@ namespace Ejemplo.Web
             empleado.Apellido = this.txtApellidoEmp.Text;
             empleado.CI = int.Parse(this.txtCI.Text);
             empleado.Contraseña = this.txtContraseña.Text;
+            empleado.Cargo = this.txtCargo.Text;
             empleado.Nombre = this.txtNombreEmp.Text;
             empleado.Telefono = int.Parse(this.txtTelefono.Text);
             empleado.Tipo = this.txtTipoEmp.Text;
@@ -97,7 +99,7 @@ namespace Ejemplo.Web
         {
             Common.Clases.Empleado empleado = new Common.Clases.Empleado();
             empleado.idEmpleado = int.Parse(lblIdEmp.Text);
-            int estado = (int)Common.Clases.Constantes.Estado.Eliminado;
+            int estado = (int)Constantes.Estado.Eliminado;
             empleado.Estado = estado;
             if (Dominio.Fachada.Eliminar_Empleado(empleado))
             {
@@ -169,6 +171,7 @@ namespace Ejemplo.Web
                     this.txtTelefono.Text = empleado.Telefono.ToString();
                     this.txtTipoEmp.Text = empleado.Tipo;
                     this.txtUsuario.Text = empleado.Usuario;
+                    this.lblIdEmp.Text = empleado.idEmpleado.ToString();
                     ModoEdicionEmpleado(true);
                 }
                 else

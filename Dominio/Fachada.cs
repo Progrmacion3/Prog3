@@ -25,7 +25,7 @@ namespace Dominio
 
         public static bool Modificar_ViajeC(Common.Clases.Viaje pVia)
         {
-            return Dominio.Clases.dViaje.Modificar_Viaje(pVia);
+            return Dominio.Clases.dViaje.Modificar_ViajeC(pVia);
         }
 
         public static List<Common.Clases.Viaje> Traer_Viaje()

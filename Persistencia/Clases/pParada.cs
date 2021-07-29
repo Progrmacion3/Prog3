@@ -101,7 +101,7 @@ namespace Persistencia.Clases
 
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.Add(new SqlParameter("@identificadorPar", pPar.identificadorPar));
+                cmd.Parameters.Add(new SqlParameter("@idParada", pPar.identificadorPar));
 
                 int rtn = cmd.ExecuteNonQuery();
 

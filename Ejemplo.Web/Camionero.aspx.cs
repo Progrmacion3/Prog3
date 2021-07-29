@@ -61,6 +61,8 @@ namespace Ejemplo.Web
                 if (resultadoCamionero)
                 {
                     lblResultadoCamionero.Text = "Se ha agregado correctamente un camionero";
+                    LimpiarCamposCamioneros();
+                    ActualizarGrillaCamioneros();
                 }
                 else
                 {

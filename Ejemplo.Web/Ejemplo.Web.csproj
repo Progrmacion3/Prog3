@@ -70,6 +70,7 @@
     <Content Include="ParadaC.aspx" />
     <Content Include="SeccionAdministrativa.aspx" />
     <Content Include="SeccionCamionero.aspx" />
+    <Content Include="SeccionLogin.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
@@ -147,6 +148,13 @@
     </Compile>
     <Compile Include="SeccionCamionero.aspx.designer.cs">
       <DependentUpon>SeccionCamionero.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeccionLogin.aspx.cs">
+      <DependentUpon>SeccionLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeccionLogin.aspx.designer.cs">
+      <DependentUpon>SeccionLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

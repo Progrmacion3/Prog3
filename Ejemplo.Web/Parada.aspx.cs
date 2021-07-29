@@ -119,7 +119,8 @@ namespace Ejemplo.Web
                 if (resultado)
                 {
                     ClientScript.RegisterClientScriptBlock(GetType(), "alert", "alert('Parada eliminado exitosamente')", true);
-
+                    ActualizarGrillaParadas();
+                    ModoEdicionParada(false);
                 }
 
                 else
@@ -147,10 +148,15 @@ namespace Ejemplo.Web
 
             if (parada != null)
                 {
-                      
+                    this.txtIdentificadorPar.Text = parada.identificadorPar.ToString();
+                    this.txtEstadoParada.Text = parada.EstadoParada;
+                    this.txtTipoParada.Text = parada.Tipo;
+                    this.txtComentarioAdmin.Text = parada.Comentario;
+                    ModoEdicionParada(true);
                 }
                 else
                 {
+                    ModoEdicionParada(false);
                     ClientScript.RegisterClientScriptBlock(GetType(), "alert", "alert('Error: no se pudo cargar el dato')", true);
                 }
             }

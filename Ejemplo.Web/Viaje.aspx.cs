@@ -116,6 +116,7 @@ namespace Ejemplo.Web
             viaje.Destino = this.txtDestino.Text;
             viaje.Fecha_Inicio = DateTime.Parse(this.txtFechaInicio.Text);
             viaje.Fecha_Finalizacion= DateTime.Parse(this.txtFechaFinalizacion.Text);
+            viaje.EstadoViaje = this.txtEstadoViaje.Text;
 
             if(validarCampoCamion() && validarCampoCamionero())
             {
@@ -152,15 +153,32 @@ namespace Ejemplo.Web
             viaje.Destino = this.txtDestino.Text;
             viaje.Fecha_Inicio = DateTime.Parse(this.txtFechaInicio.Text);
             viaje.Fecha_Finalizacion = DateTime.Parse(this.txtFechaFinalizacion.Text);
+            viaje.EstadoViaje = this.txtEstadoViaje.Text;
             viaje.identificadorViaje = int.Parse(this.lblIdViaje.Text);
 
-            if (Dominio.Fachada.Modificar_Viaje(viaje))
+            if (validarCampoCamion() && validarCampoCamionero())
             {
-                lblResultadoVia.Text = "Se ha Modificado el viaje de manera correcta";
+                int idCam = 0;
+                int.TryParse(Session["idCamion"].ToString(), out idCam);
+                viaje.Camion = new Common.Clases.Camion() { idCamion = idCam };
+
+                int idCami = 0;
+                int.TryParse(Session["idCamionero"].ToString(), out idCami);
+                viaje.Camionero = new Common.Clases.Camionero() { identificadorCam = idCami };
+
+                if (Dominio.Fachada.Modificar_Viaje(viaje))
+                {
+                    lblResultadoVia.Text = "Se ha modificado el viaje de manera exitosa";
+                    ActualizarGrilaDeViaje();
+                }
+                else
+                {
+                    lblResultadoVia.Text = "No se ha modificado el viaje";
+                }
             }
             else
             {
-                lblResultadoVia.Text = "No se ha modificado el viaje";
+                lblResultadoVia.Text = "No se ha seleccionado ni un camion ni un camionero";
             }
 
         }
@@ -207,12 +225,17 @@ namespace Ejemplo.Web
 
             if (via != null)
             {
-                via.Tipo_Carga = this.txtTipoCarga.Text;
-                via.Kilaje = int.Parse(this.txtKilaje.Text);
-                via.Origen = this.txtOrigen.Text;
-                via.Destino = this.txtDestino.Text;
-                via.Fecha_Inicio = DateTime.Parse(this.txtFechaInicio.Text);
-                via.Fecha_Finalizacion = DateTime.Parse(this.txtFechaFinalizacion.Text);
+                this.lblIDcamion.Text = via.Camion.Matricula;
+                Session["idCamion"] = via.Camion.idCamion;
+                this.lblIDcamionero.Text = via.Camionero.Tipo_Libreta;
+                Session["idCamionero"] = via.Camionero.identificadorCam;
+                this.txtTipoCarga.Text = via.Tipo_Carga;
+                this.txtKilaje.Text = via.Kilaje.ToString();
+                this.txtOrigen.Text = via.Origen;
+                this.txtDestino.Text = via.Destino;
+                this.txtFechaInicio.Text = via.Fecha_Inicio.ToString();
+                this.txtFechaFinalizacion.Text = via.Fecha_Finalizacion.ToString();
+                this.txtEstadoViaje.Text = via.EstadoViaje;
                 ModoEdicionViaje(true);
             }
             else
